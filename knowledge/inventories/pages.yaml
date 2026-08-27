@@ -1,0 +1,744 @@
+# pages.yaml — Inventário factual de páginas sociais
+# Derivado de PÁGINAS REDES SOCIAIS.xlsx (abas: "Paginas que criei" = próprias; "Paginas concorrentes" = referência).
+# Gerado em 2026-08-27. Sem classificação de cluster/idioma/mercado por inferência (NEEDS_INPUT).
+meta:
+  generated_at: "2026-08-27"
+  source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+  source_columns: ["PAGINA", "LINK"]
+pages:
+  - page_id: page_tiktok_mandalameditationss
+    name: "Frequências de Sono Profundo"
+    platform: "TikTok"
+    handle: "mandalameditationss"
+    url: "https://www.tiktok.com/@mandalameditationss"
+    ownership: own
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas que criei"
+      source_row: 2
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_frequenciasdivinas
+    name: "Frequências Divinas"
+    platform: "TikTok"
+    handle: "frequenciasdivinas"
+    url: "https://www.tiktok.com/@frequenciasdivinas"
+    ownership: own
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas que criei"
+      source_row: 3
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_meditacao.sonora
+    name: "Meditação Sonora"
+    platform: "TikTok"
+    handle: "meditacao.sonora"
+    url: "https://www.tiktok.com/@meditacao.sonora"
+    ownership: own
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas que criei"
+      source_row: 4
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_energiaeterna888hz
+    name: "Energia Eterna"
+    platform: "TikTok"
+    handle: "energiaeterna888hz"
+    url: "https://www.tiktok.com/@energiaeterna888hz"
+    ownership: own
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas que criei"
+      source_row: 5
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_abundancia.divinaaofc
+    name: "Abundância Divina"
+    platform: "TikTok"
+    handle: "abundancia.divinaaofc"
+    url: "https://www.tiktok.com/@abundancia.divinaaofc"
+    ownership: own
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas que criei"
+      source_row: 6
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_riquezaeharmonia23
+    name: "RiquezaEHarmonia23"
+    platform: "TikTok"
+    handle: "riquezaeharmonia23"
+    url: "https://www.tiktok.com/@riquezaeharmonia23"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 2
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_frequenciasbinaurais
+    name: "FREQUÊNCIAS BINAURAIS 🧬"
+    platform: "TikTok"
+    handle: "frequenciasbinaurais"
+    url: "https://www.tiktok.com/@frequenciasbinaurais"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 3
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_aureon.936
+    name: "Aureon"
+    platform: "TikTok"
+    handle: "aureon.936"
+    url: "https://www.tiktok.com/@aureon.936"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 4
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_glimma.ar
+    name: "Glimma | Meli & Mario"
+    platform: "TikTok"
+    handle: "glimma.ar"
+    url: "https://www.tiktok.com/@glimma.ar"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 5
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_money___manifestation
+    name: "Wealth & Worth Within"
+    platform: "TikTok"
+    handle: "money___manifestation"
+    url: "https://www.tiktok.com/@money___manifestation"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 6
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_poderdamentehz
+    name: "poderdamentehz"
+    platform: "TikTok"
+    handle: "poderdamentehz"
+    url: "https://www.tiktok.com/@poderdamentehz"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 7
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_jamesgreenbr
+    name: "James Green"
+    platform: "TikTok"
+    handle: "jamesgreenbr"
+    url: "https://www.tiktok.com/@jamesgreenbr"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 8
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_harmoniaessencial
+    name: "Harmonia Plena"
+    platform: "TikTok"
+    handle: "harmoniaessencial"
+    url: "https://www.tiktok.com/@harmoniaessencial"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 9
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_zenomsound
+    name: "ZenomSound"
+    platform: "TikTok"
+    handle: "zenomsound"
+    url: "https://www.tiktok.com/@zenomsound"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 10
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_5dwaves
+    name: "5d waves"
+    platform: "TikTok"
+    handle: "5dwaves"
+    url: "https://www.tiktok.com/@5dwaves"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 11
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_mandala_meditation
+    name: "Mandala Meditation"
+    platform: "TikTok"
+    handle: "mandala_meditation"
+    url: "https://www.tiktok.com/@mandala_meditation"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 12
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_.healing.meditation
+    name: "TheQuietPath"
+    platform: "TikTok"
+    handle: ".healing.meditation"
+    url: "https://www.tiktok.com/@.healing.meditation"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 13
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_serena-lumi-re-music
+    name: "Serena Lumière Music"
+    platform: "TikTok"
+    handle: UNKNOWN
+    url: "https://www.tiktok.com/tag/frequenciadaprosperidade"
+    url_note: "URL da fonte não é um perfil (ex.: página de tag/hashtag)"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 14
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_bina.frequencias
+    name: "BINA"
+    platform: "TikTok"
+    handle: "bina.frequencias"
+    url: "https://www.tiktok.com/@bina.frequencias"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 15
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_feedyoursoulmusic
+    name: "Feed Your Soul"
+    platform: "TikTok"
+    handle: "feedyoursoulmusic"
+    url: "https://www.tiktok.com/@feedyoursoulmusic"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 16
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_luciddreamingnerd
+    name: "luciddreamingnerd"
+    platform: "TikTok"
+    handle: "luciddreamingnerd"
+    url: "https://www.tiktok.com/@luciddreamingnerd"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 17
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_atoon_music
+    name: "atoon with sam"
+    platform: "TikTok"
+    handle: "atoon_music"
+    url: "https://www.tiktok.com/@atoon_music"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 18
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_sophia.study
+    name: "Sophia ~ Studytok"
+    platform: "TikTok"
+    handle: "sophia.study"
+    url: "https://www.tiktok.com/@sophia.study"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 19
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_raspomusic
+    name: "Raspo"
+    platform: "TikTok"
+    handle: "raspomusic"
+    url: "https://www.tiktok.com/@raspomusic"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 20
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_brainysounds
+    name: "Brainy | Study Music"
+    platform: "TikTok"
+    handle: "brainysounds"
+    url: "https://www.tiktok.com/@brainysounds"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 21
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_endelapp
+    name: "Endel"
+    platform: "TikTok"
+    handle: "endelapp"
+    url: "https://www.tiktok.com/@endelapp"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 22
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_dreamiamusic
+    name: "dreamia"
+    platform: "TikTok"
+    handle: "dreamiamusic"
+    url: "https://www.tiktok.com/@dreamiamusic"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 23
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_calmlyplaylists
+    name: "Calmly"
+    platform: "TikTok"
+    handle: "calmlyplaylists"
+    url: "https://www.tiktok.com/@calmlyplaylists"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 24
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_sleeptimepub
+    name: "sleeptime"
+    platform: "TikTok"
+    handle: "sleeptimepub"
+    url: "https://www.tiktok.com/@sleeptimepub"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 25
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_sleeptime.healing
+    name: "sleeptime healing"
+    platform: "TikTok"
+    handle: "sleeptime.healing"
+    url: "https://www.tiktok.com/@sleeptime.healing"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 26
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_clean_yourmind
+    name: "Water ASMR"
+    platform: "TikTok"
+    handle: "clean_yourmind"
+    url: "https://www.tiktok.com/@clean_yourmind"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 27
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_anotherworldcore
+    name: "𝐀𝐧𝐨𝐭𝐡𝐞𝐫 𝐖𝐨𝐫𝐥𝐝"
+    platform: "TikTok"
+    handle: "anotherworldcore"
+    url: "https://www.tiktok.com/@anotherworldcore"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 28
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_dreamcore.22
+    name: "Dreamcore"
+    platform: "TikTok"
+    handle: "dreamcore.22"
+    url: "https://www.tiktok.com/@dreamcore.22"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 29
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_fever.dreamer_
+    name: "𝐅𝐞𝐯𝐞𝐫𝐃𝐫𝐞𝐚𝐦𝐞𝐫"
+    platform: "TikTok"
+    handle: "fever.dreamer_"
+    url: "https://www.tiktok.com/@fever.dreamer_"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 30
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_dreamyxscape
+    name: "dreamyxscape"
+    platform: "TikTok"
+    handle: "dreamyxscape"
+    url: "https://www.tiktok.com/@dreamyxscape"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 31
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_the.turkish4
+    name: "History Soldier🪖"
+    platform: "TikTok"
+    handle: "the.turkish4"
+    url: "https://www.tiktok.com/@the.turkish4"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 32
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_victorianpoetry
+    name: "Victorian Poetry"
+    platform: "TikTok"
+    handle: "victorianpoetry"
+    url: "https://www.tiktok.com/@victorianpoetry"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 33
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_rainynightsin
+    name: "Rainy Nights In"
+    platform: "TikTok"
+    handle: "rainynightsin"
+    url: "https://www.tiktok.com/@rainynightsin"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 34
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_etherealdrifters
+    name: "Ethereal Drifters"
+    platform: "TikTok"
+    handle: "etherealdrifters"
+    url: "https://www.tiktok.com/@etherealdrifters"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 35
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_maxine1caulfield
+    name: "𝐈'𝐦 𝐭𝐢𝐫𝐞𝐝"
+    platform: "TikTok"
+    handle: "maxine1caulfield"
+    url: "https://www.tiktok.com/@maxine1caulfield"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 36
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_mingymingyzzang
+    name: "Stardust puff"
+    platform: "TikTok"
+    handle: "mingymingyzzang"
+    url: "https://www.tiktok.com/@mingymingyzzang"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 37
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_soothing.relaxation
+    name: "Soothing Relaxation"
+    platform: "TikTok"
+    handle: "soothing.relaxation"
+    url: "https://www.tiktok.com/@soothing.relaxation"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 38
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_yosheylofistudio
+    name: "YOSHEY LoFi"
+    platform: "TikTok"
+    handle: "yosheylofistudio"
+    url: "https://www.tiktok.com/@yosheylofistudio"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 39
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_calm
+    name: "Calm"
+    platform: "TikTok"
+    handle: "calm"
+    url: "https://www.tiktok.com/@calm"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 40
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_purerelaxingsounds222
+    name: "PureRelaxingSounds222"
+    platform: "TikTok"
+    handle: "purerelaxingsounds222"
+    url: "https://www.tiktok.com/@purerelaxingsounds222"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 41
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_musicz.for.you
+    name: "MUSICz🎶"
+    platform: "TikTok"
+    handle: "musicz.for.you"
+    url: "https://www.tiktok.com/@musicz.for.you"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 42
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_tiktokglobalinc.us
+    name: "tiktokglobalinc.us"
+    platform: "TikTok"
+    handle: "tiktokglobalinc.us"
+    url: "https://www.tiktok.com/@tiktokglobalinc.us"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 43
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_reviveyourenergy
+    name: "Revive Your Energy"
+    platform: "TikTok"
+    handle: "reviveyourenergy"
+    url: "https://www.tiktok.com/@reviveyourenergy"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 44
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN
+  - page_id: page_tiktok_energiaemevidencia
+    name: "Energiaemevidencia"
+    platform: "TikTok"
+    handle: "energiaemevidencia"
+    url: "https://www.tiktok.com/@energiaemevidencia"
+    ownership: reference_competitor
+    ownership_source:
+      source_file: "PÁGINAS REDES SOCIAIS.xlsx"
+      source_sheet: "Paginas concorrentes"
+      source_row: 45
+    cluster: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    status: UNKNOWN
+    followers: UNKNOWN

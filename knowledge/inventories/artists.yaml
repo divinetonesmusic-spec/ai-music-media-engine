@@ -1,0 +1,1198 @@
+# artists.yaml — Inventário factual de artistas
+# Derivado das planilhas em knowledge/inventories/source/. Gerado em 2026-08-27.
+# Regras: nada inventado. Sem classificação estratégica por inferência de nome.
+#   UNKNOWN     = informação não presente na fonte
+#   NEEDS_INPUT = classificação estratégica ainda não definida por humano
+meta:
+  generated_at: "2026-08-27"
+  sources:
+    - file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "uma aba por artista; nome da aba = nome do artista; linha LINK SPOTIFY = URL do artista"
+    - file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "uma aba por artista; nome da aba = nome do artista; linha LINK SPOTIFY = URL do artista"
+  ownership_note: "todos os artistas listados aparecem nas planilhas internas de controle mensal de artistas do negócio (ativos próprios)"
+artists:
+  - artist_id: art_5NJXbvpRnlTAqZ5neNTWGT
+    name: "Meditação Sonora"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Meditação Sonora"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "5NJXbvpRnlTAqZ5neNTWGT"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/5NJXbvpRnlTAqZ5neNTWGT"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Meditação Sonora"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Soundon", "Imusics", "Makewaves"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_5NJXbvpRnlTAqZ5neNTWGT_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_6xdN570lrguPNEnPhANMmA
+    name: "Sinta-se Próspero"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sinta-se Próspero"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "6xdN570lrguPNEnPhANMmA"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/6xdN570lrguPNEnPhANMmA"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sinta-se Próspero"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Makewaves", "Imusics"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_6xdN570lrguPNEnPhANMmA_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_4Is01TkyMdfYekLdFJ0MqV
+    name: "Opulentia Divina"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Opulentia Divina"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "4Is01TkyMdfYekLdFJ0MqV"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/4Is01TkyMdfYekLdFJ0MqV"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Opulentia Divina"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Makewaves", "Soundon", "Imusics"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_4Is01TkyMdfYekLdFJ0MqV_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_7bnKOg3GDWAbLFtNhyn8Gw
+    name: "Sonia Amor Divino"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sonia Amor Divino"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "7bnKOg3GDWAbLFtNhyn8Gw"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/7bnKOg3GDWAbLFtNhyn8Gw"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sonia Amor Divino"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Makewaves", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_7bnKOg3GDWAbLFtNhyn8Gw_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_5opHERa1SgwiRaozP8wqjj
+    name: "Divine Tones"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Divine Tones"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "5opHERa1SgwiRaozP8wqjj"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/5opHERa1SgwiRaozP8wqjj"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Divine Tones"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Makewaves", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_5opHERa1SgwiRaozP8wqjj_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_0po1ZsFAwFIgNJDrksslV5
+    name: "Nimbus Sleep Sanctuary"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Nimbus Sleep Sanctuary"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "0po1ZsFAwFIgNJDrksslV5"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/0po1ZsFAwFIgNJDrksslV5"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Nimbus Sleep Sanctuary"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Soundon", "Makewaves"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_0po1ZsFAwFIgNJDrksslV5_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_4bBM9F42jCH36cLgZWB29P
+    name: "Divine Tones by Nikolai"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Divine Tones by Nikolai"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "4bBM9F42jCH36cLgZWB29P"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/4bBM9F42jCH36cLgZWB29P"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Divine Tones by Nikolai"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MAIO"]
+    releases_count: 1
+    catalog_ref_prefix: "cat_4bBM9F42jCH36cLgZWB29P_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_4cmQKKLa01EKspZrAfGArk
+    name: "Nathaniel Lior Grace"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Nathaniel Lior Grace"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "4cmQKKLa01EKspZrAfGArk"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/4cmQKKLa01EKspZrAfGArk"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Nathaniel Lior Grace"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MAIO"]
+    releases_count: 1
+    catalog_ref_prefix: "cat_4cmQKKLa01EKspZrAfGArk_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_1QO83ZoG47WT3SV5958lhD
+    name: "Templo Theta"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Templo Theta"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "1QO83ZoG47WT3SV5958lhD"
+    spotify_url: "https://open.spotify.com/artist/1QO83ZoG47WT3SV5958lhD"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Templo Theta"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Soundon", "Makewaves"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_1QO83ZoG47WT3SV5958lhD_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_1rGWl45kQm6h9PQEOOWGfZ
+    name: "Dormesia"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Dormesia"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "1rGWl45kQm6h9PQEOOWGfZ"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/1rGWl45kQm6h9PQEOOWGfZ"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Dormesia"
+      source_row: 16
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Makewaves", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_1rGWl45kQm6h9PQEOOWGfZ_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_5rW5NStZS26JvQ8Sa0csKX
+    name: "Diviniia"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Diviniia"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "5rW5NStZS26JvQ8Sa0csKX"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/5rW5NStZS26JvQ8Sa0csKX"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Diviniia"
+      source_row: 16
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Imusics", "Soundon", "Makewaves"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_5rW5NStZS26JvQ8Sa0csKX_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_5bbVuL2WwR4t2394pvuPNE
+    name: "Aura de los Sueños"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Aura de los Sueños"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "5bbVuL2WwR4t2394pvuPNE"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/5bbVuL2WwR4t2394pvuPNE"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Aura de los Sueños"
+      source_row: 2
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Imusics", "Makewaves"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_5bbVuL2WwR4t2394pvuPNE_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_7yodVHRyk6pHTTzpp8XNRH
+    name: "Seraphim Frequencies"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Seraphim Frequencies"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "7yodVHRyk6pHTTzpp8XNRH"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/7yodVHRyk6pHTTzpp8XNRH"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Seraphim Frequencies"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Makewaves", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_7yodVHRyk6pHTTzpp8XNRH_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_4FS4kfkdU1O5eAqrr8yZAf
+    name: "Coro dos Anjos"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Coro dos Anjos"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "4FS4kfkdU1O5eAqrr8yZAf"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/4FS4kfkdU1O5eAqrr8yZAf"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Coro dos Anjos"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Makewaves", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_4FS4kfkdU1O5eAqrr8yZAf_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_7uDfdvq7PZmSkTdXHoJMMa
+    name: "Abundor"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Abundor"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "7uDfdvq7PZmSkTdXHoJMMa"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/7uDfdvq7PZmSkTdXHoJMMa"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Abundor"
+      source_row: 17
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Soundon", "Makewaves", "Imusics"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_7uDfdvq7PZmSkTdXHoJMMa_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_52SR4w9A8EKMeAE1R566AV
+    name: "Proverbia"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Proverbia"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "52SR4w9A8EKMeAE1R566AV"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/52SR4w9A8EKMeAE1R566AV"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Proverbia"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Imusics", "Makewaves"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MARÇO", "ABRIL", "MAIO", "JUNHO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_52SR4w9A8EKMeAE1R566AV_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_123ak1WL7sEcaPTsWdy15I
+    name: "Cortiq"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Cortiq"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "123ak1WL7sEcaPTsWdy15I"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/123ak1WL7sEcaPTsWdy15I"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Cortiq"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Imusics"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MAIO", "JUNHO"]
+    releases_count: 2
+    catalog_ref_prefix: "cat_123ak1WL7sEcaPTsWdy15I_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_3RTxCJPJeU2EeuwmLRCA4A
+    name: "David’s Harp Meditation"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "David’s Harp Meditation"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "3RTxCJPJeU2EeuwmLRCA4A"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/3RTxCJPJeU2EeuwmLRCA4A"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "David’s Harp Meditation"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Imusics"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MAIO", "JUNHO"]
+    releases_count: 2
+    catalog_ref_prefix: "cat_3RTxCJPJeU2EeuwmLRCA4A_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_3PwVtfCKvqMkafasmo6raa
+    name: "Salmo Sonoro"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Salmo Sonoro"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "3PwVtfCKvqMkafasmo6raa"
+    spotify_url: "https://open.spotify.com/artist/3PwVtfCKvqMkafasmo6raa"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Salmo Sonoro"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Imusics"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MAIO", "JUNHO"]
+    releases_count: 2
+    catalog_ref_prefix: "cat_3PwVtfCKvqMkafasmo6raa_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_5SQX7a6G5C9Dz2SobHcdRI
+    name: "Brainhertz"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Brainhertz"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "5SQX7a6G5C9Dz2SobHcdRI"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/5SQX7a6G5C9Dz2SobHcdRI"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Brainhertz"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Soundon", "Routenote"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MAIO", "JUNHO", "JULHO"]
+    releases_count: 3
+    catalog_ref_prefix: "cat_5SQX7a6G5C9Dz2SobHcdRI_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_3K6lhRvWlcu4SpsAmHMfK5
+    name: "Synaptica"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Synaptica"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "3K6lhRvWlcu4SpsAmHMfK5"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/3K6lhRvWlcu4SpsAmHMfK5"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Synaptica"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Routenote", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MAIO", "JUNHO"]
+    releases_count: 2
+    catalog_ref_prefix: "cat_3K6lhRvWlcu4SpsAmHMfK5_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_64QX86LV0w94ZsCCNqfxmO
+    name: "Hypnozzert"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Hypnozzert"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "64QX86LV0w94ZsCCNqfxmO"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/64QX86LV0w94ZsCCNqfxmO"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Hypnozzert"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MAIO", "JUNHO"]
+    releases_count: 2
+    catalog_ref_prefix: "cat_64QX86LV0w94ZsCCNqfxmO_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_4kvUKYYbJpugMmVOMJS6fv
+    name: "Hipnocortex"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Hipnocortex"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "4kvUKYYbJpugMmVOMJS6fv"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/4kvUKYYbJpugMmVOMJS6fv"
+    spotify_url_source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Hipnocortex"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Imusics"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MAIO", "JUNHO"]
+    releases_count: 2
+    catalog_ref_prefix: "cat_4kvUKYYbJpugMmVOMJS6fv_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_4UPN4d9ec5WKqAMsXkQ8nV
+    name: "Thetara"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Thetara"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "4UPN4d9ec5WKqAMsXkQ8nV"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/4UPN4d9ec5WKqAMsXkQ8nV"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Thetara"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Makewaves", "Soundon", "Imusics"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_4UPN4d9ec5WKqAMsXkQ8nV_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_23C4aGKQlxYACGS9daOxJL
+    name: "Arcturian Healing Codes"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Arcturian Healing Codes"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "23C4aGKQlxYACGS9daOxJL"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/23C4aGKQlxYACGS9daOxJL"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Arcturian Healing Codes"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Makewaves", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_23C4aGKQlxYACGS9daOxJL_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_49fktK7xQ9xlGYA8hOShx3
+    name: "Hertzia"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Hertzia"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "49fktK7xQ9xlGYA8hOShx3"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/49fktK7xQ9xlGYA8hOShx3"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Hertzia"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Soundon", "Imusics"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_49fktK7xQ9xlGYA8hOShx3_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_3BRmD7iq3EFMKdhjU4UJx5
+    name: "Sonoriium"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Sonoriium"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "3BRmD7iq3EFMKdhjU4UJx5"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/3BRmD7iq3EFMKdhjU4UJx5"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Sonoriium"
+      source_row: 16
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Makewaves", "Soundon", "Imusics"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_3BRmD7iq3EFMKdhjU4UJx5_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_1JEzsQ5PpE0mEzj1o3lvD1
+    name: "Frequenzia"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Frequenzia"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "1JEzsQ5PpE0mEzj1o3lvD1"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/1JEzsQ5PpE0mEzj1o3lvD1"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Frequenzia"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Makewaves", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "MAIO"]
+    releases_count: 3
+    catalog_ref_prefix: "cat_1JEzsQ5PpE0mEzj1o3lvD1_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_4hI4W1KwOS5x3OR0tE6gPJ
+    name: "Binauric"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Binauric"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "4hI4W1KwOS5x3OR0tE6gPJ"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/4hI4W1KwOS5x3OR0tE6gPJ"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Binauric"
+      source_row: 16
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Imusics", "Soundon", "Makewaves"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_4hI4W1KwOS5x3OR0tE6gPJ_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_3kKSVQVVHN96oRBC5vdJOz
+    name: "Meditara"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Meditara"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "3kKSVQVVHN96oRBC5vdJOz"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/3kKSVQVVHN96oRBC5vdJOz"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Meditara"
+      source_row: 16
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: "SIM"
+      source_column: "PERFIL DE ARTISTA?"
+    distributors_observed: ["Imusics", "Soundon", "Makewaves"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_3kKSVQVVHN96oRBC5vdJOz_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_1ZtIHebQHlyC9S7ipjyVGj
+    name: "Prospperus"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Prospperus"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "1ZtIHebQHlyC9S7ipjyVGj"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/1ZtIHebQHlyC9S7ipjyVGj"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Prospperus"
+      source_row: 16
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: UNKNOWN
+      note: "coluna PERFIL DE ARTISTA? ausente nesta aba"
+    distributors_observed: ["Imusics", "Soundon", "Makewaves"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 5
+    catalog_ref_prefix: "cat_1ZtIHebQHlyC9S7ipjyVGj_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_6RYDc9UaMo1ADFHVxCaPT7
+    name: "The Seven Archangels"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "The Seven Archangels"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "6RYDc9UaMo1ADFHVxCaPT7"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/6RYDc9UaMo1ADFHVxCaPT7"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "The Seven Archangels"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: UNKNOWN
+      note: "coluna PERFIL DE ARTISTA? ausente nesta aba"
+    distributors_observed: ["Imusics", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_6RYDc9UaMo1ADFHVxCaPT7_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_5R1ud4VWcDeMAodhF1EeWD
+    name: "Raphael’s Healing Choir"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Raphael’s Healing Choir"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "5R1ud4VWcDeMAodhF1EeWD"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/5R1ud4VWcDeMAodhF1EeWD"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Raphael’s Healing Choir"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: UNKNOWN
+      note: "coluna PERFIL DE ARTISTA? ausente nesta aba"
+    distributors_observed: ["Imusics", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_5R1ud4VWcDeMAodhF1EeWD_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_5hex8ZvC3cbCr9xCM1H99n
+    name: "Brainora"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Brainora"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "5hex8ZvC3cbCr9xCM1H99n"
+    spotify_url: "https://open.spotify.com/artist/5hex8ZvC3cbCr9xCM1H99n"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Brainora"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: UNKNOWN
+      note: "coluna PERFIL DE ARTISTA? ausente nesta aba"
+    distributors_observed: ["Imusics", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MARÇO", "ABRIL", "MAIO", "JUNHO"]
+    releases_count: 4
+    catalog_ref_prefix: "cat_5hex8ZvC3cbCr9xCM1H99n_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_7jgZvPmtbRQgE5u9Ot8OKh
+    name: "Psalms Frequencies"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Psalms Frequencies"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "7jgZvPmtbRQgE5u9Ot8OKh"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/7jgZvPmtbRQgE5u9Ot8OKh"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Psalms Frequencies"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: UNKNOWN
+      note: "coluna PERFIL DE ARTISTA? ausente nesta aba"
+    distributors_observed: ["Makewaves", "Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MARÇO", "ABRIL", "MAIO"]
+    releases_count: 3
+    catalog_ref_prefix: "cat_7jgZvPmtbRQgE5u9Ot8OKh_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_5FChe5Ft6PrY6EDD9icf4M
+    name: "Silenciium"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Silenciium"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "5FChe5Ft6PrY6EDD9icf4M"
+    spotify_url: "https://open.spotify.com/intl-pt/artist/5FChe5Ft6PrY6EDD9icf4M"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Silenciium"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: UNKNOWN
+      note: "coluna PERFIL DE ARTISTA? ausente nesta aba"
+    distributors_observed: ["Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MAIO"]
+    releases_count: 1
+    catalog_ref_prefix: "cat_5FChe5Ft6PrY6EDD9icf4M_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+  - artist_id: art_4W9EedUUZ7XBaQVK8ltOzq
+    name: "Vibração Consciente"
+    name_source:
+      fact: "nome da aba na planilha"
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Vibração Consciente"
+    ownership: own
+    ownership_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      note: "planilha interna de controle mensal de artistas"
+    spotify_artist_id: "4W9EedUUZ7XBaQVK8ltOzq"
+    spotify_url: "https://open.spotify.com/artist/4W9EedUUZ7XBaQVK8ltOzq"
+    spotify_url_source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Vibração Consciente"
+      source_row: 15
+      source_label: "LINK SPOTIFY"
+    has_artist_profile:
+      value: UNKNOWN
+      note: "coluna PERFIL DE ARTISTA? ausente nesta aba"
+    distributors_observed: ["Soundon"]
+    distributors_source_column: "PLATAFORMA"
+    release_months_observed: ["MAIO"]
+    releases_count: 1
+    catalog_ref_prefix: "cat_4W9EedUUZ7XBaQVK8ltOzq_"
+    # --- classificação estratégica (preencher por humano) ---
+    primary_cluster: NEEDS_INPUT
+    secondary_cluster: NEEDS_INPUT
+    market: NEEDS_INPUT
+    language: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT

@@ -1,0 +1,1741 @@
+# catalog.yaml — Inventário factual do catálogo musical (lançamentos)
+# Derivado das planilhas de controle mensal. Uma entrada = uma linha de lançamento com título na fonte.
+# Gerado em 2026-08-27. release_year = UNKNOWN (a fonte traz apenas o mês).
+meta:
+  generated_at: "2026-08-27"
+  sources:
+    - file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+    - file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+  source_columns: ["Meses", "LANÇAMENTOS", "STATUS", "PLATAFORMA"]
+  notes: "linhas de mês sem título em LANÇAMENTOS foram ignoradas; sem coluna de álbum na fonte (album=UNKNOWN)"
+  count: 133
+catalog:
+  - catalog_id: cat_5NJXbvpRnlTAqZ5neNTWGT_r2
+    artist_id: art_5NJXbvpRnlTAqZ5neNTWGT
+    artist_name: "Meditação Sonora"
+    title: "Frequency for Financial Expansion 888 + 963 Hnz"
+    album: UNKNOWN
+    release_month: "JANEIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Meditação Sonora"
+      source_row: 2
+  - catalog_id: cat_5NJXbvpRnlTAqZ5neNTWGT_r3
+    artist_id: art_5NJXbvpRnlTAqZ5neNTWGT
+    artist_name: "Meditação Sonora"
+    title: "Limpeza Áurica da Prosperidade – Frequência 888"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Meditação Sonora"
+      source_row: 3
+  - catalog_id: cat_5NJXbvpRnlTAqZ5neNTWGT_r4
+    artist_id: art_5NJXbvpRnlTAqZ5neNTWGT
+    artist_name: "Meditação Sonora"
+    title: "Código 777 do Éter Financeiro"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Meditação Sonora"
+      source_row: 4
+  - catalog_id: cat_5NJXbvpRnlTAqZ5neNTWGT_r5
+    artist_id: art_5NJXbvpRnlTAqZ5neNTWGT
+    artist_name: "Meditação Sonora"
+    title: "Despertar Kundalini da Fortuna 888"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Meditação Sonora"
+      source_row: 5
+  - catalog_id: cat_5NJXbvpRnlTAqZ5neNTWGT_r6
+    artist_id: art_5NJXbvpRnlTAqZ5neNTWGT
+    artist_name: "Meditação Sonora"
+    title: "Geometria da Abundância"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Meditação Sonora"
+      source_row: 6
+  - catalog_id: cat_6xdN570lrguPNEnPhANMmA_r3
+    artist_id: art_6xdN570lrguPNEnPhANMmA
+    artist_name: "Sinta-se Próspero"
+    title: "432 Hnz - Deep Sleep in Abundance Frequency"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sinta-se Próspero"
+      source_row: 3
+  - catalog_id: cat_6xdN570lrguPNEnPhANMmA_r4
+    artist_id: art_6xdN570lrguPNEnPhANMmA
+    artist_name: "Sinta-se Próspero"
+    title: "Frequências de Prosperidade do Espírito 963 Hnz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sinta-se Próspero"
+      source_row: 4
+  - catalog_id: cat_6xdN570lrguPNEnPhANMmA_r5
+    artist_id: art_6xdN570lrguPNEnPhANMmA
+    artist_name: "Sinta-se Próspero"
+    title: "Campo Magnético do Dinheiro | 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sinta-se Próspero"
+      source_row: 5
+  - catalog_id: cat_6xdN570lrguPNEnPhANMmA_r6
+    artist_id: art_6xdN570lrguPNEnPhANMmA
+    artist_name: "Sinta-se Próspero"
+    title: "Ordem Divina de Multiplicação"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sinta-se Próspero"
+      source_row: 6
+  - catalog_id: cat_4Is01TkyMdfYekLdFJ0MqV_r3
+    artist_id: art_4Is01TkyMdfYekLdFJ0MqV
+    artist_name: "Opulentia Divina"
+    title: "Sono Reparador e Expansão Financeira 432 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Opulentia Divina"
+      source_row: 3
+  - catalog_id: cat_4Is01TkyMdfYekLdFJ0MqV_r4
+    artist_id: art_4Is01TkyMdfYekLdFJ0MqV
+    artist_name: "Opulentia Divina"
+    title: "Sacred Money Frequency 888 Hnz + 963 Hnz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Opulentia Divina"
+      source_row: 4
+  - catalog_id: cat_4Is01TkyMdfYekLdFJ0MqV_r5
+    artist_id: art_4Is01TkyMdfYekLdFJ0MqV
+    artist_name: "Opulentia Divina"
+    title: "Prosperidade Enquanto Dorme 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Opulentia Divina"
+      source_row: 5
+  - catalog_id: cat_4Is01TkyMdfYekLdFJ0MqV_r6
+    artist_id: art_4Is01TkyMdfYekLdFJ0MqV
+    artist_name: "Opulentia Divina"
+    title: "Linha Temporal da Prosperidade"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Opulentia Divina"
+      source_row: 6
+  - catalog_id: cat_7bnKOg3GDWAbLFtNhyn8Gw_r3
+    artist_id: art_7bnKOg3GDWAbLFtNhyn8Gw
+    artist_name: "Sonia Amor Divino"
+    title: "Sono Restaurador com Limpeza Energética Profunda"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sonia Amor Divino"
+      source_row: 3
+  - catalog_id: cat_7bnKOg3GDWAbLFtNhyn8Gw_r4
+    artist_id: art_7bnKOg3GDWAbLFtNhyn8Gw
+    artist_name: "Sonia Amor Divino"
+    title: "Sono Profundo Neuromodulado – Delta & Theta"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sonia Amor Divino"
+      source_row: 4
+  - catalog_id: cat_7bnKOg3GDWAbLFtNhyn8Gw_r5
+    artist_id: art_7bnKOg3GDWAbLFtNhyn8Gw
+    artist_name: "Sonia Amor Divino"
+    title: "Frequência do Sono Inabalável 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sonia Amor Divino"
+      source_row: 5
+  - catalog_id: cat_7bnKOg3GDWAbLFtNhyn8Gw_r6
+    artist_id: art_7bnKOg3GDWAbLFtNhyn8Gw
+    artist_name: "Sonia Amor Divino"
+    title: "852 Hz – Quando o Sono Sincroniza"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Sonia Amor Divino"
+      source_row: 6
+  - catalog_id: cat_5opHERa1SgwiRaozP8wqjj_r3
+    artist_id: art_5opHERa1SgwiRaozP8wqjj
+    artist_name: "Divine Tones"
+    title: "Neuroregenerative Sleep – Frequencies for Recovery"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Divine Tones"
+      source_row: 3
+  - catalog_id: cat_5opHERa1SgwiRaozP8wqjj_r4
+    artist_id: art_5opHERa1SgwiRaozP8wqjj
+    artist_name: "Divine Tones"
+    title: "963Hz Sono Elevado – Integração da Consciência"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Divine Tones"
+      source_row: 4
+  - catalog_id: cat_5opHERa1SgwiRaozP8wqjj_r5
+    artist_id: art_5opHERa1SgwiRaozP8wqjj
+    artist_name: "Divine Tones"
+    title: "Purificação Financeira Espiritual | 888 Hz & 396 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Divine Tones"
+      source_row: 5
+  - catalog_id: cat_5opHERa1SgwiRaozP8wqjj_r6
+    artist_id: art_5opHERa1SgwiRaozP8wqjj
+    artist_name: "Divine Tones"
+    title: "Frequência do Sono Intuitivo Quântico 741 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Divine Tones"
+      source_row: 6
+  - catalog_id: cat_0po1ZsFAwFIgNJDrksslV5_r2
+    artist_id: art_0po1ZsFAwFIgNJDrksslV5
+    artist_name: "Nimbus Sleep Sanctuary"
+    title: "432 & 963 Hz — O Portal do Sono Restaurador"
+    album: UNKNOWN
+    release_month: "JANEIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Nimbus Sleep Sanctuary"
+      source_row: 2
+  - catalog_id: cat_0po1ZsFAwFIgNJDrksslV5_r3
+    artist_id: art_0po1ZsFAwFIgNJDrksslV5
+    artist_name: "Nimbus Sleep Sanctuary"
+    title: "Portal Theta – Entrada no Estado de Sono 528 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Nimbus Sleep Sanctuary"
+      source_row: 3
+  - catalog_id: cat_0po1ZsFAwFIgNJDrksslV5_r4
+    artist_id: art_0po1ZsFAwFIgNJDrksslV5
+    artist_name: "Nimbus Sleep Sanctuary"
+    title: "528Hz Cura do Sono – Restauração Celular Noturna"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Nimbus Sleep Sanctuary"
+      source_row: 4
+  - catalog_id: cat_0po1ZsFAwFIgNJDrksslV5_r5
+    artist_id: art_0po1ZsFAwFIgNJDrksslV5
+    artist_name: "Nimbus Sleep Sanctuary"
+    title: "Frequência do Sono Neural Purificador 396 & 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Nimbus Sleep Sanctuary"
+      source_row: 5
+  - catalog_id: cat_0po1ZsFAwFIgNJDrksslV5_r6
+    artist_id: art_0po1ZsFAwFIgNJDrksslV5
+    artist_name: "Nimbus Sleep Sanctuary"
+    title: "Dormir Tranquilo 432 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Nimbus Sleep Sanctuary"
+      source_row: 6
+  - catalog_id: cat_4bBM9F42jCH36cLgZWB29P_r6
+    artist_id: art_4bBM9F42jCH36cLgZWB29P
+    artist_name: "Divine Tones by Nikolai"
+    title: "Frecuencia del Sueño Restaurador 852 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Divine Tones by Nikolai"
+      source_row: 6
+  - catalog_id: cat_4cmQKKLa01EKspZrAfGArk_r6
+    artist_id: art_4cmQKKLa01EKspZrAfGArk
+    artist_name: "Nathaniel Lior Grace"
+    title: "Portales del Sueño"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Nathaniel Lior Grace"
+      source_row: 6
+  - catalog_id: cat_1QO83ZoG47WT3SV5958lhD_r3
+    artist_id: art_1QO83ZoG47WT3SV5958lhD
+    artist_name: "Templo Theta"
+    title: "Código de Limpeza de Chakras 396 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Templo Theta"
+      source_row: 3
+  - catalog_id: cat_1QO83ZoG47WT3SV5958lhD_r4
+    artist_id: art_1QO83ZoG47WT3SV5958lhD
+    artist_name: "Templo Theta"
+    title: "Sono Restaurador Delta 174 Hnz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Templo Theta"
+      source_row: 4
+  - catalog_id: cat_1QO83ZoG47WT3SV5958lhD_r5
+    artist_id: art_1QO83ZoG47WT3SV5958lhD
+    artist_name: "Templo Theta"
+    title: "Sono Reparador do Coração 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Templo Theta"
+      source_row: 5
+  - catalog_id: cat_1QO83ZoG47WT3SV5958lhD_r6
+    artist_id: art_1QO83ZoG47WT3SV5958lhD
+    artist_name: "Templo Theta"
+    title: "Frequência do Silêncio Interior"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Templo Theta"
+      source_row: 6
+  - catalog_id: cat_1QO83ZoG47WT3SV5958lhD_r7
+    artist_id: art_1QO83ZoG47WT3SV5958lhD
+    artist_name: "Templo Theta"
+    title: "174 Hz – Colapso do Pensamento"
+    album: UNKNOWN
+    release_month: "JUNHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Templo Theta"
+      source_row: 7
+  - catalog_id: cat_1rGWl45kQm6h9PQEOOWGfZ_r3
+    artist_id: art_1rGWl45kQm6h9PQEOOWGfZ
+    artist_name: "Dormesia"
+    title: "Sueño Delta Reparador 741 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Dormesia"
+      source_row: 3
+  - catalog_id: cat_1rGWl45kQm6h9PQEOOWGfZ_r4
+    artist_id: art_1rGWl45kQm6h9PQEOOWGfZ
+    artist_name: "Dormesia"
+    title: "Código Theta para Dormir 852 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Dormesia"
+      source_row: 4
+  - catalog_id: cat_1rGWl45kQm6h9PQEOOWGfZ_r5
+    artist_id: art_1rGWl45kQm6h9PQEOOWGfZ
+    artist_name: "Dormesia"
+    title: "Frecuencia de Inducción al Sueño 528 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Dormesia"
+      source_row: 5
+  - catalog_id: cat_1rGWl45kQm6h9PQEOOWGfZ_r6
+    artist_id: art_1rGWl45kQm6h9PQEOOWGfZ
+    artist_name: "Dormesia"
+    title: "Espíritu del Sueño Purificador 528 Hnz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Dormesia"
+      source_row: 6
+  - catalog_id: cat_1rGWl45kQm6h9PQEOOWGfZ_r7
+    artist_id: art_1rGWl45kQm6h9PQEOOWGfZ
+    artist_name: "Dormesia"
+    title: "Señal Cerebral de Sueño"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Dormesia"
+      source_row: 7
+  - catalog_id: cat_5rW5NStZS26JvQ8Sa0csKX_r3
+    artist_id: art_5rW5NStZS26JvQ8Sa0csKX
+    artist_name: "Diviniia"
+    title: "Frecuencia de Sueño Reparador y Purificación 528 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Diviniia"
+      source_row: 3
+  - catalog_id: cat_5rW5NStZS26JvQ8Sa0csKX_r4
+    artist_id: art_5rW5NStZS26JvQ8Sa0csKX
+    artist_name: "Diviniia"
+    title: "Dormir sin Ansiedad 417 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Diviniia"
+      source_row: 4
+  - catalog_id: cat_5rW5NStZS26JvQ8Sa0csKX_r5
+    artist_id: art_5rW5NStZS26JvQ8Sa0csKX
+    artist_name: "Diviniia"
+    title: "Señal Cerebral de Sueño 528 Hz + 963 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Diviniia"
+      source_row: 5
+  - catalog_id: cat_5rW5NStZS26JvQ8Sa0csKX_r6
+    artist_id: art_5rW5NStZS26JvQ8Sa0csKX
+    artist_name: "Diviniia"
+    title: "Frecuencia de Sueño y Despertar Interior 963 & 528 Hnz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Diviniia"
+      source_row: 6
+  - catalog_id: cat_5rW5NStZS26JvQ8Sa0csKX_r7
+    artist_id: art_5rW5NStZS26JvQ8Sa0csKX
+    artist_name: "Diviniia"
+    title: "Protocolo Anti Pensamientos"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Diviniia"
+      source_row: 7
+  - catalog_id: cat_5bbVuL2WwR4t2394pvuPNE_r3
+    artist_id: art_5bbVuL2WwR4t2394pvuPNE
+    artist_name: "Aura de los Sueños"
+    title: "Respira y Duerme"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Aura de los Sueños"
+      source_row: 3
+  - catalog_id: cat_5bbVuL2WwR4t2394pvuPNE_r4
+    artist_id: art_5bbVuL2WwR4t2394pvuPNE
+    artist_name: "Aura de los Sueños"
+    title: "Dormir Bien Hoy"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Aura de los Sueños"
+      source_row: 4
+  - catalog_id: cat_5bbVuL2WwR4t2394pvuPNE_r5
+    artist_id: art_5bbVuL2WwR4t2394pvuPNE
+    artist_name: "Aura de los Sueños"
+    title: "Sueño que Purifica"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Aura de los Sueños"
+      source_row: 5
+  - catalog_id: cat_5bbVuL2WwR4t2394pvuPNE_r6
+    artist_id: art_5bbVuL2WwR4t2394pvuPNE
+    artist_name: "Aura de los Sueños"
+    title: "Reinicio Mental Nocturno"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Aura de los Sueños"
+      source_row: 6
+  - catalog_id: cat_7yodVHRyk6pHTTzpp8XNRH_r3
+    artist_id: art_7yodVHRyk6pHTTzpp8XNRH
+    artist_name: "Seraphim Frequencies"
+    title: "Frecuencia del Sueño Restaurador de los Ángeles 432 Hz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Seraphim Frequencies"
+      source_row: 3
+  - catalog_id: cat_7yodVHRyk6pHTTzpp8XNRH_r4
+    artist_id: art_7yodVHRyk6pHTTzpp8XNRH
+    artist_name: "Seraphim Frequencies"
+    title: "Sueño Curativo de los Ángeles 528 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Seraphim Frequencies"
+      source_row: 4
+  - catalog_id: cat_7yodVHRyk6pHTTzpp8XNRH_r5
+    artist_id: art_7yodVHRyk6pHTTzpp8XNRH
+    artist_name: "Seraphim Frequencies"
+    title: "Matriz de Sueño Profundo Divino 963 & 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Seraphim Frequencies"
+      source_row: 5
+  - catalog_id: cat_7yodVHRyk6pHTTzpp8XNRH_r6
+    artist_id: art_7yodVHRyk6pHTTzpp8XNRH
+    artist_name: "Seraphim Frequencies"
+    title: "Frecuencia de Sueños Angelicales 852 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Seraphim Frequencies"
+      source_row: 6
+  - catalog_id: cat_4FS4kfkdU1O5eAqrr8yZAf_r3
+    artist_id: art_4FS4kfkdU1O5eAqrr8yZAf
+    artist_name: "Coro dos Anjos"
+    title: "Sono de Ativação da Pineal 936 Hz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Coro dos Anjos"
+      source_row: 3
+  - catalog_id: cat_4FS4kfkdU1O5eAqrr8yZAf_r4
+    artist_id: art_4FS4kfkdU1O5eAqrr8yZAf
+    artist_name: "Coro dos Anjos"
+    title: "Sono Terapêutico dos Arcanjos 528 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Coro dos Anjos"
+      source_row: 4
+  - catalog_id: cat_4FS4kfkdU1O5eAqrr8yZAf_r5
+    artist_id: art_4FS4kfkdU1O5eAqrr8yZAf
+    artist_name: "Coro dos Anjos"
+    title: "Sono Restaurador do Sistema Nervoso 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Coro dos Anjos"
+      source_row: 5
+  - catalog_id: cat_4FS4kfkdU1O5eAqrr8yZAf_r6
+    artist_id: art_4FS4kfkdU1O5eAqrr8yZAf
+    artist_name: "Coro dos Anjos"
+    title: "Frequência do Sono Quântico Harmonioso 432 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Coro dos Anjos"
+      source_row: 6
+  - catalog_id: cat_7uDfdvq7PZmSkTdXHoJMMa_r3
+    artist_id: art_7uDfdvq7PZmSkTdXHoJMMa
+    artist_name: "Abundor"
+    title: "Money Answering You"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Abundor"
+      source_row: 3
+  - catalog_id: cat_7uDfdvq7PZmSkTdXHoJMMa_r4
+    artist_id: art_7uDfdvq7PZmSkTdXHoJMMa
+    artist_name: "Abundor"
+    title: "Restorative Metaphysical Sleep 999 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Abundor"
+      source_row: 4
+  - catalog_id: cat_7uDfdvq7PZmSkTdXHoJMMa_r5
+    artist_id: art_7uDfdvq7PZmSkTdXHoJMMa
+    artist_name: "Abundor"
+    title: "Manifesting While Dreaming 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Abundor"
+      source_row: 5
+  - catalog_id: cat_7uDfdvq7PZmSkTdXHoJMMa_r6
+    artist_id: art_7uDfdvq7PZmSkTdXHoJMMa
+    artist_name: "Abundor"
+    title: "Dreamstate 528"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Abundor"
+      source_row: 6
+  - catalog_id: cat_7uDfdvq7PZmSkTdXHoJMMa_r7
+    artist_id: art_7uDfdvq7PZmSkTdXHoJMMa
+    artist_name: "Abundor"
+    title: "Assinatura Vibracional da Fortuna"
+    album: UNKNOWN
+    release_month: "JUNHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Abundor"
+      source_row: 7
+  - catalog_id: cat_52SR4w9A8EKMeAE1R566AV_r4
+    artist_id: art_52SR4w9A8EKMeAE1R566AV
+    artist_name: "Proverbia"
+    title: "Salmos sagrados del sueño 528 Hnz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Proverbia"
+      source_row: 4
+  - catalog_id: cat_52SR4w9A8EKMeAE1R566AV_r5
+    artist_id: art_52SR4w9A8EKMeAE1R566AV
+    artist_name: "Proverbia"
+    title: "El Sueño del Pastor 528 Hnz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Proverbia"
+      source_row: 5
+  - catalog_id: cat_52SR4w9A8EKMeAE1R566AV_r6
+    artist_id: art_52SR4w9A8EKMeAE1R566AV
+    artist_name: "Proverbia"
+    title: "El sueño tranquilo de Sión 963 Hnz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Proverbia"
+      source_row: 6
+  - catalog_id: cat_52SR4w9A8EKMeAE1R566AV_r7
+    artist_id: art_52SR4w9A8EKMeAE1R566AV
+    artist_name: "Proverbia"
+    title: "Frecuencia de los Ángeles"
+    album: UNKNOWN
+    release_month: "JUNHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Proverbia"
+      source_row: 7
+  - catalog_id: cat_123ak1WL7sEcaPTsWdy15I_r6
+    artist_id: art_123ak1WL7sEcaPTsWdy15I
+    artist_name: "Cortiq"
+    title: "Nervous Quiet (Alpha Waves for Relaxation)"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Cortiq"
+      source_row: 6
+  - catalog_id: cat_123ak1WL7sEcaPTsWdy15I_r7
+    artist_id: art_123ak1WL7sEcaPTsWdy15I
+    artist_name: "Cortiq"
+    title: "Dream Harbor (Theta-Delta Waves for Sleep and Restoration)"
+    album: UNKNOWN
+    release_month: "JUNHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Cortiq"
+      source_row: 7
+  - catalog_id: cat_3RTxCJPJeU2EeuwmLRCA4A_r6
+    artist_id: art_3RTxCJPJeU2EeuwmLRCA4A
+    artist_name: "David’s Harp Meditation"
+    title: "O Sono do Pastor 963 Hnz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "David’s Harp Meditation"
+      source_row: 6
+  - catalog_id: cat_3RTxCJPJeU2EeuwmLRCA4A_r7
+    artist_id: art_3RTxCJPJeU2EeuwmLRCA4A
+    artist_name: "David’s Harp Meditation"
+    title: "Frecuencia de Unidad"
+    album: UNKNOWN
+    release_month: "JUNHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "David’s Harp Meditation"
+      source_row: 7
+  - catalog_id: cat_3PwVtfCKvqMkafasmo6raa_r6
+    artist_id: art_3PwVtfCKvqMkafasmo6raa
+    artist_name: "Salmo Sonoro"
+    title: "O Sono do Pastor 963 Hnz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Salmo Sonoro"
+      source_row: 6
+  - catalog_id: cat_3PwVtfCKvqMkafasmo6raa_r7
+    artist_id: art_3PwVtfCKvqMkafasmo6raa
+    artist_name: "Salmo Sonoro"
+    title: "Resonancia de Dios 963 Hz"
+    album: UNKNOWN
+    release_month: "JUNHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Salmo Sonoro"
+      source_row: 7
+  - catalog_id: cat_5SQX7a6G5C9Dz2SobHcdRI_r6
+    artist_id: art_5SQX7a6G5C9Dz2SobHcdRI
+    artist_name: "Brainhertz"
+    title: "O Sono do Pastor 963 Hnz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Brainhertz"
+      source_row: 6
+  - catalog_id: cat_5SQX7a6G5C9Dz2SobHcdRI_r7
+    artist_id: art_5SQX7a6G5C9Dz2SobHcdRI
+    artist_name: "Brainhertz"
+    title: "Espíritu del Sueño"
+    album: UNKNOWN
+    release_month: "JUNHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Brainhertz"
+      source_row: 7
+  - catalog_id: cat_5SQX7a6G5C9Dz2SobHcdRI_r8
+    artist_id: art_5SQX7a6G5C9Dz2SobHcdRI
+    artist_name: "Brainhertz"
+    title: "La Frecuencia de lo Divino — 963 Hz"
+    album: UNKNOWN
+    release_month: "JULHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Routenote"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Brainhertz"
+      source_row: 8
+  - catalog_id: cat_3K6lhRvWlcu4SpsAmHMfK5_r6
+    artist_id: art_3K6lhRvWlcu4SpsAmHMfK5
+    artist_name: "Synaptica"
+    title: "Sueño Delta Reparador 528 hnz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Routenote"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Synaptica"
+      source_row: 6
+  - catalog_id: cat_3K6lhRvWlcu4SpsAmHMfK5_r7
+    artist_id: art_3K6lhRvWlcu4SpsAmHMfK5
+    artist_name: "Synaptica"
+    title: "Vibración de Sueño Profundo 963"
+    album: UNKNOWN
+    release_month: "JUNHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Synaptica"
+      source_row: 7
+  - catalog_id: cat_64QX86LV0w94ZsCCNqfxmO_r6
+    artist_id: art_64QX86LV0w94ZsCCNqfxmO
+    artist_name: "Hypnozzert"
+    title: "Frecuencia del Sueño Restaurador 528 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Hypnozzert"
+      source_row: 6
+  - catalog_id: cat_64QX86LV0w94ZsCCNqfxmO_r7
+    artist_id: art_64QX86LV0w94ZsCCNqfxmO
+    artist_name: "Hypnozzert"
+    title: "Frecuencia del Perdón"
+    album: UNKNOWN
+    release_month: "JUNHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Hypnozzert"
+      source_row: 7
+  - catalog_id: cat_4kvUKYYbJpugMmVOMJS6fv_r6
+    artist_id: art_4kvUKYYbJpugMmVOMJS6fv
+    artist_name: "Hipnocortex"
+    title: "Sueño y Activación de Chakras"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Hipnocortex"
+      source_row: 6
+  - catalog_id: cat_4kvUKYYbJpugMmVOMJS6fv_r7
+    artist_id: art_4kvUKYYbJpugMmVOMJS6fv
+    artist_name: "Hipnocortex"
+    title: "Sueño metafísico reparador 432 Hz"
+    album: UNKNOWN
+    release_month: "JUNHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 23 Artistas - Nicolas (1).xlsx"
+      source_sheet: "Hipnocortex"
+      source_row: 7
+  - catalog_id: cat_4UPN4d9ec5WKqAMsXkQ8nV_r2
+    artist_id: art_4UPN4d9ec5WKqAMsXkQ8nV
+    artist_name: "Thetara"
+    title: "Resonancia del Sueño Curativo 528 + 963 Hnz"
+    album: UNKNOWN
+    release_month: "JANEIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Thetara"
+      source_row: 2
+  - catalog_id: cat_4UPN4d9ec5WKqAMsXkQ8nV_r3
+    artist_id: art_4UPN4d9ec5WKqAMsXkQ8nV
+    artist_name: "Thetara"
+    title: "Sueño Regenerativo 528 Hz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Thetara"
+      source_row: 3
+  - catalog_id: cat_4UPN4d9ec5WKqAMsXkQ8nV_r4
+    artist_id: art_4UPN4d9ec5WKqAMsXkQ8nV
+    artist_name: "Thetara"
+    title: "Sueño Metafísico Restaurador | Matrix 528 hz & 432 hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Thetara"
+      source_row: 4
+  - catalog_id: cat_4UPN4d9ec5WKqAMsXkQ8nV_r5
+    artist_id: art_4UPN4d9ec5WKqAMsXkQ8nV
+    artist_name: "Thetara"
+    title: "Kundalini Despierta 963 Hnz + 1111 Hnz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Thetara"
+      source_row: 5
+  - catalog_id: cat_4UPN4d9ec5WKqAMsXkQ8nV_r6
+    artist_id: art_4UPN4d9ec5WKqAMsXkQ8nV
+    artist_name: "Thetara"
+    title: "Frecuencia del sueño reparador de Dios 963 Hnz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Thetara"
+      source_row: 6
+  - catalog_id: cat_23C4aGKQlxYACGS9daOxJL_r2
+    artist_id: art_23C4aGKQlxYACGS9daOxJL
+    artist_name: "Arcturian Healing Codes"
+    title: "Resonancia del Sueño Cuántico 432 Hnz + 963 Hnz"
+    album: UNKNOWN
+    release_month: "JANEIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Arcturian Healing Codes"
+      source_row: 2
+  - catalog_id: cat_23C4aGKQlxYACGS9daOxJL_r3
+    artist_id: art_23C4aGKQlxYACGS9daOxJL
+    artist_name: "Arcturian Healing Codes"
+    title: "Magnetismo da Abundância 432 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Arcturian Healing Codes"
+      source_row: 3
+  - catalog_id: cat_23C4aGKQlxYACGS9daOxJL_r4
+    artist_id: art_23C4aGKQlxYACGS9daOxJL
+    artist_name: "Arcturian Healing Codes"
+    title: "Sueño de Sanación 741 + 528 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Arcturian Healing Codes"
+      source_row: 4
+  - catalog_id: cat_23C4aGKQlxYACGS9daOxJL_r5
+    artist_id: art_23C4aGKQlxYACGS9daOxJL
+    artist_name: "Arcturian Healing Codes"
+    title: "Sueño Reparador a 528 Hz: Curación interna durante el descanso."
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Arcturian Healing Codes"
+      source_row: 5
+  - catalog_id: cat_23C4aGKQlxYACGS9daOxJL_r6
+    artist_id: art_23C4aGKQlxYACGS9daOxJL
+    artist_name: "Arcturian Healing Codes"
+    title: "Sueño Arcturiano – Ecos del Origen 963 Hnz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Arcturian Healing Codes"
+      source_row: 6
+  - catalog_id: cat_49fktK7xQ9xlGYA8hOShx3_r3
+    artist_id: art_49fktK7xQ9xlGYA8hOShx3
+    artist_name: "Hertzia"
+    title: "Purificación Total 741 Hz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Hertzia"
+      source_row: 3
+  - catalog_id: cat_49fktK7xQ9xlGYA8hOShx3_r4
+    artist_id: art_49fktK7xQ9xlGYA8hOShx3
+    artist_name: "Hertzia"
+    title: "Espíritu Purificado 528 Hnz + 432 Hnz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Hertzia"
+      source_row: 4
+  - catalog_id: cat_49fktK7xQ9xlGYA8hOShx3_r5
+    artist_id: art_49fktK7xQ9xlGYA8hOShx3
+    artist_name: "Hertzia"
+    title: "Frecuencia del Sueño Reparador 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Hertzia"
+      source_row: 5
+  - catalog_id: cat_49fktK7xQ9xlGYA8hOShx3_r6
+    artist_id: art_49fktK7xQ9xlGYA8hOShx3
+    artist_name: "Hertzia"
+    title: "Frecuencia de Sueño y Limpieza del Subconsciente 963 Hnz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Hertzia"
+      source_row: 6
+  - catalog_id: cat_3BRmD7iq3EFMKdhjU4UJx5_r3
+    artist_id: art_3BRmD7iq3EFMKdhjU4UJx5
+    artist_name: "Sonoriium"
+    title: "Sueño Delta Reparador 528 & 432 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Sonoriium"
+      source_row: 3
+  - catalog_id: cat_3BRmD7iq3EFMKdhjU4UJx5_r4
+    artist_id: art_3BRmD7iq3EFMKdhjU4UJx5
+    artist_name: "Sonoriium"
+    title: "432 Hz Cura del Sueño – Armonía del Cuerpo y la Mente"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Sonoriium"
+      source_row: 4
+  - catalog_id: cat_3BRmD7iq3EFMKdhjU4UJx5_r5
+    artist_id: art_3BRmD7iq3EFMKdhjU4UJx5
+    artist_name: "Sonoriium"
+    title: "Pulso de Sueño Theta 528 Hz & 963 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Sonoriium"
+      source_row: 5
+  - catalog_id: cat_3BRmD7iq3EFMKdhjU4UJx5_r6
+    artist_id: art_3BRmD7iq3EFMKdhjU4UJx5
+    artist_name: "Sonoriium"
+    title: "Vibración de Sueño Sagrado 528 Hz & 963 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Sonoriium"
+      source_row: 6
+  - catalog_id: cat_3BRmD7iq3EFMKdhjU4UJx5_r7
+    artist_id: art_3BRmD7iq3EFMKdhjU4UJx5
+    artist_name: "Sonoriium"
+    title: "Manifestación en Sueño Profundo  852 Hnz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Sonoriium"
+      source_row: 7
+  - catalog_id: cat_1JEzsQ5PpE0mEzj1o3lvD1_r3
+    artist_id: art_1JEzsQ5PpE0mEzj1o3lvD1
+    artist_name: "Frequenzia"
+    title: "Portal de Limpieza Espiritual 333 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Frequenzia"
+      source_row: 3
+  - catalog_id: cat_1JEzsQ5PpE0mEzj1o3lvD1_r4
+    artist_id: art_1JEzsQ5PpE0mEzj1o3lvD1
+    artist_name: "Frequenzia"
+    title: "Código Anti Insomnio 999 Hnz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Frequenzia"
+      source_row: 4
+  - catalog_id: cat_1JEzsQ5PpE0mEzj1o3lvD1_r6
+    artist_id: art_1JEzsQ5PpE0mEzj1o3lvD1
+    artist_name: "Frequenzia"
+    title: "Sueño Theta Restaurador 444 Hz & 528 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Frequenzia"
+      source_row: 6
+  - catalog_id: cat_4hI4W1KwOS5x3OR0tE6gPJ_r3
+    artist_id: art_4hI4W1KwOS5x3OR0tE6gPJ
+    artist_name: "Binauric"
+    title: "Código Theta del Sueño 432 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Binauric"
+      source_row: 3
+  - catalog_id: cat_4hI4W1KwOS5x3OR0tE6gPJ_r4
+    artist_id: art_4hI4W1KwOS5x3OR0tE6gPJ
+    artist_name: "Binauric"
+    title: "Frecuencia de Sueño y Activación de Chakras 528 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Binauric"
+      source_row: 4
+  - catalog_id: cat_4hI4W1KwOS5x3OR0tE6gPJ_r5
+    artist_id: art_4hI4W1KwOS5x3OR0tE6gPJ
+    artist_name: "Binauric"
+    title: "Señal Theta Anti Insomnio 963 Hnz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Binauric"
+      source_row: 5
+  - catalog_id: cat_4hI4W1KwOS5x3OR0tE6gPJ_r6
+    artist_id: art_4hI4W1KwOS5x3OR0tE6gPJ
+    artist_name: "Binauric"
+    title: "Frecuencia de Sueño Sagrado y Purificación 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Binauric"
+      source_row: 6
+  - catalog_id: cat_4hI4W1KwOS5x3OR0tE6gPJ_r7
+    artist_id: art_4hI4W1KwOS5x3OR0tE6gPJ
+    artist_name: "Binauric"
+    title: "Sueño Liberador del Peso del Alma 396 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Binauric"
+      source_row: 7
+  - catalog_id: cat_3kKSVQVVHN96oRBC5vdJOz_r3
+    artist_id: art_3kKSVQVVHN96oRBC5vdJOz
+    artist_name: "Meditara"
+    title: "Protocolo Sueño Reparador 528 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Meditara"
+      source_row: 3
+  - catalog_id: cat_3kKSVQVVHN96oRBC5vdJOz_r4
+    artist_id: art_3kKSVQVVHN96oRBC5vdJOz
+    artist_name: "Meditara"
+    title: "Frecuencia de Anti Insomnio 1111 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Meditara"
+      source_row: 4
+  - catalog_id: cat_3kKSVQVVHN96oRBC5vdJOz_r5
+    artist_id: art_3kKSVQVVHN96oRBC5vdJOz
+    artist_name: "Meditara"
+    title: "Sueño sin Estrés Mental 963 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Meditara"
+      source_row: 5
+  - catalog_id: cat_3kKSVQVVHN96oRBC5vdJOz_r6
+    artist_id: art_3kKSVQVVHN96oRBC5vdJOz
+    artist_name: "Meditara"
+    title: "Vibración del Sueño REM 432 Hnz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Meditara"
+      source_row: 6
+  - catalog_id: cat_3kKSVQVVHN96oRBC5vdJOz_r7
+    artist_id: art_3kKSVQVVHN96oRBC5vdJOz
+    artist_name: "Meditara"
+    title: "Sueño de Dios 963 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Meditara"
+      source_row: 7
+  - catalog_id: cat_1ZtIHebQHlyC9S7ipjyVGj_r3
+    artist_id: art_1ZtIHebQHlyC9S7ipjyVGj
+    artist_name: "Prospperus"
+    title: "Frequência do Sucesso Material | 777 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Prospperus"
+      source_row: 3
+  - catalog_id: cat_1ZtIHebQHlyC9S7ipjyVGj_r4
+    artist_id: art_1ZtIHebQHlyC9S7ipjyVGj
+    artist_name: "Prospperus"
+    title: "Limpeza Energética do Campo Financeiro | 888 Hnz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Prospperus"
+      source_row: 4
+  - catalog_id: cat_1ZtIHebQHlyC9S7ipjyVGj_r5
+    artist_id: art_1ZtIHebQHlyC9S7ipjyVGj
+    artist_name: "Prospperus"
+    title: "Sono Reparador, Noite Próspera 777 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Prospperus"
+      source_row: 5
+  - catalog_id: cat_1ZtIHebQHlyC9S7ipjyVGj_r6
+    artist_id: art_1ZtIHebQHlyC9S7ipjyVGj
+    artist_name: "Prospperus"
+    title: "Sono Profundo e Próspero 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Prospperus"
+      source_row: 6
+  - catalog_id: cat_1ZtIHebQHlyC9S7ipjyVGj_r7
+    artist_id: art_1ZtIHebQHlyC9S7ipjyVGj
+    artist_name: "Prospperus"
+    title: "Sonho Lúcido da Prosperidade"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Prospperus"
+      source_row: 7
+  - catalog_id: cat_6RYDc9UaMo1ADFHVxCaPT7_r3
+    artist_id: art_6RYDc9UaMo1ADFHVxCaPT7
+    artist_name: "The Seven Archangels"
+    title: "Sueño Theta del Arcángel Miguel 528 Hz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "The Seven Archangels"
+      source_row: 3
+  - catalog_id: cat_6RYDc9UaMo1ADFHVxCaPT7_r4
+    artist_id: art_6RYDc9UaMo1ADFHVxCaPT7
+    artist_name: "The Seven Archangels"
+    title: "Sueño Seguro y Próspero de los Arcángeles 432 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "The Seven Archangels"
+      source_row: 4
+  - catalog_id: cat_6RYDc9UaMo1ADFHVxCaPT7_r5
+    artist_id: art_6RYDc9UaMo1ADFHVxCaPT7
+    artist_name: "The Seven Archangels"
+    title: "Sueño Terapéutico de los Arcángeles 528 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "The Seven Archangels"
+      source_row: 5
+  - catalog_id: cat_6RYDc9UaMo1ADFHVxCaPT7_r6
+    artist_id: art_6RYDc9UaMo1ADFHVxCaPT7
+    artist_name: "The Seven Archangels"
+    title: "Código de purificación angélica 777 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "The Seven Archangels"
+      source_row: 6
+  - catalog_id: cat_5R1ud4VWcDeMAodhF1EeWD_r3
+    artist_id: art_5R1ud4VWcDeMAodhF1EeWD
+    artist_name: "Raphael’s Healing Choir"
+    title: "Código de Purificación de los Ángeles 777 Hz"
+    album: UNKNOWN
+    release_month: "FEVEREIRO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Raphael’s Healing Choir"
+      source_row: 3
+  - catalog_id: cat_5R1ud4VWcDeMAodhF1EeWD_r4
+    artist_id: art_5R1ud4VWcDeMAodhF1EeWD
+    artist_name: "Raphael’s Healing Choir"
+    title: "Desintoxicación espiritual Sueño 528 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Raphael’s Healing Choir"
+      source_row: 4
+  - catalog_id: cat_5R1ud4VWcDeMAodhF1EeWD_r5
+    artist_id: art_5R1ud4VWcDeMAodhF1EeWD
+    artist_name: "Raphael’s Healing Choir"
+    title: "Sueño de Claridad Espiritual 852 Hz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Raphael’s Healing Choir"
+      source_row: 5
+  - catalog_id: cat_5R1ud4VWcDeMAodhF1EeWD_r6
+    artist_id: art_5R1ud4VWcDeMAodhF1EeWD
+    artist_name: "Raphael’s Healing Choir"
+    title: "Matriz de Sueño Profundo Divino 963 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Raphael’s Healing Choir"
+      source_row: 6
+  - catalog_id: cat_5hex8ZvC3cbCr9xCM1H99n_r4
+    artist_id: art_5hex8ZvC3cbCr9xCM1H99n
+    artist_name: "Brainora"
+    title: "Cortex Downshift (Delta Waves for Deep Sleep)"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Brainora"
+      source_row: 4
+  - catalog_id: cat_5hex8ZvC3cbCr9xCM1H99n_r5
+    artist_id: art_5hex8ZvC3cbCr9xCM1H99n
+    artist_name: "Brainora"
+    title: "Sleep Architecture (Brainwave Soundscapes for Deep Sleep)"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Brainora"
+      source_row: 5
+  - catalog_id: cat_5hex8ZvC3cbCr9xCM1H99n_r6
+    artist_id: art_5hex8ZvC3cbCr9xCM1H99n
+    artist_name: "Brainora"
+    title: "Calm Signal (Alpha Waves for Emotional Balance)"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Imusics"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Brainora"
+      source_row: 6
+  - catalog_id: cat_5hex8ZvC3cbCr9xCM1H99n_r7
+    artist_id: art_5hex8ZvC3cbCr9xCM1H99n
+    artist_name: "Brainora"
+    title: "Focus Spine (Alpha-Beta Waves for Concentration)"
+    album: UNKNOWN
+    release_month: "JUNHO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Brainora"
+      source_row: 7
+  - catalog_id: cat_7jgZvPmtbRQgE5u9Ot8OKh_r4
+    artist_id: art_7jgZvPmtbRQgE5u9Ot8OKh
+    artist_name: "Psalms Frequencies"
+    title: "Acalanto de Sião — 528 & 852 Hz"
+    album: UNKNOWN
+    release_month: "MARÇO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Psalms Frequencies"
+      source_row: 4
+  - catalog_id: cat_7jgZvPmtbRQgE5u9Ot8OKh_r5
+    artist_id: art_7jgZvPmtbRQgE5u9Ot8OKh
+    artist_name: "Psalms Frequencies"
+    title: "Arpa del Sueño Celestial 528 Hnz"
+    album: UNKNOWN
+    release_month: "ABRIL"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Makewaves"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Psalms Frequencies"
+      source_row: 5
+  - catalog_id: cat_7jgZvPmtbRQgE5u9Ot8OKh_r6
+    artist_id: art_7jgZvPmtbRQgE5u9Ot8OKh
+    artist_name: "Psalms Frequencies"
+    title: "Arpa Celestial del Sueño 528 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: UNKNOWN
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Psalms Frequencies"
+      source_row: 6
+  - catalog_id: cat_5FChe5Ft6PrY6EDD9icf4M_r6
+    artist_id: art_5FChe5Ft6PrY6EDD9icf4M
+    artist_name: "Silenciium"
+    title: "Frecuencia del Sueño Divino 852 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Silenciium"
+      source_row: 6
+  - catalog_id: cat_4W9EedUUZ7XBaQVK8ltOzq_r6
+    artist_id: art_4W9EedUUZ7XBaQVK8ltOzq
+    artist_name: "Vibração Consciente"
+    title: "Frequência Suprema da Consciência 963 Hz"
+    album: UNKNOWN
+    release_month: "MAIO"
+    release_year: UNKNOWN
+    status: "LANÇADO"
+    distributor: "Soundon"
+    source:
+      source_file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
+      source_sheet: "Vibração Consciente"
+      source_row: 6
