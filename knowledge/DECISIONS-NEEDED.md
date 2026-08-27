@@ -73,7 +73,7 @@ Os IDs mantêm rastreabilidade com a revisão crítica do `CLAUDE.md`.
 | P7 | Dashboards / tracking entre runs | POSTERGÁVEL | DEFERRED (2026-08-27) | Arquitetura |
 | P8 | Versionamento de prompts / reprodutibilidade | POSTERGÁVEL | DEFERRED (2026-08-27) | Arquitetura |
 | P9 | Conjunto de referência de concorrentes por cluster | POSTERGÁVEL | DEFERRED (2026-08-27) | Arquitetura |
-| P10 | Reconciliação textual completa do pipeline no CLAUDE.md | POSTERGÁVEL | DEFERRED (2026-08-27) | Proprietário + Arquitetura |
+| P10 | Reconciliação textual completa do pipeline no CLAUDE.md | POSTERGÁVEL | DECIDED (2026-08-27) | Proprietário + Arquitetura |
 
 ---
 
@@ -380,12 +380,18 @@ negócio (viola Engineering Rule #9) ou produz saída não utilizável.
      - MEDIUM
      - HIGH
   4. Red flags ou fatores impeditivos relevantes.
-  5. Uma recomendação operacional:
+  5. Uma recomendação operacional (`target_state`), que pode representar qualquer estado do
+     ciclo de vida conceitual:
      - EXPLORE
      - TEST
      - LAUNCH
-     - PARK
+     - SCALE
      - KILL
+     - PARK (estado adicional de pausa/priorização)
+
+     SCALE permanece um estado conceitual futuro do ciclo de vida (ver §9 do CLAUDE.md).
+     No V1, a execução permanece limitada a EXPLORE / TEST / PARK; LAUNCH, SCALE e KILL
+     permanecem conceituais/deferred até existirem dados reais de performance.
 
   A recomendação operacional deverá ser explicada através das evidências, avaliações,
   confiança e eventuais red flags.
@@ -1411,14 +1417,26 @@ agora.
 - **Recomendação:** agendar uma revisão do `CLAUDE.md` depois que C1–C10 estiverem
   `DECIDED`; não editar antes.
 - **Quem precisa decidir:** Proprietário + Arquitetura.
-- **Status:** DEFERRED (2026-08-27)
+- **Status:** DECIDED (2026-08-27)
 - **Resultado:**
 
-  Formalizada como DEFERRED pelo proprietário do negócio (Nicolas Alves) em 2026-08-27, com
-  a aprovação do conjunto de decisões. Não bloqueia o V1; conteúdo, recomendação e
-  justificativa acima permanecem válidos como registro. Será revisitada após a validação do
-  V1 (ver C10), quando aplicável — observando que C1–C10 já estão `DECIDED`, esta revisão
-  editorial do `CLAUDE.md` pode ser agendada quando o proprietário decidir.
+  A reconciliação do CLAUDE.md foi concluída após as decisões C1–C10 e I1–I12.
+
+  O documento foi revisado e alinhado às decisões formalizadas, incluindo:
+  - pipeline canônico;
+  - definição de oportunidade;
+  - fontes de sinal;
+  - avaliação;
+  - Business Outcome Profile;
+  - escopo do Market Intelligence V1;
+  - inventários;
+  - organização de conhecimento;
+  - stack técnico;
+  - guardrails;
+  - Definition of Done.
+
+  As decisões detalhadas e seu histórico permanecem registradas em
+  `knowledge/DECISIONS-NEEDED.md`.
 
 ---
 
