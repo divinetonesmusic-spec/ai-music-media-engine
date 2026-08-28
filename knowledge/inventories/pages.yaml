@@ -5,6 +5,14 @@ meta:
   generated_at: "2026-08-27"
   source_file: "PÁGINAS REDES SOCIAIS.xlsx"
   source_columns: ["PAGINA", "LINK"]
+  strategic_classification:
+    consolidated_at: "2026-08-27"
+    source: "knowledge/inventories/classification-input.yaml (classificacoes aprovadas pelo proprietario)"
+    taxonomy: "knowledge/clusters/cluster-taxonomy.md (Canonical V1)"
+    scope: "somente paginas ownership=own (5); paginas reference_competitor NAO recebem classificacao estrategica"
+    notes:
+      - "Campo purpose definido apenas para paginas proprias."
+      - "Fatos ausentes (status, followers) permanecem UNKNOWN."
 pages:
   - page_id: page_tiktok_mandalameditationss
     name: "Frequências de Sono Profundo"
@@ -16,9 +24,10 @@ pages:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Paginas que criei"
       source_row: 2
-    cluster: NEEDS_INPUT
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
+    cluster: "Sono"
+    language: "pt"
+    market: "Brasil"
+    purpose: "Aquisição de audiência + promoção de playlists/artistas + conteúdo de wellness"
     status: UNKNOWN
     followers: UNKNOWN
   - page_id: page_tiktok_frequenciasdivinas
@@ -31,9 +40,10 @@ pages:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Paginas que criei"
       source_row: 3
-    cluster: NEEDS_INPUT
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
+    cluster: "Frequência Divina / Espiritualidade"
+    language: "pt"
+    market: "Brasil"
+    purpose: "Aquisição de audiência + descoberta musical + promoção de playlists/artistas"
     status: UNKNOWN
     followers: UNKNOWN
   - page_id: page_tiktok_meditacao.sonora
@@ -46,9 +56,10 @@ pages:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Paginas que criei"
       source_row: 4
-    cluster: NEEDS_INPUT
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
+    cluster: "Meditação / Relaxamento"
+    language: "pt"
+    market: "Brasil"
+    purpose: "Aquisição de audiência + promoção de playlists/artistas + conteúdo de wellness"
     status: UNKNOWN
     followers: UNKNOWN
   - page_id: page_tiktok_energiaeterna888hz
@@ -61,9 +72,10 @@ pages:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Paginas que criei"
       source_row: 5
-    cluster: NEEDS_INPUT
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
+    cluster: "Frequência Divina / Espiritualidade"
+    language: "pt"
+    market: "Brasil"
+    purpose: "Aquisição de audiência + descoberta musical + promoção de playlists/artistas"
     status: UNKNOWN
     followers: UNKNOWN
   - page_id: page_tiktok_abundancia.divinaaofc
@@ -76,9 +88,10 @@ pages:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Paginas que criei"
       source_row: 6
-    cluster: NEEDS_INPUT
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
+    cluster: "Abundância / Prosperidade"
+    language: "pt"
+    market: "Brasil"
+    purpose: "Aquisição de audiência + promoção de playlists/artistas"
     status: UNKNOWN
     followers: UNKNOWN
   - page_id: page_tiktok_riquezaeharmonia23

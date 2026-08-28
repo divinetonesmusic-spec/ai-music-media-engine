@@ -1,0 +1,691 @@
+# =============================================================================
+# classification-input.yaml — Formulário de classificação estratégica dos ativos próprios
+# =============================================================================
+#
+# ESTE ARQUIVO É PREENCHIDO PELO PROPRIETÁRIO DO NEGÓCIO.
+#
+# Ele NÃO é gerado automaticamente com decisões. O gerador apenas montou a
+# estrutura (IDs e nomes factuais, copiados exatamente dos inventários) e marcou
+# todos os campos estratégicos como NEEDS_INPUT.
+#
+# Fontes factuais (somente leitura, não alteradas):
+#   - knowledge/inventories/artists.yaml
+#   - knowledge/inventories/playlists.yaml
+#   - knowledge/inventories/pages.yaml
+#   - knowledge/inventories/catalog.yaml
+#
+# SEMÂNTICA DOS MARCADORES
+#   NEEDS_INPUT  = o proprietário ainda precisa DECIDIR este valor.
+#                  Nunca deve ser usado UNKNOWN para uma decisão estratégica.
+#   UNKNOWN      = reservado para FATOS que não existem nas fontes
+#                  (ex.: nº de seguidores de uma playlist). Não aparece neste
+#                  formulário porque aqui só há decisões estratégicas + fatos já
+#                  disponíveis.
+#   ""           = campo de texto livre (notes) ainda sem conteúdo.
+#
+# COMO PREENCHER
+#   - Substitua cada NEEDS_INPUT pelo valor decidido.
+#   - primary_cluster: um nome de cluster (existente ou proposto).
+#   - secondary_clusters / hero_artists: listas YAML, ex.: [sleep, healing].
+#   - hero_artist: true | false.
+#   - language: pt | es | en   (mercados linguísticos do V1 — business-dna §8).
+#   - market: string de mercado nomeada (ex.: Brazil, Spanish-speaking LATAM, US, Global).
+#   - priority (playlists): high | medium | low   (definição do proprietário).
+#   - purpose / positioning: texto curto.
+#   - Deixe como NEEDS_INPUT o que ainda não foi decidido — não invente.
+#
+# REGRAS
+#   - IDs e nomes foram preservados EXATAMENTE como aparecem nos inventários.
+#   - Nenhum cluster/idioma/mercado/posicionamento/artista-herói foi inferido.
+#   - Apenas ativos PRÓPRIOS estão listados (páginas concorrentes/referência foram excluídas).
+#   - Relacionado: TECHNICAL-SPEC-V1 §15 (Unknown / Needs Input Semantics), decisão I1.
+#
+# MODELO ESTRATÉGICO DE ARTISTA (decisão do proprietário, 2026-08-27)
+#   - primary_cluster / secondary_clusters = AFINIDADE DE CATÁLOGO: o tema predominante
+#     ou o contexto editorial observado no catálogo do artista. NÃO é restrição.
+#   - Qualquer artista pode ser posicionado em qualquer cluster/playlist quando isso
+#     fizer parte da estratégia. Afinidade de catálogo não limita participação.
+#   - hero_artist é uma classificação ESTRATÉGICA INDEPENDENTE de primary_cluster.
+#   - Não concluir que um artista "não serve" para uma oportunidade só porque o
+#     catálogo dele tem afinidade com outro cluster.
+#   - Distinguir: catalog affinity vs. playlist placement vs. strategic hero status
+#     (ver business-dna.md §10-§11).
+#
+# APÓS PREENCHER
+#   Este arquivo será a fonte da classificação estratégica que o Market Intelligence
+#   V1 usará para Asset Matching. A forma de aplicá-lo aos inventários (merge vs.
+#   leitura direta) é uma decisão técnica pendente (ver TECHNICAL-SPEC-V1).
+# =============================================================================
+
+meta:
+  generated_at: "2026-08-27"
+  generated_by: "estrutura montada a partir dos inventários; valores estratégicos = NEEDS_INPUT"
+  owner: "Nicolas Alves (divinetonesmusic@gmail.com)"
+  status: "awaiting_owner_input"
+  counts:
+    artists: 37
+    playlists: 8
+    pages_own: 5
+
+# -----------------------------------------------------------------------------
+# 1. ARTISTS — 37 artistas próprios
+#    Campos estratégicos (todos NEEDS_INPUT): primary_cluster, secondary_clusters,
+#    language, market, positioning, hero_artist.
+# -----------------------------------------------------------------------------
+artists:
+  - artist_id: art_5NJXbvpRnlTAqZ5neNTWGT
+    name: "Meditação Sonora"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: true
+    notes: ""
+  - artist_id: art_6xdN570lrguPNEnPhANMmA
+    name: "Sinta-se Próspero"
+    primary_cluster: "Abundância / Prosperidade"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "963 Hz"
+      - "Manifestação"
+    language: pt
+    market: "Brasil"
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_4Is01TkyMdfYekLdFJ0MqV
+    name: "Opulentia Divina"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_7bnKOg3GDWAbLFtNhyn8Gw
+    name: "Sonia Amor Divino"
+    primary_cluster: "Sono Restaurador"
+    secondary_clusters:
+      - "Limpeza Energética"
+      - "Delta"
+      - "Theta"
+      - "528 Hz"
+    language: pt
+    market: "Brasil"
+    positioning: NEEDS_INPUT
+    hero_artist: true
+    notes: ""
+  - artist_id: art_5opHERa1SgwiRaozP8wqjj
+    name: "Divine Tones"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: true
+    notes: ""
+  - artist_id: art_0po1ZsFAwFIgNJDrksslV5
+    name: "Nimbus Sleep Sanctuary"
+    primary_cluster: "Sono Restaurador"
+    secondary_clusters:
+      - "Theta"
+      - "Purificação"
+      - "528 Hz"
+      - "432 Hz"
+    language: pt
+    market: "Brasil"
+    positioning: NEEDS_INPUT
+    hero_artist: true
+    notes: ""
+  - artist_id: art_4bBM9F42jCH36cLgZWB29P
+    name: "Divine Tones by Nikolai"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_4cmQKKLa01EKspZrAfGArk
+    name: "Nathaniel Lior Grace"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_1QO83ZoG47WT3SV5958lhD
+    name: "Templo Theta"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_1rGWl45kQm6h9PQEOOWGfZ
+    name: "Dormesia"
+    primary_cluster: "Sono Restaurador"
+    secondary_clusters:
+      - "Delta"
+      - "Theta"
+      - "528 Hz"
+      - "Purificação"
+    language: es
+    market: "Mercados hispanohablantes"
+    positioning: NEEDS_INPUT
+    hero_artist: true
+    notes: ""
+  - artist_id: art_5rW5NStZS26JvQ8Sa0csKX
+    name: "Diviniia"
+    primary_cluster: "Sono Restaurador"
+    secondary_clusters:
+      - "Ansiedade / Relaxamento (a formalizar)"
+      - "528 Hz"
+      - "963 Hz"
+    language: es
+    market: "Mercados hispanohablantes"
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_5bbVuL2WwR4t2394pvuPNE
+    name: "Aura de los Sueños"
+    primary_cluster: "Sono Restaurador"
+    secondary_clusters:
+      - "Purificação"
+      - "Descanso mental"
+    language: es
+    market: "Mercados hispanohablantes"
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_7yodVHRyk6pHTTzpp8XNRH
+    name: "Seraphim Frequencies"
+    primary_cluster: "Anjos / Espiritualidade Religiosa"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Cura / Bem-estar (a formalizar)"
+      - "528 Hz"
+    language: es
+    market: "Mercados hispanohablantes"
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_4FS4kfkdU1O5eAqrr8yZAf
+    name: "Coro dos Anjos"
+    primary_cluster: "Anjos / Espiritualidade Religiosa"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Glândula Pineal"
+      - "528 Hz"
+    language: pt
+    market: "Brasil"
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_7uDfdvq7PZmSkTdXHoJMMa
+    name: "Abundor"
+    primary_cluster: "Abundância / Prosperidade"
+    secondary_clusters:
+      - "Sono / Sonhos"
+      - "Manifestação"
+      - "528 Hz"
+    language: en
+    market: "English-speaking markets"
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_52SR4w9A8EKMeAE1R566AV
+    name: "Proverbia"
+    primary_cluster: "Anjos / Espiritualidade Religiosa"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Salmos"
+      - "Anjos"
+    language: es
+    market: "Mercados hispanohablantes"
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_123ak1WL7sEcaPTsWdy15I
+    name: "Cortiq"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_3RTxCJPJeU2EeuwmLRCA4A
+    name: "David’s Harp Meditation"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_3PwVtfCKvqMkafasmo6raa
+    name: "Salmo Sonoro"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_5SQX7a6G5C9Dz2SobHcdRI
+    name: "Brainhertz"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: true
+    notes: ""
+  - artist_id: art_3K6lhRvWlcu4SpsAmHMfK5
+    name: "Synaptica"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_64QX86LV0w94ZsCCNqfxmO
+    name: "Hypnozzert"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_4kvUKYYbJpugMmVOMJS6fv
+    name: "Hipnocortex"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_4UPN4d9ec5WKqAMsXkQ8nV
+    name: "Thetara"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: true
+    notes: ""
+  - artist_id: art_23C4aGKQlxYACGS9daOxJL
+    name: "Arcturian Healing Codes"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: true
+    notes: ""
+  - artist_id: art_49fktK7xQ9xlGYA8hOShx3
+    name: "Hertzia"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: true
+    notes: ""
+  - artist_id: art_3BRmD7iq3EFMKdhjU4UJx5
+    name: "Sonoriium"
+    primary_cluster: "Sono Restaurador"
+    secondary_clusters:
+      - "Delta"
+      - "Theta"
+      - "528 Hz"
+      - "963 Hz"
+      - "Manifestação"
+    language: es
+    market: "Mercados hispanohablantes"
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_1JEzsQ5PpE0mEzj1o3lvD1
+    name: "Frequenzia"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: true
+    notes: ""
+  - artist_id: art_4hI4W1KwOS5x3OR0tE6gPJ
+    name: "Binauric"
+    primary_cluster: "Sono Restaurador"
+    secondary_clusters:
+      - "Chakras / Espiritualidade"
+      - "Purificação"
+      - "Anti-insônia"
+      - "528 Hz"
+    language: es
+    market: "Mercados hispanohablantes"
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_3kKSVQVVHN96oRBC5vdJOz
+    name: "Meditara"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_1ZtIHebQHlyC9S7ipjyVGj
+    name: "Prospperus"
+    primary_cluster: "Abundância / Prosperidade"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Limpeza Energética"
+      - "Sonho Lúcido"
+      - "777 Hz"
+      - "888 Hz"
+    language: pt
+    market: "Brasil"
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_6RYDc9UaMo1ADFHVxCaPT7
+    name: "The Seven Archangels"
+    primary_cluster: "Anjos / Espiritualidade Religiosa"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Prosperidade"
+      - "Purificação"
+      - "528 Hz"
+    language: es
+    market: "Mercados hispanohablantes"
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_5R1ud4VWcDeMAodhF1EeWD
+    name: "Raphael’s Healing Choir"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_5hex8ZvC3cbCr9xCM1H99n
+    name: "Brainora"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_7jgZvPmtbRQgE5u9Ot8OKh
+    name: "Psalms Frequencies"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_5FChe5Ft6PrY6EDD9icf4M
+    name: "Silenciium"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+  - artist_id: art_4W9EedUUZ7XBaQVK8ltOzq
+    name: "Vibração Consciente"
+    primary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
+    language: NEEDS_INPUT
+    market: NEEDS_INPUT
+    positioning: NEEDS_INPUT
+    hero_artist: NEEDS_INPUT
+    notes: ""
+
+# -----------------------------------------------------------------------------
+# 2. PLAYLISTS — 8 playlists próprias (Spotify)
+#    Campos estratégicos (todos NEEDS_INPUT): primary_cluster, secondary_clusters,
+#    language, market, purpose, priority, hero_artists.
+# -----------------------------------------------------------------------------
+playlists:
+  - playlist_id: pl_5Wz1PL0H0t7f1qCuY989ZE
+    name: "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)"
+    primary_cluster: "Sono Restaurador"
+    secondary_clusters:
+      - "528 Hz"
+      - "Relaxamento"
+    language: es
+    market: "Mercados hispanohablantes"
+    purpose: "Aquisição social + consumo recorrente + promoção de artistas"
+    priority: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5   # Nimbus Sleep Sanctuary
+      - art_5opHERa1SgwiRaozP8wqjj   # Divine Tones
+      - art_7bnKOg3GDWAbLFtNhyn8Gw   # Sonia Amor Divino
+      - art_4UPN4d9ec5WKqAMsXkQ8nV   # Thetara
+      - art_5NJXbvpRnlTAqZ5neNTWGT   # Meditação Sonora
+      - art_49fktK7xQ9xlGYA8hOShx3   # Hertzia
+      - art_5SQX7a6G5C9Dz2SobHcdRI   # Brainhertz
+      - art_23C4aGKQlxYACGS9daOxJL   # Arcturian Healing Codes
+      - art_1rGWl45kQm6h9PQEOOWGfZ   # Dormesia
+      - art_1JEzsQ5PpE0mEzj1o3lvD1   # Frequenzia
+    notes: ""
+  - playlist_id: pl_4jmuWvaWI6BvsjhxmJBUao
+    name: "Sono Restaurador 432 Hz - Frequências Hertz para dormir e curar (2026)"
+    primary_cluster: "Sono Restaurador"
+    secondary_clusters:
+      - "432 Hz"
+      - "Relaxamento"
+    language: pt
+    market: "Brasil"
+    purpose: "Aquisição social + consumo recorrente + promoção de artistas"
+    priority: HIGH
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5   # Nimbus Sleep Sanctuary
+      - art_5opHERa1SgwiRaozP8wqjj   # Divine Tones
+      - art_7bnKOg3GDWAbLFtNhyn8Gw   # Sonia Amor Divino
+      - art_4UPN4d9ec5WKqAMsXkQ8nV   # Thetara
+      - art_5NJXbvpRnlTAqZ5neNTWGT   # Meditação Sonora
+      - art_49fktK7xQ9xlGYA8hOShx3   # Hertzia
+      - art_5SQX7a6G5C9Dz2SobHcdRI   # Brainhertz
+      - art_23C4aGKQlxYACGS9daOxJL   # Arcturian Healing Codes
+      - art_1rGWl45kQm6h9PQEOOWGfZ   # Dormesia
+      - art_1JEzsQ5PpE0mEzj1o3lvD1   # Frequenzia
+    notes: ""
+  - playlist_id: pl_4H6G5U09JST3szo4TSvetl
+    name: "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙"
+    primary_cluster: "Sono Restaurador"
+    secondary_clusters:
+      - "528 Hz"
+      - "Relaxamento"
+    language: es
+    market: "Mercados hispanohablantes"
+    purpose: "Aquisição social + consumo recorrente + promoção de artistas"
+    priority: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5   # Nimbus Sleep Sanctuary
+      - art_5opHERa1SgwiRaozP8wqjj   # Divine Tones
+      - art_7bnKOg3GDWAbLFtNhyn8Gw   # Sonia Amor Divino
+      - art_4UPN4d9ec5WKqAMsXkQ8nV   # Thetara
+      - art_5NJXbvpRnlTAqZ5neNTWGT   # Meditação Sonora
+      - art_49fktK7xQ9xlGYA8hOShx3   # Hertzia
+      - art_5SQX7a6G5C9Dz2SobHcdRI   # Brainhertz
+      - art_23C4aGKQlxYACGS9daOxJL   # Arcturian Healing Codes
+      - art_1rGWl45kQm6h9PQEOOWGfZ   # Dormesia
+      - art_1JEzsQ5PpE0mEzj1o3lvD1   # Frequenzia
+    notes: ""
+  - playlist_id: pl_0fzUPuhRHjqMyfOgNx0d4S
+    name: "Sueño Lúcido – Ondas Theta 8 Hz para Activar la Intuición y Controlar tus Sueños (2026)"
+    primary_cluster: "Sonho Lúcido"
+    secondary_clusters:
+      - "Theta"
+      - "Sonhos"
+      - "Espiritualidade"
+    language: es
+    market: "Mercados hispanohablantes"
+    purpose: "Aquisição social + nicho específico + promoção de artistas"
+    priority: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5   # Nimbus Sleep Sanctuary
+      - art_5opHERa1SgwiRaozP8wqjj   # Divine Tones
+      - art_7bnKOg3GDWAbLFtNhyn8Gw   # Sonia Amor Divino
+      - art_4UPN4d9ec5WKqAMsXkQ8nV   # Thetara
+      - art_5NJXbvpRnlTAqZ5neNTWGT   # Meditação Sonora
+      - art_49fktK7xQ9xlGYA8hOShx3   # Hertzia
+      - art_5SQX7a6G5C9Dz2SobHcdRI   # Brainhertz
+      - art_23C4aGKQlxYACGS9daOxJL   # Arcturian Healing Codes
+      - art_1rGWl45kQm6h9PQEOOWGfZ   # Dormesia
+      - art_1JEzsQ5PpE0mEzj1o3lvD1   # Frequenzia
+    notes: ""
+  - playlist_id: pl_2vZzaPRyZrrWqpt8zZ5wDs
+    name: "Abundância 888 Hz • Ativação da Prosperidade (2026)"
+    primary_cluster: "Abundância / Prosperidade"
+    secondary_clusters:
+      - "888 Hz"
+      - "Manifestação"
+    language: pt
+    market: "Brasil"
+    purpose: "Aquisição social + consumo recorrente + promoção de artistas"
+    priority: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5   # Nimbus Sleep Sanctuary
+      - art_5opHERa1SgwiRaozP8wqjj   # Divine Tones
+      - art_7bnKOg3GDWAbLFtNhyn8Gw   # Sonia Amor Divino
+      - art_4UPN4d9ec5WKqAMsXkQ8nV   # Thetara
+      - art_5NJXbvpRnlTAqZ5neNTWGT   # Meditação Sonora
+      - art_49fktK7xQ9xlGYA8hOShx3   # Hertzia
+      - art_5SQX7a6G5C9Dz2SobHcdRI   # Brainhertz
+      - art_23C4aGKQlxYACGS9daOxJL   # Arcturian Healing Codes
+      - art_1rGWl45kQm6h9PQEOOWGfZ   # Dormesia
+      - art_1JEzsQ5PpE0mEzj1o3lvD1   # Frequenzia
+    notes: ""
+  - playlist_id: pl_4oV5F1W2E6azZePnmqBanN
+    name: "Limpieza Energética & Protección del Hogar (2026)"
+    primary_cluster: "Limpeza Energética"
+    secondary_clusters:
+      - "Proteção"
+      - "Espiritualidade"
+      - "Lar"
+    language: es
+    market: "Mercados hispanohablantes"
+    purpose: "Aquisição social + consumo recorrente + promoção de artistas"
+    priority: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5   # Nimbus Sleep Sanctuary
+      - art_5opHERa1SgwiRaozP8wqjj   # Divine Tones
+      - art_7bnKOg3GDWAbLFtNhyn8Gw   # Sonia Amor Divino
+      - art_4UPN4d9ec5WKqAMsXkQ8nV   # Thetara
+      - art_5NJXbvpRnlTAqZ5neNTWGT   # Meditação Sonora
+      - art_49fktK7xQ9xlGYA8hOShx3   # Hertzia
+      - art_5SQX7a6G5C9Dz2SobHcdRI   # Brainhertz
+      - art_23C4aGKQlxYACGS9daOxJL   # Arcturian Healing Codes
+      - art_1rGWl45kQm6h9PQEOOWGfZ   # Dormesia
+      - art_1JEzsQ5PpE0mEzj1o3lvD1   # Frequenzia
+    notes: ""
+  - playlist_id: pl_5xDpa0ntzgXuCGFEJ64QWS
+    name: "Frecuencia divina 963 Hz - Activación del tercer ojo"
+    primary_cluster: "Frequência Divina / Espiritualidade"
+    secondary_clusters:
+      - "963 Hz"
+      - "Terceiro Olho"
+      - "Consciência"
+    language: es
+    market: "Mercados hispanohablantes"
+    purpose: "Aquisição social + nicho espiritual + promoção de artistas"
+    priority: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5   # Nimbus Sleep Sanctuary
+      - art_5opHERa1SgwiRaozP8wqjj   # Divine Tones
+      - art_7bnKOg3GDWAbLFtNhyn8Gw   # Sonia Amor Divino
+      - art_4UPN4d9ec5WKqAMsXkQ8nV   # Thetara
+      - art_5NJXbvpRnlTAqZ5neNTWGT   # Meditação Sonora
+      - art_49fktK7xQ9xlGYA8hOShx3   # Hertzia
+      - art_5SQX7a6G5C9Dz2SobHcdRI   # Brainhertz
+      - art_23C4aGKQlxYACGS9daOxJL   # Arcturian Healing Codes
+      - art_1rGWl45kQm6h9PQEOOWGfZ   # Dormesia
+      - art_1JEzsQ5PpE0mEzj1o3lvD1   # Frequenzia
+    notes: ""
+  - playlist_id: pl_2wQ3zDAXPdF9cLtR9OppyZ
+    name: "Limpeza da Glandula Pineal Frequências 963 Hz (2026)"
+    primary_cluster: "Glândula Pineal / Frequências"
+    secondary_clusters:
+      - "963 Hz"
+      - "Espiritualidade"
+    language: pt
+    market: "Brasil"
+    purpose: "Aquisição social + nicho específico + promoção de artistas"
+    priority: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5   # Nimbus Sleep Sanctuary
+      - art_5opHERa1SgwiRaozP8wqjj   # Divine Tones
+      - art_7bnKOg3GDWAbLFtNhyn8Gw   # Sonia Amor Divino
+      - art_4UPN4d9ec5WKqAMsXkQ8nV   # Thetara
+      - art_5NJXbvpRnlTAqZ5neNTWGT   # Meditação Sonora
+      - art_49fktK7xQ9xlGYA8hOShx3   # Hertzia
+      - art_5SQX7a6G5C9Dz2SobHcdRI   # Brainhertz
+      - art_23C4aGKQlxYACGS9daOxJL   # Arcturian Healing Codes
+      - art_1rGWl45kQm6h9PQEOOWGfZ   # Dormesia
+      - art_1JEzsQ5PpE0mEzj1o3lvD1   # Frequenzia
+    notes: ""
+
+# -----------------------------------------------------------------------------
+# 3. PAGES — 5 páginas próprias (concorrentes/referência excluídas)
+#    Factual pré-preenchido: platform. Estratégicos (NEEDS_INPUT): cluster,
+#    language, market, purpose.
+# -----------------------------------------------------------------------------
+pages:
+  - page_id: page_tiktok_mandalameditationss
+    name: "Frequências de Sono Profundo"
+    platform: "TikTok"
+    cluster: "Sono"
+    language: pt
+    market: "Brasil"
+    purpose: "Aquisição de audiência + promoção de playlists/artistas + conteúdo de wellness"
+    notes: ""
+  - page_id: page_tiktok_frequenciasdivinas
+    name: "Frequências Divinas"
+    platform: "TikTok"
+    cluster: "Frequência Divina / Espiritualidade"
+    language: pt
+    market: "Brasil"
+    purpose: "Aquisição de audiência + descoberta musical + promoção de playlists/artistas"
+    notes: ""
+  - page_id: page_tiktok_meditacao.sonora
+    name: "Meditação Sonora"
+    platform: "TikTok"
+    cluster: "Meditação / Relaxamento"
+    language: pt
+    market: "Brasil"
+    purpose: "Aquisição de audiência + promoção de playlists/artistas + conteúdo de wellness"
+    notes: ""
+  - page_id: page_tiktok_energiaeterna888hz
+    name: "Energia Eterna"
+    platform: "TikTok"
+    cluster: "Frequência Divina / Espiritualidade"
+    language: pt
+    market: "Brasil"
+    purpose: "Aquisição de audiência + descoberta musical + promoção de playlists/artistas"
+    notes: ""
+  - page_id: page_tiktok_abundancia.divinaaofc
+    name: "Abundância Divina"
+    platform: "TikTok"
+    cluster: "Abundância / Prosperidade"
+    language: pt
+    market: "Brasil"
+    purpose: "Aquisição de audiência + promoção de playlists/artistas"
+    notes: ""

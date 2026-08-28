@@ -6,6 +6,15 @@ meta:
   source_file: "PÁGINAS REDES SOCIAIS.xlsx"
   source_sheet: "Playlist`s"
   source_columns: ["NOME", "LINK"]
+  strategic_classification:
+    consolidated_at: "2026-08-27"
+    source: "knowledge/inventories/classification-input.yaml (classificacoes aprovadas pelo proprietario)"
+    taxonomy: "knowledge/clusters/cluster-taxonomy.md (Canonical V1)"
+    notes:
+      - "Normalizacao de cluster: 'Sono Restaurador' -> cluster raiz canonico 'Sono'; 'Sono Restaurador' preservado em secondary_clusters."
+      - "Campos adicionados a partir das classificacoes aprovadas: secondary_clusters, purpose, priority."
+      - "hero_artists: os 10 artistas herois definidos pelo proprietario, iguais nas 8 playlists (roster estrategico transversal - cluster nao restringe elegibilidade)."
+      - "owner_artists e demais fatos ausentes permanecem UNKNOWN; priority permanece NEEDS_INPUT onde nao decidida."
 playlists:
   - playlist_id: pl_5Wz1PL0H0t7f1qCuY989ZE
     name: "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)"
@@ -16,11 +25,27 @@ playlists:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Playlist`s"
       source_row: 2
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
-    cluster: NEEDS_INPUT
+    language: "es"
+    market: "Mercados hispanohablantes"
+    cluster: "Sono"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "528 Hz"
+      - "Relaxamento"
+    purpose: "Aquisição social + consumo recorrente + promoção de artistas"
+    priority: NEEDS_INPUT
     owner_artists: UNKNOWN
-    hero_artists: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5
+      - art_5opHERa1SgwiRaozP8wqjj
+      - art_7bnKOg3GDWAbLFtNhyn8Gw
+      - art_4UPN4d9ec5WKqAMsXkQ8nV
+      - art_5NJXbvpRnlTAqZ5neNTWGT
+      - art_49fktK7xQ9xlGYA8hOShx3
+      - art_5SQX7a6G5C9Dz2SobHcdRI
+      - art_23C4aGKQlxYACGS9daOxJL
+      - art_1rGWl45kQm6h9PQEOOWGfZ
+      - art_1JEzsQ5PpE0mEzj1o3lvD1
     followers: UNKNOWN
     track_count: UNKNOWN
   - playlist_id: pl_4jmuWvaWI6BvsjhxmJBUao
@@ -32,11 +57,27 @@ playlists:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Playlist`s"
       source_row: 3
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
-    cluster: NEEDS_INPUT
+    language: "pt"
+    market: "Brasil"
+    cluster: "Sono"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "432 Hz"
+      - "Relaxamento"
+    purpose: "Aquisição social + consumo recorrente + promoção de artistas"
+    priority: "HIGH"
     owner_artists: UNKNOWN
-    hero_artists: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5
+      - art_5opHERa1SgwiRaozP8wqjj
+      - art_7bnKOg3GDWAbLFtNhyn8Gw
+      - art_4UPN4d9ec5WKqAMsXkQ8nV
+      - art_5NJXbvpRnlTAqZ5neNTWGT
+      - art_49fktK7xQ9xlGYA8hOShx3
+      - art_5SQX7a6G5C9Dz2SobHcdRI
+      - art_23C4aGKQlxYACGS9daOxJL
+      - art_1rGWl45kQm6h9PQEOOWGfZ
+      - art_1JEzsQ5PpE0mEzj1o3lvD1
     followers: UNKNOWN
     track_count: UNKNOWN
   - playlist_id: pl_4H6G5U09JST3szo4TSvetl
@@ -48,11 +89,27 @@ playlists:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Playlist`s"
       source_row: 4
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
-    cluster: NEEDS_INPUT
+    language: "es"
+    market: "Mercados hispanohablantes"
+    cluster: "Sono"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "528 Hz"
+      - "Relaxamento"
+    purpose: "Aquisição social + consumo recorrente + promoção de artistas"
+    priority: NEEDS_INPUT
     owner_artists: UNKNOWN
-    hero_artists: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5
+      - art_5opHERa1SgwiRaozP8wqjj
+      - art_7bnKOg3GDWAbLFtNhyn8Gw
+      - art_4UPN4d9ec5WKqAMsXkQ8nV
+      - art_5NJXbvpRnlTAqZ5neNTWGT
+      - art_49fktK7xQ9xlGYA8hOShx3
+      - art_5SQX7a6G5C9Dz2SobHcdRI
+      - art_23C4aGKQlxYACGS9daOxJL
+      - art_1rGWl45kQm6h9PQEOOWGfZ
+      - art_1JEzsQ5PpE0mEzj1o3lvD1
     followers: UNKNOWN
     track_count: UNKNOWN
   - playlist_id: pl_0fzUPuhRHjqMyfOgNx0d4S
@@ -64,11 +121,27 @@ playlists:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Playlist`s"
       source_row: 5
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
-    cluster: NEEDS_INPUT
+    language: "es"
+    market: "Mercados hispanohablantes"
+    cluster: "Sonho Lúcido"
+    secondary_clusters:
+      - "Theta"
+      - "Sonhos"
+      - "Espiritualidade"
+    purpose: "Aquisição social + nicho específico + promoção de artistas"
+    priority: NEEDS_INPUT
     owner_artists: UNKNOWN
-    hero_artists: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5
+      - art_5opHERa1SgwiRaozP8wqjj
+      - art_7bnKOg3GDWAbLFtNhyn8Gw
+      - art_4UPN4d9ec5WKqAMsXkQ8nV
+      - art_5NJXbvpRnlTAqZ5neNTWGT
+      - art_49fktK7xQ9xlGYA8hOShx3
+      - art_5SQX7a6G5C9Dz2SobHcdRI
+      - art_23C4aGKQlxYACGS9daOxJL
+      - art_1rGWl45kQm6h9PQEOOWGfZ
+      - art_1JEzsQ5PpE0mEzj1o3lvD1
     followers: UNKNOWN
     track_count: UNKNOWN
   - playlist_id: pl_2vZzaPRyZrrWqpt8zZ5wDs
@@ -80,11 +153,26 @@ playlists:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Playlist`s"
       source_row: 6
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
-    cluster: NEEDS_INPUT
+    language: "pt"
+    market: "Brasil"
+    cluster: "Abundância / Prosperidade"
+    secondary_clusters:
+      - "888 Hz"
+      - "Manifestação"
+    purpose: "Aquisição social + consumo recorrente + promoção de artistas"
+    priority: NEEDS_INPUT
     owner_artists: UNKNOWN
-    hero_artists: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5
+      - art_5opHERa1SgwiRaozP8wqjj
+      - art_7bnKOg3GDWAbLFtNhyn8Gw
+      - art_4UPN4d9ec5WKqAMsXkQ8nV
+      - art_5NJXbvpRnlTAqZ5neNTWGT
+      - art_49fktK7xQ9xlGYA8hOShx3
+      - art_5SQX7a6G5C9Dz2SobHcdRI
+      - art_23C4aGKQlxYACGS9daOxJL
+      - art_1rGWl45kQm6h9PQEOOWGfZ
+      - art_1JEzsQ5PpE0mEzj1o3lvD1
     followers: UNKNOWN
     track_count: UNKNOWN
   - playlist_id: pl_4oV5F1W2E6azZePnmqBanN
@@ -96,11 +184,27 @@ playlists:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Playlist`s"
       source_row: 7
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
-    cluster: NEEDS_INPUT
+    language: "es"
+    market: "Mercados hispanohablantes"
+    cluster: "Limpeza Energética"
+    secondary_clusters:
+      - "Proteção"
+      - "Espiritualidade"
+      - "Lar"
+    purpose: "Aquisição social + consumo recorrente + promoção de artistas"
+    priority: NEEDS_INPUT
     owner_artists: UNKNOWN
-    hero_artists: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5
+      - art_5opHERa1SgwiRaozP8wqjj
+      - art_7bnKOg3GDWAbLFtNhyn8Gw
+      - art_4UPN4d9ec5WKqAMsXkQ8nV
+      - art_5NJXbvpRnlTAqZ5neNTWGT
+      - art_49fktK7xQ9xlGYA8hOShx3
+      - art_5SQX7a6G5C9Dz2SobHcdRI
+      - art_23C4aGKQlxYACGS9daOxJL
+      - art_1rGWl45kQm6h9PQEOOWGfZ
+      - art_1JEzsQ5PpE0mEzj1o3lvD1
     followers: UNKNOWN
     track_count: UNKNOWN
   - playlist_id: pl_5xDpa0ntzgXuCGFEJ64QWS
@@ -112,11 +216,27 @@ playlists:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Playlist`s"
       source_row: 8
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
-    cluster: NEEDS_INPUT
+    language: "es"
+    market: "Mercados hispanohablantes"
+    cluster: "Frequência Divina / Espiritualidade"
+    secondary_clusters:
+      - "963 Hz"
+      - "Terceiro Olho"
+      - "Consciência"
+    purpose: "Aquisição social + nicho espiritual + promoção de artistas"
+    priority: NEEDS_INPUT
     owner_artists: UNKNOWN
-    hero_artists: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5
+      - art_5opHERa1SgwiRaozP8wqjj
+      - art_7bnKOg3GDWAbLFtNhyn8Gw
+      - art_4UPN4d9ec5WKqAMsXkQ8nV
+      - art_5NJXbvpRnlTAqZ5neNTWGT
+      - art_49fktK7xQ9xlGYA8hOShx3
+      - art_5SQX7a6G5C9Dz2SobHcdRI
+      - art_23C4aGKQlxYACGS9daOxJL
+      - art_1rGWl45kQm6h9PQEOOWGfZ
+      - art_1JEzsQ5PpE0mEzj1o3lvD1
     followers: UNKNOWN
     track_count: UNKNOWN
   - playlist_id: pl_2wQ3zDAXPdF9cLtR9OppyZ
@@ -128,10 +248,25 @@ playlists:
       source_file: "PÁGINAS REDES SOCIAIS.xlsx"
       source_sheet: "Playlist`s"
       source_row: 9
-    language: NEEDS_INPUT
-    market: NEEDS_INPUT
-    cluster: NEEDS_INPUT
+    language: "pt"
+    market: "Brasil"
+    cluster: "Glândula Pineal / Frequências"
+    secondary_clusters:
+      - "963 Hz"
+      - "Espiritualidade"
+    purpose: "Aquisição social + nicho específico + promoção de artistas"
+    priority: NEEDS_INPUT
     owner_artists: UNKNOWN
-    hero_artists: NEEDS_INPUT
+    hero_artists:
+      - art_0po1ZsFAwFIgNJDrksslV5
+      - art_5opHERa1SgwiRaozP8wqjj
+      - art_7bnKOg3GDWAbLFtNhyn8Gw
+      - art_4UPN4d9ec5WKqAMsXkQ8nV
+      - art_5NJXbvpRnlTAqZ5neNTWGT
+      - art_49fktK7xQ9xlGYA8hOShx3
+      - art_5SQX7a6G5C9Dz2SobHcdRI
+      - art_23C4aGKQlxYACGS9daOxJL
+      - art_1rGWl45kQm6h9PQEOOWGfZ
+      - art_1JEzsQ5PpE0mEzj1o3lvD1
     followers: UNKNOWN
     track_count: UNKNOWN

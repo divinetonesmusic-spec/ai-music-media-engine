@@ -166,40 +166,59 @@ próprio. Está **fora do escopo do V1**.
 
 ## 10. Artist Architecture
 
-- Os artistas são organizados por **especialização temática / cluster**.
-- Exemplos fornecidos (ilustrativos — não é a lista oficial de artistas nem de clusters):
-  - um artista dedicado a sono;
-  - outro a abundância;
-  - outro a limpeza energética;
-  - outro a frequências / espiritualidade;
-  - outros artistas especializados em outros clusters.
-- Objetivo: manter **coerência** ao longo da cadeia
-  `artista → catálogo → cluster → playlist → audiência`.
-- **`NEEDS INPUT`:** roster real de artistas e o cluster de cada um (ver inventários — I1).
+Cada artista tem uma **afinidade de catálogo** — o tema predominante ou o contexto
+editorial observado no seu catálogo (ex.: sono, abundância, limpeza energética,
+frequências / espiritualidade). Essa afinidade é **contexto, não uma restrição**.
+
+Regra estratégica (decisão do proprietário, 2026-08-27):
+
+- **Qualquer artista pode participar de qualquer cluster e de qualquer playlist** quando
+  isso fizer parte da estratégia do negócio. A afinidade de catálogo **não limita** a
+  participação, independentemente do nome da faixa ou do tema predominante.
+- Três conceitos que o sistema deve manter **distintos** e nunca colapsar:
+  - **catalog affinity** — tema predominante observado no catálogo do artista;
+  - **playlist placement** — em quais playlists o artista está de fato posicionado
+    (decisão estratégica / operacional);
+  - **strategic hero status** — se o artista é um artista herói (ver §11); classificação
+    estratégica **independente** da afinidade de catálogo.
+- O sistema **não deve** concluir que um artista "não serve" para uma oportunidade apenas
+  porque o catálogo dele tem afinidade predominante com outro cluster.
+- Os exemplos de afinidade acima são ilustrativos — não são a lista oficial de artistas
+  nem de clusters.
+
+**`NEEDS INPUT`:** consolidação da afinidade de catálogo (`primary_cluster` / clusters
+secundários) dos 37 artistas — em andamento em
+`knowledge/inventories/classification-input.yaml` (ver I1).
 
 ---
 
 ## 11. Playlist Strategy
 
-- As playlists são **ativos centrais** do negócio.
+- As playlists são **ativos centrais** do negócio. A estratégia do negócio é **crescer os
+  artistas dentro das playlists**.
 - O conteúdo social pode direcionar tráfego para as playlists.
-- Dentro das playlists existem **"artistas heróis"**, que recebem prioridade de
-  posicionamento.
-- Objetivo: proporcionar exposição suficiente para gerar **sinais reais de consumo e
-  engajamento**, incluindo:
+- **Artistas heróis** são selecionados **estrategicamente** e posicionados **em todas as
+  playlists predefinidas**, para receber maior exposição e gerar **sinais reais de consumo
+  e engajamento**:
   - saves;
   - retorno;
   - repetição;
   - visitas ao perfil;
   - baixa taxa de skip;
   - outros sinais relevantes de comportamento.
+- O status de artista herói é uma **classificação estratégica independente** da afinidade
+  de catálogo do artista (ver §10).
+- **Roster de heróis (decisão do proprietário, 2026-08-27):** Nimbus Sleep Sanctuary;
+  Divine Tones; Sonia Amor Divino; Thetara; Meditação Sonora; Hertzia; Brainhertz;
+  Arcturian Healing Codes; Dormesia; Frequenzia. Fonte operacional:
+  `knowledge/inventories/classification-input.yaml` (`hero_artist: true`).
 - **Intenção estratégica:** aumentar a relevância dos artistas e playlists dentro do
   ecossistema do Spotify e ampliar as possibilidades de crescimento e descoberta, inclusive
   oportunidades relacionadas ao **Spotify Radio**.
 - **Ressalva obrigatória:** nenhum resultado futuro (crescimento, descoberta, inclusão em
   Radio) deve ser tratado como garantido.
-- **`NEEDS INPUT`:** quem são os "artistas heróis"; regras de posicionamento; inventário de
-  playlists (ver I1).
+- **`NEEDS INPUT`:** regras detalhadas de posicionamento; consolidação nos inventários (ver
+  I1).
 
 ---
 
@@ -294,8 +313,8 @@ C5, C6 e C9, ainda em aberto.
 | Music DNA (seção 9) | instrumentação, energia, duração, textura, BPM, uso de frequências, vocal/instrumental, critérios de sonoridade |
 | Mercados (seção 8) | países-alvo por idioma, prioridade entre idiomas, mercados fora de escopo |
 | Receita (seção 4) | pesos entre ecossistemas de royalties, participação esperada do YouTube Video, outras fontes |
-| Artistas (seção 10) | roster real de artistas e cluster de cada um |
-| Playlists (seção 11) | lista de "artistas heróis", regras de posicionamento |
+| Artistas (seção 10) | consolidação da afinidade de catálogo dos 37 (em andamento em classification-input.yaml) |
+| Playlists (seção 11) | regras detalhadas de posicionamento (roster de heróis já definido — ver §11) |
 | Inventários | playlists, páginas, catálogo (ver I1) |
 | Metodologia de conteúdo | material existente do negócio (ver I11) |
 

@@ -54,6 +54,7 @@ The business already operates with real assets. The structured inventory lives i
 Rules:
 
 - Treat the inventory as the source of truth for existing assets when assessing Asset Fit, Music Fit and the recommended playlist/page.
+- An artist's catalogue/cluster affinity is **context, not a placement restriction**: any artist can be placed in any cluster or playlist per business strategy, and `hero_artist` status is a separate strategic classification. Never infer that an artist does not fit an opportunity from a cluster mismatch. Keep `catalog affinity`, `playlist placement` and `strategic hero status` distinct. (See `knowledge/business-dna/business-dna.md` §10–§11.)
 - When a needed asset is not in the inventory, use `UNKNOWN` — never invent playlists, artists or pages.
 - The current inventory covers TikTok pages, Spotify playlists, artists and catalog. Instagram and Facebook pages have been referenced historically but are **not yet inventoried** — treat them as `UNKNOWN` until added.
 - Historical performance data (streams, saves, followers, skip rate) is **not yet available in structured form** — it is `UNKNOWN` across the current inventory.

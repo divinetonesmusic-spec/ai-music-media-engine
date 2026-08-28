@@ -11,6 +11,17 @@ meta:
     - file: "Controle Mensal 14 Artistas - Cintia e Nicolas (1).xlsx"
       note: "uma aba por artista; nome da aba = nome do artista; linha LINK SPOTIFY = URL do artista"
   ownership_note: "todos os artistas listados aparecem nas planilhas internas de controle mensal de artistas do negócio (ativos próprios)"
+  strategic_classification:
+    consolidated_at: "2026-08-27"
+    source: "knowledge/inventories/classification-input.yaml (classificacoes aprovadas pelo proprietario)"
+    taxonomy: "knowledge/clusters/cluster-taxonomy.md (Canonical V1)"
+    notes:
+      - "Somente classificacoes explicitamente aprovadas foram consolidadas; campos nao decididos permanecem NEEDS_INPUT."
+      - "Campo secondary_cluster (singular) renomeado para secondary_clusters (lista) nos 37 registros - sem perda de conteudo (valores anteriores eram NEEDS_INPUT)."
+      - "Normalizacao de cluster: primary_cluster 'Sono Restaurador' -> cluster raiz canonico 'Sono'; 'Sono Restaurador' preservado como subcluster em secondary_clusters."
+      - "Sufixo '(a formalizar)' removido de 'Ansiedade / Relaxamento' e 'Cura / Bem-estar' (agora clusters canonicos V1)."
+      - "positioning: mantido NEEDS_INPUT para os 37 (nao consolidado nesta etapa)."
+      - "hero_artist: true apenas para os 10 herois definidos pelo proprietario; demais permanecem NEEDS_INPUT."
 artists:
   - artist_id: art_5NJXbvpRnlTAqZ5neNTWGT
     name: "Meditação Sonora"
@@ -37,13 +48,13 @@ artists:
     release_months_observed: ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 5
     catalog_ref_prefix: "cat_5NJXbvpRnlTAqZ5neNTWGT_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
-    hero_artist: NEEDS_INPUT
+    hero_artist: true
   - artist_id: art_6xdN570lrguPNEnPhANMmA
     name: "Sinta-se Próspero"
     name_source:
@@ -69,11 +80,14 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 4
     catalog_ref_prefix: "cat_6xdN570lrguPNEnPhANMmA_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Abundância / Prosperidade"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "963 Hz"
+      - "Manifestação"
+    market: "Brasil"
+    language: "pt"
     positioning: NEEDS_INPUT
     hero_artist: NEEDS_INPUT
   - artist_id: art_4Is01TkyMdfYekLdFJ0MqV
@@ -101,9 +115,9 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 4
     catalog_ref_prefix: "cat_4Is01TkyMdfYekLdFJ0MqV_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -133,13 +147,18 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 4
     catalog_ref_prefix: "cat_7bnKOg3GDWAbLFtNhyn8Gw_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Sono"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Limpeza Energética"
+      - "Delta"
+      - "Theta"
+      - "528 Hz"
+    market: "Brasil"
+    language: "pt"
     positioning: NEEDS_INPUT
-    hero_artist: NEEDS_INPUT
+    hero_artist: true
   - artist_id: art_5opHERa1SgwiRaozP8wqjj
     name: "Divine Tones"
     name_source:
@@ -165,13 +184,13 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 4
     catalog_ref_prefix: "cat_5opHERa1SgwiRaozP8wqjj_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
-    hero_artist: NEEDS_INPUT
+    hero_artist: true
   - artist_id: art_0po1ZsFAwFIgNJDrksslV5
     name: "Nimbus Sleep Sanctuary"
     name_source:
@@ -197,13 +216,18 @@ artists:
     release_months_observed: ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 5
     catalog_ref_prefix: "cat_0po1ZsFAwFIgNJDrksslV5_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Sono"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Theta"
+      - "Purificação"
+      - "528 Hz"
+      - "432 Hz"
+    market: "Brasil"
+    language: "pt"
     positioning: NEEDS_INPUT
-    hero_artist: NEEDS_INPUT
+    hero_artist: true
   - artist_id: art_4bBM9F42jCH36cLgZWB29P
     name: "Divine Tones by Nikolai"
     name_source:
@@ -229,9 +253,9 @@ artists:
     release_months_observed: ["MAIO"]
     releases_count: 1
     catalog_ref_prefix: "cat_4bBM9F42jCH36cLgZWB29P_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -261,9 +285,9 @@ artists:
     release_months_observed: ["MAIO"]
     releases_count: 1
     catalog_ref_prefix: "cat_4cmQKKLa01EKspZrAfGArk_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -293,9 +317,9 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO"]
     releases_count: 5
     catalog_ref_prefix: "cat_1QO83ZoG47WT3SV5958lhD_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -325,13 +349,18 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 5
     catalog_ref_prefix: "cat_1rGWl45kQm6h9PQEOOWGfZ_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Sono"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Delta"
+      - "Theta"
+      - "528 Hz"
+      - "Purificação"
+    market: "Mercados hispanohablantes"
+    language: "es"
     positioning: NEEDS_INPUT
-    hero_artist: NEEDS_INPUT
+    hero_artist: true
   - artist_id: art_5rW5NStZS26JvQ8Sa0csKX
     name: "Diviniia"
     name_source:
@@ -357,11 +386,15 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 5
     catalog_ref_prefix: "cat_5rW5NStZS26JvQ8Sa0csKX_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Sono"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Ansiedade / Relaxamento"
+      - "528 Hz"
+      - "963 Hz"
+    market: "Mercados hispanohablantes"
+    language: "es"
     positioning: NEEDS_INPUT
     hero_artist: NEEDS_INPUT
   - artist_id: art_5bbVuL2WwR4t2394pvuPNE
@@ -389,11 +422,14 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 4
     catalog_ref_prefix: "cat_5bbVuL2WwR4t2394pvuPNE_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Sono"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Purificação"
+      - "Descanso mental"
+    market: "Mercados hispanohablantes"
+    language: "es"
     positioning: NEEDS_INPUT
     hero_artist: NEEDS_INPUT
   - artist_id: art_7yodVHRyk6pHTTzpp8XNRH
@@ -421,11 +457,14 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 4
     catalog_ref_prefix: "cat_7yodVHRyk6pHTTzpp8XNRH_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Anjos / Espiritualidade Religiosa"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Cura / Bem-estar"
+      - "528 Hz"
+    market: "Mercados hispanohablantes"
+    language: "es"
     positioning: NEEDS_INPUT
     hero_artist: NEEDS_INPUT
   - artist_id: art_4FS4kfkdU1O5eAqrr8yZAf
@@ -453,11 +492,14 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 4
     catalog_ref_prefix: "cat_4FS4kfkdU1O5eAqrr8yZAf_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Anjos / Espiritualidade Religiosa"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Glândula Pineal"
+      - "528 Hz"
+    market: "Brasil"
+    language: "pt"
     positioning: NEEDS_INPUT
     hero_artist: NEEDS_INPUT
   - artist_id: art_7uDfdvq7PZmSkTdXHoJMMa
@@ -485,11 +527,14 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO"]
     releases_count: 5
     catalog_ref_prefix: "cat_7uDfdvq7PZmSkTdXHoJMMa_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Abundância / Prosperidade"
+    secondary_clusters:
+      - "Sono / Sonhos"
+      - "Manifestação"
+      - "528 Hz"
+    market: "English-speaking markets"
+    language: "en"
     positioning: NEEDS_INPUT
     hero_artist: NEEDS_INPUT
   - artist_id: art_52SR4w9A8EKMeAE1R566AV
@@ -517,11 +562,14 @@ artists:
     release_months_observed: ["MARÇO", "ABRIL", "MAIO", "JUNHO"]
     releases_count: 4
     catalog_ref_prefix: "cat_52SR4w9A8EKMeAE1R566AV_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Anjos / Espiritualidade Religiosa"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Salmos"
+      - "Anjos"
+    market: "Mercados hispanohablantes"
+    language: "es"
     positioning: NEEDS_INPUT
     hero_artist: NEEDS_INPUT
   - artist_id: art_123ak1WL7sEcaPTsWdy15I
@@ -549,9 +597,9 @@ artists:
     release_months_observed: ["MAIO", "JUNHO"]
     releases_count: 2
     catalog_ref_prefix: "cat_123ak1WL7sEcaPTsWdy15I_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -581,9 +629,9 @@ artists:
     release_months_observed: ["MAIO", "JUNHO"]
     releases_count: 2
     catalog_ref_prefix: "cat_3RTxCJPJeU2EeuwmLRCA4A_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -613,9 +661,9 @@ artists:
     release_months_observed: ["MAIO", "JUNHO"]
     releases_count: 2
     catalog_ref_prefix: "cat_3PwVtfCKvqMkafasmo6raa_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -645,13 +693,13 @@ artists:
     release_months_observed: ["MAIO", "JUNHO", "JULHO"]
     releases_count: 3
     catalog_ref_prefix: "cat_5SQX7a6G5C9Dz2SobHcdRI_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
-    hero_artist: NEEDS_INPUT
+    hero_artist: true
   - artist_id: art_3K6lhRvWlcu4SpsAmHMfK5
     name: "Synaptica"
     name_source:
@@ -677,9 +725,9 @@ artists:
     release_months_observed: ["MAIO", "JUNHO"]
     releases_count: 2
     catalog_ref_prefix: "cat_3K6lhRvWlcu4SpsAmHMfK5_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -709,9 +757,9 @@ artists:
     release_months_observed: ["MAIO", "JUNHO"]
     releases_count: 2
     catalog_ref_prefix: "cat_64QX86LV0w94ZsCCNqfxmO_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -741,9 +789,9 @@ artists:
     release_months_observed: ["MAIO", "JUNHO"]
     releases_count: 2
     catalog_ref_prefix: "cat_4kvUKYYbJpugMmVOMJS6fv_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -773,13 +821,13 @@ artists:
     release_months_observed: ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 5
     catalog_ref_prefix: "cat_4UPN4d9ec5WKqAMsXkQ8nV_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
-    hero_artist: NEEDS_INPUT
+    hero_artist: true
   - artist_id: art_23C4aGKQlxYACGS9daOxJL
     name: "Arcturian Healing Codes"
     name_source:
@@ -805,13 +853,13 @@ artists:
     release_months_observed: ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 5
     catalog_ref_prefix: "cat_23C4aGKQlxYACGS9daOxJL_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
-    hero_artist: NEEDS_INPUT
+    hero_artist: true
   - artist_id: art_49fktK7xQ9xlGYA8hOShx3
     name: "Hertzia"
     name_source:
@@ -837,13 +885,13 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 4
     catalog_ref_prefix: "cat_49fktK7xQ9xlGYA8hOShx3_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
-    hero_artist: NEEDS_INPUT
+    hero_artist: true
   - artist_id: art_3BRmD7iq3EFMKdhjU4UJx5
     name: "Sonoriium"
     name_source:
@@ -869,11 +917,17 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 5
     catalog_ref_prefix: "cat_3BRmD7iq3EFMKdhjU4UJx5_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Sono"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Delta"
+      - "Theta"
+      - "528 Hz"
+      - "963 Hz"
+      - "Manifestação"
+    market: "Mercados hispanohablantes"
+    language: "es"
     positioning: NEEDS_INPUT
     hero_artist: NEEDS_INPUT
   - artist_id: art_1JEzsQ5PpE0mEzj1o3lvD1
@@ -901,13 +955,13 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "MAIO"]
     releases_count: 3
     catalog_ref_prefix: "cat_1JEzsQ5PpE0mEzj1o3lvD1_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
-    hero_artist: NEEDS_INPUT
+    hero_artist: true
   - artist_id: art_4hI4W1KwOS5x3OR0tE6gPJ
     name: "Binauric"
     name_source:
@@ -933,11 +987,16 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 5
     catalog_ref_prefix: "cat_4hI4W1KwOS5x3OR0tE6gPJ_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Sono"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Chakras / Espiritualidade"
+      - "Purificação"
+      - "Anti-insônia"
+      - "528 Hz"
+    market: "Mercados hispanohablantes"
+    language: "es"
     positioning: NEEDS_INPUT
     hero_artist: NEEDS_INPUT
   - artist_id: art_3kKSVQVVHN96oRBC5vdJOz
@@ -965,9 +1024,9 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 5
     catalog_ref_prefix: "cat_3kKSVQVVHN96oRBC5vdJOz_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -997,11 +1056,16 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 5
     catalog_ref_prefix: "cat_1ZtIHebQHlyC9S7ipjyVGj_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Abundância / Prosperidade"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Limpeza Energética"
+      - "Sonho Lúcido"
+      - "777 Hz"
+      - "888 Hz"
+    market: "Brasil"
+    language: "pt"
     positioning: NEEDS_INPUT
     hero_artist: NEEDS_INPUT
   - artist_id: art_6RYDc9UaMo1ADFHVxCaPT7
@@ -1029,11 +1093,15 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 4
     catalog_ref_prefix: "cat_6RYDc9UaMo1ADFHVxCaPT7_"
-    # --- classificação estratégica (preencher por humano) ---
-    primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
-    market: NEEDS_INPUT
-    language: NEEDS_INPUT
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
+    primary_cluster: "Anjos / Espiritualidade Religiosa"
+    secondary_clusters:
+      - "Sono Restaurador"
+      - "Prosperidade"
+      - "Purificação"
+      - "528 Hz"
+    market: "Mercados hispanohablantes"
+    language: "es"
     positioning: NEEDS_INPUT
     hero_artist: NEEDS_INPUT
   - artist_id: art_5R1ud4VWcDeMAodhF1EeWD
@@ -1061,9 +1129,9 @@ artists:
     release_months_observed: ["FEVEREIRO", "MARÇO", "ABRIL", "MAIO"]
     releases_count: 4
     catalog_ref_prefix: "cat_5R1ud4VWcDeMAodhF1EeWD_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -1093,9 +1161,9 @@ artists:
     release_months_observed: ["MARÇO", "ABRIL", "MAIO", "JUNHO"]
     releases_count: 4
     catalog_ref_prefix: "cat_5hex8ZvC3cbCr9xCM1H99n_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -1125,9 +1193,9 @@ artists:
     release_months_observed: ["MARÇO", "ABRIL", "MAIO"]
     releases_count: 3
     catalog_ref_prefix: "cat_7jgZvPmtbRQgE5u9Ot8OKh_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -1157,9 +1225,9 @@ artists:
     release_months_observed: ["MAIO"]
     releases_count: 1
     catalog_ref_prefix: "cat_5FChe5Ft6PrY6EDD9icf4M_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
@@ -1189,9 +1257,9 @@ artists:
     release_months_observed: ["MAIO"]
     releases_count: 1
     catalog_ref_prefix: "cat_4W9EedUUZ7XBaQVK8ltOzq_"
-    # --- classificação estratégica (preencher por humano) ---
+    # --- classificação estratégica (consolidada de classification-input.yaml em 2026-08-27; NEEDS_INPUT = pendente) ---
     primary_cluster: NEEDS_INPUT
-    secondary_cluster: NEEDS_INPUT
+    secondary_clusters: NEEDS_INPUT
     market: NEEDS_INPUT
     language: NEEDS_INPUT
     positioning: NEEDS_INPUT
