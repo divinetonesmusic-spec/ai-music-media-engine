@@ -1,0 +1,61 @@
+[
+  {
+    "signal_id": "sig_run_2026-08-28_01_0001",
+    "schema_version": "1.0.0",
+    "run_id": "run_2026-08-28_01",
+    "source": "Google — search interest",
+    "source_type": "web_search",
+    "observed_at": "2026-08-20",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "web",
+    "signal_type": "search_trend",
+    "evidence": "Search interest for the Portuguese query 'como voltar a dormir' rose steadily over the last 90 days in Brazil.",
+    "raw_ref": "data/run_2026-08-28_01/signals/raw/sig_run_2026-08-28_01_0001.json",
+    "context": "Google Trends web interest, geo Brazil, past 90 days, Portuguese-language query.",
+    "confidence": "MEDIUM",
+    "url": "https://trends.google.com/trends/explore?q=como%20voltar%20a%20dormir&geo=BR",
+    "durability_hint": "STRUCTURAL",
+    "provenance": {
+      "source": "Google — search interest",
+      "source_type": "web_search",
+      "observed_at": "2026-08-20",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "\"como voltar a dormir\" tendência 2026 site:trends.google.com",
+      "capture_method": "claude_web_search",
+      "url": "https://trends.google.com/trends/explore?q=como%20voltar%20a%20dormir&geo=BR",
+      "source_version": "UNKNOWN"
+    }
+  },
+  {
+    "signal_id": "sig_run_2026-08-28_01_0002",
+    "schema_version": "1.0.0",
+    "run_id": "run_2026-08-28_01",
+    "source": "TikTok Creative Center — Hashtags",
+    "source_type": "tiktok_creative_center",
+    "observed_at": "2026-08-25",
+    "collected_at": "2026-08-28T14:05:00Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "tiktok",
+    "signal_type": "hashtag",
+    "evidence": "The hashtag #sonoprofundo shows growing view counts in the Creative Center hashtag panel for Brazil.",
+    "raw_ref": "data/run_2026-08-28_01/signals/raw/sig_run_2026-08-28_01_0002.json",
+    "context": "Analyst capture from the TikTok Creative Center hashtag panel, region Brazil, 30-day window.",
+    "confidence": "MEDIUM",
+    "raw_excerpt": "#sonoprofundo — 30d views trend: up; region: Brazil",
+    "durability_hint": "EMERGING",
+    "metrics": { "views_30d": "UNKNOWN", "trend_direction": "up" },
+    "provenance": {
+      "source": "TikTok Creative Center — Hashtags",
+      "source_type": "tiktok_creative_center",
+      "observed_at": "2026-08-25",
+      "collected_at": "2026-08-28T14:05:00Z",
+      "query_or_reference": "Hashtag panel; region=Brazil; category=All; window=30d",
+      "capture_method": "analyst_capture",
+      "url": "UNKNOWN",
+      "source_version": "2026-08 panel snapshot"
+    }
+  }
+]

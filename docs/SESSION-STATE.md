@@ -22,11 +22,16 @@ sources_of_truth:
 
 ## Current Phase
 
-**V1 — Market Intelligence + Opportunity Analysis.** The full V1 knowledge base and the
-technical specification are complete and internally reconciled; **no pipeline code has been
-written yet** and the project is at the point of starting V1 implementation.
+**V1 — Market Intelligence + Opportunity Analysis.** The knowledge base and technical
+specification are complete and reconciled. **V1 implementation has started** (owner
+authorized code on 2026-08-28). The **Foundation layer** — controlled vocabularies,
+dataclass schemas + codec, deterministic ids, §13 validators, config loading, Knowledge
+Loader, preflight — is implemented and test-covered on **Python 3.12** (124 pytest tests
+green, `ruff` clean). **Signal Collection and everything after it are not built yet.**
 
 ## Completed
+
+### Knowledge base & specification (2026-08-27)
 
 - **Architectural review** of the repo against `CLAUDE.md`.
 - **Critical review of `CLAUDE.md`** formalized into `knowledge/DECISIONS-NEEDED.md`
@@ -59,6 +64,44 @@ written yet** and the project is at the point of starting V1 implementation.
 - **Private GitHub repo** created and all work pushed:
   `divinetonesmusic-spec/ai-music-media-engine` (visibility PRIVATE).
 
+### V1 Foundation implementation (2026-08-28) — uncommitted working tree
+
+- **Owner ratified the Foundation stack `TECHNICAL DEFAULT`s**, with one change:
+  **Python 3.12, not 3.9** (3.9 is EOL). Homebrew `python@3.12` installed; `.venv` recreated
+  on it; `pyproject.toml` pins `requires-python = ">=3.12,<3.13"`, `ruff` `target-version = "py312"`.
+  Also ratified: stdlib `dataclasses` + hand-written validators (**no pydantic**); `src/`
+  layout; missing registry ⇒ treated as empty. **Not yet folded into
+  `knowledge/DECISIONS-NEEDED.md`** — I10's text still just says "Python 3".
+- **Foundation layer implemented** (TDD; `src/market_intelligence/`): **124 pytest tests
+  pass, `ruff check` clean.**
+  - `schema/enums.py` — controlled vocabularies (§6.2, §7.1a, §8.1, §9); `LANGUAGE_TO_MARKET`,
+    `DIMENSION_KEYS` (10), `AXIS_KEYS` (5), `V1_OPERATIONAL_STATES`.
+  - `schema/models.py` — dataclass models for every entity (§6 Signal/Provenance, §7
+    Opportunity/EvidenceItem/Hypotheses, §8 Evaluation, §9 BusinessOutcomeProfile, §10
+    AssetMatch, §12 Recommendation/report front matter, §16 OpportunityProvenance, §20
+    RunConfig).
+  - `schema/codec.py` — generic dataclass ⇄ plain-dict codec (YAML/JSON round-trip; structural
+    checks only; field-alias support for the reserved word `from`).
+  - `schema/ids.py` — deterministic `opportunity_id` (sha1 of the C1 tuple, §7.1) and
+    `signal_id` (§6.1); collision-suffix helper.
+  - `schema/validate.py` — §13 validators returning `list[ValidationError]` (severity
+    `ERROR` blocks presentation / `WARNING` logged); `InventoryIndex`; the "no 0–100 score"
+    scanner (C6); one valid + one invalid fixture per §13 rule (52 tests).
+  - `config/loader.py` + `config/{run.example,ranking,dedup}.yaml` — RunConfig load + default
+    fill (§20); ranking comparator constants (§11.1) and dedup-key definition (§6.6) as data.
+  - `io_utils.py` — YAML / Markdown-front-matter / fenced-`yaml`-block readers; `LoadError`.
+  - `knowledge_loader.py` — Knowledge Loader (§18): loads business-dna, `guardrails.yaml`
+    (validates 10 = G01–G10), `cluster-taxonomy.md` (validates 11 canonical ids), the 4
+    inventories (non-empty, id present), the registry (absent ⇒ `[]`). **Hard-fails
+    (`KnowledgeError`) on any missing/malformed required file** (§3, §14).
+  - `preflight.py` + `__main__.py` — `load & validate config → Knowledge Loader` (head of the
+    §5 run lifecycle); CLI `python -m market_intelligence preflight config/run.example.yaml`
+    → `PREFLIGHT OK` against the real repo.
+  - `tests/fixtures/` — canonical spec-§13-valid `Opportunity` + `Signal` JSON fixtures.
+- **`README.md`** populated (dev setup, layout, Foundation status table).
+- **`.gitignore`** extended: `/data/`, `.venv/`, Python build/cache artifacts. `reports/`
+  stays tracked (durable output, I7).
+
 ## Current Architecture
 
 Per `docs/TECHNICAL-SPEC-V1.md` (the authoritative implementation spec):
@@ -70,6 +113,14 @@ Per `docs/TECHNICAL-SPEC-V1.md` (the authoritative implementation spec):
   components** (I8) — Knowledge Loader → 1 Signal Collection → 2 Signal Normalization →
   3 Analysis/Framing → 4 Asset Matching → 5 Evaluation → 6 Ranking/Prioritization →
   7 Report Generation → Registry Updater. No monolithic prompt, no multi-agent orchestration.
+- **Implementation status:** **Foundation done** (`market_intelligence.{schema.*, config.loader,
+  io_utils, knowledge_loader, preflight}`). Signal Collection onward **not started**. The
+  orchestrator itself is not written yet — `preflight` covers the `load config → Knowledge
+  Loader` head of §5.
+- **Schema layer:** stdlib `dataclasses` + a generic codec; the §13 rules are hand-written
+  validators returning `ValidationError` (`ERROR` blocks presentation, `WARNING` is logged).
+  **No pydantic** (I10 — no unnecessary complexity). Enums are `(str, Enum)`, so `.value` is
+  used wherever the raw string matters (id hashing, serialization).
 - **Claude vs deterministic:** Claude does research (server-side Web Search), framing,
   evidence typing, fit judgement, rating/justification, prose. Deterministic code does
   loading, schema validation, id assignment, dedup, candidate filtering, asset-existence
@@ -88,7 +139,9 @@ Per `docs/TECHNICAL-SPEC-V1.md` (the authoritative implementation spec):
   written under `reports/<run_id>/`. Regenerable data under `data/<run_id>/`.
 - **Opportunity registry (I2):** `knowledge/market/opportunity-registry.yaml`, append-only,
   written by the pipeline (governance exception documented in spec §17).
-- **Stack (I10):** Python 3, Claude, YAML + Markdown + JSON, Git. No database, queue or
+- **Stack (I10):** **Python 3.12** (owner decision 2026-08-28 — refines I10's "Python 3";
+  3.9 is EOL. `pyproject.toml` pins `requires-python = ">=3.12,<3.13"`; local runtime is
+  Homebrew `python@3.12`), Claude, YAML + Markdown + JSON, Git. No database, queue or
   server. Test runner `pytest`, TDD. `replay` mode for offline deterministic testing.
 - **Autonomy:** Level 1 for every action — the system only recommends; humans execute.
 
@@ -151,24 +204,32 @@ Not yet inventoried: Instagram and Facebook pages (`UNKNOWN`). Historical perfor
 
 ## Last Completed Step
 
-Minimal revision of `docs/TECHNICAL-SPEC-V1.md` following the Implementation Readiness
-Review, plus creation of `knowledge/rules/guardrails.yaml` (10 guardrails `G01`–`G10`).
-This resolved the single BLOCKER (signal-collection mechanism undefined) and all
-NEEDS_CLARIFICATION items without changing the approved architecture; the re-run readiness
-verdict is **READY**. Committed and pushed.
+Migrated the V1 dev/runtime to **Python 3.12** (owner decision — 3.9 is EOL): installed
+Homebrew `python@3.12` (3.12.14), recreated `.venv` on it, set
+`requires-python = ">=3.12,<3.13"` and `ruff` `target-version = "py312"`, reinstalled deps.
+**No source changes were needed** — the codebase was already 3.12-compatible (`typing.Optional/
+List` + `from __future__ import annotations` retained on purpose; codec resolves annotations
+at runtime). `pytest` (124 passed), `ruff check src tests` (clean) and
+`python -m market_intelligence preflight config/run.example.yaml` (`PREFLIGHT OK`, exit 0)
+all pass on 3.12. Preceded, in the same session, by the full V1 Foundation-layer
+implementation (schemas → codec → ids → §13 validators → fixtures → config loader →
+Knowledge Loader → preflight). **Nothing committed.**
 
 ## Last Commit
 
 ```
-b8fec98  feat: finalize market intelligence v1 specification
+0ee23b1  chore: add project engineering guardrails and session state
 ```
 
-Full hash: `b8fec980d0c2e0f2de2916e77b979b773b4705f5`
-Files: `docs/TECHNICAL-SPEC-V1.md` (modified), `knowledge/rules/guardrails.yaml` (new).
+Full hash: `0ee23b1bd2a347147dd98c6575cf74824cde44de` — 2026-08-28T12:44:16-03:00
+Files: `.claude/hooks/{guard-knowledge,block-dangerous-git}.sh`, `.claude/settings.json`,
+`.claude/agents/spec-consistency-reviewer.md`, `.claude/skills/update-session-state/SKILL.md`,
+`docs/SESSION-STATE.md` (new).
 
 Recent history:
 
 ```
+0ee23b1  chore: add project engineering guardrails and session state
 b8fec98  feat: finalize market intelligence v1 specification
 2154c07  feat: V1 knowledge base — asset classification, cluster taxonomy, technical spec
 d236323  docs: reconcile V1 project specification
@@ -177,38 +238,69 @@ cf76fe1  chore: finalize V1 business decisions and inventories
 00600cc  chore: initialize AI Music Media Engine
 ```
 
+**Uncommitted working tree** (the entire V1 Foundation + the Python 3.12 migration — awaiting
+owner review; nothing has been committed or pushed):
+
+- Modified: `.gitignore`, `README.md`, `docs/SESSION-STATE.md` (this file).
+- Untracked: `pyproject.toml`, `config/` (3 files), `src/` (13 modules), `tests/`
+  (10 files + `fixtures/`).
+- Git-ignored, present locally: `.venv/` (Python 3.12), `*.egg-info/`.
+
 ## Current Repository State
 
 - **Branch:** `main`
 - **Remote:** `origin` → `https://github.com/divinetonesmusic-spec/ai-music-media-engine.git` (PRIVATE)
-- **Relation to `origin/main`:** in sync — local `HEAD` == `origin/main` == `b8fec98`.
-- **Expected working tree:** clean (`nothing to commit`). Only untracked artifacts expected
-  are OS files already ignored (`.DS_Store`).
+- **Relation to `origin/main`:** committed history is **in sync** — local `HEAD` ==
+  `origin/main` == `0ee23b1` (`git rev-list --left-right --count origin/main...HEAD` → `0 0`).
+  The Foundation work sits on top as **uncommitted changes**.
+- **Working tree:** **not clean** — modified `.gitignore`, `README.md`, `docs/SESSION-STATE.md`;
+  untracked `pyproject.toml`, `config/`, `src/`, `tests/`. (`.venv/`, `/data/` and Python
+  artifacts are git-ignored.)
+- **Local runtime:** Python 3.12.14 in `.venv/`; `pip install -e ".[dev]"` (PyYAML, pytest, ruff).
 
 ## Next Action
 
-Begin **V1 pipeline implementation** in Python 3, following `docs/TECHNICAL-SPEC-V1.md`
-(TDD with `pytest`, per §22). Concrete first steps:
+Continue V1 pipeline implementation from where the Foundation stopped. The Foundation is
+**validated** (124 tests green, `ruff` clean, `preflight` OK) and owner-authorized — **cleared
+to proceed**. TDD with `pytest`, per spec §22; deterministic parts before Claude-in-the-loop,
+per §18.
 
-1. Scaffold the project layout from spec §17 (`config/`, `data/`, `reports/`, package dirs)
-   and add `data/` to `.gitignore` (`TECHNICAL DEFAULT`).
-2. Write the deterministic schema validators (§6, §7, §8, §9, §10, §12, §16, §20) with
-   valid/invalid fixture pairs — one invalid case per §13 rule.
-3. Create the config data files: `config/run.example.yaml`, `config/ranking.yaml`,
-   `config/dedup.yaml`.
-4. Implement the Knowledge Loader (§18) — load `business-dna.md`, `guardrails.yaml` (10
-   entries), `cluster-taxonomy.md` (11 ids), the 4 inventories and the registry; hard-fail
-   on any missing required file.
-5. Build the pipeline components in order (§18), deterministic parts first, then the
-   Claude-in-the-loop steps; then `replay` mode.
+Build the remaining §18 components in order:
 
-**This requires explicit owner authorization to start writing code** — every prior step in
-this project was done under a "no production code yet" constraint.
+1. **Signal Collection** (§18 component 1, §6.5) — 4 modular collectors behind the one
+   `Signal` output contract: Claude API server-side Web Search (live); YouTube Data API
+   (key via env var); TikTok Creative Center analyst-capture file; internal-data YAML/CSV.
+   Write one raw capture per signal to `data/<run_id>/signals/raw/<signal_id>.json`. Degrade
+   per source; hard-fail only if all fail. Plus **`replay` mode** (read fixtures, no network).
+2. **Signal Normalization** (§6.6) — validate each `Signal` (`validate_signals`), assign ids,
+   deduplicate using `config/dedup.yaml`; Claude fills ambiguous `signal_type` / `market` /
+   `language` / `durability_hint`.
+3. **Analysis / Framing** → 4. **Asset Matching** → 5. **Evaluation** (+ guardrail check
+   against `guardrails.yaml`) → 6. **Ranking / Prioritization** (`config/ranking.yaml`
+   comparator) → 7. **Report Generation** (9-section Markdown + JSON sidecar + `digest.md` +
+   `review.md`) → **Registry Updater** (append-only `knowledge/market/opportunity-registry.yaml`).
+8. **Orchestrator** — wire `preflight → stages 1–7 → digest`; `dry_run` stops after Framing.
+
+Reuse the existing layer: `schema.models` for every entity, `schema.validate` for §13,
+`schema.ids` for id assignment, `knowledge_loader.KnowledgeBundle` +
+`validate.InventoryIndex` for asset matching, `config.loader` for `ranking.yaml` / `dedup.yaml`.
+
+**Owner decisions that gate later stages** (do not block Signal Collection): value-engine
+weighting for ranking; musical DNA detail (caps `music_fit` confidence); the rating-anchors
+appendix (§8.3), to be written alongside the first real run.
 
 ## Open Issues
 
 Still open and relevant to the next step:
 
+- **Foundation stack decisions not yet in `knowledge/DECISIONS-NEEDED.md`** — the owner
+  ratified Python 3.12, stdlib-`dataclasses` schemas (no pydantic), the `src/` layout, and
+  "missing registry ⇒ empty", but I10's *Resultado* text still just says "Python 3". Fold
+  these in when convenient (the file is owner-protected — needs a manual edit or an explicit
+  per-task instruction).
+- **`knowledge/market/opportunity-registry.yaml` does not exist yet** — it is created by the
+  Registry Updater on the first real run; the Knowledge Loader treats its absence as an empty
+  registry (not an error). A manual placeholder is unnecessary.
 - **Strategic classification backlog (`NEEDS_INPUT`)** — `positioning` for all 37 artists;
   `primary_cluster` / `secondary_clusters` / `language` / `market` for the 23 unclassified
   artists; `priority` for 7 of 8 playlists; the 44 reference/competitor pages. Owner form:
@@ -268,6 +360,11 @@ Explicitly deferred — a new session must **not** implement these prematurely:
    infer cluster / language / market / positioning / hero status from a name or track title.
 5. **Do not commit or push** unless explicitly asked. The GitHub repo is and must stay
    **PRIVATE**.
-6. Keep any ETL / validation scripts out of the repo (use a scratch/tmp directory).
-7. The natural next step is V1 implementation (see **Next Action**) — but confirm the owner
-   wants code written before starting.
+6. Keep any one-off ETL / data-massaging scripts out of the repo (use a scratch/tmp
+   directory). This does **not** apply to the pipeline package itself (`src/market_intelligence/`),
+   which is the V1 deliverable and is tracked.
+7. V1 implementation is **in progress and owner-authorized**. The Foundation layer is built;
+   the next step is Signal Collection and the remaining §18 components (see **Next Action**).
+   Set up the environment first: `python3.12 -m venv .venv && ./.venv/bin/python -m pip
+   install -e ".[dev]"`, then `./.venv/bin/python -m pytest` and
+   `./.venv/bin/ruff check src tests` should be green before making changes.

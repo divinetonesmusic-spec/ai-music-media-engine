@@ -1,0 +1,56 @@
+# ranking.yaml — Ranking / Prioritisation comparator constants (docs/TECHNICAL-SPEC-V1.md §11.1)
+#
+# TECHNICAL DEFAULT. There is NO numeric score (C6). Ranking is a purely ordinal
+# comparator: `comparator_keys` are compared in listed order until a difference is
+# found. The Ranking component reads this file as data — the ordering logic is not
+# hard-coded. Covered by golden tests (spec §22).
+
+schema_version: "1.0.0"
+
+# An opportunity that matches ANY hard-exclusion rule is not eligible for the
+# presented set (it may still be recorded as EXPLORE / PARK). Applied first.
+hard_exclusion:
+  high_severity_compliance_red_flag: true    # a RedFlag with kind=compliance and severity=HIGH
+  zero_observed_evidence: true               # no EvidenceItem of type OBSERVED
+
+# Best-first tiers. For ordinal keys, `tiers` lists equivalence classes (values in
+# the same inner list rank equally). For counting keys, `direction` gives the sort.
+comparator_keys:
+  - key: overall_confidence
+    kind: ordinal
+    tiers: [["HIGH"], ["MEDIUM"], ["LOW"]]
+
+  - key: count_dimensions_high_or_very_high
+    kind: count
+    direction: desc                          # more is better
+
+  - key: count_axes_high_or_very_high
+    kind: count
+    direction: desc
+
+  - key: urgency
+    kind: ordinal
+    tiers: [["HIGH"], ["MEDIUM"], ["LOW"]]
+
+  - key: durability
+    kind: ordinal
+    tiers: [["EVERGREEN", "STRUCTURAL"], ["EMERGING"], ["EPHEMERAL"]]
+    note: "EVERGREEN and STRUCTURAL rank equally (playlist-centric business). EPHEMERAL is still allowed when urgency == HIGH."
+
+  - key: non_compliance_red_flags
+    kind: severity_weighted_count
+    direction: asc                           # fewer / lower-severity is better
+    severity_weights: { HIGH: 3, MEDIUM: 2, LOW: 1 }
+
+  - key: asset_fit_rating
+    kind: ordinal
+    tiers: [["VERY_HIGH"], ["HIGH"], ["MEDIUM"], ["LOW"]]
+    note: "Existing-asset opportunities are preferred over new-asset ones — reuse default (I5)."
+
+  - key: opportunity_id
+    kind: lexical
+    direction: asc                           # stable final tie-break
+
+# business-dna §4 — the relative weighting of the value engines is NEEDS_INPUT.
+# When the owner provides it, it replaces / extends comparator keys 2–3 above.
+value_engine_weighting: NEEDS_INPUT

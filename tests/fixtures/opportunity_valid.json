@@ -1,0 +1,232 @@
+{
+  "opportunity_id": "opp_2026-08-28_6c5532f243",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-08-28_01",
+  "created_at": "2026-08-28T14:10:00Z",
+  "title": "Waking at 3am — falling back asleep without the phone (Brazil, pt, TikTok)",
+  "need": "Adults who wake around 3am want to fall back asleep without reaching for their phone",
+  "audience": {
+    "description": "Portuguese-speaking adults 30-55 with interrupted sleep",
+    "attributes": { "age_range": "30-55", "sleep_pattern": "middle-of-night awakening" }
+  },
+  "market": "Brasil",
+  "language": "pt",
+  "platform": "tiktok",
+  "consumption_context": "Late night, in bed, lights off, phone within reach, low speaker volume or headphones.",
+  "durability": "STRUCTURAL",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "Search interest for the Portuguese query 'como voltar a dormir' rose steadily over the last 90 days in Brazil.",
+      "confidence": "MEDIUM",
+      "signal_ids": ["sig_run_2026-08-28_01_0001"]
+    },
+    {
+      "type": "OBSERVED",
+      "statement": "The hashtag #sonoprofundo shows growing view counts in the TikTok Creative Center hashtag panel for Brazil.",
+      "confidence": "MEDIUM",
+      "signal_ids": ["sig_run_2026-08-28_01_0002"]
+    },
+    {
+      "type": "INFERRED",
+      "statement": "There is unmet demand among Brazilian adults for a night-time routine to return to sleep after waking.",
+      "confidence": "LOW",
+      "derived_from": ["sig_run_2026-08-28_01_0001", "sig_run_2026-08-28_01_0002"],
+      "rationale": "Rising search interest plus a growing sleep hashtag together point to an active, unmet need rather than a one-off spike."
+    },
+    {
+      "type": "HYPOTHESIS",
+      "statement": "Short POV clips that dramatise a 3am wake-up and resolve it with an ambient track will hold attention better than static 'sleep music' posts.",
+      "confidence": "LOW",
+      "rationale": "Rests on the two OBSERVED items above and on the page's own format history.",
+      "test_idea": "Post three POV-style variants against three static-visual variants on the same page over two weeks and compare retention."
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": { "value": "sono", "canonical": true, "basis": "existing" },
+    "potential_positioning": "A calm night-time ritual to drift back to sleep — about comfort, environment and intention, with no health claims.",
+    "potential_page": "page_tiktok_mandalameditationss",
+    "first_content_direction": "Short POV clips of a 3am wake-up resolved with a slow breathing cue over an ambient track.",
+    "format": "short-form vertical video, 15-30s",
+    "hook": "\"3:47am again?\" text-on-screen over a dim bedroom shot"
+  },
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "The playlist's consolidated inventory cluster is 'Sono', matching the opportunity's potential cluster; language differs (es vs pt).",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_mandalameditationss",
+        "name": "Frequências de Sono Profundo",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Own TikTok page with consolidated cluster 'Sono', market 'Brasil' and language 'pt' — all aligned with the opportunity.",
+        "role": "candidate"
+      }
+    ],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Flagged hero_artist: true; a strong candidate for any opportunity regardless of catalog affinity (spec §10.2a).",
+        "role": "hero"
+      }
+    ],
+    "best_playlist": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+    "best_page": "page_tiktok_mandalameditationss",
+    "best_artist": "art_5NJXbvpRnlTAqZ5neNTWGT"
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Two independent OBSERVED signals (search interest and a hashtag) point the same way; neither is individually strong."
+      },
+      "audience_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Middle-of-night waking is common among the 30-55 bracket and the Brazilian Portuguese market is large."
+      },
+      "growth_momentum": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Search interest is rising but the 90-day window is short and the hashtag trend is early."
+      },
+      "durability_opportunity_window": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Sleep is an evergreen need; the specific 'return to sleep' framing is a persistent, recurring problem."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Ambient sleep material fits the wellness positioning, but sonic criteria cannot be judged precisely.",
+        "blocked_by": ["business-dna §9 musical DNA detail is NEEDS_INPUT"]
+      },
+      "content_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The 3am wake-up is a concrete, relatable scene that maps cleanly onto short POV video."
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Many sleep-music pages exist; the specific 'without your phone' angle is less crowded but unverified at scale."
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "A ritual framing tied to a named page identity gives room to stand apart from generic sleep-music posting."
+      },
+      "asset_fit": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "An own page, a Sono playlist and a hero artist are all available; see the Asset Fit section."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Feeds playlist growth and streaming; limited UGC/trend upside for slow ambient audio. See the Business Outcome Profile."
+      }
+    },
+    "red_flags": [],
+    "overall_confidence": "MEDIUM",
+    "summary": "A durable, evidenced sleep need with a clear content scene and good existing-asset coverage. Confidence is medium: the signals are real but early, and musical-fit judgement is capped while musical DNA detail is NEEDS_INPUT."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Night-time listeners who find a track they like tend to return to the same playlist, driving recurring consumption."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "Slow ambient audio is rarely reused as a trend sound; the reach path is discovery, not UGC."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Long listening sessions convert to streams, but per-stream value in the target market is modest."
+      },
+      "page_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "A relatable nightly scene is followable, though sleep pages tend to grow slowly."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Long-form YouTube Video is a separate, out-of-V1 operation; this opportunity does not obviously seed it."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Run a two-week content test on the 'Frequências de Sono Profundo' TikTok page: 3 POV-style clips vs 3 static-visual clips, all linking to the Sono playlist, and compare retention and profile visits.",
+    "justification": "Evidence is real but early (medium confidence, no red flags) and existing-asset coverage is strong, which is the profile that justifies a small content experiment rather than only continued exploration.",
+    "confidence": "MEDIUM",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-08-28_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-2026-08-28",
+    "generated_at": "2026-08-28T14:10:00Z",
+    "signal_ids": ["sig_run_2026-08-28_01_0001", "sig_run_2026-08-28_01_0002"],
+    "sources": [
+      {
+        "source": "Google — search interest",
+        "source_type": "web_search",
+        "observed_at": "2026-08-20",
+        "collected_at": "2026-08-28T14:03:11Z",
+        "query_or_reference": "\"como voltar a dormir\" tendência 2026 site:trends.google.com",
+        "capture_method": "claude_web_search",
+        "url": "https://trends.google.com/trends/explore?q=como%20voltar%20a%20dormir&geo=BR",
+        "source_version": "UNKNOWN"
+      },
+      {
+        "source": "TikTok Creative Center — Hashtags",
+        "source_type": "tiktok_creative_center",
+        "observed_at": "2026-08-25",
+        "collected_at": "2026-08-28T14:05:00Z",
+        "query_or_reference": "Hashtag panel; region=Brazil; category=All; window=30d",
+        "capture_method": "analyst_capture",
+        "url": "UNKNOWN",
+        "source_version": "2026-08 panel snapshot"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-08-28T14:10:00Z",
+      "by": "system",
+      "note": "Created by run run_2026-08-28_01"
+    }
+  ],
+  "rank": 1,
+  "report_ref": "reports/run_2026-08-28_01/opp_2026-08-28_6c5532f243.md"
+}

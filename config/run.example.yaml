@@ -1,0 +1,56 @@
+# run.example.yaml — RunConfig template (docs/TECHNICAL-SPEC-V1.md §20.1)
+#
+# Copy this file, adjust, and pass it to the pipeline. Every field below is
+# either required or shown with its default. `run_id` and `run_date` may be
+# omitted — the loader fills them (run_id -> run_<run_date>_NN, run_date -> today).
+#
+# API credentials (Claude API key, YouTube Data API key) are NEVER in this file
+# — they come from environment variables (spec §20.2).
+
+schema_version: "1.0.0"
+
+# run_id: run_2026-08-28_01        # optional; ^[A-Za-z0-9_\-]+$
+# run_date: "2026-08-28"           # optional; ISO date, defaults to today
+
+model: "claude-sonnet-5"           # a Claude model id — see the claude-api reference
+# extraction_model: "claude-haiku-4-5-20251001"   # optional lighter model for extraction
+prompt_version: "mi-v1-2026-08-28" # recorded in provenance (spec §16)
+
+# The research brief. Empty lists mean "open" / "all".
+scope:
+  clusters: []                     # subset of the 11 canonical cluster ids; [] = open discovery
+  markets: []                      # subset of Brasil / Mercados hispanohablantes / English-speaking markets
+  languages: ["pt", "es", "en"]
+  discovery_platforms: ["tiktok", "youtube"]   # what the research is ABOUT (independent of signal_sources)
+  notes: ""                        # free guidance for the framing step
+
+# Which collectors run (subset of the four V1 sources — C2). This example uses
+# only the two that need no local capture file. To add the others:
+#   - append "internal_data" and set internal_data_path
+#   - append "tiktok_creative_center" and set tiktok_capture_path
+signal_sources: ["web_search", "youtube"]
+# internal_data_path: "data/inputs/internal_business_data.yaml"
+# tiktok_capture_path: "data/inputs/tiktok_creative_center_capture.yaml"
+
+max_opportunities_presented: 10    # I12 — presented-output cap only
+min_opportunities_target: 5        # C10 lower target (advisory; digest-flagged)
+# max_candidates: null             # soft cap on internal candidate opportunities; null = no cap
+
+dry_run: false                     # true -> stop after Framing (stage 3)
+
+replay:
+  enabled: false
+  # fixture_path: "tests/fixtures/replay/run_2026-08-28_01"   # required when enabled
+  # llm: "recorded"                # "recorded" (offline) | "live" (refresh fixtures)
+
+# paths: repo defaults (spec §17). Override only if your layout differs.
+paths:
+  knowledge_dir: "knowledge"
+  inventories_dir: "knowledge/inventories"
+  business_dna_path: "knowledge/business-dna/business-dna.md"
+  content_methodology_path: "knowledge/business-dna/content-methodology.md"
+  guardrails_path: "knowledge/rules/guardrails.yaml"
+  taxonomy_path: "knowledge/clusters/cluster-taxonomy.md"
+  registry_path: "knowledge/market/opportunity-registry.yaml"
+  reports_dir: "reports"
+  data_dir: "data"

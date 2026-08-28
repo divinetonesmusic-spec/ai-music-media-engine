@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-music-media-engine"
+version = "0.1.0"
+description = "AI Music Media Engine — Market Intelligence V1 (canonical pipeline stages 1–2)"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { text = "UNLICENSED" }
+authors = [{ name = "Nicolas Alves", email = "divinetonesmusic@gmail.com" }]
+
+# Runtime dependencies — kept minimal on purpose (decision I10: no unnecessary
+# complexity). YAML is the only hard runtime need: config, inventories, registry,
+# guardrails and taxonomy are all YAML / YAML front matter.
+dependencies = [
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "ruff>=0.5",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+# Annotations use typing.Optional/List forms on purpose: codec.py resolves them at
+# runtime via typing.get_type_hints. The `UP` (pyupgrade) rules are intentionally
+# not selected so this style is not flagged.
+line-length = 100
+src = ["src", "tests"]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+addopts = "-ra"
+testpaths = ["tests"]
+pythonpath = ["src"]

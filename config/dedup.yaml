@@ -1,0 +1,45 @@
+# dedup.yaml — Signal deduplication key definition (docs/TECHNICAL-SPEC-V1.md §6.6)
+#
+# TECHNICAL DEFAULT. Deduplication runs in Signal Normalization, after per-signal
+# validation. It is deterministic and golden-tested (spec §22). Two signals are
+# duplicates ONLY if they share the same dedup key AND the same observed_at
+# (same calendar day). Signals that share a subject but differ in source,
+# observed_at or url are DISTINCT observations and must stay separate.
+
+schema_version: "1.0.0"
+
+# The dedup key is the ordered tuple of these parts. All parts are lowercased and
+# trimmed; a missing part contributes the literal `missing_part_token`.
+dedup_key_parts:
+  - normalized_source        # provenance.source with tracking params stripped, case-folded
+  - canonical_url            # url with query/fragment stripped and host lowercased; token if none
+  - market
+  - language
+  - platform
+  - signal_type
+  - normalized_subject       # kebab-cased key phrase of evidence / query, stopwords removed
+
+missing_part_token: "∅"          # ∅
+
+duplicate_requires_same_observed_at: true
+
+on_duplicate:
+  keep: higher_confidence              # tie -> lower signal_id
+  merge_absent_metrics: true           # copy the dropped signal's metrics keys the kept one lacks
+  log_dropped_signal_id: true          # into data/<run_id>/run.log
+
+# URL canonicalisation: drop these query parameters before comparing.
+url_tracking_params:
+  - utm_source
+  - utm_medium
+  - utm_campaign
+  - utm_term
+  - utm_content
+  - gclid
+  - fbclid
+
+# Minimal starter stopword lists for `normalized_subject`. Extended over time.
+stopwords:
+  en: [the, a, an, of, for, to, in, on, at, and, or, is, are, how, what, why]
+  pt: [o, a, os, as, de, da, do, das, dos, para, em, no, na, e, ou, um, uma, como, que]
+  es: [el, la, los, las, de, del, para, en, y, o, un, una, como, que, por]
