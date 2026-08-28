@@ -1,0 +1,110 @@
+# guardrails.yaml — Operational compliance guardrails (V1)
+#
+# Machine-readable transcription of the 10 guardrails from decision C4
+# (knowledge/DECISIONS-NEEDED.md) as stated in CLAUDE.md §14.
+#
+# NO NEW RULES were introduced here. CLAUDE.md remains the human-readable
+# context/instruction; THIS FILE is the operational data the Market Intelligence
+# pipeline loads and applies (TECHNICAL-SPEC-V1 §13). If C4 / CLAUDE.md §14 changes,
+# this file must be re-transcribed to match.
+---
+meta:
+  source: "CLAUDE.md §14 (decision C4 — knowledge/DECISIONS-NEEDED.md)"
+  transcribed_at: "2026-08-27"
+  schema_version: "1.0.0"
+  severity_scale: [LOW, MEDIUM, HIGH]
+  guardrail_types: [prohibition, permissive, principle]
+  action_values:
+    - reject_and_revise          # one Claude revision pass; if unfixable, strip the offending text
+    - exclude_opportunity        # if the violation is in core required content and cannot be fixed
+    - flag                       # raise a compliance RedFlag; content proceeds
+    - flag_for_validation        # mark the claim as needing human/evidence validation
+    - require_uncertainty_statement  # replace the invented answer with an explicit UNKNOWN / uncertainty note
+    - none                       # permissive / principle entry — nothing to enforce
+
+guardrails:
+  - guardrail_id: G01
+    name: no-disease-claims
+    type: prohibition
+    description: "Do not create claims of cure, treatment, diagnosis or prevention of diseases."
+    severity: HIGH
+    action_on_violation: reject_and_revise
+    escalation: exclude_opportunity
+    applies_to: [hypotheses.potential_positioning, hypotheses.first_content_direction, hypotheses.hook, report_prose]
+
+  - guardrail_id: G02
+    name: wellness-scope-allowed
+    type: permissive
+    description: "Wellness content may address relaxation, environment, ritual, intention, focus, comfort and subjective experience."
+    severity: LOW
+    action_on_violation: none
+    note: "Positive scope statement — defines what IS permitted; not a prohibition."
+
+  - guardrail_id: G03
+    name: no-medical-treatment-framing
+    type: prohibition
+    description: "Do not present frequencies, music, meditation or related practices as medical treatment."
+    severity: HIGH
+    action_on_violation: reject_and_revise
+    escalation: exclude_opportunity
+    applies_to: [hypotheses.potential_positioning, hypotheses.first_content_direction, hypotheses.hook, report_prose]
+
+  - guardrail_id: G04
+    name: no-invented-scientific-evidence
+    type: prohibition
+    description: "Do not invent scientific evidence."
+    severity: HIGH
+    action_on_violation: reject_and_revise
+    applies_to: [evidence, evaluation.justification, business_outcome_profile.justification, report_prose]
+
+  - guardrail_id: G05
+    name: no-fabricated-data
+    type: prohibition
+    description: "Do not fabricate numbers, trends, research results or other evidence."
+    severity: HIGH
+    action_on_violation: reject_and_revise
+    note: "Reinforces Signal.metrics rule — figures not explicitly present in a source MUST be UNKNOWN, never estimated."
+    applies_to: [signal.metrics, evidence, evaluation.justification, report_prose]
+
+  - guardrail_id: G06
+    name: no-improper-third-party-copying
+    type: prohibition
+    description: "Do not improperly copy third-party content, identity or assets."
+    severity: HIGH
+    action_on_violation: reject_and_revise
+    applies_to: [hypotheses.hook, hypotheses.first_content_direction, report_prose]
+
+  - guardrail_id: G07
+    name: no-spam-mass-content
+    type: prohibition
+    description: "Do not produce spam or mass content whose only purpose is to flood platforms."
+    severity: MEDIUM
+    action_on_violation: flag
+    note: "In V1 the pipeline does not produce content; a recommendation that would imply spam-style volume is flagged and de-prioritized."
+    applies_to: [recommendation, hypotheses.first_content_direction]
+
+  - guardrail_id: G08
+    name: prioritize-relevant-useful
+    type: principle
+    description: "Prioritize content genuinely relevant and useful to the audience."
+    severity: LOW
+    action_on_violation: flag
+    note: "An opportunity whose only rationale is volume/reach with no genuine audience value is flagged."
+    applies_to: [recommendation, evaluation.summary]
+
+  - guardrail_id: G09
+    name: evidence-dependent-claims-flagged
+    type: prohibition
+    description: "Claims that depend on evidence must be flagged for validation."
+    severity: MEDIUM
+    action_on_violation: flag_for_validation
+    applies_to: [evidence, evaluation.justification, hypotheses]
+
+  - guardrail_id: G10
+    name: uncertainty-over-invention
+    type: prohibition
+    description: "When in doubt, state the uncertainty instead of inventing an answer."
+    severity: MEDIUM
+    action_on_violation: require_uncertainty_statement
+    note: "Aligns with the UNKNOWN / NEEDS_INPUT semantics (TECHNICAL-SPEC-V1 §15)."
+    applies_to: [signal, opportunity, evidence, evaluation, asset_fit, recommendation, report_prose]
