@@ -1,0 +1,41 @@
+# run.pipeline.replay.example.yaml — full Market Intelligence V1 pipeline, offline (spec §5, §22).
+#
+# Runs every stage end to end with NO network and NO API keys:
+#   Signal Collection → Normalization → Framing → Asset Matching → Evaluation
+#   → Ranking → Report Generation (+ digest + review) → Registry update
+#
+# Every LLM step is served from recorded fixtures under replay.fixture_path/llm/<stage>/.
+# It exercises the deterministic pipeline against the real knowledge base and
+# inventories; it is NOT a validation of current trends (the fixtures are historical).
+#
+#   python -m market_intelligence run config/run.pipeline.replay.example.yaml
+#
+# Signals replay from <fixture_path>/signals/raw/*.json (three internal_data captures).
+#
+# The registry write is redirected into the git-ignored data/ dir so the demo does
+# NOT touch the real knowledge/market/opportunity-registry.yaml (replay opportunities
+# are historical fixtures, not current-trend evidence — spec §22). A real run uses
+# the default paths.registry_path.
+
+schema_version: "1.0.0"
+run_id: run_pipeline_replay_demo
+run_date: "2026-08-28"
+model: "claude-sonnet-5"
+prompt_version: "mi-v1-pipeline-replay-demo"
+
+scope:
+  languages: ["pt", "es", "en"]
+  notes: "Offline demo run over recorded sleep-frequency signals for the Brazilian market."
+
+signal_sources: ["internal_data"]
+
+max_opportunities_presented: 10
+min_opportunities_target: 5
+
+paths:
+  registry_path: "data/run_pipeline_replay_demo/opportunity-registry.replay.yaml"
+
+replay:
+  enabled: true
+  llm: "recorded"
+  fixture_path: "tests/fixtures/pipeline"

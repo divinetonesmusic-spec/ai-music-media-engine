@@ -1,0 +1,26 @@
+{
+  "kind": "youtube#videoListResponse",
+  "etag": "fixture-etag",
+  "pageInfo": { "totalResults": 1, "resultsPerPage": 1 },
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "v1",
+      "id": "vid_abc123",
+      "snippet": {
+        "publishedAt": "2026-03-01T09:30:00Z",
+        "channelId": "UC_sleepfreq",
+        "title": "Frequência 528 Hz para dormir profundamente (8 horas)",
+        "channelTitle": "Sono & Frequências",
+        "tags": ["528 hz", "sono", "frequencia", "dormir"],
+        "categoryId": "10"
+      },
+      "statistics": {
+        "viewCount": "184213",
+        "likeCount": "5120",
+        "favoriteCount": "0",
+        "commentCount": "212"
+      }
+    }
+  ]
+}

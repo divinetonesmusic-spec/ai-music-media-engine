@@ -1,0 +1,60 @@
+[
+  {
+    "signal_id": "sig_run_norm_0020",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "YouTube Data API — search.list",
+    "source_type": "youtube",
+    "observed_at": "2026-03-01",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "youtube",
+    "signal_type": "content_format",
+    "evidence": "YouTube video sonido para dormir 528 hz returned by search.list for the query dormir 528 hz.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0020.json",
+    "context": "YouTube Data API search.list result, order=relevance.",
+    "confidence": "HIGH",
+    "metrics": { "view_count": "10" },
+    "provenance": {
+      "source": "YouTube Data API — search.list",
+      "source_type": "youtube",
+      "observed_at": "2026-03-01",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "search.list?part=snippet&q=dormir 528 hz",
+      "capture_method": "youtube_data_api",
+      "url": "https://www.youtube.com/watch?v=vid_demo1",
+      "source_version": "v3"
+    },
+    "url": "https://www.youtube.com/watch?v=vid_demo1"
+  },
+  {
+    "signal_id": "sig_run_norm_0021",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "YouTube Data API — search.list",
+    "source_type": "youtube",
+    "observed_at": "2026-03-01",
+    "collected_at": "2026-08-28T14:07:00Z",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "youtube",
+    "signal_type": "content_format",
+    "evidence": "YouTube video sonido para dormir 528 hz returned by search.list for the query dormir 528 hz.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0021.json",
+    "context": "YouTube Data API search.list result (second pass).",
+    "confidence": "LOW",
+    "metrics": { "view_count": "99", "like_count": "500" },
+    "provenance": {
+      "source": "YouTube Data API — search.list",
+      "source_type": "youtube",
+      "observed_at": "2026-03-01",
+      "collected_at": "2026-08-28T14:07:00Z",
+      "query_or_reference": "search.list?part=snippet&q=dormir 528 hz",
+      "capture_method": "youtube_data_api",
+      "url": "https://www.youtube.com/watch?v=vid_demo1",
+      "source_version": "v3"
+    },
+    "url": "https://www.youtube.com/watch?v=vid_demo1"
+  }
+]

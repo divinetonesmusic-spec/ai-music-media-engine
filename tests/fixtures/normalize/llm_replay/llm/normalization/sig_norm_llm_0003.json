@@ -1,0 +1,6 @@
+{
+  "signal_id": "sig_norm_llm_0003",
+  "suggestions": { "signal_type": "search_trend" },
+  "rationale": "The signal is about what a repeated YouTube search consistently surfaces, i.e. a search trend, not one content format.",
+  "confidence": "MEDIUM"
+}

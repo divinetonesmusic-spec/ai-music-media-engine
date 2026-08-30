@@ -1,0 +1,52 @@
+[
+  {
+    "signal_id": "sig_run_norm_0010",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "TikTok Creative Center — Hashtags",
+    "source_type": "tiktok_creative_center",
+    "observed_at": "2026-08-22",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "tiktok",
+    "signal_type": "hashtag",
+    "evidence": "The hashtag sonoprofundo shows a rising 30 day view trend for Brazil.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0010.json",
+    "context": "Hashtags panel, Brazil, last 30 days.",
+    "confidence": "LOW",
+    "provenance": {
+      "source": "TikTok Creative Center — Hashtags",
+      "source_type": "tiktok_creative_center",
+      "observed_at": "2026-08-22",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "Hashtags panel; region=Brazil; period=Last 30 days",
+      "capture_method": "analyst_capture"
+    }
+  },
+  {
+    "signal_id": "sig_run_norm_0011",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "TikTok Creative Center — Hashtags",
+    "source_type": "tiktok_creative_center",
+    "observed_at": "2026-08-22",
+    "collected_at": "2026-08-28T14:06:00Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "tiktok",
+    "signal_type": "hashtag",
+    "evidence": "The hashtag sonoprofundo shows a rising 30 day view trend for Brazil.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0011.json",
+    "context": "Hashtags panel, Brazil, last 30 days (re-checked).",
+    "confidence": "HIGH",
+    "provenance": {
+      "source": "TikTok Creative Center — Hashtags",
+      "source_type": "tiktok_creative_center",
+      "observed_at": "2026-08-22",
+      "collected_at": "2026-08-28T14:06:00Z",
+      "query_or_reference": "Hashtags panel; region=Brazil; period=Last 30 days",
+      "capture_method": "analyst_capture"
+    }
+  }
+]

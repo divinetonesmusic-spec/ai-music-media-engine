@@ -135,6 +135,20 @@ def test_signal_provenance_mirror_fields_must_match(valid_signal_dicts):
     assert any(e.code == "signal.provenance_mirror_mismatch" for e in errs)
 
 
+def test_signal_raw_ref_file_existence_check_when_raw_root_given(valid_signal_dicts, tmp_path):
+    # §6.3: raw_ref MUST resolve to an existing file
+    sig = decode(M.Signal, valid_signal_dicts[0])
+    assert any(
+        e.code == "signal.raw_ref_missing_file"
+        for e in validate_signal(sig, raw_root=tmp_path)
+    )
+    (tmp_path / f"{sig.signal_id}.json").write_text("{}", encoding="utf-8")
+    assert [
+        e for e in validate_signal(sig, raw_root=tmp_path)
+        if e.code == "signal.raw_ref_missing_file"
+    ] == []
+
+
 def test_signal_set_rejects_duplicate_ids(valid_signal_dicts):
     # §6.3: signal_id unique within a run
     a = decode(M.Signal, valid_signal_dicts[0])

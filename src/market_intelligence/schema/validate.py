@@ -141,9 +141,22 @@ def _parse_date(value: str) -> Optional[_dt.date]:
 
 # --- §6 Signal ----------------------------------------------------------
 
-def validate_signal(sig: M.Signal) -> List[ValidationError]:
+def validate_signal(
+    sig: M.Signal, *, raw_root: Optional[Path] = None
+) -> List[ValidationError]:
+    """Validate one Signal against spec §6.1 / §6.3.
+
+    ``raw_root``: the run's ``.../signals/raw`` directory. When given, also checks
+    that ``raw_ref`` resolves to an existing capture file (§6.3).
+    """
     errs: List[ValidationError] = []
     sid = sig.signal_id
+
+    if raw_root is not None and not (Path(raw_root) / f"{sid}.json").is_file():
+        errs.append(ValidationError(
+            "signal.raw_ref_missing_file", f"{sid}.raw_ref",
+            f"raw_ref {sig.raw_ref!r} does not resolve to a file under {raw_root} (spec §6.3)",
+        ))
 
     if sig.market not in _SIGNAL_MARKETS:
         errs.append(ValidationError(
@@ -198,7 +211,9 @@ def validate_signal(sig: M.Signal) -> List[ValidationError]:
     return errs
 
 
-def validate_signals(signals: Sequence[M.Signal]) -> List[ValidationError]:
+def validate_signals(
+    signals: Sequence[M.Signal], *, raw_root: Optional[Path] = None
+) -> List[ValidationError]:
     errs: List[ValidationError] = []
     seen: Set[str] = set()
     for sig in signals:
@@ -208,7 +223,7 @@ def validate_signals(signals: Sequence[M.Signal]) -> List[ValidationError]:
                 f"signal_id {sig.signal_id!r} is not unique within the run (spec §6.3)",
             ))
         seen.add(sig.signal_id)
-        errs.extend(validate_signal(sig))
+        errs.extend(validate_signal(sig, raw_root=raw_root))
     return errs
 
 
@@ -296,6 +311,25 @@ def validate_opportunity(
     ))
     errs.extend(validate_business_outcome_profile(opp.business_outcome_profile))
     errs.extend(validate_asset_match(opp.asset_fit, inventory=inventory))
+
+    # C6 — no 0–100 score in the recommendation prose either.
+    errs.extend(_scan_for_numeric_score(opp.recommendation, "recommendation"))
+
+    # §16.3(d) — OpportunityProvenance.signal_ids must cover the union of every
+    # signal cited by OBSERVED evidence and referenced by INFERRED derived_from.
+    cited = {
+        s for e in opp.evidence for s in (e.signal_ids or [])
+    } | {
+        r for e in opp.evidence if e.type is EvidenceType.INFERRED
+        for r in (e.derived_from or []) if r in known
+    }
+    missing_prov = sorted(cited - set(opp.provenance.signal_ids))
+    if missing_prov:
+        errs.append(ValidationError(
+            "provenance.signal_ids_incomplete", "provenance.signal_ids",
+            f"provenance.signal_ids does not cover every cited signal (missing {missing_prov}) "
+            f"(spec §16.3)",
+        ))
 
     return errs
 
@@ -440,6 +474,7 @@ def validate_business_outcome_profile(
                 "bop.justification_empty", f"business_outcome_profile.axes.{key}.justification",
                 "each axis needs a non-empty justification (§13)",
             ))
+    errs.extend(_scan_for_numeric_score(bop, "business_outcome_profile"))
     return errs
 
 
@@ -525,8 +560,15 @@ def validate_asset_match(
 # --- §20 / §13 Config ---------------------------------------------
 
 def validate_run_config(
-    cfg: M.RunConfig, *, project_root: Path
+    cfg: M.RunConfig, *, project_root: Path, require_knowledge_paths: bool = True
 ) -> List[ValidationError]:
+    """Validate a ``RunConfig`` (spec §13, §20).
+
+    ``require_knowledge_paths`` (default): also check that the knowledge / config
+    files a full run needs actually exist. Signal Collection on its own does not
+    read ``knowledge/`` or ``config/{ranking,dedup}.yaml``, so the ``collect``
+    entry point passes ``False``.
+    """
     errs: List[ValidationError] = []
 
     if not _RUN_ID_RE.match(cfg.run_id):
@@ -547,25 +589,34 @@ def validate_run_config(
             "replay.fixture_path is required when replay.enabled (spec §20.1)",
         ))
 
-    if SourceType.INTERNAL_DATA in cfg.signal_sources and _blank(cfg.internal_data_path):
-        errs.append(ValidationError(
-            "config.internal_data_path_missing", "internal_data_path",
-            "internal_data_path is required when 'internal_data' is a signal source (spec §20.1)",
-        ))
-    if SourceType.TIKTOK_CREATIVE_CENTER in cfg.signal_sources and _blank(cfg.tiktok_capture_path):
-        errs.append(ValidationError(
-            "config.tiktok_capture_path_missing", "tiktok_capture_path",
-            "tiktok_capture_path is required when 'tiktok_creative_center' is a signal source "
-            "(spec §20.1, §6.5)",
-        ))
-
-    for attr in _REQUIRED_EXISTING_PATHS:
-        rel = getattr(cfg.paths, attr)
-        if not (project_root / rel).exists():
+    # Source capture-file paths are not needed in replay mode — the collectors read
+    # recorded fixtures instead (§22). TECHNICAL DEFAULT: skip these checks then.
+    if not cfg.replay.enabled:
+        if SourceType.INTERNAL_DATA in cfg.signal_sources and _blank(cfg.internal_data_path):
             errs.append(ValidationError(
-                "config.path_missing", f"paths.{attr}",
-                f"required path {rel!r} does not exist under the project root (spec §13, §14)",
+                "config.internal_data_path_missing", "internal_data_path",
+                "internal_data_path is required when 'internal_data' is a signal source "
+                "(spec §20.1)",
             ))
+        if (
+            SourceType.TIKTOK_CREATIVE_CENTER in cfg.signal_sources
+            and _blank(cfg.tiktok_capture_path)
+        ):
+            errs.append(ValidationError(
+                "config.tiktok_capture_path_missing", "tiktok_capture_path",
+                "tiktok_capture_path is required when 'tiktok_creative_center' is a signal "
+                "source (spec §20.1, §6.5)",
+            ))
+
+    if require_knowledge_paths:
+        for attr in _REQUIRED_EXISTING_PATHS:
+            rel = getattr(cfg.paths, attr)
+            if not (project_root / rel).exists():
+                errs.append(ValidationError(
+                    "config.path_missing", f"paths.{attr}",
+                    f"required path {rel!r} does not exist under the project root "
+                    f"(spec §13, §14)",
+                ))
 
     return errs
 

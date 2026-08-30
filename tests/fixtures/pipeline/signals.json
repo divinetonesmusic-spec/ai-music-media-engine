@@ -1,0 +1,82 @@
+[
+  {
+    "signal_id": "sig_run_pipe_0001",
+    "schema_version": "1.0.0",
+    "run_id": "run_pipe",
+    "source": "Terra — reportagem de bem-estar",
+    "source_type": "web_search",
+    "observed_at": "2026-08-15",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "web",
+    "signal_type": "search_trend",
+    "evidence": "Reportagem cita aumento de buscas por 'musica 528 Hz para dormir' no Brasil nos ultimos meses.",
+    "raw_excerpt": "As buscas por faixas de sono com frequencias cresceram de forma consistente.",
+    "raw_ref": "data/run_pipe/signals/raw/sig_run_pipe_0001.json",
+    "context": "Materia jornalistica sobre habitos de sono e uso de aplicativos de musica.",
+    "confidence": "MEDIUM",
+    "url": "https://example.com/bem-estar/sono-frequencias",
+    "provenance": {
+      "source": "Terra — reportagem de bem-estar",
+      "source_type": "web_search",
+      "observed_at": "2026-08-15",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "\"musica 528 Hz para dormir\" tendencia Brasil 2026",
+      "url": "https://example.com/bem-estar/sono-frequencias",
+      "capture_method": "claude_web_search"
+    }
+  },
+  {
+    "signal_id": "sig_run_pipe_0002",
+    "schema_version": "1.0.0",
+    "run_id": "run_pipe",
+    "source": "TikTok Creative Center — Songs",
+    "source_type": "tiktok_creative_center",
+    "observed_at": "2026-08-20",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "evidence": "No painel Songs (regiao Brasil) varias faixas ambientes lentas e instrumentais aparecem em ascensao.",
+    "raw_ref": "data/run_pipe/signals/raw/sig_run_pipe_0002.json",
+    "context": "Painel Songs filtrado por Brasil, ultimos 30 dias.",
+    "confidence": "MEDIUM",
+    "metrics": { "trend_direction": "up" },
+    "provenance": {
+      "source": "TikTok Creative Center — Songs",
+      "source_type": "tiktok_creative_center",
+      "observed_at": "2026-08-20",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "Songs panel; region=Brazil; window=30d",
+      "capture_method": "analyst_capture"
+    }
+  },
+  {
+    "signal_id": "sig_run_pipe_0003",
+    "schema_version": "1.0.0",
+    "run_id": "run_pipe",
+    "source": "Internal business data",
+    "source_type": "internal_data",
+    "observed_at": "2026-08-18",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "spotify",
+    "signal_type": "audience_behavior",
+    "evidence": "Uma das nossas playlists de sono ganhou ouvintes semana apos semana por quatro semanas seguidas.",
+    "raw_ref": "data/run_pipe/signals/raw/sig_run_pipe_0003.json",
+    "context": "Exportacao interna do Spotify for Artists, registrada manualmente.",
+    "confidence": "MEDIUM",
+    "metrics": { "consecutive_growth_weeks": 4 },
+    "provenance": {
+      "source": "Internal business data",
+      "source_type": "internal_data",
+      "observed_at": "2026-08-18",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "data/inputs/internal.yaml [record 0]",
+      "capture_method": "internal_data"
+    }
+  }
+]

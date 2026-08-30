@@ -1,0 +1,56 @@
+[
+  {
+    "signal_id": "sig_run_norm_0040",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "Google — search interest",
+    "source_type": "web_search",
+    "observed_at": "2026-08-20",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "web",
+    "signal_type": "search_trend",
+    "evidence": "Interest in the query frequencia do sono is climbing in Brazil.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0040.json",
+    "context": "Google Trends, week of 2026-08-20.",
+    "confidence": "MEDIUM",
+    "provenance": {
+      "source": "Google — search interest",
+      "source_type": "web_search",
+      "observed_at": "2026-08-20",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "frequencia do sono tendencia brasil",
+      "capture_method": "claude_web_search",
+      "url": "https://trends.example.test/explore?q=frequencia+do+sono"
+    },
+    "url": "https://trends.example.test/explore?q=frequencia+do+sono"
+  },
+  {
+    "signal_id": "sig_run_norm_0041",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "Google — search interest",
+    "source_type": "web_search",
+    "observed_at": "2026-08-25",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "web",
+    "signal_type": "search_trend",
+    "evidence": "Interest in the query frequencia do sono is climbing in Brazil.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0041.json",
+    "context": "Google Trends, week of 2026-08-25.",
+    "confidence": "MEDIUM",
+    "provenance": {
+      "source": "Google — search interest",
+      "source_type": "web_search",
+      "observed_at": "2026-08-25",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "frequencia do sono tendencia brasil",
+      "capture_method": "claude_web_search",
+      "url": "https://trends.example.test/explore?q=frequencia+do+sono"
+    },
+    "url": "https://trends.example.test/explore?q=frequencia+do+sono"
+  }
+]

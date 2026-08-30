@@ -1,0 +1,19 @@
+{
+  "signal_id": "sig_run_pipe_0002",
+  "source_type": "internal_data",
+  "capture_method": "internal_data",
+  "query_or_reference": "data/inputs/pipeline_internal.yaml [record 1]",
+  "url": null,
+  "captured_at": "2026-08-28T12:00:00Z",
+  "raw_content": {
+    "observed_at": "2026-08-20",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "evidence": "Nota do analista: no painel Songs do TikTok Creative Center (Brasil) varias faixas ambientes lentas e instrumentais aparecem em ascensao.",
+    "context": "Observacao registrada manualmente pelo analista a partir do painel Songs filtrado por Brasil, ultimos 30 dias.",
+    "confidence": "MEDIUM",
+    "metrics": { "trend_direction": "up" }
+  }
+}

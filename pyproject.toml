@@ -12,10 +12,12 @@ license = { text = "UNLICENSED" }
 authors = [{ name = "Nicolas Alves", email = "divinetonesmusic@gmail.com" }]
 
 # Runtime dependencies — kept minimal on purpose (decision I10: no unnecessary
-# complexity). YAML is the only hard runtime need: config, inventories, registry,
-# guardrails and taxonomy are all YAML / YAML front matter.
+# complexity). YAML for all config / knowledge files; the Anthropic SDK for the
+# Claude-in-the-loop collectors and analysis steps (spec §12, §19). Both are
+# lazily imported where practical so the deterministic layer stays dependency-light.
 dependencies = [
     "PyYAML>=6.0",
+    "anthropic>=1.2.0",
 ]
 
 [project.optional-dependencies]

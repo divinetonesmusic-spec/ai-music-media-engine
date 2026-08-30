@@ -1,0 +1,20 @@
+{
+  "signal_id": "sig_run_replay_demo_0002",
+  "source_type": "internal_data",
+  "capture_method": "internal_data",
+  "query_or_reference": "data/inputs/internal.yaml [record 1]",
+  "url": null,
+  "captured_at": "2026-08-28T12:00:00Z",
+  "raw_content": {
+    "observed_at": "2026-08-18",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "spotify",
+    "signal_type": "audience_behavior",
+    "evidence": "The Spanish 'Sueño Reparador' playlist gained listeners week over week for four consecutive weeks.",
+    "context": "Internal Spotify for Artists export, manually recorded.",
+    "confidence": "MEDIUM",
+    "source": "Spotify for Artists — playlist analytics export",
+    "durability_hint": "STRUCTURAL"
+  }
+}

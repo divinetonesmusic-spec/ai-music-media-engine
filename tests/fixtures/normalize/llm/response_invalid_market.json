@@ -1,0 +1,5 @@
+{
+  "signal_id": "sig_norm_llm_0001",
+  "suggestions": { "market": "Germany" },
+  "rationale": "Model proposed a market outside the V1 taxonomy — must be rejected, not applied."
+}

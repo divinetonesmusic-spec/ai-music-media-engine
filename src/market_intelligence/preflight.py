@@ -6,14 +6,15 @@
 
 Everything from Signal Collection onward is out of scope here. ``preflight`` is
 what the orchestrator will call before stage 1; it is also runnable on its own
-(``python -m market_intelligence preflight <config>``) as a Foundation sanity check.
+(``python -m market_intelligence preflight <config>``, wired in ``cli.py``) as a
+Foundation sanity check.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Union
 
 from .config.loader import ConfigError, load_run_config
 from .knowledge_loader import KnowledgeBundle, KnowledgeError, load_knowledge
@@ -37,12 +38,15 @@ class PreflightResult:
 
 
 def preflight(
-    config_path,
+    config_path: Union[str, Path, RunConfig],
     *,
     project_root: Path,
     strict: bool = True,
 ) -> PreflightResult:
     """Load + validate the run config, then load the knowledge bundle.
+
+    ``config_path`` may be a path to a RunConfig YAML or an already-resolved
+    ``RunConfig`` (used by the orchestrator / programmatic callers).
 
     ``strict`` (default): any blocking config error raises ``PreflightError``.
     ``strict=False``: the errors are returned on the result for the caller to
@@ -50,10 +54,13 @@ def preflight(
     """
     root = Path(project_root)
 
-    try:
-        config = load_run_config(config_path, project_root=root)
-    except ConfigError as e:
-        raise PreflightError(f"run config could not be loaded: {e}") from e
+    if isinstance(config_path, RunConfig):
+        config = config_path
+    else:
+        try:
+            config = load_run_config(config_path, project_root=root)
+        except ConfigError as e:
+            raise PreflightError(f"run config could not be loaded: {e}") from e
 
     config_errors = validate_run_config(config, project_root=root)
     if strict and blocking(config_errors):
@@ -68,54 +75,3 @@ def preflight(
         raise PreflightError(f"knowledge base could not be loaded: {e}") from e
 
     return PreflightResult(config=config, knowledge=knowledge, config_errors=config_errors)
-
-
-def _summary(result: PreflightResult) -> str:
-    kb = result.knowledge
-    g_first, g_last = kb.guardrails[0].guardrail_id, kb.guardrails[-1].guardrail_id
-    lines = [
-        f"run_id:        {result.config.run_id}",
-        f"run_date:      {result.config.run_date}",
-        f"model:         {result.config.model}",
-        f"signal_sources: {[s.value for s in result.config.signal_sources]}",
-        f"guardrails:    {len(kb.guardrails)} ({g_first}..{g_last})",
-        f"clusters:      {len(kb.clusters)} canonical",
-        f"inventory:     {len(kb.artists)} artists, {len(kb.playlists)} playlists, "
-        f"{len(kb.pages)} pages ({len(kb.inventory.own_page_ids)} own), {len(kb.catalog)} catalog",
-        f"registry:      {len(kb.registry)} opportunities",
-        f"config errors: {len(result.config_errors)}",
-    ]
-    return "\n".join(lines)
-
-
-def main(argv: Optional[List[str]] = None) -> int:
-    import argparse
-
-    parser = argparse.ArgumentParser(prog="market_intelligence")
-    sub = parser.add_subparsers(dest="command", required=True)
-    pf = sub.add_parser("preflight", help="load + validate config and knowledge (spec §5)")
-    pf.add_argument("config", help="path to a RunConfig YAML (e.g. config/run.example.yaml)")
-    pf.add_argument("--project-root", default=".", help="repo root (default: cwd)")
-    pf.add_argument(
-        "--no-strict", action="store_true", help="report config errors instead of failing"
-    )
-    args = parser.parse_args(argv)
-
-    try:
-        result = preflight(
-            args.config,
-            project_root=Path(args.project_root).resolve(),
-            strict=not args.no_strict,
-        )
-    except PreflightError as e:
-        print(f"PREFLIGHT FAILED\n{e}")
-        return 1
-
-    print(_summary(result))
-    if not result.ok:
-        print("\nconfig errors:")
-        for e in result.config_errors:
-            print(f"  - [{e.code}] {e.path}: {e.message}")
-        return 1
-    print("\nPREFLIGHT OK")
-    return 0

@@ -342,6 +342,12 @@ class RunScope:
         default_factory=lambda: [Platform.TIKTOK, Platform.YOUTUBE]
     )
     notes: Optional[str] = None
+    # TECHNICAL DEFAULT — explicit search queries for the deterministic collectors
+    # (e.g. YouTube Data API). Spec §6.5 requires a `query`; §20.1 has no field for it.
+    queries: List[str] = field(default_factory=list)
+    # TECHNICAL DEFAULT — optional YouTube `regionCode` (ISO 3166-1 alpha-2). Only an
+    # API hint; it does NOT set a Signal's `market` (§7.1a — no country taxonomy in V1).
+    youtube_region_code: Optional[str] = None
 
 
 @dataclass

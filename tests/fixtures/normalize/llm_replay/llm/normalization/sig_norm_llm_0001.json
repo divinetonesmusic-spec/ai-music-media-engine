@@ -1,0 +1,6 @@
+{
+  "signal_id": "sig_norm_llm_0001",
+  "suggestions": { "market": "Mercados hispanohablantes" },
+  "rationale": "The evidence names Spanish-speaking audiences in Latin America and the query is Spanish.",
+  "confidence": "MEDIUM"
+}

@@ -1,0 +1,101 @@
+{
+  "queries": [
+    "frecuencias 528 hz para dormir tendencia 2026",
+    "tiktok sleep sounds trend 2026"
+  ],
+  "results": [
+    {
+      "url": "https://example-news.test/sleep-frequencies-2026",
+      "title": "Why 528 Hz sleep tracks are trending in 2026",
+      "page_age": "March 3, 2026"
+    },
+    {
+      "url": "https://example-blog.test/tiktok-sleep-sounds",
+      "title": "TikTok's sleep-sound boom",
+      "page_age": null
+    },
+    {
+      "url": null,
+      "title": "An aggregator card with no canonical URL",
+      "page_age": "February 2026"
+    }
+  ],
+  "findings": [
+    {
+      "query": "frecuencias 528 hz para dormir tendencia 2026",
+      "result_url": "https://example-news.test/sleep-frequencies-2026",
+      "result_title": "Why 528 Hz sleep tracks are trending in 2026",
+      "result_page_age": "March 3, 2026",
+      "evidence": "A March 2026 news article reports growing listener interest in 528 Hz sleep tracks among Spanish-speaking audiences.",
+      "context": "General-web article surveying sleep-frequency music trends, framed around Spanish-speaking markets.",
+      "market": "Mercados hispanohablantes",
+      "language": "es",
+      "platform": "web",
+      "signal_type": "search_trend",
+      "confidence": "MEDIUM",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "Searches for '528 Hz para dormir' have climbed steadily since January."
+    },
+    {
+      "query": "tiktok sleep sounds trend 2026",
+      "result_url": "https://example-blog.test/tiktok-sleep-sounds",
+      "result_title": "TikTok's sleep-sound boom",
+      "result_page_age": null,
+      "evidence": "A blog post describes a surge of TikTok videos built around ambient sleep sounds, with no publication date shown on the page.",
+      "context": "Third-party blog coverage of a TikTok content-format trend.",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "tiktok",
+      "signal_type": "content_format",
+      "confidence": "LOW",
+      "durability_hint": null,
+      "raw_excerpt": null
+    },
+    {
+      "query": "tiktok sleep sounds trend 2026",
+      "result_url": null,
+      "result_title": "An aggregator card with no canonical URL",
+      "result_page_age": "February 2026",
+      "evidence": "An aggregator card mentions sleep-sound content but exposes no source URL.",
+      "context": "Aggregator surface without a canonical link.",
+      "market": "UNKNOWN",
+      "language": "en",
+      "platform": "web",
+      "signal_type": "emerging_theme",
+      "confidence": "LOW",
+      "durability_hint": null,
+      "raw_excerpt": null
+    },
+    {
+      "query": "unbacked claim",
+      "result_url": "https://not-in-results.test/made-up",
+      "result_title": "A result that was never actually returned",
+      "result_page_age": "January 1, 2026",
+      "evidence": "Model asserts a trend that no listed search result supports.",
+      "context": "This finding must be dropped — it is not anchored to a real result.",
+      "market": "Brasil",
+      "language": "pt",
+      "platform": "youtube",
+      "signal_type": "social_trend",
+      "confidence": "HIGH",
+      "durability_hint": "STRUCTURAL",
+      "raw_excerpt": null
+    },
+    {
+      "query": "blank evidence",
+      "result_url": "https://example-news.test/sleep-frequencies-2026",
+      "result_title": "Why 528 Hz sleep tracks are trending in 2026",
+      "result_page_age": "March 3, 2026",
+      "evidence": "   ",
+      "context": "This finding must be dropped — no usable evidence.",
+      "market": "Mercados hispanohablantes",
+      "language": "es",
+      "platform": "web",
+      "signal_type": "search_trend",
+      "confidence": "LOW",
+      "durability_hint": null,
+      "raw_excerpt": null
+    }
+  ],
+  "provider_response": { "note": "recorded fixture — not a real API response" }
+}

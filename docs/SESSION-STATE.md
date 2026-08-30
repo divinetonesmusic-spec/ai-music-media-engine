@@ -23,11 +23,61 @@ sources_of_truth:
 ## Current Phase
 
 **V1 — Market Intelligence + Opportunity Analysis.** The knowledge base and technical
-specification are complete and reconciled. **V1 implementation has started** (owner
-authorized code on 2026-08-28). The **Foundation layer** — controlled vocabularies,
-dataclass schemas + codec, deterministic ids, §13 validators, config loading, Knowledge
-Loader, preflight — is implemented and test-covered on **Python 3.12** (124 pytest tests
-green, `ruff` clean). **Signal Collection and everything after it are not built yet.**
+specification are complete and reconciled. The **Foundation layer** is **committed**
+(`37b0db4`, pushed to `origin/main`).
+
+**The full V1 pipeline (canonical stages 1–2) is now implemented end-to-end and
+UNCOMMITTED** (one working tree, owner authorized code 2026-08-28). It runs locally:
+`python -m market_intelligence run <config>` executes
+`preflight → Signal Collection → Signal Normalization → Analysis/Framing → Asset Matching
+→ Evaluation → Ranking → Report Generation (+ digest + review + opportunities.json + run.log)
+→ Registry update`, and `config/run.pipeline.replay.example.yaml` runs the whole thing
+**offline** (recorded LLM fixtures, no network, no API keys).
+
+- **Signal Collection** (`collect.*`): 4 modular collectors (`internal_data`, `web_search`
+  = Claude server-side search, `youtube` = deterministic Data API, `tiktok` = deterministic
+  analyst-capture file), per-source degrade, replay, `collected.json` manifest.
+- **Signal Normalization** (`normalize.*`): SN-1 validate + config-driven dedup; SN-2 Claude
+  disambiguation (injectable + recorded replay, deterministic response validation); SN-3
+  `run_normalization` chains both and writes `data/<run_id>/signals/normalized.json`.
+- **`llm_stage.py`**: shared injectable-client + recorded-replay plumbing for the 3 analysis
+  stages — `RecordedStageClient` reads `<fixture_path>/llm/<stage>/<key>.json`,
+  `AnthropicStageClient` reads creds from env and `redact()`s `sk-ant-…` from errors.
+- **Framing** (`framing.py`): Claude frames signals → `FramedOpportunity`; deterministic
+  enforces the 6 C1 fields, the `opportunity_id` hash (§7.1), §7.1a market/language, the
+  canonical-cluster check, and evidence→signal resolution. Candidates that fail these are
+  *flagged* in `run.log`, not turned into opportunities (§7.1).
+- **Asset Matching** (`matching.py`): deterministic candidate generation from the real
+  inventory (10 hero artists always candidates §10.2a; catalog affinity ≠ eligibility);
+  Claude judges fit; `fit_basis` OBSERVED is downgraded to INFERRED unless a consolidated
+  classification backs it; Claude cannot pick an asset outside the generated candidate set;
+  `matching_catalog` is null in V1 (§10.3 "coarse in V1").
+- **Guardrails** (`guardrails.py`): deterministic scan of `guardrails.yaml` for the explicit
+  disease-claim constructions of G01/G03/G04 per `applies_to` scope; the Evaluation prompt
+  now enumerates all of G01–G10 and asks Claude for a self-check + in-line fix (§19).
+- **Evaluation** (`evaluation.py`): Claude rates the 10 dimensions + 5 BOP axes + red flags
+  + `Recommendation`; deterministic completeness, no-0–100-score scan, `music_fit`
+  confidence cap while musical DNA is `NEEDS_INPUT`, `target_state` clamp to
+  EXPLORE/TEST/PARK, fixed `execution_note`; runs the compliance check; a stage failure
+  excludes that opportunity, run continues.
+- **Ranking** (`ranking.py`): pure ordinal comparator from `config/ranking.yaml` (no numeric
+  score); hard exclusion = HIGH-severity compliance red flag OR zero OBSERVED evidence OR
+  Evaluation-stage exclusion; presented / parked / excluded sets.
+- **Report Generation** (`reporting.py`): `assemble_opportunity` builds the full
+  `Opportunity` (+ `OpportunityProvenance`), runs `validate_opportunity` (fail → excluded
+  and itemized in the digest), renders the 9-section Markdown + YAML front matter +
+  `<id>.json` sidecar + `digest.md` (with `config_snapshot`, §12.5) + `review.md`
+  (§21.1 template) + `data/<run_id>/opportunities.json` (§17).
+- **Registry Updater** (`registry.py`): append-only `opportunity-registry.yaml` — the ONLY
+  file under `knowledge/` the pipeline writes; existing entries kept in place (localized
+  git diff §17), new ones appended; replay runs mark entries `replay_origin: true`.
+- **Orchestrator** (`orchestrator.py`) + `run` CLI: sequential driver with stage timings;
+  hard-fails only on preflight / all-sources-down / framing-cannot-run; writes
+  `data/<run_id>/run.log` (§14). `dry_run` stops after Framing.
+
+**354 pytest tests green (no network), `ruff check src tests` clean, `preflight` OK,
+`run config/run.pipeline.replay.example.yaml` OK offline.** Runtime deps: `PyYAML` +
+`anthropic>=1.2.0` (lazily imported — only a live run needs it).
 
 ## Completed
 
@@ -113,10 +163,19 @@ Per `docs/TECHNICAL-SPEC-V1.md` (the authoritative implementation spec):
   components** (I8) — Knowledge Loader → 1 Signal Collection → 2 Signal Normalization →
   3 Analysis/Framing → 4 Asset Matching → 5 Evaluation → 6 Ranking/Prioritization →
   7 Report Generation → Registry Updater. No monolithic prompt, no multi-agent orchestration.
-- **Implementation status:** **Foundation done** (`market_intelligence.{schema.*, config.loader,
-  io_utils, knowledge_loader, preflight}`). Signal Collection onward **not started**. The
-  orchestrator itself is not written yet — `preflight` covers the `load config → Knowledge
-  Loader` head of §5.
+- **Implementation status:** **Foundation done + committed**; the **whole stage-1–2 pipeline
+  is implemented and uncommitted** — see **Current Phase** for the per-component picture.
+  `market_intelligence.{collect.*, normalize.*, llm_stage, framing, matching, guardrails,
+  evaluation, ranking, reporting, registry, orchestrator, cli}`.
+- **Orchestrator** — `orchestrator.run_pipeline(config | RunConfig, *, project_root, now=,
+  stage_client=, normalization_client=)` drives the components in sequence; each component
+  is an isolated unit and they communicate only through the orchestrator (§18).
+- **CLI:** `market_intelligence.cli` (unified `main`, dispatched from `__main__`). Commands:
+  `preflight` · `collect` (stage 1) · `normalize` (stages 1–2) · `run` (the whole pipeline).
+- **Claude-in-the-loop:** Web Search collector (SC-2) + SN-2 normalization + the 3 analysis
+  stages (framing / matching / evaluation via `llm_stage`). All use the Anthropic SDK
+  (`anthropic>=1.2.0`, lazily imported), injectable clients, and recorded replay under
+  `<fixture_path>/llm/<stage>/<key>.json` — tests never touch the network.
 - **Schema layer:** stdlib `dataclasses` + a generic codec; the §13 rules are hand-written
   validators returning `ValidationError` (`ERROR` blocks presentation, `WARNING` is logged).
   **No pydantic** (I10 — no unnecessary complexity). Enums are `(str, Enum)`, so `.value` is
@@ -204,94 +263,318 @@ Not yet inventoried: Instagram and Facebook pages (`UNKNOWN`). Historical perfor
 
 ## Last Completed Step
 
-Migrated the V1 dev/runtime to **Python 3.12** (owner decision — 3.9 is EOL): installed
-Homebrew `python@3.12` (3.12.14), recreated `.venv` on it, set
-`requires-python = ">=3.12,<3.13"` and `ruff` `target-version = "py312"`, reinstalled deps.
-**No source changes were needed** — the codebase was already 3.12-compatible (`typing.Optional/
-List` + `from __future__ import annotations` retained on purpose; codec resolves annotations
-at runtime). `pytest` (124 passed), `ruff check src tests` (clean) and
-`python -m market_intelligence preflight config/run.example.yaml` (`PREFLIGHT OK`, exit 0)
-all pass on 3.12. Preceded, in the same session, by the full V1 Foundation-layer
-implementation (schemas → codec → ids → §13 validators → fixtures → config loader →
-Knowledge Loader → preflight). **Nothing committed.**
+**The complete V1 Market Intelligence pipeline** (2026-08-28, uncommitted): SN-3 +
+Analysis/Framing + Asset Matching + Guardrails + Evaluation + Ranking + Report Generation +
+Registry Updater + Orchestrator + the `normalize` / `run` CLI commands. Built TDD; the
+end-to-end integration test (`tests/test_pipeline_e2e.py`) exercises
+`fixture signals → normalization → framing → matching → evaluation → ranking → report →
+registry` fully offline. **354 pytest tests green, `ruff` clean, `preflight` OK,
+`run config/run.pipeline.replay.example.yaml` OK offline.**
+
+Three reviews were run and their in-scope findings fixed: **spec-consistency** (verdict
+PASS), a **code review**, and a **security review** (no HIGH/MEDIUM). Fixes applied this
+pass: framing wraps `ResponseRejected` as a clean `FramingError`; an INFERRED evidence item
+with no basis is dropped (not the whole opportunity); the G01/G03/G04 compliance scanners
+no longer false-positive on the permitted wellness themes (anxiety / insomnia / stress) or
+the PT/ES "trata-se de" idiom; the Evaluation prompt now enumerates G01–G10 for a Claude
+self-check; the digest gained `config_snapshot` and itemizes report-time exclusions; the
+run writes `data/<run_id>/run.log` (§14) and `data/<run_id>/opportunities.json` (§17); the
+"no 0–100 score" scan covers the Recommendation and BOP too; `validate_opportunity` now
+checks §16.3(d) (`provenance.signal_ids` covers every cited signal); the registry keeps
+existing entries in place and marks replay-run entries `replay_origin: true`; file writes
+are atomic (`.tmp` + `os.replace`); `reporting` receives the real `musical_dna_needs_input`.
+
+Historical increment detail (SN-1/SN-2/SC-1..SC-5) is retained below.
+
+### SN-2 (also uncommitted)
+
+**The Claude-assisted step of §18 component 2** — disambiguate only under-specified fields.
+
+- `normalize/llm.py` — `normalize_with_llm(NormalizationResult | list[Signal], *, config,
+  project_root, client=None) -> LlmNormalizationResult`. For each signal, `ambiguous_fields`
+  is the subset of `{signal_type, market, language, durability_hint}` the collector left
+  under-specified (`market`/`language` == `UNKNOWN`; `durability_hint` is `None`;
+  `signal_type` == `other` or a collector `TECHNICAL DEFAULT` — currently only YouTube's
+  `content_format`). A signal with none passes through with **no model call**.
+- **The model can only disambiguate.** Its response goes through `validate_llm_response`
+  first: only `{signal_id, suggestions, rationale, confidence?}` at the top level;
+  `suggestions` may hold only the four normalisable keys AND only the ones ambiguous for
+  *this* signal; each value must be in the V1 taxonomy. Any deviation → the whole response
+  is rejected and the signal keeps its original (conservative) values. Applying a
+  suggestion is a `dataclasses.replace` touching only that field; the new signal is
+  re-validated; `evidence` / `provenance` / `source` / dates / `raw_ref` / `metrics` /
+  `signal_id` are never in scope. A `UNKNOWN` / `null` / no-change suggestion is a no-op
+  (the field stays preserved).
+- `LlmNormalizationResult.changes` — one `NormalizationChange(signal_id, suggestions=[…],
+  preserved_fields=[…], rationale, llm_confidence, applied, rejection_reason)` per input
+  signal: the full traceability record (every change → its `signal_id` and `from`/`to`).
+- **Injectable client** in the `WebSearchClient` / `YouTubeClient` pattern:
+  `NormalizationClient` (interface), `AnthropicNormalization` (real — lazy `import
+  anthropic`, structured-output `messages.create` per signal, key from env, never stored;
+  no creds → degrades every signal), `RecordedNormalizationClient` (replay). Tests inject
+  a stub and never hit the network.
+- **Replay (§22):** `replay.enabled` + `replay.llm != "live"` → read
+  `<fixture_path>/llm/normalization/<signal_id>.json`; a missing fixture degrades that
+  signal (its fields stay as they were) — the network is **never** a fallback.
+  `replay.llm == "live"` → real call.
+- **No `Signal` field added.** Normalization metadata lives on `NormalizationChange`, not
+  the `Signal`.
+- Changed only `normalize/__init__.py` (added the `.llm` re-exports); everything else is new.
+
+### SN-1 (also uncommitted)
+
+**The deterministic half of §18 component 2** — validation + deduplication, no Claude.
+
+- `normalize/dedup.py` — `dedup_key(sig, *, dedup_config)` builds the ordered tuple of
+  `dedup_key_parts` from `config/dedup.yaml`; `deduplicate(signals, dedup_config)` groups
+  by `(key, observed_at day)` (when `duplicate_requires_same_observed_at`), keeps the
+  higher `confidence` (tie → lower `signal_id`), merges only the metric keys the kept
+  signal **lacks** (`merge_absent_metrics` — a conflicting value is never overwritten),
+  and returns `(kept, discarded_ids, [DedupReason])` in a fully input-order-independent
+  order. `normalized_source` = case-folded `provenance.source`; `canonical_url` = fragment
+  + `url_tracking_params` stripped, host lowercased, query sorted; `normalized_subject` =
+  kebab-cased evidence tokens minus the configured stopwords. An unknown key part in the
+  config raises `NormalizationError`.
+- `normalize/deterministic.py` — `normalize_deterministic(signals | collected.json path,
+  *, dedup_config, raw_root=None)`: runs `validate_signal` per signal (+ within-run
+  duplicate-`signal_id` check), records every invalid signal as `InvalidSignal(signal_id,
+  errors=[{code, path, message}])` and drops it (never auto-corrected), then deduplicates.
+  Returns `NormalizationResult`. Writes no files; mutates no input (a metrics-merged kept
+  signal is a new object via `dataclasses.replace`). `signals_from_collected(path)` loads
+  the `Signal` list out of a `collected.json` manifest.
+- **Not done:** the Claude step (SN-2 — `signal_type` / `market` / `language` /
+  `durability_hint` when ambiguous) and writing `data/<run_id>/signals/normalized.json`.
+- **No existing file changed** — SN-1 is all new modules + tests + fixtures.
+
+### SC-5 (also uncommitted)
+
+**The collection entry point** — stage 1 of the canonical pipeline runs end to end.
+
+- `collect/runner.py` — `run_collection(config, *, project_root, now=None) -> CollectionResult`.
+  Accepts a resolved `RunConfig` (trusted) or a config path (loaded + validated, with
+  `validate_run_config(..., require_knowledge_paths=False)` — Collection reads no
+  `knowledge/`; `TECHNICAL DEFAULT`). Runs `collect_signals`, then writes the run manifest.
+  Propagates `SignalCollectionError` (all sources failed, §14) and `ConfigError`.
+- Manifest `data/<run_id>/signals/collected.json` (`TECHNICAL DEFAULT` — a run artifact, not
+  a new business entity): `schema_version`, `run_id`, `replay`, `signal_count`,
+  `sources_used`, `sources_failed`, `signal_ids`, and the collected `Signal` list (an
+  existing §6 entity). Byte-reproducible in replay mode; deterministic given a fixed clock
+  otherwise. Does **not** replace the raw captures; `normalized.json` is left for
+  Normalization.
+- `cli.py` — unified `main`; new `collect <config>` command (prints
+  `sources_used` / `sources_failed`, the manifest path, a "below C10 target" note, and
+  `COLLECT OK  (Signal Collection only — Normalization not run)`). `__main__` → `cli.main`;
+  `preflight`'s argparse `main` + `_summary` moved into `cli.py`.
+- `config/run.replay.example.yaml` — a committed offline demo (`replay.enabled: true`,
+  fixtures under `tests/fixtures/replay/collect_demo/`). `python -m market_intelligence
+  collect config/run.replay.example.yaml` runs with no network / no keys.
+- `schema/validate.py` — `validate_run_config` gained `require_knowledge_paths=True`
+  (default) and now skips the source capture-file checks when `replay.enabled` (`TECHNICAL
+  DEFAULT` — §22: replay reads fixtures, not those paths).
+- `collect/base.py` — the "no replay fixtures" failure reason now references the config's
+  `replay.fixture_path` as written (portable), not the machine-resolved absolute path, so
+  the manifest stays reproducible.
+
+### SC-4 (also uncommitted)
+
+**The TikTok Creative Center collector** — the last of the four V1 collectors.
+
+- `collect/tiktok.py` — `TikTokCreativeCenterCollector` (§6.5). **Deterministic, no Claude,
+  no API, no scraping, no browser.** V1 assumes no free public API: an analyst records
+  Creative Center observations into a structured capture file
+  (`RunConfig.tiktok_capture_path` — a YAML/JSON list of records, or a mapping with a
+  `records:` list). Each record → one `Signal` field-for-field. `source_type` =
+  `tiktok_creative_center`; `capture_method` = `analyst_capture`; `source` =
+  `"TikTok Creative Center — <panel>"`; `provenance.query_or_reference` = the record's
+  `query_or_reference` / `filter` / `panel`. Never invented: `observed_at` (absent →
+  `UNKNOWN`; present-but-unparseable → the source degrades), `url` (absent → `null`),
+  `metrics` (passed through unchanged, no coercion). Required fields: `panel`, `market`,
+  `language`, `signal_type`, `evidence`, `context`, `confidence`; `platform` defaults to
+  `tiktok` (`TECHNICAL DEFAULT`). A structurally invalid record degrades the source
+  (`CollectorError`), matching `internal_data`. `replay_uses_live_path = False` — replay
+  rebuilds from `signals/raw/*.json`. Auto-registered in `DEFAULT_COLLECTORS`.
+- `RunConfig.tiktok_capture_path` already existed (Foundation) — no config change needed.
+
+### SC-3 (also uncommitted)
+
+- `collect/youtube.py` — `YouTubeCollector` (§6.5). **Fully deterministic — no Claude.**
+  `search.list` finds video/channel/playlist results for each configured query;
+  `videos.list` enriches video results with public `statistics` (best-effort — a
+  `videos.list` failure means metrics are unavailable, not an error, §6.3). `YouTubeClient`
+  is injectable; the real `YouTubeDataApiClient` uses **stdlib `urllib`** (no new
+  dependency), reads the key from the `YOUTUBE_API_KEY` env var (`TECHNICAL DEFAULT` — §20.2
+  mandates an env var, doesn't name it), and **never writes the key** to a raw capture,
+  log, fixture or error message (a `_redact` pass strips `key=…` from any string). Every
+  `Signal`: `url` derived deterministically from a real resource id (or `null` — never
+  invented, §12); `observed_at` = the item's `publishedAt` date or `UNKNOWN`; `metrics` =
+  only figures the API returned; `source` = `"YouTube Data API — search.list"`;
+  `provenance.query_or_reference` = endpoint + params (no key); `source_version` = `"v3"`;
+  `capture_method` = `youtube_data_api`. `signal_type` / `confidence` are `TECHNICAL
+  DEFAULT`s (`content_format` / `LOW`) for Normalization to refine. `replay_uses_live_path
+  = False` — replay rebuilds from `signals/raw/*.json`, no network, no key. Malformed API
+  items (missing id/title) are skipped, never turned into invalid Signals.
+- `schema/models.py` — `RunScope` gained `queries: list[str]` and
+  `youtube_region_code: str | None` (both `TECHNICAL DEFAULT` — §6.5 needs a `query`; §20.1
+  had no field; §7.1a bars a country taxonomy so `regionCode` is an operator-set API hint
+  that does **not** change a Signal's `market`).
+- `config/run.example.yaml` — documents the two new `scope` fields.
+
+### SC-2 (also uncommitted)
+
+- `collect/web_search.py` — `WebSearchCollector` (§6.5). Uses the Claude API server-side
+  web search tool (`web_search_20250305`) via the Anthropic SDK. Two model calls per
+  collection: (1) a web-search call gathering real results + analysis; (2) a structuring
+  call (`output_config` JSON schema) turning that into `Signal` candidates. **Every
+  emitted `Signal` is anchored to a real `web_search_result`** (`result_url` must match a
+  returned result) — an unbacked model claim is dropped (§6.5). `Provenance`:
+  `query_or_reference` = the exact query, `source` = result title, `url` = result url (or
+  `null`, never invented), `observed_at` = `page_age` normalised to ISO or `UNKNOWN`,
+  `capture_method` = `claude_web_search`. `WebSearchClient` is injectable (tests never
+  hit the network); the real `AnthropicWebSearch` degrades (`CollectorError`) on missing
+  SDK / credentials / API error. Recorded replay (`replay.llm != "live"`) reads
+  `<fixture_path>/llm/web_search/*.json`.
+- `collect/base.py` (SC-2) — added `Collector.replay_uses_live_path` (a collector that
+  sources its own recorded fixtures), `ctx.fixture_path` / `ctx.replay_llm_mode`, and made
+  `_load_replay_records` tolerant of a missing dir (a source with no fixtures becomes a
+  per-source failure, not a crash). Backward-compatible; SC-1 behaviour unchanged.
+
+### SC-1 (also uncommitted)
+
+- `collect/base.py` — `SignalIdAllocator` (wraps `schema.ids.signal_id`), `RawCapture` +
+  `RawCaptureStore` (`data/<run_id>/signals/raw/<signal_id>.json`, §6.7 shape),
+  `Collector` ABC, `SignalCollectionContext`, `collect_signals(...)` orchestrator —
+  degrades per source, hard-fails (`SignalCollectionError`) only when every source fails
+  (§14); an unimplemented source is recorded in `sources_failed`, never crashes.
+- `collect/internal_data.py` — `InternalDataCollector` (§6.4): reads
+  `RunConfig.internal_data_path`, maps each record → `Signal` with full `Provenance`.
+- **Replay (§22)** — the deterministic collectors rebuild from
+  `<fixture_path>/signals/raw/*.json` (copied into the run's own raw dir so `raw_ref`
+  resolves, §6.3); result stamped `replay=True`.
+- `schema/validate.py` — `validate_signal` / `validate_signals` gained an optional
+  `raw_root=` for the §6.3 "raw_ref resolves to an existing file" check.
+
+`pytest` (256 passed, no network), `ruff check src tests` (clean),
+`preflight config/run.example.yaml` (`PREFLIGHT OK`),
+`collect config/run.replay.example.yaml` (`COLLECT OK`, fully offline).
+Preceded, earlier in the project, by the committed Foundation layer and the Python 3.12
+migration.
 
 ## Last Commit
 
 ```
-0ee23b1  chore: add project engineering guardrails and session state
+37b0db4  feat: implement V1 foundation layer
 ```
 
-Full hash: `0ee23b1bd2a347147dd98c6575cf74824cde44de` — 2026-08-28T12:44:16-03:00
-Files: `.claude/hooks/{guard-knowledge,block-dangerous-git}.sh`, `.claude/settings.json`,
-`.claude/agents/spec-consistency-reviewer.md`, `.claude/skills/update-session-state/SKILL.md`,
-`docs/SESSION-STATE.md` (new).
+Full hash: `37b0db45200034a9861e36aeb0cf14d11901d516`
+The full Foundation layer (schemas, codec, ids, §13 validators, fixtures, config loader +
+`config/*.yaml`, Knowledge Loader, preflight, `pyproject.toml`, README, `.gitignore`) —
+32 files. Pushed to `origin/main`.
 
 Recent history:
 
 ```
+37b0db4  feat: implement V1 foundation layer
 0ee23b1  chore: add project engineering guardrails and session state
 b8fec98  feat: finalize market intelligence v1 specification
 2154c07  feat: V1 knowledge base — asset classification, cluster taxonomy, technical spec
 d236323  docs: reconcile V1 project specification
 859c731  chore: ignore .DS_Store files
-cf76fe1  chore: finalize V1 business decisions and inventories
 00600cc  chore: initialize AI Music Media Engine
 ```
 
-**Uncommitted working tree** (the entire V1 Foundation + the Python 3.12 migration — awaiting
-owner review; nothing has been committed or pushed):
+**Uncommitted working tree** — the full stage-1–2 pipeline, awaiting owner review
+(nothing committed or pushed):
 
-- Modified: `.gitignore`, `README.md`, `docs/SESSION-STATE.md` (this file).
-- Untracked: `pyproject.toml`, `config/` (3 files), `src/` (13 modules), `tests/`
-  (10 files + `fixtures/`).
-- Git-ignored, present locally: `.venv/` (Python 3.12), `*.egg-info/`.
+- Untracked src: `src/market_intelligence/{collect/*, normalize/*, cli.py, llm_stage.py,
+  framing.py, matching.py, guardrails.py, evaluation.py, ranking.py, reporting.py,
+  registry.py, orchestrator.py}`.
+- Untracked tests: `tests/test_{collect_*, normalize_*, llm_stage, framing, matching,
+  guardrails, evaluation, ranking, reporting, registry, pipeline_e2e}.py` +
+  `tests/fixtures/{pipeline/, replay/, normalize/, internal_data_example.yaml,
+  web_search_research.json, youtube_*_list.json, tiktok_capture.yaml}`.
+- Untracked config: `config/run.replay.example.yaml`, `config/run.pipeline.replay.example.yaml`.
+- Modified (committed files touched this work): `pyproject.toml` (`anthropic>=1.2.0`),
+  `src/market_intelligence/{schema/validate.py, schema/models.py, preflight.py, io_utils.py,
+  __main__.py}`, `config/run.example.yaml`, `README.md`, `tests/test_validate.py`,
+  `docs/SESSION-STATE.md`.
+- **`knowledge/`, `CLAUDE.md`, `docs/TECHNICAL-SPEC-V1.md`, `knowledge/DECISIONS-NEEDED.md`
+  are untouched.**
 
 ## Current Repository State
 
 - **Branch:** `main`
 - **Remote:** `origin` → `https://github.com/divinetonesmusic-spec/ai-music-media-engine.git` (PRIVATE)
-- **Relation to `origin/main`:** committed history is **in sync** — local `HEAD` ==
-  `origin/main` == `0ee23b1` (`git rev-list --left-right --count origin/main...HEAD` → `0 0`).
-  The Foundation work sits on top as **uncommitted changes**.
-- **Working tree:** **not clean** — modified `.gitignore`, `README.md`, `docs/SESSION-STATE.md`;
-  untracked `pyproject.toml`, `config/`, `src/`, `tests/`. (`.venv/`, `/data/` and Python
-  artifacts are git-ignored.)
-- **Local runtime:** Python 3.12.14 in `.venv/`; `pip install -e ".[dev]"` (PyYAML, pytest, ruff).
+- **Relation to `origin/main`:** **in sync** — local `HEAD` == `origin/main` == `37b0db4`.
+  The whole stage-1–2 pipeline sits on top as uncommitted changes.
+- **Working tree:** **not clean** — the files above. (`.venv/`, `/data/` and Python
+  artifacts are git-ignored. Tests write only under pytest `tmp_path`. No test touches the
+  network. The `reports/` dir has no run output committed — the replay demo's
+  `reports/run_pipeline_replay_demo/` should be removed before commit.)
+- **Local runtime:** Python 3.12.14 in `.venv/`; `pip install -e ".[dev]"` (PyYAML,
+  anthropic, pytest, ruff).
 
 ## Next Action
 
-Continue V1 pipeline implementation from where the Foundation stopped. The Foundation is
-**validated** (124 tests green, `ruff` clean, `preflight` OK) and owner-authorized — **cleared
-to proceed**. TDD with `pytest`, per spec §22; deterministic parts before Claude-in-the-loop,
-per §18.
+**The full V1 pipeline is implemented, tested and reviewed. It is not committed.**
 
-Build the remaining §18 components in order:
+1. **Owner review of the working tree**, then a commit (the pipeline package + tests +
+   fixtures + the two config examples + the touched Foundation files). Remove the replay
+   demo's `reports/run_pipeline_replay_demo/` first. Do **not** push without asking.
+2. Before the 3-run C10 validation gate, decide on the deferred-but-in-spec items in
+   **Open Issues** below — chiefly the compliance-enforcement depth and whether a live
+   (non-replay) run should be done first.
+3. Owner decisions that still gate quality (not blocking): value-engine weighting for
+   ranking (`NEEDS_INPUT` → §11 keys 3–4); musical DNA detail (caps `music_fit`
+   confidence); the rating-anchors appendix (§8.3), to be written alongside the first
+   real run.
 
-1. **Signal Collection** (§18 component 1, §6.5) — 4 modular collectors behind the one
-   `Signal` output contract: Claude API server-side Web Search (live); YouTube Data API
-   (key via env var); TikTok Creative Center analyst-capture file; internal-data YAML/CSV.
-   Write one raw capture per signal to `data/<run_id>/signals/raw/<signal_id>.json`. Degrade
-   per source; hard-fail only if all fail. Plus **`replay` mode** (read fixtures, no network).
-2. **Signal Normalization** (§6.6) — validate each `Signal` (`validate_signals`), assign ids,
-   deduplicate using `config/dedup.yaml`; Claude fills ambiguous `signal_type` / `market` /
-   `language` / `durability_hint`.
-3. **Analysis / Framing** → 4. **Asset Matching** → 5. **Evaluation** (+ guardrail check
-   against `guardrails.yaml`) → 6. **Ranking / Prioritization** (`config/ranking.yaml`
-   comparator) → 7. **Report Generation** (9-section Markdown + JSON sidecar + `digest.md` +
-   `review.md`) → **Registry Updater** (append-only `knowledge/market/opportunity-registry.yaml`).
-8. **Orchestrator** — wire `preflight → stages 1–7 → digest`; `dry_run` stops after Framing.
-
-Reuse the existing layer: `schema.models` for every entity, `schema.validate` for §13,
-`schema.ids` for id assignment, `knowledge_loader.KnowledgeBundle` +
-`validate.InventoryIndex` for asset matching, `config.loader` for `ranking.yaml` / `dedup.yaml`.
-
-**Owner decisions that gate later stages** (do not block Signal Collection): value-engine
-weighting for ranking; musical DNA detail (caps `music_fit` confidence); the rating-anchors
-appendix (§8.3), to be written alongside the first real run.
+**How to run it:** `./.venv/bin/python -m market_intelligence run <config>` — or
+`config/run.pipeline.replay.example.yaml` for a fully offline demo.
 
 ## Open Issues
 
-Still open and relevant to the next step:
+### V1 pipeline — known limitations / deliberate partial implementations
+
+Surfaced by the spec-consistency + code reviews; each is a documented gap, not a bug:
+
+- **Compliance enforcement depth (spec §13/§19).** Deterministic scanners exist only for the
+  explicit disease-claim constructions of **G01/G03/G04**; G05–G10 rely on the Claude
+  self-check now enumerated in the Evaluation prompt. There is **no separate live
+  "reject_and_revise → one revision pass" loop** — Claude revises in-line within its single
+  call, and deterministic escalation (strip the offending hypothesis, or exclude on core
+  content) handles the rest. `require_uncertainty_statement` (G10) rendering is wired
+  (`ComplianceResult.needs_uncertainty_note`) but dormant (no G10 scanner). **Owner
+  decision needed before the C10 gate:** is this depth acceptable, or must the fuller flow
+  land first?
+- **§16.3(c)** — "every justification cites the evidence item(s) it uses" is not
+  deterministically verified (too noisy); the Evaluation prompt asks for it. (d) *is* now
+  checked.
+- **Atomic run output (§14 TECHNICAL DEFAULT).** Writes are atomic per file
+  (`.tmp` + `os.replace`), not a whole-dir staged move — a mid-run crash can leave a subset
+  of report files (each individually complete); a same-`run_id` re-run overwrites cleanly.
+- **`reference_competitor` pages** are never surfaced as `role: reference` candidates in
+  `AssetMatch` (spec §10.3 permits it for competitive context) — the implementation is
+  stricter (own pages only). Safe; competitive context lives in the `competitive_position`
+  dimension instead.
+- **A live (non-replay) run has not been done.** Every stage is exercised only against
+  recorded fixtures.
+
+### New TECHNICAL DEFAULTs (this pipeline) — to record in `knowledge/DECISIONS-NEEDED.md`
+
+- `opportunity_id` collision suffix extends past `-2` (`-3`, `-4`, …) for multi-collisions.
+- Framing keys its LLM replay fixture by `sha1(sorted signal-id set)`, not `run_id`
+  (idempotent re-runs, §5/§22).
+- Recommendation `target_state` down-maps LAUNCH/SCALE → TEST, KILL → PARK (spec §5 only
+  says V1 emits the three operational states).
+- Registry entries carry `first_run_id` / `last_run_id` (beyond the I2 minimum) and
+  `replay_origin: true` for replay runs; existing entries keep file order (localized diff).
+- `AssetMatch.matching_catalog` is `null` in V1 (§10.3 "catalog matching is coarse in V1").
+- `_musical_dna_needs_input` is detected by scanning `business-dna.md` for "Music DNA" then
+  "NEEDS INPUT" within 800 chars (brittle if the doc is restructured).
+- `data/<run_id>/run.log` and `data/<run_id>/opportunities.json` formats.
+- The `llm_stage` fixture convention: `<fixture_path>/llm/<stage>/<key>.json`.
+
+### Earlier open issues
 
 - **Foundation stack decisions not yet in `knowledge/DECISIONS-NEEDED.md`** — the owner
   ratified Python 3.12, stdlib-`dataclasses` schemas (no pydantic), the `src/` layout, and
@@ -363,8 +646,10 @@ Explicitly deferred — a new session must **not** implement these prematurely:
 6. Keep any one-off ETL / data-massaging scripts out of the repo (use a scratch/tmp
    directory). This does **not** apply to the pipeline package itself (`src/market_intelligence/`),
    which is the V1 deliverable and is tracked.
-7. V1 implementation is **in progress and owner-authorized**. The Foundation layer is built;
-   the next step is Signal Collection and the remaining §18 components (see **Next Action**).
-   Set up the environment first: `python3.12 -m venv .venv && ./.venv/bin/python -m pip
-   install -e ".[dev]"`, then `./.venv/bin/python -m pytest` and
-   `./.venv/bin/ruff check src tests` should be green before making changes.
+7. V1 implementation is **functionally complete and owner-authorized**, uncommitted. The
+   next step is owner review → commit (see **Next Action**), not more building. Set up the
+   environment first: `python3.12 -m venv .venv && ./.venv/bin/python -m pip install -e
+   ".[dev]"`, then `./.venv/bin/python -m pytest` and `./.venv/bin/ruff check src tests`
+   should be green (354 tests), and
+   `./.venv/bin/python -m market_intelligence run config/run.pipeline.replay.example.yaml`
+   should print `RUN OK`.

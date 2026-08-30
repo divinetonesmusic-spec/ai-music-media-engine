@@ -1,0 +1,19 @@
+{
+  "signal_id": "sig_run_pipe_0003",
+  "source_type": "internal_data",
+  "capture_method": "internal_data",
+  "query_or_reference": "data/inputs/pipeline_internal.yaml [record 2]",
+  "url": null,
+  "captured_at": "2026-08-28T12:00:00Z",
+  "raw_content": {
+    "observed_at": "2026-08-18",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "spotify",
+    "signal_type": "audience_behavior",
+    "evidence": "Uma das playlists proprias de sono ganhou ouvintes semana apos semana por quatro semanas seguidas.",
+    "context": "Exportacao interna do Spotify for Artists, registrada manualmente pelo operador.",
+    "confidence": "MEDIUM",
+    "metrics": { "consecutive_growth_weeks": 4 }
+  }
+}

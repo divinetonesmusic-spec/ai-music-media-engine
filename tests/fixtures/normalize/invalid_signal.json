@@ -1,0 +1,52 @@
+[
+  {
+    "signal_id": "sig_run_norm_0050",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "Google — search interest",
+    "source_type": "web_search",
+    "observed_at": "2026-08-20",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "web",
+    "signal_type": "search_trend",
+    "evidence": "A perfectly valid signal about sleep-frequency interest in Brazil.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0050.json",
+    "context": "Google Trends.",
+    "confidence": "MEDIUM",
+    "provenance": {
+      "source": "Google — search interest",
+      "source_type": "web_search",
+      "observed_at": "2026-08-20",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "frequencia do sono brasil",
+      "capture_method": "claude_web_search"
+    }
+  },
+  {
+    "signal_id": "sig_run_norm_0051",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "Google — search interest",
+    "source_type": "web_search",
+    "observed_at": "2026-08-20",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Germany",
+    "language": "de",
+    "platform": "web",
+    "signal_type": "search_trend",
+    "evidence": "A signal whose market and language are outside the V1 taxonomy (spec §6.3).",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0051.json",
+    "context": "Should be dropped by validation, not corrected.",
+    "confidence": "MEDIUM",
+    "provenance": {
+      "source": "Google — search interest",
+      "source_type": "web_search",
+      "observed_at": "2026-08-20",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "schlaf frequenz",
+      "capture_method": "claude_web_search"
+    }
+  }
+]

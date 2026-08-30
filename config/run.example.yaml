@@ -23,6 +23,10 @@ scope:
   languages: ["pt", "es", "en"]
   discovery_platforms: ["tiktok", "youtube"]   # what the research is ABOUT (independent of signal_sources)
   notes: ""                        # free guidance for the framing step
+  queries: []                      # TECHNICAL DEFAULT — explicit search queries for deterministic
+                                   #   collectors (YouTube). Required for the `youtube` source.
+  # youtube_region_code: "BR"      # TECHNICAL DEFAULT — optional YouTube regionCode (ISO 3166-1
+                                   #   alpha-2). An API hint only; does not set a Signal's market.
 
 # Which collectors run (subset of the four V1 sources — C2). This example uses
 # only the two that need no local capture file. To add the others:

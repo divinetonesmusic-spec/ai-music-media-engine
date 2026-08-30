@@ -1,0 +1,39 @@
+# TikTok Creative Center — analyst structured capture (spec §6.5). No scraping:
+# an analyst reviewed the panels by hand and recorded these observations.
+# A list of records (a mapping with a `records:` list is also accepted).
+
+- panel: "Hashtags"
+  query_or_reference: "Hashtags panel; region=Brazil; industry=All; period=Last 30 days"
+  observed_at: "2026-08-24"
+  url: "https://ads.tiktok.com/business/creativecenter/hashtag/sonoprofundo/pt"
+  market: "Brasil"
+  language: "pt"
+  platform: "tiktok"
+  signal_type: "hashtag"
+  evidence: "#sonoprofundo appears in the Hashtags panel with a rising 30-day view trend for Brazil."
+  context: "Manually reviewed on 2026-08-24 from the Brazil Hashtags panel, All industries, last 30 days."
+  confidence: "MEDIUM"
+  metrics:
+    posts: "18400"
+    trend_direction: "up"
+
+# A record with NO url (the Songs panel row the analyst looked at exposed none they kept).
+- panel: "Songs"
+  query_or_reference: "Songs panel; region=Spanish-speaking; period=Last 7 days"
+  observed_at: "2026-08-22"
+  market: "Mercados hispanohablantes"
+  language: "es"
+  signal_type: "content_format"
+  evidence: "Several trending sounds in the Songs panel are slow ambient instrumentals suited to sleep content."
+  context: "Songs panel, Spanish-speaking region filter, last 7 days, reviewed 2026-08-22."
+  confidence: "LOW"
+
+# A record with an optional field absent (no observed_at -> UNKNOWN; no url; no metrics).
+- panel: "Trends"
+  filter: "Trends overview; region=English-speaking; category=Music"
+  market: "English-speaking markets"
+  language: "en"
+  signal_type: "emerging_theme"
+  evidence: "The Trends overview highlights 'calm / focus' audio as a growing theme in the Music category."
+  context: "Trends overview panel, English-speaking region, Music category. The panel showed no explicit date."
+  confidence: "LOW"

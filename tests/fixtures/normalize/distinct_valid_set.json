@@ -1,0 +1,92 @@
+[
+  {
+    "signal_id": "sig_run_norm_0100",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "Google — search interest",
+    "source_type": "web_search",
+    "observed_at": "2026-08-20",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "web",
+    "signal_type": "search_trend",
+    "evidence": "Interest in sleep-frequency music is rising in Brazil.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0100.json",
+    "context": "Web search.",
+    "confidence": "MEDIUM",
+    "provenance": {
+      "source": "Google — search interest", "source_type": "web_search",
+      "observed_at": "2026-08-20", "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "sleep frequency music brazil", "capture_method": "claude_web_search"
+    }
+  },
+  {
+    "signal_id": "sig_run_norm_0101",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "TikTok Creative Center — Songs",
+    "source_type": "tiktok_creative_center",
+    "observed_at": "2026-08-21",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "evidence": "Trending sounds in the Songs panel skew toward slow ambient instrumentals.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0101.json",
+    "context": "Songs panel.",
+    "confidence": "LOW",
+    "provenance": {
+      "source": "TikTok Creative Center — Songs", "source_type": "tiktok_creative_center",
+      "observed_at": "2026-08-21", "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "Songs panel; region=Spanish-speaking", "capture_method": "analyst_capture"
+    }
+  },
+  {
+    "signal_id": "sig_run_norm_0102",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "YouTube Data API — search.list",
+    "source_type": "youtube",
+    "observed_at": "UNKNOWN",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "content_format",
+    "evidence": "A YouTube channel focused on calm study playlists appears for the query focus music.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0102.json",
+    "context": "search.list channel result.",
+    "confidence": "LOW",
+    "provenance": {
+      "source": "YouTube Data API — search.list", "source_type": "youtube",
+      "observed_at": "UNKNOWN", "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "search.list?part=snippet&q=focus music", "capture_method": "youtube_data_api",
+      "url": "https://www.youtube.com/channel/UC_focusdemo", "source_version": "v3"
+    },
+    "url": "https://www.youtube.com/channel/UC_focusdemo"
+  },
+  {
+    "signal_id": "sig_run_norm_0103",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "Internal business data",
+    "source_type": "internal_data",
+    "observed_at": "2026-08-18",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "spotify",
+    "signal_type": "audience_behavior",
+    "evidence": "Our sleep playlist gained listeners week over week for four straight weeks.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0103.json",
+    "context": "Internal Spotify export.",
+    "confidence": "MEDIUM",
+    "provenance": {
+      "source": "Internal business data", "source_type": "internal_data",
+      "observed_at": "2026-08-18", "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "data/inputs/internal.yaml [record 0]", "capture_method": "internal_data"
+    }
+  }
+]

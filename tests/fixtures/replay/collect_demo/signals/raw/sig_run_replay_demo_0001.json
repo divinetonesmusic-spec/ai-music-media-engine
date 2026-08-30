@@ -1,0 +1,19 @@
+{
+  "signal_id": "sig_run_replay_demo_0001",
+  "source_type": "internal_data",
+  "capture_method": "internal_data",
+  "query_or_reference": "data/inputs/internal.yaml [record 0]",
+  "url": null,
+  "captured_at": "2026-08-28T12:00:00Z",
+  "raw_content": {
+    "observed_at": "2026-08-20",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "tiktok",
+    "signal_type": "audience_behavior",
+    "evidence": "Own page 'Frequências de Sono Profundo' saw roughly 3x saves-per-view on sleep-frequency reels over the last 30 days versus the prior 30.",
+    "context": "Internal TikTok page analytics, manually recorded by the operator on 2026-08-21.",
+    "confidence": "MEDIUM",
+    "metrics": { "saves_per_view_ratio": "0.04", "window_days": 30 }
+  }
+}

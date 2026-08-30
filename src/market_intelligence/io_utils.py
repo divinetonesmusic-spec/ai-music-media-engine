@@ -7,6 +7,7 @@ helpers centralise reading them and raise a single, clear error type.
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Any, Tuple
 
@@ -40,6 +41,33 @@ def read_json(path: Path) -> Any:
         return json.loads(text)
     except json.JSONDecodeError as e:
         raise LoadError(f"invalid JSON in {path}: {e}") from e
+
+
+def _atomic_write(path: Path, content: str) -> Path:
+    """Write via a sibling temp file + ``os.replace`` so a crash never leaves a
+    half-written file (spec §14 — partial-run safety, per-file granularity)."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+    try:
+        tmp.write_text(content, encoding="utf-8")
+        os.replace(tmp, path)
+    finally:
+        if tmp.exists():
+            tmp.unlink()
+    return path
+
+
+def write_json(path: Path, data: Any) -> Path:
+    """Write ``data`` as pretty UTF-8 JSON with a trailing newline (deterministic, atomic)."""
+    return _atomic_write(
+        path, json.dumps(data, indent=2, ensure_ascii=False, sort_keys=False) + "\n"
+    )
+
+
+def write_text(path: Path, text: str) -> Path:
+    """Write UTF-8 text (exactly one trailing newline), atomically."""
+    return _atomic_write(path, text.rstrip("\n") + "\n")
 
 
 def read_yaml_front_matter(path: Path) -> Tuple[dict, str]:

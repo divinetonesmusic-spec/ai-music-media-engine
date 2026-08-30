@@ -1,0 +1,7 @@
+{
+  "signal_id": "sig_norm_llm_0001",
+  "suggestions": { "market": "Mercados hispanohablantes" },
+  "rationale": "Otherwise plausible, but the model also tried to rewrite the evidence.",
+  "evidence": "FABRICATED — Spanish audiences are definitely converting to paid subscriptions.",
+  "url": "https://not-a-real-source.test/made-up"
+}

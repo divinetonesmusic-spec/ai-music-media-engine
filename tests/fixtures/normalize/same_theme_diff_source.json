@@ -1,0 +1,52 @@
+[
+  {
+    "signal_id": "sig_run_norm_0030",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "Google — search interest",
+    "source_type": "web_search",
+    "observed_at": "2026-08-20",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "web",
+    "signal_type": "search_trend",
+    "evidence": "Demand for sleep frequency music is rising in Brazil.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0030.json",
+    "context": "Web search result.",
+    "confidence": "MEDIUM",
+    "provenance": {
+      "source": "Google — search interest",
+      "source_type": "web_search",
+      "observed_at": "2026-08-20",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "sleep frequency music brazil trend",
+      "capture_method": "claude_web_search"
+    }
+  },
+  {
+    "signal_id": "sig_run_norm_0031",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm",
+    "source": "Internal business data",
+    "source_type": "internal_data",
+    "observed_at": "2026-08-20",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "web",
+    "signal_type": "search_trend",
+    "evidence": "Demand for sleep frequency music is rising in Brazil.",
+    "raw_ref": "data/run_norm/signals/raw/sig_run_norm_0031.json",
+    "context": "Internal analytics — same theme, different origin.",
+    "confidence": "MEDIUM",
+    "provenance": {
+      "source": "Internal business data",
+      "source_type": "internal_data",
+      "observed_at": "2026-08-20",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "data/inputs/internal.yaml [record 3]",
+      "capture_method": "internal_data"
+    }
+  }
+]

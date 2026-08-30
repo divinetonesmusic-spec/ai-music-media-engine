@@ -1,0 +1,59 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "fixture-etag",
+  "regionCode": "BR",
+  "pageInfo": { "totalResults": 481000, "resultsPerPage": 10 },
+  "nextPageToken": "CAoQAA",
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "item1",
+      "id": { "kind": "youtube#video", "videoId": "vid_abc123" },
+      "snippet": {
+        "publishedAt": "2026-03-01T09:30:00Z",
+        "channelId": "UC_sleepfreq",
+        "title": "Frequência 528 Hz para dormir profundamente (8 horas)",
+        "description": "Música instrumental com frequência 528 Hz para sono profundo.",
+        "channelTitle": "Sono & Frequências",
+        "liveBroadcastContent": "none",
+        "publishTime": "2026-03-01T09:30:00Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "item2",
+      "id": { "kind": "youtube#channel", "channelId": "UC_relaxlab" },
+      "snippet": {
+        "publishedAt": "2024-11-12T00:00:00Z",
+        "channelId": "UC_relaxlab",
+        "title": "Relax Lab",
+        "description": "Canal dedicado a música relaxante e frequências.",
+        "channelTitle": "Relax Lab",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "item3-malformed",
+      "id": { "kind": "youtube#video", "videoId": "vid_notitle" },
+      "snippet": {
+        "publishedAt": "2026-02-20T12:00:00Z",
+        "channelId": "UC_x",
+        "channelTitle": "No Title Channel",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "item4",
+      "id": { "kind": "youtube#playlist", "playlistId": "PL_deepsleep" },
+      "snippet": {
+        "channelId": "UC_sleepfreq",
+        "title": "Deep Sleep Frequencies — Playlist",
+        "description": "A playlist of sleep-frequency tracks.",
+        "channelTitle": "Sono & Frequências",
+        "liveBroadcastContent": "none"
+      }
+    }
+  ]
+}

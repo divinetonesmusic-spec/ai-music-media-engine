@@ -1,0 +1,24 @@
+# Operator-maintained internal business data (spec §6.4). A list of records; each
+# becomes one Signal with source_type: internal_data.
+- observed_at: "2026-08-20"
+  market: "Brasil"
+  language: "pt"
+  platform: "tiktok"
+  signal_type: "audience_behavior"
+  evidence: "Own page 'Frequências de Sono Profundo' saw roughly 3x saves-per-view on sleep-frequency reels over the last 30 days versus the prior 30."
+  context: "Internal TikTok page analytics, manually recorded by the operator on 2026-08-21."
+  confidence: "MEDIUM"
+  metrics:
+    saves_per_view_ratio: "0.04"
+    window_days: 30
+
+- observed_at: "2026-08-18"
+  market: "Mercados hispanohablantes"
+  language: "es"
+  platform: "spotify"
+  signal_type: "audience_behavior"
+  evidence: "The Spanish 'Sueño Reparador' playlist gained listeners week over week for four consecutive weeks."
+  context: "Internal Spotify for Artists export, manually recorded."
+  confidence: "MEDIUM"
+  source: "Spotify for Artists — playlist analytics export"
+  durability_hint: "STRUCTURAL"

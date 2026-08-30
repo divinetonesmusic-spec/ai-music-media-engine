@@ -1,0 +1,92 @@
+{
+  "dimensions": {
+    "signal_strength": {
+      "rating": "MEDIUM", "confidence": "MEDIUM",
+      "justification": "Duas observacoes independentes (busca externa e painel Songs do TikTok) mais um sinal interno de crescimento sustentado apontam na mesma direcao.",
+      "blocked_by": []
+    },
+    "audience_potential": {
+      "rating": "HIGH", "confidence": "MEDIUM",
+      "justification": "Publico adulto brasileiro que usa musica para dormir e amplo e ja demonstra comportamento de consumo recorrente.",
+      "blocked_by": []
+    },
+    "growth_momentum": {
+      "rating": "MEDIUM", "confidence": "LOW",
+      "justification": "Ha indicacao de crescimento de buscas, mas sem series historicas estruturadas para confirmar a trajetoria.",
+      "blocked_by": ["historical performance data (UNKNOWN)"]
+    },
+    "durability_opportunity_window": {
+      "rating": "HIGH", "confidence": "MEDIUM",
+      "justification": "Demanda por musica de sono e recorrente e evergreen; a variante de frequencias esta emergindo agora, o que abre uma janela favoravel.",
+      "blocked_by": []
+    },
+    "music_fit": {
+      "rating": "HIGH", "confidence": "MEDIUM",
+      "justification": "O catalogo e as playlists de sono ja cobrem exatamente este territorio de wellness instrumental.",
+      "blocked_by": ["musical DNA (NEEDS_INPUT)"]
+    },
+    "content_potential": {
+      "rating": "HIGH", "confidence": "MEDIUM",
+      "justification": "O formato curto de rotina noturna e simples de produzir e tem gancho claro para o TikTok.",
+      "blocked_by": []
+    },
+    "competitive_position": {
+      "rating": "MEDIUM", "confidence": "LOW",
+      "justification": "Ha muitos criadores no nicho de sono; a diferenciacao depende de execucao e de identidade de marca ainda nao consolidada.",
+      "blocked_by": ["competitor base (NEEDS_INPUT)"]
+    },
+    "differentiation_potential": {
+      "rating": "MEDIUM", "confidence": "MEDIUM",
+      "justification": "O angulo de rotina passo a passo com faixa propria ao fundo diferencia do conteudo generico de sons de sono.",
+      "blocked_by": []
+    },
+    "asset_fit": {
+      "rating": "HIGH", "confidence": "MEDIUM",
+      "justification": "Existe playlist consolidada no cluster Sono (pt/Brasil), pagina propria de sono e artistas herois disponiveis — reuso direto de ativos.",
+      "blocked_by": []
+    },
+    "business_outcome_potential": {
+      "rating": "MEDIUM", "confidence": "MEDIUM",
+      "justification": "Alimenta principalmente crescimento de playlist e royalties de streaming; potencial de UGC e menor neste formato.",
+      "blocked_by": []
+    }
+  },
+  "business_outcome_profile": {
+    "playlist_growth_potential": {
+      "rating": "HIGH", "confidence": "MEDIUM",
+      "justification": "O conteudo curto direciona trafego para a playlist de sono ja existente, alimentando consumo e engajamento."
+    },
+    "music_trend_ugc_potential": {
+      "rating": "LOW", "confidence": "MEDIUM",
+      "justification": "Rotina noturna narrada dificilmente vira audio reutilizado por terceiros; o formato nao favorece trend de som."
+    },
+    "streaming_royalty_potential": {
+      "rating": "MEDIUM", "confidence": "MEDIUM",
+      "justification": "Mais consumo recorrente da playlist de sono se traduz em royalties de streaming ao longo do tempo."
+    },
+    "page_growth_potential": {
+      "rating": "MEDIUM", "confidence": "LOW",
+      "justification": "A pagina propria de sono pode crescer com o formato, mas sem dados historicos de seguidores a estimativa e fraca.",
+      "blocked_by": ["page follower history (UNKNOWN)"]
+    },
+    "youtube_media_potential": {
+      "rating": "LOW", "confidence": "LOW",
+      "justification": "A oportunidade e definida para TikTok; a operacao de midia propria no YouTube Video e um esforco separado e fora do escopo aqui."
+    }
+  },
+  "red_flags": [
+    {
+      "description": "Sem dados historicos de performance estruturados, varias dimensoes ficam com confianca baixa.",
+      "severity": "MEDIUM",
+      "kind": "evidence_gap"
+    }
+  ],
+  "overall_confidence": "MEDIUM",
+  "summary": "Oportunidade solida de reuso de ativos: demanda recorrente por musica de sono com um angulo emergente de frequencias, canal natural no TikTok e playlist propria pronta para receber o trafego. A principal limitacao e a ausencia de dados historicos para confirmar o ritmo de crescimento.",
+  "recommendation": {
+    "target_state": "TEST",
+    "suggested_next_step": "Publicar uma serie de 5 reels de rotina de sono na pagina propria de sono, com link para a playlist pt/Brasil, e medir cliques e saves durante 2 semanas.",
+    "justification": "O reuso de ativos e imediato, o custo de teste e baixo e as dimensoes de audiencia, conteudo e asset_fit sao altas; a confianca media justifica um teste pequeno antes de escalar.",
+    "confidence": "MEDIUM"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "candidates": [
+    {
+      "asset_id": "pl_4jmuWvaWI6BvsjhxmJBUao",
+      "asset_type": "playlist",
+      "fit": "HIGH",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Playlist consolidada no cluster Sono, mercado Brasil e idioma pt — alinhamento direto com a oportunidade.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+      "asset_type": "playlist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Mesmo cluster (Sono) mas idioma es / Mercados hispanohablantes — mercado diferente da oportunidade.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "page_tiktok_mandalameditationss",
+      "asset_type": "page",
+      "fit": "HIGH",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Pagina propria classificada no cluster Sono, pt, Brasil — canal natural para este conteudo.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "page_tiktok_frequenciasdivinas",
+      "asset_type": "page",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Pagina propria pt/Brasil mas classificada em Frequencia Divina; so o nome sugere proximidade com frequencias.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+      "asset_type": "artist",
+      "fit": "HIGH",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Artista heroi colocado em todas as playlists predefinidas; forte candidato para qualquer oportunidade de sono.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Artista heroi; afinidade de catalogo diferente nao o desqualifica (§10.2a).",
+      "role": "hero"
+    }
+  ],
+  "best_playlist": "pl_4jmuWvaWI6BvsjhxmJBUao",
+  "best_page": "page_tiktok_mandalameditationss",
+  "best_artist": "art_1rGWl45kQm6h9PQEOOWGfZ"
+}

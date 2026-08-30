@@ -1,0 +1,72 @@
+{
+  "opportunities": [
+    {
+      "title": "Rotina de sono com faixas de frequencia no Brasil",
+      "need": "Adultos brasileiros querem uma rotina noturna que ajude a desacelerar e adormecer com musica instrumental de frequencias.",
+      "audience": {
+        "description": "Adultos 25-45 no Brasil que ja usam musica para dormir e buscam faixas de frequencia (432/528 Hz)",
+        "attributes": { "life_stage": "trabalhadores urbanos", "habit": "ouvem musica ao deitar" }
+      },
+      "market": "Brasil",
+      "language": "pt",
+      "platform": "tiktok",
+      "consumption_context": "A noite, no quarto, minutos antes de dormir, geralmente no celular com fones ou caixa de som baixa.",
+      "durability": "EMERGING",
+      "urgency": "MEDIUM",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Buscas por 'musica 528 Hz para dormir' cresceram no Brasil nos ultimos meses.",
+          "signal_ids": ["sig_run_pipe_0001"],
+          "confidence": "MEDIUM"
+        },
+        {
+          "type": "OBSERVED",
+          "statement": "Faixas ambientes lentas e instrumentais estao em ascensao no painel Songs do TikTok para o Brasil.",
+          "signal_ids": ["sig_run_pipe_0002"],
+          "confidence": "MEDIUM"
+        },
+        {
+          "type": "INFERRED",
+          "statement": "Ha demanda recorrente e crescente por musica instrumental de sono no publico brasileiro.",
+          "derived_from": ["sig_run_pipe_0001", "sig_run_pipe_0003"],
+          "rationale": "Sinais de busca externos e crescimento sustentado de ouvintes numa playlist propria apontam na mesma direcao.",
+          "confidence": "MEDIUM"
+        },
+        {
+          "type": "HYPOTHESIS",
+          "statement": "Conteudo curto explicando a rotina de sono com frequencia pode direcionar trafego para a playlist.",
+          "rationale": "O formato curto e o principal ponto de descoberta no TikTok para esse tema.",
+          "test_idea": "Publicar 5 reels de rotina noturna e medir cliques no link da playlist.",
+          "confidence": "LOW"
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": { "value": "sono", "canonical": true, "basis": "existing" },
+        "potential_positioning": "Ritual de sono tranquilo com faixas de frequencia — experiencia subjetiva de relaxamento, sem promessa de tratamento.",
+        "first_content_direction": "Serie curta 'rotina de sono em 3 passos' com a faixa tocando ao fundo.",
+        "format": "Reel curto vertical de 20-40s",
+        "hook": "Os 3 passos que eu faco toda noite pra dormir mais rapido"
+      }
+    },
+    {
+      "title": "Oportunidade sem mercado claro",
+      "need": "Algum publico global quer musica relaxante",
+      "audience": { "description": "Pessoas em geral" },
+      "market": "English-speaking markets",
+      "language": "pt",
+      "platform": "tiktok",
+      "consumption_context": "Qualquer hora",
+      "durability": "EVERGREEN",
+      "urgency": "LOW",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Sem lastro real.",
+          "signal_ids": ["sig_run_pipe_9999"],
+          "confidence": "LOW"
+        }
+      ]
+    }
+  ]
+}

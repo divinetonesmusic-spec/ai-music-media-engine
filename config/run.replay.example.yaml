@@ -1,0 +1,34 @@
+# run.replay.example.yaml — offline Signal Collection / Normalization demo (spec §22).
+#
+# Runs stages 1–2 with NO network and NO API keys: every source is served from
+# recorded fixtures under replay.fixture_path. Exercises the deterministic
+# pipeline; it is NOT a validation of current trends (the fixtures are historical).
+#
+#   python -m market_intelligence collect   config/run.replay.example.yaml
+#   python -m market_intelligence normalize config/run.replay.example.yaml
+#
+# For a full offline pipeline run (through reports + registry) use
+# config/run.pipeline.replay.example.yaml instead — it ships the LLM-stage fixtures.
+#
+# `internal_data` replays from <fixture_path>/signals/raw/*.json;
+# `youtube` has no fixtures here, so it degrades (recorded in sources_failed) —
+# demonstrating per-source degradation without failing the run.
+
+schema_version: "1.0.0"
+run_id: run_replay_demo
+run_date: "2026-08-28"
+model: "claude-sonnet-5"
+prompt_version: "mi-v1-replay-demo"
+
+scope:
+  languages: ["pt", "es", "en"]
+
+signal_sources: ["internal_data", "youtube"]
+# (no internal_data_path / youtube key needed — replay reads fixtures, not live sources)
+
+max_opportunities_presented: 10
+min_opportunities_target: 5
+
+replay:
+  enabled: true
+  fixture_path: "tests/fixtures/replay/collect_demo"
