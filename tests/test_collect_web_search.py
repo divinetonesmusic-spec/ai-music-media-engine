@@ -275,12 +275,14 @@ class _RecordingSDK:
         self._responses = list(responses)
         self.messages_seen: list = []
         self.tools_seen: list = []
+        self.kwargs_seen: list = []
         outer = self
 
         class _Messages:
             def create(self, **kw):
                 outer.messages_seen.append(kw["messages"])
                 outer.tools_seen.append(kw.get("tools"))
+                outer.kwargs_seen.append(kw)
                 return outer._responses.pop(0)
 
         self.messages = _Messages()
@@ -350,3 +352,135 @@ def test_parse_search_response_tolerates_a_tool_result_error_object():
     ])
     results, queries, _ = _parse_search_response(msg)
     assert results == [] and queries == ["q"]
+
+
+# --- 13. structuring call: parsing the structured-output response (H2) ------
+#
+# The live dry run failed here:  "web_search structuring returned non-JSON:
+# Expecting value: line 1 column 1 (char 0)"  == json.loads("").  The 2nd call
+# uses output_config.format; per the Anthropic docs the JSON arrives in a `text`
+# content block, but with adaptive thinking (Sonnet 5 default) a max_tokens cap
+# or a refusal can leave the response with no usable text block. The old parser
+# defaulted to "" and blindly json.loads()'d it. No network in any test.
+
+_VALID_FINDING = {
+    "query": "q", "result_url": "https://x.test/a", "result_title": "A",
+    "result_page_age": None, "evidence": "e", "context": "c", "market": "Brasil",
+    "language": "pt", "platform": "web", "signal_type": "search_trend",
+    "confidence": "LOW", "durability_hint": None, "raw_excerpt": None,
+}
+
+
+def _text_block(s: str) -> "_Block":
+    return _Block(type="text", text=s)
+
+
+def _thinking_block() -> "_Block":
+    return _Block(type="thinking", thinking="(summarised thinking is empty on Sonnet 5)")
+
+
+def _structure(sdk) -> list:
+    findings, _msg = AnthropicWebSearch(client=sdk)._structure(
+        sdk, model="claude-sonnet-5", brief="b", analysis="a", results=[], queries=[]
+    )
+    return findings
+
+
+def test_structure_parses_json_from_the_documented_text_block():
+    sdk = _RecordingSDK([_Block(stop_reason="end_turn", content=[
+        _text_block(json.dumps({"findings": [_VALID_FINDING]})),
+    ])])
+    findings = _structure(sdk)
+    assert len(findings) == 1
+    assert findings[0].result_url == "https://x.test/a"
+
+
+def test_structure_skips_thinking_blocks_before_the_text_block():
+    sdk = _RecordingSDK([_Block(stop_reason="end_turn", content=[
+        _thinking_block(),
+        _text_block('{"findings": []}'),
+    ])])
+    assert _structure(sdk) == []
+
+
+def test_structure_concatenates_multiple_text_blocks():
+    sdk = _RecordingSDK([_Block(stop_reason="end_turn", content=[
+        _text_block('{"findings":'),
+        _text_block(' []}'),
+    ])])
+    assert _structure(sdk) == []
+
+
+def test_structure_max_tokens_with_no_json_raises_a_clear_error_not_json_loads_empty():
+    sdk = _RecordingSDK([_Block(stop_reason="max_tokens", content=[_thinking_block()])])
+    with pytest.raises(CollectorError) as ei:
+        _structure(sdk)
+    m = str(ei.value)
+    assert "max_tokens" in m
+    assert "line 1 column 1" not in m       # not the opaque json.loads("") message
+    assert "thinking" in m                  # names the block types actually returned
+
+
+def test_structure_refusal_is_reported_and_leaks_nothing():
+    sdk = _RecordingSDK([_Block(
+        stop_reason="refusal",
+        content=[],
+        stop_details=_Block(type="refusal", category="frontier_llm", explanation="x"),
+    )])
+    with pytest.raises(CollectorError) as ei:
+        _structure(sdk)
+    assert "refus" in str(ei.value).lower()
+
+
+def test_structure_empty_or_whitespace_text_is_rejected():
+    sdk = _RecordingSDK([_Block(stop_reason="end_turn", content=[_text_block("   ")])])
+    with pytest.raises(CollectorError):
+        _structure(sdk)
+
+
+def test_structure_no_content_at_all_is_rejected():
+    sdk = _RecordingSDK([_Block(stop_reason="end_turn", content=[])])
+    with pytest.raises(CollectorError):
+        _structure(sdk)
+
+
+def test_structure_non_json_text_is_rejected_with_a_redacted_preview():
+    sdk = _RecordingSDK([_Block(stop_reason="end_turn", content=[
+        _text_block("Sorry, I can't help with that. sk-ant-api03-LEAKED_SECRET_VALUE"),
+    ])])
+    with pytest.raises(CollectorError) as ei:
+        _structure(sdk)
+    m = str(ei.value)
+    assert "sk-ant-api03-LEAKED_SECRET_VALUE" not in m
+    assert "not valid JSON" in m
+
+
+def test_structure_json_that_is_not_an_object_is_rejected():
+    sdk = _RecordingSDK([_Block(stop_reason="end_turn", content=[_text_block("[1, 2, 3]")])])
+    with pytest.raises(CollectorError):
+        _structure(sdk)
+
+
+def test_structure_requests_output_budget_for_thinking_plus_json():
+    sdk = _RecordingSDK([_Block(stop_reason="end_turn", content=[_text_block('{"findings": []}')])])
+    _structure(sdk)
+    kw = sdk.kwargs_seen[0]
+    assert kw["output_config"]["format"]["type"] == "json_schema"
+    assert kw["max_tokens"] >= 16000     # 8000 truncated the real run mid-thinking
+
+
+def test_research_records_the_structuring_response_for_diagnosability():
+    search_msg = _Block(stop_reason="end_turn", content=[
+        _Block(type="server_tool_use", name="web_search", input={"query": "q"}),
+        _Block(type="web_search_tool_result", tool_use_id="x", content=[
+            _Block(type="web_search_result", url="https://x.test/a", title="A", page_age=None),
+        ]),
+        _Block(type="text", text="analysis"),
+    ])
+    structuring_msg = _Block(stop_reason="end_turn", content=[_text_block('{"findings": []}')])
+    sdk = _RecordingSDK([search_msg, structuring_msg])
+    research = AnthropicWebSearch(client=sdk).research(
+        brief="b", model="claude-sonnet-5", max_uses=3
+    )
+    assert "search" in research.provider_response
+    assert "structuring" in research.provider_response

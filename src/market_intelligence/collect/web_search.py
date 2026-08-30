@@ -22,6 +22,7 @@ from __future__ import annotations
 import datetime as _dt
 import json
 import os
+import re
 from dataclasses import dataclass, field
 from typing import List, Optional
 
@@ -47,7 +48,18 @@ from .base import Collector, CollectorError, SignalCollectionContext, raw_ref_fo
 WEB_SEARCH_TOOL_TYPE = "web_search_20250305"
 _DEFAULT_MAX_USES = 8
 _DEFAULT_MAX_TOKENS = 8000
+# The structuring call runs with adaptive thinking on (Sonnet 5 default) AND emits
+# the findings JSON; 8000 truncated the real dry run mid-thinking, leaving no text
+# block. The Anthropic guidance for a non-streaming structured-output call is
+# ~16000 (verified 2026-08-30).
+_STRUCTURING_MAX_TOKENS = 16000
 _MAX_PAUSE_RESTARTS = 5
+
+_KEY_IN_TEXT = re.compile(r"sk-ant-[A-Za-z0-9_-]+")
+
+
+def _redact(text: str) -> str:
+    return _KEY_IN_TEXT.sub("sk-ant-REDACTED", str(text))
 
 _PAGE_AGE_FORMATS = (
     "%B %d, %Y",
@@ -194,8 +206,10 @@ class AnthropicWebSearch(WebSearchClient):
         try:
             search_msg = self._run_search(client, model=model, brief=brief, max_uses=max_uses)
             results, queries, analysis = _parse_search_response(search_msg)
-            findings = self._structure(client, model=model, brief=brief,
-                                       analysis=analysis, results=results, queries=queries)
+            findings, structuring_msg = self._structure(
+                client, model=model, brief=brief,
+                analysis=analysis, results=results, queries=queries,
+            )
         except anthropic.APIError as e:  # network / auth / quota / 4xx-5xx
             raise CollectorError(f"web_search API call failed: {e}") from e
 
@@ -203,7 +217,10 @@ class AnthropicWebSearch(WebSearchClient):
             findings=findings,
             results=results,
             queries=queries,
-            provider_response={"search": _safe_dump(search_msg)},
+            provider_response={
+                "search": _safe_dump(search_msg),
+                "structuring": _safe_dump(structuring_msg),
+            },
         )
 
     def _run_search(self, client, *, model: str, brief: str, max_uses: int):
@@ -227,20 +244,73 @@ class AnthropicWebSearch(WebSearchClient):
 
     def _structure(
         self, client, *, model, brief, analysis, results, queries
-    ) -> List[WebSearchFinding]:
+    ) -> "tuple[List[WebSearchFinding], object]":
         prompt = _structuring_prompt(brief, analysis, results, queries)
         msg = client.messages.create(
             model=model,
-            max_tokens=_DEFAULT_MAX_TOKENS,
+            max_tokens=_STRUCTURING_MAX_TOKENS,
             messages=[{"role": "user", "content": prompt}],
             output_config={"format": {"type": "json_schema", "schema": _findings_schema()}},
         )
-        text = next((b.text for b in msg.content if getattr(b, "type", None) == "text"), "")
-        try:
-            payload = json.loads(text)
-        except json.JSONDecodeError as e:
-            raise CollectorError(f"web_search structuring returned non-JSON: {e}") from e
-        return [decode(WebSearchFinding, f) for f in payload.get("findings", [])]
+        payload = _structured_json_object(msg, stage="web_search structuring")
+        findings = [decode(WebSearchFinding, f) for f in payload.get("findings", [])]
+        return findings, msg
+
+
+def _block_types(msg) -> list:
+    """Sorted distinct ``type`` values across ``msg.content`` (for diagnostics)."""
+    return sorted({str(getattr(b, "type", "?")) for b in getattr(msg, "content", None) or []})
+
+
+def _structured_output_text(msg) -> str:
+    """Concatenate every ``text`` block. Per the Anthropic structured-output docs
+    the JSON arrives in a ``text`` content block; with thinking on (Sonnet 5
+    default) ``thinking`` blocks precede it, and the model may split the JSON
+    across more than one ``text`` block."""
+    parts = [
+        b.text
+        for b in getattr(msg, "content", None) or []
+        if getattr(b, "type", None) == "text" and getattr(b, "text", None)
+    ]
+    return "".join(parts).strip()
+
+
+def _structured_json_object(msg, *, stage: str) -> dict:
+    """Parse a structured-output response into a JSON object, or raise a
+    ``CollectorError`` that says exactly what came back instead of a bare
+    ``json.loads("")``. Never fabricates JSON."""
+    text = _structured_output_text(msg)
+    if not text:
+        stop = getattr(msg, "stop_reason", None)
+        blocks = _block_types(msg)
+        if stop == "refusal":
+            cat = getattr(getattr(msg, "stop_details", None), "category", None)
+            raise CollectorError(
+                f"{stage}: the model refused the request (stop_reason=refusal"
+                + (f", category={cat}" if cat else "")
+                + ") — no structured output was produced"
+            )
+        if stop == "max_tokens":
+            raise CollectorError(
+                f"{stage}: the response hit the max_tokens cap before any JSON text "
+                f"(stop_reason=max_tokens, blocks={blocks}); raise _STRUCTURING_MAX_TOKENS"
+            )
+        raise CollectorError(
+            f"{stage}: the response carried no JSON text block "
+            f"(stop_reason={stop!r}, blocks={blocks})"
+        )
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError as e:
+        raise CollectorError(
+            f"{stage}: response text is not valid JSON ({e}); "
+            f"starts with {_redact(text[:160])!r}"
+        ) from e
+    if not isinstance(payload, dict):
+        raise CollectorError(
+            f"{stage}: structured response is a {type(payload).__name__}, not a JSON object"
+        )
+    return payload
 
 
 def _search_prompt(brief: str) -> str:
