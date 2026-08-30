@@ -21,7 +21,7 @@ from typing import Dict, List, Optional, Union
 import yaml
 
 from .framing import FramedOpportunity
-from .io_utils import LoadError, read_yaml
+from .io_utils import LoadError, read_yaml, write_text
 from .ranking import RankingResult
 from .schema.models import Opportunity, RunConfig
 
@@ -145,11 +145,11 @@ def update_registry(
             updated.append(oid)
 
     # Existing entries keep their file order (localized git diff, §17); only the
-    # newly appended ones extend the list.
+    # newly appended ones extend the list. Written atomically (.tmp + os.replace) so
+    # a crash mid-write can never corrupt the one knowledge/ file the pipeline touches.
     payload = {"schema_version": SCHEMA_VERSION, "opportunities": existing}
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
+    write_text(
+        path,
         yaml.safe_dump(payload, sort_keys=False, allow_unicode=True, default_flow_style=False),
-        encoding="utf-8",
     )
     return RegistryUpdateResult(path=path, added=added, updated=updated, total=len(existing))

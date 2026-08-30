@@ -90,15 +90,47 @@ def _classified(value) -> bool:
     return isinstance(value, str) and value not in ("", "UNKNOWN", "NEEDS_INPUT")
 
 
-def _cluster_terms(opp: FramedOpportunity) -> set:
-    terms = set()
-    if opp.hypotheses and opp.hypotheses.potential_cluster:
-        terms.add(opp.hypotheses.potential_cluster.value)
-    return terms
-
-
 def _hero_artist_ids(knowledge: KnowledgeBundle) -> List[str]:
     return [a["artist_id"] for a in knowledge.artists if a.get("hero_artist") is True]
+
+
+@dataclass
+class _ClusterCtx:
+    """Deterministic bridge between the opportunity's canonical cluster **id**
+    (``framing`` emits ``potential_cluster.value`` as an id, validated against
+    ``cluster-taxonomy.md``) and the canonical cluster **name** the inventories
+    store in ``cluster`` / ``primary_cluster``. No fuzzy matching — an exact,
+    case-folded lookup against the canonical name↔id table from the taxonomy.
+    """
+
+    want_id: Optional[str]              # the opportunity's canonical cluster id, or None
+    name_to_id: Dict[str, str]          # case-folded canonical name -> canonical id
+    id_set: frozenset                   # the canonical cluster ids
+
+    def resolve(self, value) -> Optional[str]:
+        """An inventory cluster value -> its canonical id, or None when the value is
+        not a canonical cluster (``NEEDS_INPUT`` / ``UNKNOWN`` / a subcluster / free text)."""
+        if not _classified(value):
+            return None
+        key = str(value).strip().casefold()
+        return key if key in self.id_set else self.name_to_id.get(key)
+
+    def matches(self, value) -> bool:
+        """True when ``value`` resolves to the opportunity's canonical cluster."""
+        return self.want_id is not None and self.resolve(value) == self.want_id
+
+    def any_matches(self, values) -> bool:
+        return isinstance(values, (list, tuple)) and any(self.matches(v) for v in values)
+
+
+def _cluster_ctx(opp: FramedOpportunity, knowledge: KnowledgeBundle) -> _ClusterCtx:
+    pc = opp.hypotheses.potential_cluster if opp.hypotheses else None
+    want_id = pc.value if (pc is not None and pc.canonical) else None
+    return _ClusterCtx(
+        want_id=want_id,
+        name_to_id={c.name.strip().casefold(): c.id for c in knowledge.clusters},
+        id_set=knowledge.canonical_cluster_ids,
+    )
 
 
 @dataclass
@@ -111,17 +143,16 @@ class _Cand:
     facts: dict
 
 
-def _playlist_candidates(opp: FramedOpportunity, knowledge: KnowledgeBundle) -> List[_Cand]:
-    want_cluster = _cluster_terms(opp)
+def _playlist_candidates(
+    opp: FramedOpportunity, knowledge: KnowledgeBundle, cx: _ClusterCtx
+) -> List[_Cand]:
     opp_tokens = _tokens(opp.title) | _tokens(opp.need)
     out: List[_Cand] = []
     for p in knowledge.playlists:
         cluster = p.get("cluster")
         market = p.get("market")
         language = p.get("language")
-        cluster_match = _classified(cluster) and cluster.strip().lower() in {
-            c.strip().lower() for c in want_cluster
-        }
+        cluster_match = cx.matches(cluster)
         locale_match = (
             _classified(market) and market == opp.market.value
             and _classified(language) and language == opp.language.value
@@ -135,14 +166,15 @@ def _playlist_candidates(opp: FramedOpportunity, knowledge: KnowledgeBundle) -> 
             name=p.get("name", ""),
             consolidated_basis=cluster_match or locale_match,
             role=_CANDIDATE,
-            facts={"cluster": cluster, "market": market, "language": language,
-                   "purpose": p.get("purpose")},
+            facts={"cluster": cluster, "canonical_cluster_id": cx.resolve(cluster),
+                   "market": market, "language": language, "purpose": p.get("purpose")},
         ))
     return out
 
 
-def _page_candidates(opp: FramedOpportunity, knowledge: KnowledgeBundle) -> List[_Cand]:
-    want_cluster = {c.strip().lower() for c in _cluster_terms(opp)}
+def _page_candidates(
+    opp: FramedOpportunity, knowledge: KnowledgeBundle, cx: _ClusterCtx
+) -> List[_Cand]:
     opp_tokens = _tokens(opp.title) | _tokens(opp.need)
     out: List[_Cand] = []
     for p in knowledge.pages:
@@ -150,7 +182,7 @@ def _page_candidates(opp: FramedOpportunity, knowledge: KnowledgeBundle) -> List
         cluster = p.get("cluster")
         market = p.get("market")
         language = p.get("language")
-        cluster_match = own and _classified(cluster) and cluster.strip().lower() in want_cluster
+        cluster_match = own and cx.matches(cluster)
         locale_match = (
             own and _classified(market) and market == opp.market.value
             and _classified(language) and language == opp.language.value
@@ -164,15 +196,16 @@ def _page_candidates(opp: FramedOpportunity, knowledge: KnowledgeBundle) -> List
             name=p.get("name", ""),
             consolidated_basis=cluster_match or locale_match,
             role=_CANDIDATE,
-            facts={"cluster": cluster, "market": market, "language": language,
-                   "purpose": p.get("purpose")},
+            facts={"cluster": cluster, "canonical_cluster_id": cx.resolve(cluster),
+                   "market": market, "language": language, "purpose": p.get("purpose")},
         ))
     return out
 
 
-def _artist_candidates(opp: FramedOpportunity, knowledge: KnowledgeBundle) -> List[_Cand]:
+def _artist_candidates(
+    opp: FramedOpportunity, knowledge: KnowledgeBundle, cx: _ClusterCtx
+) -> List[_Cand]:
     hero_ids = set(_hero_artist_ids(knowledge))
-    want_cluster = {c.strip().lower() for c in _cluster_terms(opp)}
     opp_tokens = _tokens(opp.title) | _tokens(opp.need)
     out: List[_Cand] = []
     for a in knowledge.artists:
@@ -180,11 +213,7 @@ def _artist_candidates(opp: FramedOpportunity, knowledge: KnowledgeBundle) -> Li
         is_hero = aid in hero_ids
         primary = a.get("primary_cluster")
         secondary = a.get("secondary_clusters")
-        sec_terms = {s.strip().lower() for s in secondary} if isinstance(secondary, list) else set()
-        cluster_related = (
-            (_classified(primary) and primary.strip().lower() in want_cluster)
-            or bool(sec_terms & want_cluster)
-        )
+        cluster_related = cx.matches(primary) or cx.any_matches(secondary)
         lexical = bool(opp_tokens & _tokens(a.get("name", "")))
         # §10.2a — hero artists are ALWAYS candidates; others need a relation/lexical hint.
         if not (is_hero or cluster_related or lexical):
@@ -193,21 +222,25 @@ def _artist_candidates(opp: FramedOpportunity, knowledge: KnowledgeBundle) -> Li
             asset_type="artist",
             asset_id=aid,
             name=a.get("name", ""),
-            # a consolidated basis exists when the artist is hero (strategic role) or
-            # has a consolidated primary/secondary cluster (§10.2 step 2).
-            consolidated_basis=is_hero or _classified(primary) or bool(sec_terms),
+            # §10.2 step 2 — an OBSERVED fit basis needs either hero status (a
+            # consolidated strategic classification, strong for any opportunity —
+            # §10.2a) or a consolidated primary/secondary cluster that *relates* to
+            # this opportunity. A catalog-affinity mismatch is not itself a basis.
+            consolidated_basis=is_hero or cluster_related,
             role=_HERO if is_hero else _CANDIDATE,
-            facts={"primary_cluster": primary, "secondary_clusters": secondary,
-                   "hero_artist": is_hero},
+            facts={"primary_cluster": primary,
+                   "canonical_cluster_id": cx.resolve(primary),
+                   "secondary_clusters": secondary, "hero_artist": is_hero},
         ))
     return out
 
 
 def _candidates(opp: FramedOpportunity, knowledge: KnowledgeBundle) -> List[_Cand]:
+    cx = _cluster_ctx(opp, knowledge)
     cands = (
-        _playlist_candidates(opp, knowledge)
-        + _page_candidates(opp, knowledge)
-        + _artist_candidates(opp, knowledge)
+        _playlist_candidates(opp, knowledge, cx)
+        + _page_candidates(opp, knowledge, cx)
+        + _artist_candidates(opp, knowledge, cx)
     )
     cands.sort(key=lambda c: (c.asset_type, c.asset_id))
     return cands
@@ -286,6 +319,9 @@ def _prompt(opp: FramedOpportunity, cands: Sequence[_Cand]) -> str:
         "below fits the opportunity, and pick the best playlist / page / artist.\n\n"
         "Rules:\n"
         "- Only judge assets in the candidates list. NEVER invent an asset id.\n"
+        "- opportunity.potential_cluster is a canonical cluster id; each candidate carries "
+        "inventory_facts.canonical_cluster_id (the id its consolidated cluster resolves to, "
+        "or null). They match when the ids are equal.\n"
         "- fit_basis: OBSERVED only when has_consolidated_classification is true AND the "
         "classification actually aligns; INFERRED when you rely on the name text, a "
         "NEEDS_INPUT field or a hypothesis; UNKNOWN when there is no basis at all.\n"

@@ -15,3 +15,7 @@ htmlcov/
 # Generated pipeline data — regenerable, not source knowledge (spec §4, §17; I7).
 # reports/ is intentionally NOT ignored — it is durable, versioned output (I7).
 /data/
+
+# Transient temp files left only by a hard crash mid atomic-write (io_utils._atomic_write
+# writes `.<name>.<pid>.tmp` next to the target, incl. under reports/ and knowledge/market/).
+.*.tmp

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import yaml
 from tests.conftest import FIXTURES, PROJECT_ROOT, load_fixture
 
@@ -132,3 +134,54 @@ def test_malformed_registry_raises_rather_than_clobbering(tmp_path):
     path.write_text("opportunities: 42\n", encoding="utf-8")
     with pytest.raises(RegistryError):
         _run(tmp_path, _cfg())
+
+
+# --- atomic write (LOW-2) -----------------------------------------
+
+def test_registry_write_goes_through_the_shared_atomic_helper(tmp_path, monkeypatch):
+    import market_intelligence.io_utils as io_utils
+    import market_intelligence.registry as registry_mod
+
+    # the updater must use the project's atomic writer, not a bare write_text
+    assert registry_mod.write_text is io_utils.write_text
+
+    seen = {}
+    real_atomic = io_utils._atomic_write
+
+    def spy(path, content):
+        seen["path"] = Path(path)
+        seen["content"] = content
+        return real_atomic(path, content)
+
+    monkeypatch.setattr(io_utils, "_atomic_write", spy)
+
+    reg, _ = _run(tmp_path, _cfg())
+    assert seen["path"] == tmp_path / "knowledge" / "market" / "opportunity-registry.yaml"
+    # atomic write leaves no temp file behind, and the content is valid registry YAML
+    assert list((tmp_path / "knowledge" / "market").glob(".*tmp*")) == []
+    parsed = yaml.safe_load(seen["content"])
+    assert parsed["schema_version"] == "1.0.0"
+    assert any(e["opportunity_id"] == _OPP_ID for e in parsed["opportunities"])
+
+
+def test_registry_format_is_byte_identical_to_a_plain_yaml_dump(tmp_path):
+    # the atomic helper must not change the on-disk format (LOW-2 constraint)
+    _run(tmp_path, _cfg())
+    on_disk = (tmp_path / "knowledge" / "market" / "opportunity-registry.yaml").read_text()
+    reparsed = yaml.safe_load(on_disk)
+    expected = yaml.safe_dump(
+        reparsed, sort_keys=False, allow_unicode=True, default_flow_style=False
+    )
+    assert on_disk == expected            # exactly one trailing newline, same key order
+
+
+def test_append_only_holds_across_three_runs(tmp_path):
+    for rid in ("run_a", "run_b", "run_c"):
+        _run(tmp_path, _cfg(rid))
+    entry = next(e for e in _registry(tmp_path)["opportunities"]
+                 if e["opportunity_id"] == _OPP_ID)
+    assert entry["created_at"] == "2026-08-28T00:00:00Z"   # never rewritten
+    assert entry["first_run_id"] == "run_a"                # never rewritten
+    assert entry["last_run_id"] == "run_c"
+    assert len(entry["state_history"]) == 3                # one appended per run
+    assert entry["state_history"][0]["at"] == "2026-08-28T12:00:00Z"
