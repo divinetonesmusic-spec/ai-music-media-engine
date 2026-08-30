@@ -5,10 +5,13 @@ from __future__ import annotations
 import datetime as dt
 import json
 import shutil
+import types
 
+import anthropic
 import pytest
 from tests.conftest import FIXTURES, load_fixture
 
+from market_intelligence.collect import web_search as ws
 from market_intelligence.collect.base import (
     DEFAULT_COLLECTORS,
     CollectorError,
@@ -283,7 +286,10 @@ class _RecordingSDK:
                 outer.messages_seen.append(kw["messages"])
                 outer.tools_seen.append(kw.get("tools"))
                 outer.kwargs_seen.append(kw)
-                return outer._responses.pop(0)
+                resp = outer._responses.pop(0)
+                if isinstance(resp, BaseException):
+                    raise resp
+                return resp
 
         self.messages = _Messages()
 
@@ -484,3 +490,95 @@ def test_research_records_the_structuring_response_for_diagnosability():
     )
     assert "search" in research.provider_response
     assert "structuring" in research.provider_response
+
+
+# --- 14. timeout / network resilience of the Anthropic calls (H3) ----------
+#
+# The 2nd live dry run was Ctrl+C'd while blocked in `socket.recv` waiting for
+# the server-side web search. The anthropic SDK default is a 600 s read timeout
+# retried twice (~30 min per call) and `_run_search` loops up to 6 times on
+# `pause_turn`. These tests pin an explicit, bounded timeout + retry, a
+# wall-clock budget for the pause loop, and a diagnostic error. No network.
+
+
+class _CapturingAnthropic:
+    """Stands in for `anthropic.Anthropic` and records the constructor kwargs."""
+
+    last_kwargs: dict = {}
+
+    def __init__(self, **kwargs):
+        type(self).last_kwargs = kwargs
+        self.messages = None
+
+
+def _timeout_exc() -> anthropic.APITimeoutError:
+    req = types.SimpleNamespace(
+        method="POST",
+        url="https://api.anthropic.com/v1/messages",
+        headers={"x-api-key": "sk-ant-api03-MUST-NOT-LEAK"},
+    )
+    return anthropic.APITimeoutError(request=req)
+
+
+def test_build_client_sets_an_explicit_bounded_timeout_and_retry(monkeypatch):
+    monkeypatch.setattr(anthropic, "Anthropic", _CapturingAnthropic)
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-ant-placeholder")
+    AnthropicWebSearch()._build_client()
+
+    kw = _CapturingAnthropic.last_kwargs
+    assert kw.get("max_retries") is not None and kw["max_retries"] <= 1   # SDK default is 2
+    timeout = kw.get("timeout")
+    assert timeout is not None
+    read = float(getattr(timeout, "read", timeout))
+    assert 60.0 <= read <= 480.0        # explicit and well under the 600 s default
+
+
+def test_search_call_timeout_becomes_a_diagnostic_collector_error():
+    sdk = _RecordingSDK([_timeout_exc()])
+    with pytest.raises(CollectorError) as ei:
+        AnthropicWebSearch(client=sdk)._run_search(sdk, model="m", brief="b", max_uses=5)
+    msg = str(ei.value)
+    assert "timed out" in msg.lower() or "did not return" in msg.lower()
+    assert "search" in msg.lower()
+    assert "sk-ant-api03-MUST-NOT-LEAK" not in msg
+
+
+def test_structuring_call_timeout_becomes_a_diagnostic_collector_error():
+    sdk = _RecordingSDK([_timeout_exc()])
+    with pytest.raises(CollectorError) as ei:
+        AnthropicWebSearch(client=sdk)._structure(
+            sdk, model="m", brief="b", analysis="a", results=[], queries=[]
+        )
+    msg = str(ei.value)
+    assert "timed out" in msg.lower() or "did not return" in msg.lower()
+    assert "structur" in msg.lower()
+    assert "sk-ant" not in msg
+
+
+def test_search_phase_has_a_wall_clock_budget_across_pause_turn(monkeypatch):
+    ticks = iter([0.0, 1.0, ws._SEARCH_PHASE_BUDGET_S + 1.0, ws._SEARCH_PHASE_BUDGET_S + 2.0])
+    monkeypatch.setattr(ws, "_monotonic", lambda: next(ticks))
+    sdk = _RecordingSDK([_Block(stop_reason="pause_turn", content=[f"b{i}"]) for i in range(6)])
+    with pytest.raises(CollectorError) as ei:
+        AnthropicWebSearch(client=sdk)._run_search(sdk, model="m", brief="b", max_uses=5)
+    assert "budget" in str(ei.value).lower()
+    assert len(sdk.messages_seen) <= 2       # stopped early — not all 6 iterations
+
+
+def test_normal_research_flow_is_unaffected_by_the_timeout_hardening():
+    search_msg = _Block(stop_reason="end_turn", content=[
+        _Block(type="server_tool_use", name="web_search", input={"query": "q"}),
+        _Block(type="web_search_tool_result", tool_use_id="x", content=[
+            _Block(type="web_search_result", url="https://x.test/a", title="A", page_age=None),
+        ]),
+        _Block(type="text", text="analysis"),
+    ])
+    structuring_msg = _Block(stop_reason="end_turn", content=[
+        _text_block(json.dumps({"findings": [_VALID_FINDING]})),
+    ])
+    sdk = _RecordingSDK([search_msg, structuring_msg])
+    research = AnthropicWebSearch(client=sdk).research(
+        brief="b", model="claude-sonnet-5", max_uses=5
+    )
+    assert len(research.findings) == 1
+    assert research.results[0].url == "https://x.test/a"

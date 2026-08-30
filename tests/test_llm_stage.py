@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import json
+import types
 
+import anthropic
 import pytest
 
+from market_intelligence import llm_stage as ls
 from market_intelligence.llm_stage import (
     AnthropicStageClient,
     MissingFixtureError,
@@ -131,6 +134,9 @@ def test_live_client_uses_an_injected_sdk_client_and_redacts_errors(monkeypatch)
     class FakeAnthropicModule:
         APIError = BoomError
 
+        class APITimeoutError(Exception):
+            pass
+
     monkeypatch.setitem(__import__("sys").modules, "anthropic", FakeAnthropicModule())
     client = AnthropicStageClient(client=FakeSDK())
     with pytest.raises(StageError) as ei:
@@ -196,3 +202,48 @@ def test_call_stage_passes_response_to_validate(tmp_path):
         client, stage="framing", key="k", prompt="", schema={}, model="m", validate=validate
     )
     assert result == "validated" and seen == {"n": 3}
+
+
+# --- timeout / retry policy (spec §14) -----------------------------------
+
+
+class _CapturingAnthropic:
+    last_kwargs: dict = {}
+
+    def __init__(self, **kwargs):
+        type(self).last_kwargs = kwargs
+        self.messages = None
+
+
+def test_live_client_is_built_with_a_bounded_timeout_and_retry(monkeypatch):
+    monkeypatch.setattr(anthropic, "Anthropic", _CapturingAnthropic)
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-ant-placeholder")
+    AnthropicStageClient()._build_client()
+
+    kw = _CapturingAnthropic.last_kwargs
+    assert kw.get("max_retries") is not None and kw["max_retries"] <= 1   # SDK default is 2
+    read = float(getattr(kw.get("timeout"), "read", kw.get("timeout")))
+    assert 30.0 <= read <= 480.0
+
+
+def test_live_client_timeout_becomes_a_stage_error_without_leaking_the_key():
+    req = types.SimpleNamespace(
+        method="POST", url="https://api.anthropic.com/v1/messages",
+        headers={"x-api-key": "sk-ant-api03-MUST-NOT-LEAK"},
+    )
+
+    class _Messages:
+        def create(self, **kw):
+            raise anthropic.APITimeoutError(request=req)
+
+    class _SDK:
+        messages = _Messages()
+
+    client = AnthropicStageClient(client=_SDK())
+    with pytest.raises(StageError) as ei:
+        client.complete(stage="framing", key="k", prompt="p", schema={}, model="m")
+    msg = str(ei.value)
+    assert "framing" in msg
+    assert "did not return" in msg or "timed out" in msg.lower()
+    assert "sk-ant-api03-MUST-NOT-LEAK" not in msg
+    assert ls._READ_TIMEOUT >= 60

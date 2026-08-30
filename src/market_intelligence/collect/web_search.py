@@ -21,9 +21,11 @@ from __future__ import annotations
 
 import datetime as _dt
 import json
+import logging
 import os
 import re
 from dataclasses import dataclass, field
+from time import monotonic as _monotonic
 from typing import List, Optional
 
 from ..io_utils import LoadError, read_json
@@ -55,11 +57,37 @@ _DEFAULT_MAX_TOKENS = 8000
 _STRUCTURING_MAX_TOKENS = 16000
 _MAX_PAUSE_RESTARTS = 5
 
+# --- timeout / retry policy (spec §14; anthropic SDK 1.2.0) --------------------
+# SDK defaults are Timeout(read=600) with max_retries=2 — a stalled call blocks
+# for up to 600s and every timeout is retried, so a single messages.create can
+# hang ~30 min, and _run_search loops on pause_turn. These bound it: an explicit
+# read timeout well under 600s, one retry (keeps transient-429/5xx recovery
+# without tripling the wait on a real timeout), and a wall-clock ceiling for the
+# whole pause_turn loop. Non-streaming server-side web search still has no output
+# for the entire server run, so the read timeout must clear a legitimately slow
+# multi-search request — 420s, not tighter.
+_CONNECT_TIMEOUT = 10.0
+_READ_TIMEOUT = 420.0
+_MAX_RETRIES = 1
+_SEARCH_PHASE_BUDGET_S = 900.0
+
+_LOG = logging.getLogger(__name__)
+
 _KEY_IN_TEXT = re.compile(r"sk-ant-[A-Za-z0-9_-]+")
 
 
 def _redact(text: str) -> str:
     return _KEY_IN_TEXT.sub("sk-ant-REDACTED", str(text))
+
+
+def _timeout_exc_types() -> tuple:
+    """``anthropic.APITimeoutError`` if importable, else an empty tuple (catches
+    nothing) so a missing SDK never turns into an ``except`` failure."""
+    try:
+        import anthropic
+    except ImportError:  # pragma: no cover - installed in dev
+        return ()
+    return (anthropic.APITimeoutError,)
 
 _PAGE_AGE_FORMATS = (
     "%B %d, %Y",
@@ -194,7 +222,11 @@ class AnthropicWebSearch(WebSearchClient):
             raise CollectorError(
                 "web_search: no Anthropic credentials (set ANTHROPIC_API_KEY) — spec §20.2"
             )
-        return anthropic.Anthropic(api_key=self._api_key)
+        return anthropic.Anthropic(
+            api_key=self._api_key,
+            timeout=anthropic.Timeout(_READ_TIMEOUT, connect=_CONNECT_TIMEOUT),
+            max_retries=_MAX_RETRIES,
+        )
 
     def research(self, *, brief: str, model: str, max_uses: int) -> WebSearchResearch:
         try:
@@ -211,7 +243,7 @@ class AnthropicWebSearch(WebSearchClient):
                 analysis=analysis, results=results, queries=queries,
             )
         except anthropic.APIError as e:  # network / auth / quota / 4xx-5xx
-            raise CollectorError(f"web_search API call failed: {e}") from e
+            raise CollectorError(_redact(f"web_search API call failed: {e}")) from e
 
         return WebSearchResearch(
             findings=findings,
@@ -227,11 +259,28 @@ class AnthropicWebSearch(WebSearchClient):
         user_msg = {"role": "user", "content": _search_prompt(brief)}
         messages = [user_msg]
         tools = [{"type": WEB_SEARCH_TOOL_TYPE, "name": "web_search", "max_uses": max_uses}]
-        for _ in range(_MAX_PAUSE_RESTARTS + 1):
-            msg = client.messages.create(
-                model=model, max_tokens=_DEFAULT_MAX_TOKENS, tools=tools, messages=messages,
+        deadline = _monotonic() + _SEARCH_PHASE_BUDGET_S
+        for attempt in range(_MAX_PAUSE_RESTARTS + 1):
+            if _monotonic() > deadline:
+                raise CollectorError(
+                    f"web_search: the search phase exceeded its {_SEARCH_PHASE_BUDGET_S:.0f}s "
+                    f"budget after {attempt} pause_turn resume(s)"
+                )
+            _LOG.info(
+                "web_search: search request %d/%d (max_uses=%d)",
+                attempt + 1, _MAX_PAUSE_RESTARTS + 1, max_uses,
             )
+            try:
+                msg = client.messages.create(
+                    model=model, max_tokens=_DEFAULT_MAX_TOKENS, tools=tools, messages=messages,
+                )
+            except _timeout_exc_types() as e:
+                raise CollectorError(
+                    f"web_search: the server-side web search did not return within "
+                    f"~{_READ_TIMEOUT:.0f}s (search request {attempt + 1})"
+                ) from e
             if msg.stop_reason != "pause_turn":
+                _LOG.info("web_search: search returned (stop_reason=%s)", msg.stop_reason)
                 return msg
             # Resume a paused server-tool turn: re-send [user, latest paused assistant].
             # REPLACE the list (do not append) — consecutive assistant turns are a 400,
@@ -246,12 +295,18 @@ class AnthropicWebSearch(WebSearchClient):
         self, client, *, model, brief, analysis, results, queries
     ) -> "tuple[List[WebSearchFinding], object]":
         prompt = _structuring_prompt(brief, analysis, results, queries)
-        msg = client.messages.create(
-            model=model,
-            max_tokens=_STRUCTURING_MAX_TOKENS,
-            messages=[{"role": "user", "content": prompt}],
-            output_config={"format": {"type": "json_schema", "schema": _findings_schema()}},
-        )
+        _LOG.info("web_search: structuring call (max_tokens=%d)", _STRUCTURING_MAX_TOKENS)
+        try:
+            msg = client.messages.create(
+                model=model,
+                max_tokens=_STRUCTURING_MAX_TOKENS,
+                messages=[{"role": "user", "content": prompt}],
+                output_config={"format": {"type": "json_schema", "schema": _findings_schema()}},
+            )
+        except _timeout_exc_types() as e:
+            raise CollectorError(
+                f"web_search: the structuring call did not return within ~{_READ_TIMEOUT:.0f}s"
+            ) from e
         payload = _structured_json_object(msg, stage="web_search structuring")
         findings = [decode(WebSearchFinding, f) for f in payload.get("findings", [])]
         return findings, msg

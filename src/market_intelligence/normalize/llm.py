@@ -19,6 +19,7 @@ from __future__ import annotations
 import dataclasses
 import json
 import os
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional, Sequence, Union
@@ -34,6 +35,18 @@ _NORMALISABLE_FIELDS = ("signal_type", "market", "language", "durability_hint")
 _ALLOWED_TOP_KEYS = {"signal_id", "suggestions", "rationale", "confidence"}
 _LLM_CONFIDENCE = {"LOW", "MEDIUM", "HIGH"}
 _MAX_TOKENS = 2000
+
+# Timeout / retry policy (spec §14). One tiny classify call per ambiguous signal;
+# the anthropic SDK default (600s read, 2 retries) would let one stalled call
+# hang ~30 min. 180s is a generous ceiling for a 2000-token call, one retry.
+_CONNECT_TIMEOUT = 10.0
+_READ_TIMEOUT = 180.0
+_MAX_RETRIES = 1
+_KEY_IN_TEXT = re.compile(r"sk-ant-[A-Za-z0-9_-]+")
+
+
+def _redact(text: str) -> str:
+    return _KEY_IN_TEXT.sub("sk-ant-REDACTED", str(text))
 
 # Values a collector uses as a placeholder (not a considered classification) —
 # these count as "under-specified" and are open for Claude to refine.
@@ -150,7 +163,11 @@ class AnthropicNormalization(NormalizationClient):
             raise NormalizationError(
                 "normalization: no Anthropic credentials (set ANTHROPIC_API_KEY) — spec §20.2"
             )
-        return anthropic.Anthropic(api_key=self._api_key)
+        return anthropic.Anthropic(
+            api_key=self._api_key,
+            timeout=anthropic.Timeout(_READ_TIMEOUT, connect=_CONNECT_TIMEOUT),
+            max_retries=_MAX_RETRIES,
+        )
 
     def classify(self, signal_id, *, context, ambiguous_fields, model) -> dict:
         try:
@@ -165,8 +182,12 @@ class AnthropicNormalization(NormalizationClient):
                 messages=[{"role": "user", "content": _prompt(context, ambiguous_fields)}],
                 output_config={"format": {"type": "json_schema", "schema": _response_schema()}},
             )
+        except anthropic.APITimeoutError as e:
+            raise NormalizationError(
+                f"normalization: the model call did not return within ~{_READ_TIMEOUT:.0f}s"
+            ) from e
         except anthropic.APIError as e:
-            raise NormalizationError(f"normalization API call failed: {e}") from e
+            raise NormalizationError(_redact(f"normalization API call failed: {e}")) from e
         text = next((b.text for b in msg.content if getattr(b, "type", None) == "text"), "")
         try:
             return json.loads(text)

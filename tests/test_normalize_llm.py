@@ -2,13 +2,19 @@
 
 from __future__ import annotations
 
+import types
+
+import anthropic
 import pytest
 from tests.conftest import FIXTURES, load_fixture
 
+from market_intelligence.normalize import llm as norm_llm
 from market_intelligence.normalize.deterministic import NormalizationResult
 from market_intelligence.normalize.llm import (
+    AnthropicNormalization,
     MissingFixtureError,
     NormalizationClient,
+    NormalizationError,
     ResponseRejected,
     normalize_with_llm,
     validate_llm_response,
@@ -268,3 +274,48 @@ def test_no_credentials_degrades_every_signal_without_a_network_call(monkeypatch
     assert [encode(s) for s in r.signals] == [encode(s) for s in _sigs()]
     assert all(c.applied is False for c in r.changes)
     assert all("credential" in (c.rejection_reason or "").lower() for c in r.changes)
+
+
+# --- timeout / retry policy (spec §14) -----------------------------------
+
+
+class _CapturingAnthropic:
+    last_kwargs: dict = {}
+
+    def __init__(self, **kwargs):
+        type(self).last_kwargs = kwargs
+        self.messages = None
+
+
+def test_anthropic_client_is_built_with_a_bounded_timeout_and_retry(monkeypatch):
+    monkeypatch.setattr(anthropic, "Anthropic", _CapturingAnthropic)
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-ant-placeholder")
+    AnthropicNormalization()._build_client()
+
+    kw = _CapturingAnthropic.last_kwargs
+    assert kw.get("max_retries") is not None and kw["max_retries"] <= 1   # SDK default is 2
+    read = float(getattr(kw.get("timeout"), "read", kw.get("timeout")))
+    assert 30.0 <= read <= 480.0
+
+
+def test_timeout_becomes_a_normalization_error_without_leaking_the_key():
+    req = types.SimpleNamespace(
+        method="POST", url="https://api.anthropic.com/v1/messages",
+        headers={"x-api-key": "sk-ant-api03-MUST-NOT-LEAK"},
+    )
+
+    class _Messages:
+        def create(self, **kw):
+            raise anthropic.APITimeoutError(request=req)
+
+    class _SDK:
+        messages = _Messages()
+
+    with pytest.raises(NormalizationError) as ei:
+        AnthropicNormalization(client=_SDK()).classify(
+            "sig_1", context={}, ambiguous_fields=["market"], model="m"
+        )
+    msg = str(ei.value)
+    assert "did not return" in msg or "timed out" in msg.lower()
+    assert "sk-ant-api03-MUST-NOT-LEAK" not in msg
+    assert norm_llm._READ_TIMEOUT >= 60

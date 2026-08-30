@@ -24,6 +24,14 @@ from .schema.models import RunConfig
 _MAX_TOKENS = 8000
 _KEY_IN_TEXT = re.compile(r"(sk-ant-[A-Za-z0-9_-]+)")
 
+# Timeout / retry policy (spec §14). The anthropic SDK defaults to a 600s read
+# timeout retried twice — a stalled analysis call would hang ~30 min. These are
+# no-tool, thinking-on calls that normally finish in well under a minute; 300s is
+# a generous ceiling, one retry keeps transient-429/5xx recovery.
+_CONNECT_TIMEOUT = 10.0
+_READ_TIMEOUT = 300.0
+_MAX_RETRIES = 1
+
 
 class StageError(Exception):
     """A stage's model call could not run (missing SDK / credentials / API error)."""
@@ -88,7 +96,11 @@ class AnthropicStageClient(StageClient):
             raise StageError(
                 "no Anthropic credentials (set ANTHROPIC_API_KEY) — spec §20.2"
             )
-        return anthropic.Anthropic(api_key=self._api_key)
+        return anthropic.Anthropic(
+            api_key=self._api_key,
+            timeout=anthropic.Timeout(_READ_TIMEOUT, connect=_CONNECT_TIMEOUT),
+            max_retries=_MAX_RETRIES,
+        )
 
     def complete(self, *, stage, key, prompt, schema, model) -> dict:
         try:
@@ -103,6 +115,10 @@ class AnthropicStageClient(StageClient):
                 messages=[{"role": "user", "content": prompt}],
                 output_config={"format": {"type": "json_schema", "schema": schema}},
             )
+        except anthropic.APITimeoutError as e:
+            raise StageError(
+                f"{stage}: the model call did not return within ~{_READ_TIMEOUT:.0f}s"
+            ) from e
         except anthropic.APIError as e:
             raise StageError(redact(f"{stage} API call failed: {e}")) from e
         text = next((b.text for b in msg.content if getattr(b, "type", None) == "text"), "")
