@@ -11,14 +11,18 @@ from tests.conftest import FIXTURES, load_fixture
 
 from market_intelligence.collect.base import (
     DEFAULT_COLLECTORS,
+    CollectorError,
     SignalCollectionError,
     collect_signals,
 )
 from market_intelligence.collect.web_search import (
+    WEB_SEARCH_TOOL_TYPE,
+    AnthropicWebSearch,
     WebSearchClient,
     WebSearchCollector,
     WebSearchResearch,
     _page_age_to_iso,
+    _parse_search_response,
 )
 from market_intelligence.schema.codec import decode
 from market_intelligence.schema.enums import CaptureMethod, SourceType
@@ -252,3 +256,97 @@ def test_default_web_search_collector_without_credentials_degrades(tmp_path, mon
     monkeypatch.delenv("ANTHROPIC_AUTH_TOKEN", raising=False)
     with pytest.raises(SignalCollectionError):
         collect_signals(_cfg(), project_root=tmp_path, now=lambda: FIXED)
+
+
+# --- 12. AnthropicWebSearch <-> current Anthropic API shape (H1) --------
+#
+# The other tests inject a WebSearchClient stub; these exercise the real
+# SDK-facing code (_run_search / _parse_search_response) with a fake SDK.
+
+class _Block:
+    def __init__(self, **kw):
+        self.__dict__.update(kw)
+
+
+class _RecordingSDK:
+    """Minimal stand-in for anthropic.Anthropic — captures each messages.create call."""
+
+    def __init__(self, responses):
+        self._responses = list(responses)
+        self.messages_seen: list = []
+        self.tools_seen: list = []
+        outer = self
+
+        class _Messages:
+            def create(self, **kw):
+                outer.messages_seen.append(kw["messages"])
+                outer.tools_seen.append(kw.get("tools"))
+                return outer._responses.pop(0)
+
+        self.messages = _Messages()
+
+
+def test_run_search_sends_the_current_web_search_tool_definition():
+    sdk = _RecordingSDK([_Block(stop_reason="end_turn", content=[])])
+    AnthropicWebSearch(client=sdk)._run_search(
+        sdk, model="claude-sonnet-5", brief="b", max_uses=7
+    )
+    assert WEB_SEARCH_TOOL_TYPE == "web_search_20250305"      # current basic version
+    assert sdk.tools_seen[0] == [
+        {"type": "web_search_20250305", "name": "web_search", "max_uses": 7}
+    ]
+
+
+def test_run_search_resumes_a_paused_turn_without_stacking_assistant_messages():
+    # two consecutive pause_turns then completion — the old code appended and would
+    # produce [user, assistant, assistant] (a 400). The fix replaces the list.
+    sdk = _RecordingSDK([
+        _Block(stop_reason="pause_turn", content=["blocks-1"]),
+        _Block(stop_reason="pause_turn", content=["blocks-2"]),
+        _Block(stop_reason="end_turn", content=["final"]),
+    ])
+    done = sdk._responses[-1]
+    result = AnthropicWebSearch(client=sdk)._run_search(sdk, model="m", brief="b", max_uses=3)
+
+    assert result is done
+    assert [len(m) for m in sdk.messages_seen] == [1, 2, 2]   # never 3+, never stacked
+    assert sdk.messages_seen[1][0]["role"] == "user"
+    assert sdk.messages_seen[1][1] == {"role": "assistant", "content": ["blocks-1"]}
+    assert sdk.messages_seen[2][1] == {"role": "assistant", "content": ["blocks-2"]}  # latest
+    # the user message is re-sent unchanged; no "Continue" turn is injected
+    assert sdk.messages_seen[2][0] == sdk.messages_seen[0][0]
+
+
+def test_run_search_raises_after_too_many_pauses():
+    sdk = _RecordingSDK([_Block(stop_reason="pause_turn", content=[f"b{i}"]) for i in range(12)])
+    with pytest.raises(CollectorError):
+        AnthropicWebSearch(client=sdk)._run_search(sdk, model="m", brief="b", max_uses=3)
+
+
+def test_parse_search_response_reads_the_documented_block_shape():
+    msg = _Block(content=[
+        _Block(type="text", text="I'll search."),
+        _Block(type="server_tool_use", name="web_search", input={"query": "musica sono brasil"}),
+        _Block(type="web_search_tool_result", tool_use_id="srvtoolu_x", content=[
+            _Block(type="web_search_result", url="https://example.com/a", title="A",
+                   page_age="April 30, 2025", encrypted_content="EqgfC…"),  # present, not consumed
+        ]),
+        _Block(type="text", text="Based on the result, X is trending."),
+    ])
+    results, queries, analysis = _parse_search_response(msg)
+    assert queries == ["musica sono brasil"]
+    assert [(r.url, r.title, r.page_age) for r in results] == [
+        ("https://example.com/a", "A", "April 30, 2025")
+    ]
+    assert "trending" in analysis
+
+
+def test_parse_search_response_tolerates_a_tool_result_error_object():
+    msg = _Block(content=[
+        _Block(type="server_tool_use", name="web_search", input={"query": "q"}),
+        _Block(type="web_search_tool_result", tool_use_id="x",
+               content=_Block(type="web_search_tool_result_error",
+                              error_code="max_uses_exceeded")),
+    ])
+    results, queries, _ = _parse_search_response(msg)
+    assert results == [] and queries == ["q"]

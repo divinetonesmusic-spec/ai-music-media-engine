@@ -40,8 +40,10 @@ from ..schema.enums import (
 from ..schema.models import Signal
 from .base import Collector, CollectorError, SignalCollectionContext, raw_ref_for, register_default
 
-# Basic web search — available on every model and platform, returns every result
-# (no dynamic filtering). Bump to a newer variant if/when the pipeline needs it.
+# Basic web search — one of the three current tool versions (no beta header),
+# defaults allowed_callers=["direct"], returns every result (no dynamic filtering).
+# The newer web_search_20260209 / _20260318 only add optional capabilities the
+# pipeline does not need. Verified against the official tool reference 2026-08-30.
 WEB_SEARCH_TOOL_TYPE = "web_search_20250305"
 _DEFAULT_MAX_USES = 8
 _DEFAULT_MAX_TOKENS = 8000
@@ -195,7 +197,8 @@ class AnthropicWebSearch(WebSearchClient):
         )
 
     def _run_search(self, client, *, model: str, brief: str, max_uses: int):
-        messages = [{"role": "user", "content": _search_prompt(brief)}]
+        user_msg = {"role": "user", "content": _search_prompt(brief)}
+        messages = [user_msg]
         tools = [{"type": WEB_SEARCH_TOOL_TYPE, "name": "web_search", "max_uses": max_uses}]
         for _ in range(_MAX_PAUSE_RESTARTS + 1):
             msg = client.messages.create(
@@ -203,7 +206,13 @@ class AnthropicWebSearch(WebSearchClient):
             )
             if msg.stop_reason != "pause_turn":
                 return msg
-            messages.append({"role": "assistant", "content": msg.content})
+            # Resume a paused server-tool turn: re-send [user, latest paused assistant].
+            # REPLACE the list (do not append) — consecutive assistant turns are a 400,
+            # and the paused assistant turn already carries the accumulated
+            # server_tool_use / web_search_tool_result blocks. The server detects the
+            # trailing server_tool_use block and resumes; no "Continue" message is added.
+            # (Anthropic web-search tool + server-tools docs, verified 2026-08-30.)
+            messages = [user_msg, {"role": "assistant", "content": msg.content}]
         raise CollectorError("web_search still paused after max restarts")
 
     def _structure(
