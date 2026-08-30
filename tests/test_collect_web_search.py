@@ -582,3 +582,41 @@ def test_normal_research_flow_is_unaffected_by_the_timeout_hardening():
     )
     assert len(research.findings) == 1
     assert research.results[0].url == "https://x.test/a"
+
+
+# --- 15. structuring effort (H4) ------------------------------------------
+#
+# The first live dry run failed with stop_reason=max_tokens: the structuring
+# call runs adaptive thinking (Sonnet 5 default, effort=high) AND emits the
+# findings JSON, and 16000 tokens all went to thinking. Structuring is pure
+# extraction — run it at effort=low and give it more room.
+
+
+def _structuring_kwargs() -> dict:
+    sdk = _RecordingSDK([_Block(stop_reason="end_turn", content=[_text_block('{"findings": []}')])])
+    AnthropicWebSearch(client=sdk)._structure(
+        sdk, model="claude-sonnet-5", brief="b", analysis="a", results=[], queries=[]
+    )
+    return sdk.kwargs_seen[0]
+
+
+def test_structuring_call_uses_low_effort_as_a_sibling_of_format():
+    kw = _structuring_kwargs()
+    oc = kw["output_config"]
+    assert oc["effort"] == "low"                       # spend the budget on JSON, not thinking
+    assert "effort" not in oc["format"]                # sibling of `format`, not nested in it
+    assert oc["format"]["type"] == "json_schema"       # structured output preserved
+
+
+def test_structuring_call_max_tokens_is_24000():
+    assert ws._STRUCTURING_MAX_TOKENS == 24000
+    assert _structuring_kwargs()["max_tokens"] == 24000
+
+
+def test_the_search_call_never_gets_the_structuring_output_config_or_effort():
+    sdk = _RecordingSDK([_Block(stop_reason="end_turn", content=["done"])])
+    AnthropicWebSearch(client=sdk)._run_search(sdk, model="claude-sonnet-5", brief="b", max_uses=5)
+    kw = sdk.kwargs_seen[0]
+    assert kw.get("output_config") is None            # first call uses tools, not output_config
+    assert "effort" not in kw
+    assert kw["max_tokens"] == ws._DEFAULT_MAX_TOKENS  # the search call is left as it was

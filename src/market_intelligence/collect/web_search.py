@@ -51,10 +51,11 @@ WEB_SEARCH_TOOL_TYPE = "web_search_20250305"
 _DEFAULT_MAX_USES = 8
 _DEFAULT_MAX_TOKENS = 8000
 # The structuring call runs with adaptive thinking on (Sonnet 5 default) AND emits
-# the findings JSON; 8000 truncated the real dry run mid-thinking, leaving no text
-# block. The Anthropic guidance for a non-streaming structured-output call is
-# ~16000 (verified 2026-08-30).
-_STRUCTURING_MAX_TOKENS = 16000
+# the findings JSON. On the first live dry run, effort=high (the default) spent
+# the whole 16000-token budget on thinking (stop_reason=max_tokens, only a
+# `thinking` block returned). Structuring is pure extraction, so it runs at
+# effort="low" (see _structure) and gets more room here.
+_STRUCTURING_MAX_TOKENS = 24000
 _MAX_PAUSE_RESTARTS = 5
 
 # --- timeout / retry policy (spec §14; anthropic SDK 1.2.0) --------------------
@@ -301,7 +302,15 @@ class AnthropicWebSearch(WebSearchClient):
                 model=model,
                 max_tokens=_STRUCTURING_MAX_TOKENS,
                 messages=[{"role": "user", "content": prompt}],
-                output_config={"format": {"type": "json_schema", "schema": _findings_schema()}},
+                # `effort` is a direct key of output_config, sibling of `format`
+                # (Anthropic effort docs, verified 2026-08-30) — NOT nested in
+                # `format`. "low" keeps this extraction call from spending its
+                # whole token budget on thinking (the first live run's
+                # stop_reason=max_tokens).
+                output_config={
+                    "format": {"type": "json_schema", "schema": _findings_schema()},
+                    "effort": "low",
+                },
             )
         except _timeout_exc_types() as e:
             raise CollectorError(
