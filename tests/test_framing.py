@@ -161,6 +161,83 @@ def test_inferred_evidence_without_a_basis_is_dropped_not_the_whole_opportunity(
     assert any(e.type is EvidenceType.OBSERVED for e in opp.evidence)
 
 
+def _frame_with_mutated_response(tmp_path, mutate) -> FramingResult:
+    """Run framing against a copy of the recorded fixture, `mutate(resp)` applied."""
+    import json
+
+    fx = tmp_path / "pipeline"
+    (fx / "llm" / "framing").mkdir(parents=True, exist_ok=True)
+    (fx / "signals.json").write_text(
+        (FIXTURES / "pipeline" / "signals.json").read_text(), encoding="utf-8"
+    )
+    resp = load_fixture("pipeline/llm/framing/framing__de1e16a6b378.json")
+    mutate(resp)
+    (fx / "llm" / "framing" / "framing__de1e16a6b378.json").write_text(
+        json.dumps(resp), encoding="utf-8"
+    )
+    cfg = decode(RunConfig, {
+        "schema_version": "1.0.0", "run_id": "run_pipe", "run_date": "2026-08-28",
+        "model": "claude-sonnet-5", "prompt_version": "p1", "signal_sources": ["web_search"],
+        "replay": {"enabled": True, "llm": "recorded", "fixture_path": str(fx)},
+    })
+    return frame_signals(
+        _signals(), knowledge=_knowledge(), config=cfg, project_root=PROJECT_ROOT
+    )
+
+
+def _set_attributes(value):
+    def mutate(resp):
+        resp["opportunities"][0]["audience"]["attributes"] = value
+    return mutate
+
+
+def test_recorded_fixture_folds_the_attribute_pair_list_into_the_internal_map():
+    # the recorded fixture carries attributes as the wire pair-list form
+    opp = _frame().opportunities[0]
+    assert opp.audience.attributes == {
+        "life_stage": "trabalhadores urbanos",
+        "habit": "ouvem musica ao deitar",
+    }
+
+
+def test_arbitrary_attribute_keys_round_trip_model_to_internal(tmp_path):
+    pairs = [
+        {"key": "commute_mode", "value": "metro"},
+        {"key": "device", "value": "phone with earbuds"},
+        {"key": "time_of_day", "value": "late night"},
+    ]
+    opp = _frame_with_mutated_response(tmp_path, _set_attributes(pairs)).opportunities[0]
+    assert opp.audience.attributes == {
+        "commute_mode": "metro",
+        "device": "phone with earbuds",
+        "time_of_day": "late night",
+    }
+
+
+def test_empty_or_absent_attributes_become_none(tmp_path):
+    assert _frame_with_mutated_response(
+        tmp_path, _set_attributes([])
+    ).opportunities[0].audience.attributes is None
+
+    def drop(resp):
+        resp["opportunities"][0]["audience"].pop("attributes", None)
+
+    assert _frame_with_mutated_response(tmp_path, drop).opportunities[0].audience.attributes is None
+
+
+def test_malformed_attribute_entries_are_dropped_never_invented(tmp_path):
+    pairs = [
+        {"key": "valid_key", "value": "kept"},
+        {"key": "", "value": "no key"},
+        {"key": "no_value"},
+        {"value": "no key field"},
+        {"key": "blank_value", "value": "  "},
+        "not-an-object",
+    ]
+    opp = _frame_with_mutated_response(tmp_path, _set_attributes(pairs)).opportunities[0]
+    assert opp.audience.attributes == {"valid_key": "kept"}
+
+
 def test_a_rejected_framing_response_is_a_clean_framing_error(tmp_path):
     fx = tmp_path / "pipeline"
     (fx / "llm" / "framing").mkdir(parents=True)

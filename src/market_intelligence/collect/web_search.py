@@ -119,13 +119,24 @@ def _obj(properties: dict, required: list) -> dict:
     }
 
 
+def _nullable(inner: dict) -> dict:
+    """``inner``'s value, or JSON null.
+
+    Anthropic's ``output_config`` json_schema validator rejects a union ``type``
+    array (``{"type": ["string", "null"]}`` -> ``400 output_config.format.schema:
+    Invalid schema``); ``anyOf`` with an explicit null branch is the supported
+    form (structured-outputs subset reference, verified 2026-08-30).
+    """
+    return {"anyOf": [inner, {"type": "null"}]}
+
+
 def _findings_schema() -> dict:
     finding = _obj(
         {
             "query": {"type": "string"},
             "result_url": {"type": "string"},
             "result_title": {"type": "string"},
-            "result_page_age": {"type": ["string", "null"]},
+            "result_page_age": _nullable({"type": "string"}),
             "evidence": {"type": "string"},
             "context": {"type": "string"},
             "market": {"type": "string", "enum": [m.value for m in Market] + ["UNKNOWN"]},
@@ -133,11 +144,10 @@ def _findings_schema() -> dict:
             "platform": {"type": "string", "enum": [p.value for p in Platform]},
             "signal_type": {"type": "string", "enum": [s.value for s in SignalType]},
             "confidence": {"type": "string", "enum": [c.value for c in Confidence]},
-            "durability_hint": {
-                "type": ["string", "null"],
-                "enum": [d.value for d in Durability] + [None],
-            },
-            "raw_excerpt": {"type": ["string", "null"]},
+            "durability_hint": _nullable(
+                {"type": "string", "enum": [d.value for d in Durability]}
+            ),
+            "raw_excerpt": _nullable({"type": "string"}),
         },
         [
             "query", "result_url", "result_title", "result_page_age", "evidence",

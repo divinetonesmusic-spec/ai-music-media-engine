@@ -5,7 +5,10 @@
       "need": "Adultos brasileiros querem uma rotina noturna que ajude a desacelerar e adormecer com musica instrumental de frequencias.",
       "audience": {
         "description": "Adultos 25-45 no Brasil que ja usam musica para dormir e buscam faixas de frequencia (432/528 Hz)",
-        "attributes": { "life_stage": "trabalhadores urbanos", "habit": "ouvem musica ao deitar" }
+        "attributes": [
+          { "key": "life_stage", "value": "trabalhadores urbanos" },
+          { "key": "habit", "value": "ouvem musica ao deitar" }
+        ]
       },
       "market": "Brasil",
       "language": "pt",

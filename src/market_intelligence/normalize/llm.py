@@ -188,9 +188,15 @@ def _response_schema() -> dict:
                     "signal_type": {"type": "string", "enum": sorted(_signal_types())},
                     "market": {"type": "string", "enum": sorted(_markets())},
                     "language": {"type": "string", "enum": sorted(_languages())},
+                    # A union `type` array (["string", "null"]) is rejected by the
+                    # Anthropic output_config json_schema validator; `anyOf` with an
+                    # explicit null branch is the supported nullable form (verified
+                    # 2026-08-30). durability_hint stays optional (not in `required`).
                     "durability_hint": {
-                        "type": ["string", "null"],
-                        "enum": sorted(_durabilities()) + [None],
+                        "anyOf": [
+                            {"type": "string", "enum": sorted(_durabilities())},
+                            {"type": "null"},
+                        ],
                     },
                 },
             },

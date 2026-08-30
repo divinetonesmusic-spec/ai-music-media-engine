@@ -154,8 +154,23 @@ def _response_schema() -> dict:
                         "title": {"type": "string"},
                         "need": {"type": "string"},
                         "audience": obj_schema(
-                            {"description": {"type": "string"},
-                             "attributes": {"type": "object"}},
+                            {
+                                "description": {"type": "string"},
+                                # `attributes` is a free-form map in the model (spec §7.1
+                                # `{ description, attributes?: map }`). The structured-output
+                                # subset has no open-object form (`additionalProperties`
+                                # other than false is unsupported), so it travels the wire
+                                # as a closed list of {key, value} string pairs and is
+                                # folded back to a dict deterministically (`_coerce_attributes`).
+                                "attributes": {
+                                    "type": "array",
+                                    "items": obj_schema(
+                                        {"key": {"type": "string"},
+                                         "value": {"type": "string"}},
+                                        ["key", "value"],
+                                    ),
+                                },
+                            },
                             ["description"],
                         ),
                         "market": enum_str([m.value for m in Market]),
@@ -220,6 +235,9 @@ def _prompt(signals: Sequence[Signal], knowledge: KnowledgeBundle, config: RunCo
         "- Each opportunity MUST have all six: need, audience.description, market, language, "
         "platform, consumption_context. Market and language MUST be consistent: "
         "pt<->Brasil, es<->Mercados hispanohablantes, en<->English-speaking markets.\n"
+        "- audience.attributes (optional): a list of {key, value} string pairs describing "
+        "the audience (e.g. age_range, life_stage, habit, device). Leave it empty unless "
+        "the evidence supports specific attributes — never invent them.\n"
         "- Do NOT create an opportunity from a signal whose market is UNKNOWN or outside "
         "the three markets — skip it.\n"
         "- evidence: type each item OBSERVED (cite signal_ids), INFERRED (cite derived_from "
@@ -242,6 +260,29 @@ def _prompt(signals: Sequence[Signal], knowledge: KnowledgeBundle, config: RunCo
 
 def _clean(value: Optional[str]) -> str:
     return (value or "").strip()
+
+
+def _coerce_attributes(raw: object) -> Optional[dict]:
+    """Fold the model's ``[{key, value}, ...]`` attribute list back into the
+    internal ``{key: value}`` map (``Audience.attributes``).
+
+    The wire form is a list because the structured-output schema subset cannot
+    express an open-key object (§_response_schema). Non-conforming entries are
+    dropped — never repaired or invented (spec §14, guardrail 5). A first
+    occurrence of a key wins. An empty result is ``None`` (attributes optional).
+    """
+    if not isinstance(raw, list):
+        return None
+    out: dict = {}
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        key = _clean(item.get("key"))
+        value = item.get("value")
+        if not key or not isinstance(value, str) or not value.strip():
+            continue
+        out.setdefault(key, value.strip())
+    return out or None
 
 
 def _coerce_evidence(raw: list, known_signal_ids: set) -> List[EvidenceItem]:
@@ -377,7 +418,6 @@ def _build_one(
     )
     taken_ids.add(opp_id)
 
-    attributes = audience_raw.get("attributes")
     return FramedOpportunity(
         opportunity_id=opp_id,
         schema_version=SCHEMA_VERSION,
@@ -386,7 +426,7 @@ def _build_one(
         title=title,
         need=need,
         audience=Audience(description=audience_desc,
-                          attributes=attributes if isinstance(attributes, dict) else None),
+                          attributes=_coerce_attributes(audience_raw.get("attributes"))),
         market=market,
         language=language,
         platform=platform,
