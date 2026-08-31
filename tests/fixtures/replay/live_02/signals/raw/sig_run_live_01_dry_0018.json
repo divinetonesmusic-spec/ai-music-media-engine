@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0018",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "Spotify sleep meditation playlist streams growth statistics 2026",
+  "url": "https://www.chartlex.com/streaming/lo-fi",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "Spotify sleep meditation playlist streams growth statistics 2026",
+    "result_url": "https://www.chartlex.com/streaming/lo-fi",
+    "result_title": "Spotify Growth for Lo-Fi & Ambient Artists (2026) - Streaming",
+    "result_page_age": null,
+    "evidence": "Lo-fi and ambient music has grown over 340% in playlist followers since 2020, driven by functional listening for studying, working, sleeping and relaxing; Lo-Fi Beats is one of the most-followed playlists on Spotify with average session lengths of 48 minutes vs ~25 min platform average.",
+    "context": "Structural growth of functional-listening genre validating playlist+short-form business model",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "spotify",
+    "signal_type": "audience_behavior",
+    "confidence": "HIGH",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "average session lengths significantly longer (48 minutes vs. ~25 minutes for the platform average)"
+  }
+}

@@ -1,0 +1,54 @@
+# run.live-02.replay.yaml — offline replay of the 2026-08-31 successful live dry run.
+#
+# Reconstructs the 23 real Signals that run produced (web_search), with NO network
+# and NO API key, from tests/fixtures/replay/live_02/ (23 raw captures + the
+# reconstructed WebSearchResearch + the 23 normalized Signals + the real
+# recorded Framing response).
+#
+#   ./.venv/bin/python -m market_intelligence collect   config/run.live-02.replay.yaml
+#   ./.venv/bin/python -m market_intelligence normalize config/run.live-02.replay.yaml
+#
+# A full `run` does NOT replay through Framing from here: replay collection
+# re-mints signal ids (sig_<run_id>_NNNN), so the recorded Framing response —
+# keyed by the sha1 of the *original* live ids and citing them in evidence —
+# does not match. The Framing fixture is exercised directly in
+# tests/test_replay_live_02_fixture.py (frame_signals over signals.json).
+
+schema_version: "1.0.0"
+run_id: run_live_02_replay
+run_date: "2026-08-30"
+model: "claude-sonnet-5"
+prompt_version: "mi-v1-live-02-replay"
+
+scope:
+  clusters: []
+  markets: []
+  languages: ["pt", "es", "en"]
+  discovery_platforms: ["tiktok", "youtube"]
+  notes: >
+    Offline replay of the first successful live dry run. Fixtures are historical
+    (2026-08-31) — NOT a validation of current trends (spec §22).
+  queries: []
+
+signal_sources: ["web_search"]
+
+max_opportunities_presented: 10
+min_opportunities_target: 5
+max_candidates: 15
+
+dry_run: true
+
+replay:
+  enabled: true
+  fixture_path: "tests/fixtures/replay/live_02"
+
+paths:
+  knowledge_dir: "knowledge"
+  inventories_dir: "knowledge/inventories"
+  business_dna_path: "knowledge/business-dna/business-dna.md"
+  content_methodology_path: "knowledge/business-dna/content-methodology.md"
+  guardrails_path: "knowledge/rules/guardrails.yaml"
+  taxonomy_path: "knowledge/clusters/cluster-taxonomy.md"
+  registry_path: "knowledge/market/opportunity-registry.yaml"
+  reports_dir: "reports"
+  data_dir: "data"

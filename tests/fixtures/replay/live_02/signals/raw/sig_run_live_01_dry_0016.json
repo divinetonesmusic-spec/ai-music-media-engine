@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0016",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "YouTube meditation music channel growth 2026",
+  "url": "https://orchestralmeditations.com/articles/can-i-monetize-youtube-channel-with-relaxing-music-tips-and-tricks/",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "YouTube meditation music channel growth 2026",
+    "result_url": "https://orchestralmeditations.com/articles/can-i-monetize-youtube-channel-with-relaxing-music-tips-and-tricks/",
+    "result_title": "Can I Monetize YouTube Channel With Relaxing Music: Tips And Tricks - Orchestral Meditations",
+    "result_page_age": "June 20, 2023",
+    "evidence": "States a channel must have at least 1,000 subscribers and 4,000 watch hours in the past 12 months to become a YouTube Partner.",
+    "context": "Operational constraint relevant for planning dry-run timelines on YouTube",
+    "market": "UNKNOWN",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "platform_opportunity",
+    "confidence": "HIGH",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "at least 1,000 subscribers and 4,000 watch hours in the past 12 months"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0012",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "manifestation abundance frequency music TikTok angel numbers trend",
+  "url": "https://www.tiktok.com/discover/angel-music-frequency",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "manifestation abundance frequency music TikTok angel numbers trend",
+    "result_url": "https://www.tiktok.com/discover/angel-music-frequency",
+    "result_title": "Angel Music Frequency | TikTok",
+    "result_page_age": "July 6, 2026",
+    "evidence": "Spanish-language content also present in this space, explaining angel number 927 as guiding 'una carrera espiritual' and life purpose, showing cross-language spread of the numerology-frequency format.",
+    "context": "Angel number/frequency content spreading into es market",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "signal_type": "language_opportunity",
+    "confidence": "LOW",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "una carrera espiritual"
+  }
+}

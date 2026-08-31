@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0019",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "Spotify sleep meditation playlist streams growth statistics 2026",
+  "url": "https://orionpromotion.com/spotify-statistics-2026/",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "Spotify sleep meditation playlist streams growth statistics 2026",
+    "result_url": "https://orionpromotion.com/spotify-statistics-2026/",
+    "result_title": "Spotify Statistics 2026 - Orion Promotion",
+    "result_page_age": "February 6, 2026",
+    "evidence": "Spotify holds 55% market share in Brazil, confirming Brazil as a dominant Spotify market worth prioritizing for playlist strategy.",
+    "context": "Market-level structural signal for pt/Brasil prioritization",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "spotify",
+    "signal_type": "regional_opportunity",
+    "confidence": "MEDIUM",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "Spotify holds 55% market share in Brazil"
+  }
+}

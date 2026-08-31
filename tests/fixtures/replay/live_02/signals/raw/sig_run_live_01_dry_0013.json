@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0013",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "YouTube meditation music channel growth 2026",
+  "url": "https://www.mesmerizeapp.com/blog/best-meditation-youtube-channel",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "YouTube meditation music channel growth 2026",
+    "result_url": "https://www.mesmerizeapp.com/blog/best-meditation-youtube-channel",
+    "result_title": "Best Meditation YouTube Channels in 2026 (Free & Effective) | Mesmerize",
+    "result_page_age": null,
+    "evidence": "States meditation music has become one of the most sought-after genres on YouTube in 2026, with mindfulness/mental wellness continuing to shape content trends.",
+    "context": "Meditation cluster growth on YouTube",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "search_trend",
+    "confidence": "MEDIUM",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "Meditation music has become one of the most sought-after genres on YouTube in 2026"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0009",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "432Hz 528Hz frequency music trend 2026",
+  "url": "https://chromewebstore.google.com/detail/432hz-converter-real-time/kpcncfndlejbpgfekadgaoobdaheecbl?hl=en",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "432Hz 528Hz frequency music trend 2026",
+    "result_url": "https://chromewebstore.google.com/detail/432hz-converter-real-time/kpcncfndlejbpgfekadgaoobdaheecbl?hl=en",
+    "result_title": "432Hz Converter: Real-Time Pitch & Frequency Converter (432Hz 528Hz & More) - Chrome Web Store",
+    "result_page_age": null,
+    "evidence": "Browser extension exists to retune Spotify, YouTube and Apple Music audio in real time to 432Hz/528Hz/Solfeggio frequencies, with a 4/5 average rating, indicating consumer-side tooling demand.",
+    "context": "Consumer demand for frequency-tuned listening experiences",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "web",
+    "signal_type": "audience_behavior",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "a 4-out-of-5 average rating"
+  }
+}

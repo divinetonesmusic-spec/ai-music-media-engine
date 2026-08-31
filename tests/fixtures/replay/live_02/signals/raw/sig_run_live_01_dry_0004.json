@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0004",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "música para dormir Brasil TikTok tendência",
+  "url": "https://www.tiktok.com/discover/m%C3%BAsica-do-falamansa-para-o-beb%C3%AA-dormir",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "música para dormir Brasil TikTok tendência",
+    "result_url": "https://www.tiktok.com/discover/m%C3%BAsica-do-falamansa-para-o-beb%C3%AA-dormir",
+    "result_title": "Música Do Falamansa Para O Bebê Dormir | TikTok",
+    "result_page_age": "3 weeks ago",
+    "evidence": "Brazilian parents are using a forró song by Falamansa to calm babies to sleep, going viral, with theories the beat resembles in-utero sounds.",
+    "context": "Baby/infant sleep as a cross-language vertical in Brazil",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "tiktok",
+    "signal_type": "emerging_theme",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "parents are using a Brazilian forró song by Falamansa to calm babies, with the technique going viral"
+  }
+}

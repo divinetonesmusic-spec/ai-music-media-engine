@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0021",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "TikTok sleep music trend 2026",
+  "url": "https://www.tiktok.com/discover/upcoming-tiktok-music-trends-in-2026",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "TikTok sleep music trend 2026",
+    "result_url": "https://www.tiktok.com/discover/upcoming-tiktok-music-trends-in-2026",
+    "result_title": "Upcoming TikTok Music Trends in 2026 | TikTok",
+    "result_page_age": "2 weeks ago",
+    "evidence": "Trending audio search surfaced 'Deep Chill House 2026', a mix of relaxing house tracks and chill beats for study, work, or relaxation, suggesting crossover demand between house/electronic genre fans and relaxation-instrumental audiences.",
+    "context": "Hypothesis: chill-house instrumental as adjacent emerging format",
+    "market": "UNKNOWN",
+    "language": "UNKNOWN",
+    "platform": "tiktok",
+    "signal_type": "emerging_theme",
+    "confidence": "LOW",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "Deep Chill House 2026"
+  }
+}

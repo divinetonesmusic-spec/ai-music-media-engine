@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0014",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "YouTube meditation music channel growth 2026",
+  "url": "https://videos.feedspot.com/meditation_music_youtube_channels/",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "YouTube meditation music channel growth 2026",
+    "result_url": "https://videos.feedspot.com/meditation_music_youtube_channels/",
+    "result_title": "80 Meditation Music YouTubers You Must Follow in 2026",
+    "result_page_age": "November 25, 2025",
+    "evidence": "Notes meditation/mindfulness channels have grown exponentially since 2024 as viewers seek content to unwind, sleep better, and reconnect with themselves; creators experimenting with ambient loops, binaural beats, sound healing frequencies, deep relaxation music.",
+    "context": "Format diversification within meditation cluster",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "grown exponentially since 2024 as viewers seek content to unwind, sleep better, and reconnect with themselves"
+  }
+}

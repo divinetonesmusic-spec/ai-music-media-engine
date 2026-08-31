@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0002",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "TikTok sleep music trend 2026",
+  "url": "https://www.tiktok.com/discover/sleeping-sound-trend",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "TikTok sleep music trend 2026",
+    "result_url": "https://www.tiktok.com/discover/sleeping-sound-trend",
+    "result_title": "Sleeping Sound Trend | TikTok",
+    "result_page_age": "July 26, 2026",
+    "evidence": "Dedicated discovery page for 'sleeping sound trend' shows sustained interest in sleep sounds on TikTok.",
+    "context": "Sleep cluster",
+    "market": "UNKNOWN",
+    "language": "UNKNOWN",
+    "platform": "tiktok",
+    "signal_type": "social_trend",
+    "confidence": "LOW",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": null
+  }
+}

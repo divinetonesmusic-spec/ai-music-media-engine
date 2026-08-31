@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0023",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "música para dormir Brasil TikTok tendência",
+  "url": "https://www.tiktok.com/discover/musicas-virais-hoje",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "música para dormir Brasil TikTok tendência",
+    "result_url": "https://www.tiktok.com/discover/musicas-virais-hoje",
+    "result_title": "Musicas Virais Hoje | TikTok",
+    "result_page_age": "1 week ago",
+    "evidence": "Active Brazilian Portuguese TikTok discovery page tracking today's viral music, indicating an ongoing audience-behavior surface for Brazilian music trends broadly.",
+    "context": "General music virality tracking in Brasil",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "tiktok",
+    "signal_type": "audience_behavior",
+    "confidence": "LOW",
+    "durability_hint": "EPHEMERAL",
+    "raw_excerpt": null
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0022",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "música relajante TikTok tendencia 2026",
+  "url": "https://www.tiktok.com/discover/musica-instrumental-en-tendencia?lang=en",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "música relajante TikTok tendencia 2026",
+    "result_url": "https://www.tiktok.com/discover/musica-instrumental-en-tendencia?lang=en",
+    "result_title": "Musica Instrumental En Tendencia | TikTok",
+    "result_page_age": "1 week ago",
+    "evidence": "Dedicated Spanish-language TikTok discovery page for trending instrumental music, indicating an active discovery surface for instrumental content in Spanish-speaking markets.",
+    "context": "Instrumental music discovery in es market",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "signal_type": "search_trend",
+    "confidence": "LOW",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": null
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0020",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "TikTok sleep music trend 2026",
+  "url": "https://www.socialpilot.co/blog/tiktok-trends",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "TikTok sleep music trend 2026",
+    "result_url": "https://www.socialpilot.co/blog/tiktok-trends",
+    "result_title": "Trending TikTok Sounds & Viral Trends in August 2026",
+    "result_page_age": "2 weeks ago",
+    "evidence": "Trend forecast notes TikTok's overall 2026 creative mood is shifting toward audiences moving away from fantasy toward realism, curiosity-driven discovery, and 'Emotional ROI'.",
+    "context": "General platform tone shift relevant to wellness content framing",
+    "market": "UNKNOWN",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "platform_opportunity",
+    "confidence": "LOW",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "audiences moving away from fantasy toward realism, curiosity-driven discovery, and 'Emotional ROI'"
+  }
+}

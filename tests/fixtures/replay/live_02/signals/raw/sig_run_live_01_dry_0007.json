@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0007",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "432Hz 528Hz frequency music trend 2026",
+  "url": "https://www.rollingstone.com/music/music-features/432hz-frequency-music-ed-obrien-ziggy-marley-1235549010/",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "432Hz 528Hz frequency music trend 2026",
+    "result_url": "https://www.rollingstone.com/music/music-features/432hz-frequency-music-ed-obrien-ziggy-marley-1235549010/",
+    "result_title": "432 Hz: Ed O'Brien, Ziggy Marley, James Blake on the Magic Frequency",
+    "result_page_age": "April 22, 2026",
+    "evidence": "Grammy-winning artist Ziggy Marley publicly describes retuning his live band to 432Hz, saying it has an impact and effect on the audience and band connection.",
+    "context": "432Hz crossing from fringe wellness into mainstream music culture",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "other",
+    "signal_type": "emerging_theme",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "it does have an impact and an effect on the audience, and myself, and the band. The connection is stronger"
+  }
+}

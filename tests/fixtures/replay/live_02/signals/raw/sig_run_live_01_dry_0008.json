@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0008",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "432Hz 528Hz frequency music trend 2026",
+  "url": "https://www.psypost.org/can-tuning-music-to-432hz-really-heal-you-scientists-explain-the-viral-trend/",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "432Hz 528Hz frequency music trend 2026",
+    "result_url": "https://www.psypost.org/can-tuning-music-to-432hz-really-heal-you-scientists-explain-the-viral-trend/",
+    "result_title": "Can tuning music to 432Hz really heal you? Scientists explain the viral trend",
+    "result_page_age": "May 20, 2026",
+    "evidence": "Coverage frames 432Hz as a growing social media trend while scientists push back that the small non-randomized studies show effects are more about perception/interpretation of sound than any special frequency.",
+    "context": "Scientific skepticism alongside popular frequency trend",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "web",
+    "signal_type": "emerging_theme",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "less about any single special frequency, and more about how we perceive and interpret sound"
+  }
+}

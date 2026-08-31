@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0011",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "manifestation abundance frequency music TikTok angel numbers trend",
+  "url": "https://www.tiktok.com/discover/angel-number-trend?lang=en",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "manifestation abundance frequency music TikTok angel numbers trend",
+    "result_url": "https://www.tiktok.com/discover/angel-number-trend?lang=en",
+    "result_title": "Angel Number Trend | TikTok",
+    "result_page_age": "November 10, 2025",
+    "evidence": "Content builds around specific numeric codes (1111Hz, 444Hz, 777Hz, 8888Hz), each framed with a distinct spiritual meaning, e.g. '444 Hz is the frequency of divine manifestation.'",
+    "context": "Angel numbers as systematized spiritual micro-format",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "emerging_theme",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "444 Hz is the frequency of divine manifestation"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0010",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "manifestation abundance frequency music TikTok angel numbers trend",
+  "url": "https://www.tiktok.com/discover/wealth-abundance-frequency",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "manifestation abundance frequency music TikTok angel numbers trend",
+    "result_url": "https://www.tiktok.com/discover/wealth-abundance-frequency",
+    "result_title": "Wealth Abundance Frequency | TikTok",
+    "result_page_age": "June 22, 2026",
+    "evidence": "TikTok content pairs specific numerology frequencies (888Hz, 1111Hz) with money manifestation messaging, e.g. '888 Hz Angel Frequency: Align with Abundance & Infinite Prosperity'.",
+    "context": "Fused abundance + frequency micro-niche",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "emerging_theme",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "Align. Expand. Prosper."
+  }
+}

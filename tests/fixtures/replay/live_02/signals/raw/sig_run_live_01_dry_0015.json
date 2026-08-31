@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0015",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "YouTube meditation music channel growth 2026",
+  "url": "https://www.favikon.com/blog/top-meditation-youtubers",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "YouTube meditation music channel growth 2026",
+    "result_url": "https://www.favikon.com/blog/top-meditation-youtubers",
+    "result_title": "Top 20 Meditation Youtubers in 2026 [🏆Rating] - Favikon",
+    "result_page_age": null,
+    "evidence": "Top-ranked meditation creators blend meditation guidance with healing, personal growth, and spiritual awakening through guided meditations emphasizing intention and manifestation, showing organic blending of meditation and manifestation content.",
+    "context": "Meditation and manifestation/abundance clusters blending organically",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "emerging_theme",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "healing, personal growth, and spiritual awakening through guided meditations, emphasizing... intention and manifestation"
+  }
+}

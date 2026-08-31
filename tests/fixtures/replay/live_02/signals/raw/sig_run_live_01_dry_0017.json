@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0017",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "study focus music TikTok trend 2026",
+  "url": "https://www.tiktok.com/discover/motivation-music-for-study",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "study focus music TikTok trend 2026",
+    "result_url": "https://www.tiktok.com/discover/motivation-music-for-study",
+    "result_title": "Motivation Music for Study | TikTok",
+    "result_page_age": "July 27, 2026",
+    "evidence": "Study-music content is marketed with emotional-wellness language ('created for moments when your mind feels full', 'support calm productivity, emotional balance') rather than purely functional focus framing.",
+    "context": "Focus/study cluster blending with stress-relief messaging",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "emerging_theme",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "press play, lower the volume slightly, and let the music guide your focus instead of forcing it"
+  }
+}

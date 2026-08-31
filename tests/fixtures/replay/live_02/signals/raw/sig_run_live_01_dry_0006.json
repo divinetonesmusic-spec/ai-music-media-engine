@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0006",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "432Hz 528Hz frequency music trend 2026",
+  "url": "https://james-palm.medium.com/how-to-use-suno-ai-to-create-432hz-528hz-healing-frequency-music-that-gets-millions-of-views-9178f1d7afb4",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "432Hz 528Hz frequency music trend 2026",
+    "result_url": "https://james-palm.medium.com/how-to-use-suno-ai-to-create-432hz-528hz-healing-frequency-music-that-gets-millions-of-views-9178f1d7afb4",
+    "result_title": "How I Use Suno AI to Create 432Hz & 528Hz Healing Frequency Music (2026 Complete Guide) | Medium",
+    "result_page_age": "March 18, 2026",
+    "evidence": "Creator playbook describes a systematized 'frequency + benefit + format' YouTube title pattern (e.g. '432Hz Deep Healing Sleep Music | Remove Negative Energy | 3 Hours') and a funnel of long-form YouTube uploads cut into 30-60s TikTok/Reels clips, with 60-90 days needed before algorithmic distribution kicks in.",
+    "context": "Frequency content operationalized as a mature cross-platform content strategy",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "content_format",
+    "confidence": "HIGH",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "most channels needed 60-90 days of posting before the algorithm began distributing content meaningfully, publishing 2-3x/week mixing 432Hz, 528Hz, and rain combinations"
+  }
+}

@@ -1,0 +1,479 @@
+{
+  "findings": [
+    {
+      "query": "TikTok sleep music trend 2026",
+      "result_url": "https://www.tiktok.com/discover/sleep-trend-song",
+      "result_title": "Sleep Trend Song | TikTok",
+      "result_page_age": "1 week ago",
+      "evidence": "Active TikTok discovery page dedicated to sleep-trend songs, indicating ongoing sleep-music content activity.",
+      "context": "Sleep cluster demand signal on TikTok",
+      "market": "UNKNOWN",
+      "language": "UNKNOWN",
+      "platform": "tiktok",
+      "signal_type": "social_trend",
+      "confidence": "LOW",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": null
+    },
+    {
+      "query": "TikTok sleep music trend 2026",
+      "result_url": "https://www.tiktok.com/discover/sleeping-sound-trend",
+      "result_title": "Sleeping Sound Trend | TikTok",
+      "result_page_age": "July 26, 2026",
+      "evidence": "Dedicated discovery page for 'sleeping sound trend' shows sustained interest in sleep sounds on TikTok.",
+      "context": "Sleep cluster",
+      "market": "UNKNOWN",
+      "language": "UNKNOWN",
+      "platform": "tiktok",
+      "signal_type": "social_trend",
+      "confidence": "LOW",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": null
+    },
+    {
+      "query": "TikTok sleep music trend 2026",
+      "result_url": "https://www.tiktok.com/@jackharris_music/video/7432521682046242094",
+      "result_title": "Exploring the Sound of Insomnia | Sleep Music TikTok",
+      "result_page_age": null,
+      "evidence": "Independent artist frames insomnia as an emotional/artistic theme tagged #mentalhealth #sleep #insomnia rather than purely functional sleep audio.",
+      "context": "Sleep content treated with emotional/narrative framing",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "tiktok",
+      "signal_type": "content_format",
+      "confidence": "MEDIUM",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "What does insomnia sound like?"
+    },
+    {
+      "query": "música para dormir Brasil TikTok tendência",
+      "result_url": "https://www.tiktok.com/discover/m%C3%BAsica-do-falamansa-para-o-beb%C3%AA-dormir",
+      "result_title": "Música Do Falamansa Para O Bebê Dormir | TikTok",
+      "result_page_age": "3 weeks ago",
+      "evidence": "Brazilian parents are using a forró song by Falamansa to calm babies to sleep, going viral, with theories the beat resembles in-utero sounds.",
+      "context": "Baby/infant sleep as a cross-language vertical in Brazil",
+      "market": "Brasil",
+      "language": "pt",
+      "platform": "tiktok",
+      "signal_type": "emerging_theme",
+      "confidence": "MEDIUM",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "parents are using a Brazilian forró song by Falamansa to calm babies, with the technique going viral"
+    },
+    {
+      "query": "música relajante TikTok tendencia 2026",
+      "result_url": "https://www.tiktok.com/discover/video-de-musica-para-dormir",
+      "result_title": "Video De Musica Para Dormir | TikTok",
+      "result_page_age": "June 15, 2026",
+      "evidence": "Dedicated Spanish-language TikTok discovery page for sleep-music videos, and related baby-sleep accounts run multi-language captioning (English, Español, Deutsch, Français, Português, Mandarin) signaling deliberate multi-market lullaby strategy.",
+      "context": "Sleep cluster, multi-language creator strategy",
+      "market": "Mercados hispanohablantes",
+      "language": "es",
+      "platform": "tiktok",
+      "signal_type": "language_opportunity",
+      "confidence": "MEDIUM",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "captioned in English, Español, Deutsch, Français, Português and Mandarin simultaneously"
+    },
+    {
+      "query": "432Hz 528Hz frequency music trend 2026",
+      "result_url": "https://james-palm.medium.com/how-to-use-suno-ai-to-create-432hz-528hz-healing-frequency-music-that-gets-millions-of-views-9178f1d7afb4",
+      "result_title": "How I Use Suno AI to Create 432Hz & 528Hz Healing Frequency Music (2026 Complete Guide) | Medium",
+      "result_page_age": "March 18, 2026",
+      "evidence": "Creator playbook describes a systematized 'frequency + benefit + format' YouTube title pattern (e.g. '432Hz Deep Healing Sleep Music | Remove Negative Energy | 3 Hours') and a funnel of long-form YouTube uploads cut into 30-60s TikTok/Reels clips, with 60-90 days needed before algorithmic distribution kicks in.",
+      "context": "Frequency content operationalized as a mature cross-platform content strategy",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "youtube",
+      "signal_type": "content_format",
+      "confidence": "HIGH",
+      "durability_hint": "STRUCTURAL",
+      "raw_excerpt": "most channels needed 60-90 days of posting before the algorithm began distributing content meaningfully, publishing 2-3x/week mixing 432Hz, 528Hz, and rain combinations"
+    },
+    {
+      "query": "432Hz 528Hz frequency music trend 2026",
+      "result_url": "https://www.rollingstone.com/music/music-features/432hz-frequency-music-ed-obrien-ziggy-marley-1235549010/",
+      "result_title": "432 Hz: Ed O'Brien, Ziggy Marley, James Blake on the Magic Frequency",
+      "result_page_age": "April 22, 2026",
+      "evidence": "Grammy-winning artist Ziggy Marley publicly describes retuning his live band to 432Hz, saying it has an impact and effect on the audience and band connection.",
+      "context": "432Hz crossing from fringe wellness into mainstream music culture",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "other",
+      "signal_type": "emerging_theme",
+      "confidence": "MEDIUM",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "it does have an impact and an effect on the audience, and myself, and the band. The connection is stronger"
+    },
+    {
+      "query": "432Hz 528Hz frequency music trend 2026",
+      "result_url": "https://www.psypost.org/can-tuning-music-to-432hz-really-heal-you-scientists-explain-the-viral-trend/",
+      "result_title": "Can tuning music to 432Hz really heal you? Scientists explain the viral trend",
+      "result_page_age": "May 20, 2026",
+      "evidence": "Coverage frames 432Hz as a growing social media trend while scientists push back that the small non-randomized studies show effects are more about perception/interpretation of sound than any special frequency.",
+      "context": "Scientific skepticism alongside popular frequency trend",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "web",
+      "signal_type": "emerging_theme",
+      "confidence": "MEDIUM",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "less about any single special frequency, and more about how we perceive and interpret sound"
+    },
+    {
+      "query": "432Hz 528Hz frequency music trend 2026",
+      "result_url": "https://chromewebstore.google.com/detail/432hz-converter-real-time/kpcncfndlejbpgfekadgaoobdaheecbl?hl=en",
+      "result_title": "432Hz Converter: Real-Time Pitch & Frequency Converter (432Hz 528Hz & More) - Chrome Web Store",
+      "result_page_age": null,
+      "evidence": "Browser extension exists to retune Spotify, YouTube and Apple Music audio in real time to 432Hz/528Hz/Solfeggio frequencies, with a 4/5 average rating, indicating consumer-side tooling demand.",
+      "context": "Consumer demand for frequency-tuned listening experiences",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "web",
+      "signal_type": "audience_behavior",
+      "confidence": "MEDIUM",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "a 4-out-of-5 average rating"
+    },
+    {
+      "query": "manifestation abundance frequency music TikTok angel numbers trend",
+      "result_url": "https://www.tiktok.com/discover/wealth-abundance-frequency",
+      "result_title": "Wealth Abundance Frequency | TikTok",
+      "result_page_age": "June 22, 2026",
+      "evidence": "TikTok content pairs specific numerology frequencies (888Hz, 1111Hz) with money manifestation messaging, e.g. '888 Hz Angel Frequency: Align with Abundance & Infinite Prosperity'.",
+      "context": "Fused abundance + frequency micro-niche",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "tiktok",
+      "signal_type": "emerging_theme",
+      "confidence": "MEDIUM",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "Align. Expand. Prosper."
+    },
+    {
+      "query": "manifestation abundance frequency music TikTok angel numbers trend",
+      "result_url": "https://www.tiktok.com/discover/angel-number-trend?lang=en",
+      "result_title": "Angel Number Trend | TikTok",
+      "result_page_age": "November 10, 2025",
+      "evidence": "Content builds around specific numeric codes (1111Hz, 444Hz, 777Hz, 8888Hz), each framed with a distinct spiritual meaning, e.g. '444 Hz is the frequency of divine manifestation.'",
+      "context": "Angel numbers as systematized spiritual micro-format",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "tiktok",
+      "signal_type": "emerging_theme",
+      "confidence": "MEDIUM",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "444 Hz is the frequency of divine manifestation"
+    },
+    {
+      "query": "manifestation abundance frequency music TikTok angel numbers trend",
+      "result_url": "https://www.tiktok.com/discover/angel-music-frequency",
+      "result_title": "Angel Music Frequency | TikTok",
+      "result_page_age": "July 6, 2026",
+      "evidence": "Spanish-language content also present in this space, explaining angel number 927 as guiding 'una carrera espiritual' and life purpose, showing cross-language spread of the numerology-frequency format.",
+      "context": "Angel number/frequency content spreading into es market",
+      "market": "Mercados hispanohablantes",
+      "language": "es",
+      "platform": "tiktok",
+      "signal_type": "language_opportunity",
+      "confidence": "LOW",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "una carrera espiritual"
+    },
+    {
+      "query": "YouTube meditation music channel growth 2026",
+      "result_url": "https://www.mesmerizeapp.com/blog/best-meditation-youtube-channel",
+      "result_title": "Best Meditation YouTube Channels in 2026 (Free & Effective) | Mesmerize",
+      "result_page_age": null,
+      "evidence": "States meditation music has become one of the most sought-after genres on YouTube in 2026, with mindfulness/mental wellness continuing to shape content trends.",
+      "context": "Meditation cluster growth on YouTube",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "youtube",
+      "signal_type": "search_trend",
+      "confidence": "MEDIUM",
+      "durability_hint": "STRUCTURAL",
+      "raw_excerpt": "Meditation music has become one of the most sought-after genres on YouTube in 2026"
+    },
+    {
+      "query": "YouTube meditation music channel growth 2026",
+      "result_url": "https://videos.feedspot.com/meditation_music_youtube_channels/",
+      "result_title": "80 Meditation Music YouTubers You Must Follow in 2026",
+      "result_page_age": "November 25, 2025",
+      "evidence": "Notes meditation/mindfulness channels have grown exponentially since 2024 as viewers seek content to unwind, sleep better, and reconnect with themselves; creators experimenting with ambient loops, binaural beats, sound healing frequencies, deep relaxation music.",
+      "context": "Format diversification within meditation cluster",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "youtube",
+      "signal_type": "content_format",
+      "confidence": "MEDIUM",
+      "durability_hint": "STRUCTURAL",
+      "raw_excerpt": "grown exponentially since 2024 as viewers seek content to unwind, sleep better, and reconnect with themselves"
+    },
+    {
+      "query": "YouTube meditation music channel growth 2026",
+      "result_url": "https://www.favikon.com/blog/top-meditation-youtubers",
+      "result_title": "Top 20 Meditation Youtubers in 2026 [🏆Rating] - Favikon",
+      "result_page_age": null,
+      "evidence": "Top-ranked meditation creators blend meditation guidance with healing, personal growth, and spiritual awakening through guided meditations emphasizing intention and manifestation, showing organic blending of meditation and manifestation content.",
+      "context": "Meditation and manifestation/abundance clusters blending organically",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "youtube",
+      "signal_type": "emerging_theme",
+      "confidence": "MEDIUM",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "healing, personal growth, and spiritual awakening through guided meditations, emphasizing... intention and manifestation"
+    },
+    {
+      "query": "YouTube meditation music channel growth 2026",
+      "result_url": "https://orchestralmeditations.com/articles/can-i-monetize-youtube-channel-with-relaxing-music-tips-and-tricks/",
+      "result_title": "Can I Monetize YouTube Channel With Relaxing Music: Tips And Tricks - Orchestral Meditations",
+      "result_page_age": "June 20, 2023",
+      "evidence": "States a channel must have at least 1,000 subscribers and 4,000 watch hours in the past 12 months to become a YouTube Partner.",
+      "context": "Operational constraint relevant for planning dry-run timelines on YouTube",
+      "market": "UNKNOWN",
+      "language": "en",
+      "platform": "youtube",
+      "signal_type": "platform_opportunity",
+      "confidence": "HIGH",
+      "durability_hint": "STRUCTURAL",
+      "raw_excerpt": "at least 1,000 subscribers and 4,000 watch hours in the past 12 months"
+    },
+    {
+      "query": "study focus music TikTok trend 2026",
+      "result_url": "https://www.tiktok.com/discover/motivation-music-for-study",
+      "result_title": "Motivation Music for Study | TikTok",
+      "result_page_age": "July 27, 2026",
+      "evidence": "Study-music content is marketed with emotional-wellness language ('created for moments when your mind feels full', 'support calm productivity, emotional balance') rather than purely functional focus framing.",
+      "context": "Focus/study cluster blending with stress-relief messaging",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "tiktok",
+      "signal_type": "emerging_theme",
+      "confidence": "MEDIUM",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "press play, lower the volume slightly, and let the music guide your focus instead of forcing it"
+    },
+    {
+      "query": "Spotify sleep meditation playlist streams growth statistics 2026",
+      "result_url": "https://www.chartlex.com/streaming/lo-fi",
+      "result_title": "Spotify Growth for Lo-Fi & Ambient Artists (2026) - Streaming",
+      "result_page_age": null,
+      "evidence": "Lo-fi and ambient music has grown over 340% in playlist followers since 2020, driven by functional listening for studying, working, sleeping and relaxing; Lo-Fi Beats is one of the most-followed playlists on Spotify with average session lengths of 48 minutes vs ~25 min platform average.",
+      "context": "Structural growth of functional-listening genre validating playlist+short-form business model",
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "spotify",
+      "signal_type": "audience_behavior",
+      "confidence": "HIGH",
+      "durability_hint": "STRUCTURAL",
+      "raw_excerpt": "average session lengths significantly longer (48 minutes vs. ~25 minutes for the platform average)"
+    },
+    {
+      "query": "Spotify sleep meditation playlist streams growth statistics 2026",
+      "result_url": "https://orionpromotion.com/spotify-statistics-2026/",
+      "result_title": "Spotify Statistics 2026 - Orion Promotion",
+      "result_page_age": "February 6, 2026",
+      "evidence": "Spotify holds 55% market share in Brazil, confirming Brazil as a dominant Spotify market worth prioritizing for playlist strategy.",
+      "context": "Market-level structural signal for pt/Brasil prioritization",
+      "market": "Brasil",
+      "language": "pt",
+      "platform": "spotify",
+      "signal_type": "regional_opportunity",
+      "confidence": "MEDIUM",
+      "durability_hint": "STRUCTURAL",
+      "raw_excerpt": "Spotify holds 55% market share in Brazil"
+    },
+    {
+      "query": "TikTok sleep music trend 2026",
+      "result_url": "https://www.socialpilot.co/blog/tiktok-trends",
+      "result_title": "Trending TikTok Sounds & Viral Trends in August 2026",
+      "result_page_age": "2 weeks ago",
+      "evidence": "Trend forecast notes TikTok's overall 2026 creative mood is shifting toward audiences moving away from fantasy toward realism, curiosity-driven discovery, and 'Emotional ROI'.",
+      "context": "General platform tone shift relevant to wellness content framing",
+      "market": "UNKNOWN",
+      "language": "en",
+      "platform": "tiktok",
+      "signal_type": "platform_opportunity",
+      "confidence": "LOW",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "audiences moving away from fantasy toward realism, curiosity-driven discovery, and 'Emotional ROI'"
+    },
+    {
+      "query": "TikTok sleep music trend 2026",
+      "result_url": "https://www.tiktok.com/discover/upcoming-tiktok-music-trends-in-2026",
+      "result_title": "Upcoming TikTok Music Trends in 2026 | TikTok",
+      "result_page_age": "2 weeks ago",
+      "evidence": "Trending audio search surfaced 'Deep Chill House 2026', a mix of relaxing house tracks and chill beats for study, work, or relaxation, suggesting crossover demand between house/electronic genre fans and relaxation-instrumental audiences.",
+      "context": "Hypothesis: chill-house instrumental as adjacent emerging format",
+      "market": "UNKNOWN",
+      "language": "UNKNOWN",
+      "platform": "tiktok",
+      "signal_type": "emerging_theme",
+      "confidence": "LOW",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": "Deep Chill House 2026"
+    },
+    {
+      "query": "música relajante TikTok tendencia 2026",
+      "result_url": "https://www.tiktok.com/discover/musica-instrumental-en-tendencia?lang=en",
+      "result_title": "Musica Instrumental En Tendencia | TikTok",
+      "result_page_age": "1 week ago",
+      "evidence": "Dedicated Spanish-language TikTok discovery page for trending instrumental music, indicating an active discovery surface for instrumental content in Spanish-speaking markets.",
+      "context": "Instrumental music discovery in es market",
+      "market": "Mercados hispanohablantes",
+      "language": "es",
+      "platform": "tiktok",
+      "signal_type": "search_trend",
+      "confidence": "LOW",
+      "durability_hint": "EMERGING",
+      "raw_excerpt": null
+    },
+    {
+      "query": "música para dormir Brasil TikTok tendência",
+      "result_url": "https://www.tiktok.com/discover/musicas-virais-hoje",
+      "result_title": "Musicas Virais Hoje | TikTok",
+      "result_page_age": "1 week ago",
+      "evidence": "Active Brazilian Portuguese TikTok discovery page tracking today's viral music, indicating an ongoing audience-behavior surface for Brazilian music trends broadly.",
+      "context": "General music virality tracking in Brasil",
+      "market": "Brasil",
+      "language": "pt",
+      "platform": "tiktok",
+      "signal_type": "audience_behavior",
+      "confidence": "LOW",
+      "durability_hint": "EPHEMERAL",
+      "raw_excerpt": null
+    }
+  ],
+  "results": [
+    {
+      "url": "https://www.tiktok.com/discover/sleep-trend-song",
+      "title": "Sleep Trend Song | TikTok",
+      "page_age": "1 week ago"
+    },
+    {
+      "url": "https://www.tiktok.com/discover/sleeping-sound-trend",
+      "title": "Sleeping Sound Trend | TikTok",
+      "page_age": "July 26, 2026"
+    },
+    {
+      "url": "https://www.tiktok.com/@jackharris_music/video/7432521682046242094",
+      "title": "Exploring the Sound of Insomnia | Sleep Music TikTok",
+      "page_age": null
+    },
+    {
+      "url": "https://www.tiktok.com/discover/m%C3%BAsica-do-falamansa-para-o-beb%C3%AA-dormir",
+      "title": "Música Do Falamansa Para O Bebê Dormir | TikTok",
+      "page_age": "3 weeks ago"
+    },
+    {
+      "url": "https://www.tiktok.com/discover/video-de-musica-para-dormir",
+      "title": "Video De Musica Para Dormir | TikTok",
+      "page_age": "June 15, 2026"
+    },
+    {
+      "url": "https://james-palm.medium.com/how-to-use-suno-ai-to-create-432hz-528hz-healing-frequency-music-that-gets-millions-of-views-9178f1d7afb4",
+      "title": "How I Use Suno AI to Create 432Hz & 528Hz Healing Frequency Music (2026 Complete Guide) | Medium",
+      "page_age": "March 18, 2026"
+    },
+    {
+      "url": "https://www.rollingstone.com/music/music-features/432hz-frequency-music-ed-obrien-ziggy-marley-1235549010/",
+      "title": "432 Hz: Ed O'Brien, Ziggy Marley, James Blake on the Magic Frequency",
+      "page_age": "April 22, 2026"
+    },
+    {
+      "url": "https://www.psypost.org/can-tuning-music-to-432hz-really-heal-you-scientists-explain-the-viral-trend/",
+      "title": "Can tuning music to 432Hz really heal you? Scientists explain the viral trend",
+      "page_age": "May 20, 2026"
+    },
+    {
+      "url": "https://chromewebstore.google.com/detail/432hz-converter-real-time/kpcncfndlejbpgfekadgaoobdaheecbl?hl=en",
+      "title": "432Hz Converter: Real-Time Pitch & Frequency Converter (432Hz 528Hz & More) - Chrome Web Store",
+      "page_age": null
+    },
+    {
+      "url": "https://www.tiktok.com/discover/wealth-abundance-frequency",
+      "title": "Wealth Abundance Frequency | TikTok",
+      "page_age": "June 22, 2026"
+    },
+    {
+      "url": "https://www.tiktok.com/discover/angel-number-trend?lang=en",
+      "title": "Angel Number Trend | TikTok",
+      "page_age": "November 10, 2025"
+    },
+    {
+      "url": "https://www.tiktok.com/discover/angel-music-frequency",
+      "title": "Angel Music Frequency | TikTok",
+      "page_age": "July 6, 2026"
+    },
+    {
+      "url": "https://www.mesmerizeapp.com/blog/best-meditation-youtube-channel",
+      "title": "Best Meditation YouTube Channels in 2026 (Free & Effective) | Mesmerize",
+      "page_age": null
+    },
+    {
+      "url": "https://videos.feedspot.com/meditation_music_youtube_channels/",
+      "title": "80 Meditation Music YouTubers You Must Follow in 2026",
+      "page_age": "November 25, 2025"
+    },
+    {
+      "url": "https://www.favikon.com/blog/top-meditation-youtubers",
+      "title": "Top 20 Meditation Youtubers in 2026 [🏆Rating] - Favikon",
+      "page_age": null
+    },
+    {
+      "url": "https://orchestralmeditations.com/articles/can-i-monetize-youtube-channel-with-relaxing-music-tips-and-tricks/",
+      "title": "Can I Monetize YouTube Channel With Relaxing Music: Tips And Tricks - Orchestral Meditations",
+      "page_age": "June 20, 2023"
+    },
+    {
+      "url": "https://www.tiktok.com/discover/motivation-music-for-study",
+      "title": "Motivation Music for Study | TikTok",
+      "page_age": "July 27, 2026"
+    },
+    {
+      "url": "https://www.chartlex.com/streaming/lo-fi",
+      "title": "Spotify Growth for Lo-Fi & Ambient Artists (2026) - Streaming",
+      "page_age": null
+    },
+    {
+      "url": "https://orionpromotion.com/spotify-statistics-2026/",
+      "title": "Spotify Statistics 2026 - Orion Promotion",
+      "page_age": "February 6, 2026"
+    },
+    {
+      "url": "https://www.socialpilot.co/blog/tiktok-trends",
+      "title": "Trending TikTok Sounds & Viral Trends in August 2026",
+      "page_age": "2 weeks ago"
+    },
+    {
+      "url": "https://www.tiktok.com/discover/upcoming-tiktok-music-trends-in-2026",
+      "title": "Upcoming TikTok Music Trends in 2026 | TikTok",
+      "page_age": "2 weeks ago"
+    },
+    {
+      "url": "https://www.tiktok.com/discover/musica-instrumental-en-tendencia?lang=en",
+      "title": "Musica Instrumental En Tendencia | TikTok",
+      "page_age": "1 week ago"
+    },
+    {
+      "url": "https://www.tiktok.com/discover/musicas-virais-hoje",
+      "title": "Musicas Virais Hoje | TikTok",
+      "page_age": "1 week ago"
+    }
+  ],
+  "queries": [
+    "TikTok sleep music trend 2026",
+    "música para dormir Brasil TikTok tendência",
+    "música relajante TikTok tendencia 2026",
+    "432Hz 528Hz frequency music trend 2026",
+    "manifestation abundance frequency music TikTok angel numbers trend",
+    "YouTube meditation music channel growth 2026",
+    "study focus music TikTok trend 2026",
+    "Spotify sleep meditation playlist streams growth statistics 2026"
+  ],
+  "provider_response": {
+    "note": "reconstructed from the 2026-08-31 live run's 23 raw web_search captures; the provider API response dump is intentionally omitted"
+  }
+}

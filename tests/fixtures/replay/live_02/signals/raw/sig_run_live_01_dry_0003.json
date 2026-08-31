@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0003",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "TikTok sleep music trend 2026",
+  "url": "https://www.tiktok.com/@jackharris_music/video/7432521682046242094",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "TikTok sleep music trend 2026",
+    "result_url": "https://www.tiktok.com/@jackharris_music/video/7432521682046242094",
+    "result_title": "Exploring the Sound of Insomnia | Sleep Music TikTok",
+    "result_page_age": null,
+    "evidence": "Independent artist frames insomnia as an emotional/artistic theme tagged #mentalhealth #sleep #insomnia rather than purely functional sleep audio.",
+    "context": "Sleep content treated with emotional/narrative framing",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "What does insomnia sound like?"
+  }
+}

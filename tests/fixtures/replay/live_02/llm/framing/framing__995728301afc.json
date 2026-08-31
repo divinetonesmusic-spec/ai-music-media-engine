@@ -1,0 +1,534 @@
+{
+  "opportunities": [
+    {
+      "title": "Emotionally-framed insomnia content on TikTok (EN)",
+      "need": "People struggling with insomnia want music/content that validates the emotional experience of sleeplessness, not just functional sleep sounds",
+      "audience": {
+        "description": "English-speaking TikTok users dealing with insomnia and mental-health-related sleep difficulty who respond to narrative/emotional framing",
+        "attributes": [
+          {
+            "key": "platform_behavior",
+            "value": "engages with #mentalhealth #sleep #insomnia tagged content"
+          }
+        ]
+      },
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "tiktok",
+      "consumption_context": "late-night scrolling while unable to sleep, seeking validation and calming content",
+      "durability": "EMERGING",
+      "urgency": "MEDIUM",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Independent artist frames insomnia as an emotional/artistic theme tagged #mentalhealth #sleep #insomnia rather than purely functional sleep audio.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0003"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "sono",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Sleep music that acknowledges the emotional struggle of insomnia, not just white noise",
+        "potential_page": "pt/en sleep-focused instrumental page with an emotional-support voice",
+        "first_content_direction": "Short-form videos pairing calming instrumentals with captions validating the insomnia experience",
+        "format": "short-form video with instrumental loop + text overlay",
+        "hook": "For the nights your mind won't stop racing"
+      }
+    },
+    {
+      "title": "Baby/infant sleep music in Brazil (forró-inspired calming)",
+      "need": "Brazilian parents seek music that reliably calms infants to sleep, inspired by viral discovery that certain rhythmic patterns soothe babies",
+      "audience": {
+        "description": "Parents and caregivers of infants in Brazil looking for effective calming music/sounds",
+        "attributes": [
+          {
+            "key": "life_stage",
+            "value": "new parents"
+          }
+        ]
+      },
+      "market": "Brasil",
+      "language": "pt",
+      "platform": "tiktok",
+      "consumption_context": "bedtime/naptime routines with infants, played via phone or smart speaker",
+      "durability": "EMERGING",
+      "urgency": "MEDIUM",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Brazilian parents are using a forró song by Falamansa to calm babies to sleep, going viral, with theories the beat resembles in-utero sounds.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0004"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "sono",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Instrumental adaptations of rhythms proven to soothe infants, positioned for Brazilian parents",
+        "potential_page": "pt baby-sleep sub-vertical under sono cluster",
+        "first_content_direction": "Instrumental lullaby remixes of rhythmic Brazilian genres framed as baby-calming music",
+        "format": "looped instrumental audio for TikTok/Reels with baby-sleep visuals",
+        "hook": "O ritmo que os bebês brasileiros amam para dormir"
+      }
+    },
+    {
+      "title": "Multi-language sleep-music discovery expansion into Spanish",
+      "need": "Spanish-speaking audiences want dedicated sleep-music discovery content, mirroring multi-language lullaby strategies already used by creators",
+      "audience": {
+        "description": "Spanish-speaking TikTok users searching for sleep-music content",
+        "attributes": []
+      },
+      "market": "Mercados hispanohablantes",
+      "language": "es",
+      "platform": "tiktok",
+      "consumption_context": "searching TikTok discovery pages specifically for sleep-music videos at night",
+      "durability": "EMERGING",
+      "urgency": "MEDIUM",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Dedicated Spanish-language TikTok discovery page for sleep-music videos, and related baby-sleep accounts run multi-language captioning signaling deliberate multi-market lullaby strategy.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0005"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "sono",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Spanish-first sleep-music channel leveraging proven multi-language lullaby content patterns",
+        "potential_page": "es sono/sleep page",
+        "first_content_direction": "Translate/adapt top-performing sleep-music formats into Spanish captions and titles",
+        "format": "short-form looped instrumental with Spanish captions",
+        "hook": "Música para dormir profundamente esta noche"
+      }
+    },
+    {
+      "title": "Systematized frequency+benefit YouTube funnel content",
+      "need": "Audience searching YouTube for frequency-labeled healing/sleep music responds to a structured title pattern combining frequency, benefit and format",
+      "audience": {
+        "description": "English-speaking YouTube searchers looking for long-form frequency-based healing/sleep audio",
+        "attributes": [
+          {
+            "key": "habit",
+            "value": "plays long-form audio for hours (2-3h videos)"
+          }
+        ]
+      },
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "youtube",
+      "consumption_context": "background listening during sleep or relaxation sessions, often multi-hour uploads",
+      "durability": "STRUCTURAL",
+      "urgency": "HIGH",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Creator playbook describes a systematized 'frequency + benefit + format' YouTube title pattern and a funnel of long-form uploads cut into short clips, with 60-90 days needed before algorithmic distribution kicks in.",
+          "confidence": "HIGH",
+          "signal_ids": [
+            "sig_run_live_01_dry_0006"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "frequencia-divina-espiritualidade",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Long-form frequency-labeled healing/sleep videos on YouTube feeding short-form clips",
+        "potential_page": "en frequency/healing YouTube channel",
+        "first_content_direction": "Produce 2-3h '432Hz Deep Healing Sleep Music' style uploads, then cut into 30-60s clips for TikTok/Reels",
+        "format": "long-form YouTube + short-form repurposed clips",
+        "hook": "432Hz Deep Healing Sleep Music | Remove Negative Energy | 3 Hours"
+      }
+    },
+    {
+      "title": "432Hz frequency-tuned listening demand",
+      "need": "Listeners want music retuned to 432Hz/528Hz/Solfeggio frequencies for a perceived calming or connective effect, despite scientific skepticism",
+      "audience": {
+        "description": "English-speaking wellness-curious listeners and musicians interested in alternative tuning frequencies",
+        "attributes": []
+      },
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "other",
+      "consumption_context": "active listening via retuned streaming audio or live music performances",
+      "durability": "EMERGING",
+      "urgency": "MEDIUM",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Grammy-winning artist Ziggy Marley publicly describes retuning his live band to 432Hz, saying it has an impact and effect on the audience and band connection.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0007"
+          ]
+        },
+        {
+          "type": "OBSERVED",
+          "statement": "Coverage frames 432Hz as a growing social media trend while scientists push back that effects are more about perception than any special frequency.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0008"
+          ]
+        },
+        {
+          "type": "OBSERVED",
+          "statement": "Browser extension exists to retune Spotify, YouTube and Apple Music audio in real time to 432Hz/528Hz/Solfeggio frequencies, with a 4/5 average rating, indicating consumer-side tooling demand.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0009"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "frequencia-divina-espiritualidade",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Native 432Hz-tuned instrumental tracks so listeners don't need third-party retuning tools",
+        "potential_page": "en frequency-music page emphasizing 432Hz",
+        "first_content_direction": "Release tracks explicitly tuned/labeled at 432Hz with framing around connection and calm",
+        "format": "full tracks + short clips explaining the tuning choice",
+        "hook": "What if your favorite calming music was tuned to 432Hz?"
+      }
+    },
+    {
+      "title": "Numerology-frequency abundance content (888Hz/1111Hz)",
+      "need": "Audience seeks frequency-labeled audio fused with money-manifestation and abundance messaging",
+      "audience": {
+        "description": "English-speaking TikTok viewers interested in manifestation and abundance spirituality",
+        "attributes": []
+      },
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "tiktok",
+      "consumption_context": "scrolling TikTok for manifestation/abundance content, often listened to as background audio during affirmation practice",
+      "durability": "EMERGING",
+      "urgency": "MEDIUM",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "TikTok content pairs specific numerology frequencies (888Hz, 1111Hz) with money manifestation messaging, e.g. '888 Hz Angel Frequency: Align with Abundance & Infinite Prosperity'.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0010"
+          ]
+        },
+        {
+          "type": "OBSERVED",
+          "statement": "Content builds around specific numeric codes (1111Hz, 444Hz, 777Hz, 8888Hz), each framed with a distinct spiritual meaning, e.g. '444 Hz is the frequency of divine manifestation.'",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0011"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "abundancia-prosperidade",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Frequency-labeled abundance/manifestation instrumental tracks tied to specific numeric codes",
+        "potential_page": "en abundance-frequency page",
+        "first_content_direction": "Series of short videos each dedicated to a numeric frequency (888Hz, 1111Hz) with abundance affirmations",
+        "format": "short looped instrumental with on-screen numerology meaning",
+        "hook": "888 Hz: the abundance frequency you need today"
+      }
+    },
+    {
+      "title": "Angel-number frequency content spreading to Spanish market",
+      "need": "Spanish-speaking audiences want angel-number/frequency spiritual content connecting numbers to life purpose and career",
+      "audience": {
+        "description": "Spanish-speaking TikTok viewers interested in angel numbers and spiritual guidance",
+        "attributes": []
+      },
+      "market": "Mercados hispanohablantes",
+      "language": "es",
+      "platform": "tiktok",
+      "consumption_context": "scrolling for spiritual guidance content, often tied to personal reflection moments",
+      "durability": "EMERGING",
+      "urgency": "LOW",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Spanish-language content explains angel number 927 as guiding 'una carrera espiritual' and life purpose, showing cross-language spread of the numerology-frequency format.",
+          "confidence": "LOW",
+          "signal_ids": [
+            "sig_run_live_01_dry_0012"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "anjos-espiritualidade-religiosa",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Spanish-language angel-number instrumental content tied to purpose/career guidance",
+        "potential_page": "es anjos/spirituality page",
+        "first_content_direction": "Short videos pairing calming instrumentals with angel-number meanings in Spanish",
+        "format": "short-form video with number overlay + ambient track",
+        "hook": "¿Qué significa el número angelical que sigues viendo?"
+      }
+    },
+    {
+      "title": "Meditation music search growth on YouTube",
+      "need": "YouTube users increasingly search for meditation music as a top wellness content category to unwind and reconnect",
+      "audience": {
+        "description": "English-speaking YouTube users seeking meditation/mindfulness content",
+        "attributes": [
+          {
+            "key": "platform",
+            "value": "YouTube long-form listeners"
+          }
+        ]
+      },
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "youtube",
+      "consumption_context": "dedicated meditation sessions or passive background listening to unwind",
+      "durability": "STRUCTURAL",
+      "urgency": "HIGH",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Meditation music has become one of the most sought-after genres on YouTube in 2026, with mindfulness/mental wellness continuing to shape content trends.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0013"
+          ]
+        },
+        {
+          "type": "OBSERVED",
+          "statement": "Meditation/mindfulness channels have grown exponentially since 2024 as viewers seek content to unwind, sleep better, and reconnect with themselves; creators experimenting with ambient loops, binaural beats, sound healing frequencies, deep relaxation music.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0014"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "meditacao-relaxamento",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Format-diverse meditation channel spanning ambient loops, binaural beats and sound-healing frequencies",
+        "potential_page": "en meditation-relaxation YouTube channel",
+        "first_content_direction": "Launch a meditation music playlist series experimenting with binaural beats and ambient loops",
+        "format": "long-form meditation tracks with short-form excerpts",
+        "hook": "The meditation music trend growing fastest on YouTube in 2026"
+      }
+    },
+    {
+      "title": "Meditation blending with manifestation/abundance guidance",
+      "need": "Audience wants guided meditation content that blends relaxation with personal growth, healing and manifestation themes",
+      "audience": {
+        "description": "English-speaking YouTube meditation audience open to manifestation/personal-growth framing",
+        "attributes": []
+      },
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "youtube",
+      "consumption_context": "guided meditation sessions combining relaxation with intention-setting practice",
+      "durability": "EMERGING",
+      "urgency": "MEDIUM",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Top-ranked meditation creators blend meditation guidance with healing, personal growth, and spiritual awakening through guided meditations emphasizing intention and manifestation.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0015"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "meditacao-manifestacao",
+          "canonical": false,
+          "basis": "proposed_new"
+        },
+        "potential_positioning": "Instrumental beds designed for guided manifestation meditations blending calm and intention-setting",
+        "potential_page": "en meditation+manifestation crossover page",
+        "first_content_direction": "Create instrumental backing tracks explicitly marketed for manifestation meditation sessions",
+        "format": "long-form instrumental meditation backing tracks",
+        "hook": "Meditation music made for manifesting your next chapter"
+      }
+    },
+    {
+      "title": "Emotional-wellness framed study/focus music",
+      "need": "Students and knowledge workers want study music marketed around emotional balance and calm productivity, not just concentration",
+      "audience": {
+        "description": "English-speaking TikTok users seeking study/focus music with emotional wellness framing",
+        "attributes": [
+          {
+            "key": "use_case",
+            "value": "studying or working while overwhelmed"
+          }
+        ]
+      },
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "tiktok",
+      "consumption_context": "studying or working sessions where users feel overwhelmed and seek calm productivity",
+      "durability": "EMERGING",
+      "urgency": "MEDIUM",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Study-music content is marketed with emotional-wellness language ('created for moments when your mind feels full', 'support calm productivity, emotional balance') rather than purely functional focus framing.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0017"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "foco-estudo",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Study/focus instrumental music positioned as emotional support for overwhelmed minds",
+        "potential_page": "en foco-estudo page with emotional wellness voice",
+        "first_content_direction": "Short videos framing focus music as support for calm productivity and emotional balance",
+        "format": "looped ambient/lo-fi instrumental with wellness captions",
+        "hook": "For when your mind feels too full to focus"
+      }
+    },
+    {
+      "title": "Lo-fi/ambient functional listening structural growth",
+      "need": "Listeners increasingly use lo-fi/ambient instrumental music functionally for studying, working, sleeping and relaxing, sustaining long listening sessions",
+      "audience": {
+        "description": "English-speaking Spotify listeners using functional instrumental playlists during daily activities",
+        "attributes": [
+          {
+            "key": "session_length",
+            "value": "average ~48 minutes vs ~25 min platform average"
+          }
+        ]
+      },
+      "market": "English-speaking markets",
+      "language": "en",
+      "platform": "spotify",
+      "consumption_context": "background listening while studying, working, sleeping or relaxing, often via curated playlists",
+      "durability": "STRUCTURAL",
+      "urgency": "HIGH",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Lo-fi and ambient music has grown over 340% in playlist followers since 2020, driven by functional listening for studying, working, sleeping and relaxing; Lo-Fi Beats is one of the most-followed playlists on Spotify with average session lengths of 48 minutes vs ~25 min platform average.",
+          "confidence": "HIGH",
+          "signal_ids": [
+            "sig_run_live_01_dry_0018"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "ansiedade-relaxamento",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Functional ambient/lo-fi playlists built for long, sustained daily listening sessions",
+        "potential_page": "en ambient/lo-fi relaxation playlist page",
+        "first_content_direction": "Build long-session-optimized ambient playlists targeting study/work/sleep functional use",
+        "format": "Spotify playlist curation + short-form teaser clips",
+        "hook": "The playlist people leave on for 48 minutes straight"
+      }
+    },
+    {
+      "title": "Brazil as a priority Spotify market for wellness playlists",
+      "need": "Brazilian audience represents a dominant Spotify market opportunity for wellness/instrumental playlist strategy",
+      "audience": {
+        "description": "Brazilian Spotify users engaging with wellness/instrumental playlists",
+        "attributes": []
+      },
+      "market": "Brasil",
+      "language": "pt",
+      "platform": "spotify",
+      "consumption_context": "everyday Spotify playlist listening for relaxation and wellness across Brazil",
+      "durability": "STRUCTURAL",
+      "urgency": "HIGH",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Spotify holds 55% market share in Brazil, confirming Brazil as a dominant Spotify market worth prioritizing for playlist strategy.",
+          "confidence": "MEDIUM",
+          "signal_ids": [
+            "sig_run_live_01_dry_0019"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "cura-bem-estar",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Portuguese-language wellness/instrumental playlist strategy prioritized for Brazil's dominant Spotify user base",
+        "potential_page": "pt cura-bem-estar Spotify playlist hub",
+        "first_content_direction": "Launch a suite of pt wellness playlists targeting Brazil's large Spotify user base",
+        "format": "Spotify playlist series with cross-promotion via short-form clips",
+        "hook": "A trilha sonora do bem-estar para o Brasil"
+      }
+    },
+    {
+      "title": "Instrumental music discovery surface in Spanish TikTok",
+      "need": "Spanish-speaking audience actively browses a dedicated discovery surface for trending instrumental music",
+      "audience": {
+        "description": "Spanish-speaking TikTok users browsing instrumental music discovery pages",
+        "attributes": []
+      },
+      "market": "Mercados hispanohablantes",
+      "language": "es",
+      "platform": "tiktok",
+      "consumption_context": "browsing TikTok's trending-audio discovery pages for instrumental tracks",
+      "durability": "EMERGING",
+      "urgency": "LOW",
+      "evidence": [
+        {
+          "type": "OBSERVED",
+          "statement": "Dedicated Spanish-language TikTok discovery page for trending instrumental music indicates an active discovery surface for instrumental content in Spanish-speaking markets.",
+          "confidence": "LOW",
+          "signal_ids": [
+            "sig_run_live_01_dry_0022"
+          ]
+        }
+      ],
+      "hypotheses": {
+        "potential_cluster": {
+          "value": "meditacao-relaxamento",
+          "canonical": true,
+          "basis": "existing"
+        },
+        "potential_positioning": "Spanish-language instrumental relaxation content optimized for TikTok's trending-audio discovery surface",
+        "potential_page": "es instrumental relaxation page",
+        "first_content_direction": "Publish short instrumental clips tagged to align with trending-audio discovery in Spanish TikTok",
+        "format": "short looped instrumental clips",
+        "hook": "La música instrumental que está sonando en TikTok"
+      }
+    }
+  ]
+}

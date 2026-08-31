@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0005",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "música relajante TikTok tendencia 2026",
+  "url": "https://www.tiktok.com/discover/video-de-musica-para-dormir",
+  "captured_at": "2026-08-31T00:13:17Z",
+  "raw_content": {
+    "query": "música relajante TikTok tendencia 2026",
+    "result_url": "https://www.tiktok.com/discover/video-de-musica-para-dormir",
+    "result_title": "Video De Musica Para Dormir | TikTok",
+    "result_page_age": "June 15, 2026",
+    "evidence": "Dedicated Spanish-language TikTok discovery page for sleep-music videos, and related baby-sleep accounts run multi-language captioning (English, Español, Deutsch, Français, Português, Mandarin) signaling deliberate multi-market lullaby strategy.",
+    "context": "Sleep cluster, multi-language creator strategy",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "signal_type": "language_opportunity",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "captioned in English, Español, Deutsch, Français, Português and Mandarin simultaneously"
+  }
+}
