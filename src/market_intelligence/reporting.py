@@ -568,7 +568,10 @@ def _review(run_config: RunConfig, ranking: RankingResult,
     lines = [_fm(fm), f"# Run Review — {run_config.run_id}\n"]
     lines.append("> Owner fills this after reading the digest (spec §21.1). "
                  "`owner_decision`: `relevant` · `not_relevant` · `advance` "
-                 "(`advance` implies `relevant`).\n")
+                 "(`advance` implies `relevant`). Set `advanced_opportunity_id` in the "
+                 "front matter (or mark a row `advance`) when one is taken to the next "
+                 "stage. Once three runs are reviewed: "
+                 "`python -m market_intelligence gate --reports-dir <reports>`.\n")
     lines.append("| rank | opportunity_id | title | owner_decision | note |")
     lines.append("|------|----------------|-------|----------------|------|")
     for oid in presented_ids:

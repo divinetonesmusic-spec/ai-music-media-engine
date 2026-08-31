@@ -200,6 +200,35 @@ def test_all_evaluations_failing_technically_is_a_controlled_error_no_registry(t
     assert "TECHNICAL FAILURE" in log
 
 
+def test_a_malformed_shape_evaluation_response_is_also_a_technical_failure(tmp_path):
+    # Evaluation sends no schema now — a valid-JSON but wrong-SHAPE response
+    # (here: a dimension dropped) must be rejected deterministically → the same
+    # controlled all-fail error, registry untouched.
+    from market_intelligence.orchestrator import OrchestratorError
+
+    fx = tmp_path / "fx"
+    (fx / "signals" / "raw").mkdir(parents=True)
+    for f in (_FIXTURE_ROOT / "signals" / "raw").glob("*.json"):
+        (fx / "signals" / "raw" / f.name).write_text(f.read_text(), encoding="utf-8")
+    for sub in ("framing", "matching", "evaluation"):
+        (fx / "llm" / sub).mkdir(parents=True)
+        for f in (_FIXTURE_ROOT / "llm" / sub).glob("*.json"):
+            (fx / "llm" / sub / f.name).write_text(f.read_text(), encoding="utf-8")
+    for f in (fx / "llm" / "evaluation").glob("*.json"):
+        d = json.loads(f.read_text())
+        d["dimensions"].pop("music_fit")           # valid JSON, missing a dimension
+        f.write_text(json.dumps(d), encoding="utf-8")
+
+    cfg = _cfg(tmp_path, replay={"enabled": True, "llm": "recorded", "fixture_path": str(fx)})
+    try:
+        run_pipeline(cfg, project_root=PROJECT_ROOT, now=FIXED)
+        raised = None
+    except OrchestratorError as e:
+        raised = e
+    assert raised is not None and "failed technically for all" in str(raised)
+    assert not (tmp_path / "registry.yaml").exists()
+
+
 def test_missing_evaluation_fixture_excludes_the_opportunity(tmp_path):
     fx = tmp_path / "fx"
     (fx / "signals" / "raw").mkdir(parents=True)

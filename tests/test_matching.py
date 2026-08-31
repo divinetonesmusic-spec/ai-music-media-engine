@@ -281,9 +281,9 @@ def test_non_hero_artist_needs_a_related_classification_for_an_observed_basis():
         a for a in kn.artists
         if a.get("hero_artist") is not True and a.get("name")
     )
-    # opportunity cluster (foco-estudo) relates to no artist; the non-hero artist enters
-    # only via a lexical hint on its name → its consolidated classification (if any) is
-    # unrelated → NO OBSERVED basis (§10.2 step 2). A hero artist stays OBSERVED (§10.2a).
+    # opportunity cluster (foco-estudo) relates to no artist; the non-hero artist's
+    # consolidated classification (if any) is unrelated → NO OBSERVED basis
+    # (§10.2 step 2). A hero artist stays OBSERVED (§10.2a).
     opp = _opp("foco-estudo", language=Language.PT,
                title=non_hero["name"], need=non_hero["name"])
     cands = {c.asset_id: c for c in _candidates(opp, kn)}
@@ -292,3 +292,29 @@ def test_non_hero_artist_needs_a_related_classification_for_an_observed_basis():
 
     hero_id = next(a["artist_id"] for a in kn.artists if a.get("hero_artist") is True)
     assert cands[hero_id].consolidated_basis is True
+
+
+def test_every_artist_is_an_asset_match_candidate_regardless_of_catalog_affinity():
+    # §10.2a (DECIDED 2026-08-27): catalog affinity is NOT an eligibility filter.
+    # An artist candidate MUST NOT be dropped for a cluster mismatch, even with no
+    # lexical overlap. The fit judgement (OBSERVED/INFERRED, the fit rating) is where
+    # a mismatch shows — never candidate eligibility.
+    kn = _knowledge()
+    # cluster relates to no artist (all are Sono / Anjos / Abundância / NEEDS_INPUT);
+    # nonsense title/need share no tokens with any artist name.
+    opp = _opp("foco-estudo", language=Language.PT,
+               title="zzxq plughfrob widget", need="zzxq plughfrob widget")
+    cand_ids = {c.asset_id for c in _candidates(opp, kn)}
+    artist_ids = {a["artist_id"] for a in kn.artists}
+    missing = artist_ids - cand_ids
+    assert missing == set(), (
+        f"{len(missing)} artist(s) dropped from the candidate set on a cluster/lexical "
+        f"mismatch — §10.2a forbids this"
+    )
+    # a non-hero, cluster-mismatched artist is present but carries no OBSERVED basis
+    non_hero_mismatch = next(
+        a for a in kn.artists
+        if a.get("hero_artist") is not True and a.get("primary_cluster") == "Sono"
+    )
+    by_id = {c.asset_id: c for c in _candidates(opp, kn)}
+    assert by_id[non_hero_mismatch["artist_id"]].consolidated_basis is False

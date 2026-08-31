@@ -17,6 +17,12 @@ platform.claude.com/docs/en/build-with-claude/structured-outputs):
 
 No network and no real key: the live clients are exercised with a fake SDK
 client that only captures the ``output_config`` it is handed.
+
+**Evaluation no longer sends a schema** (owner decision 2026-08-31 — its schema
+compiles to an over-limit grammar). ``evaluation._response_schema()`` is kept as
+the machine-readable *reference* shape: the tests below still check it stays
+subset-valid (so it could be re-enabled), and one test pins it to the key sets
+the strict raw validator (``_reject_malformed_evaluation``) enforces.
 """
 
 from __future__ import annotations
@@ -206,6 +212,31 @@ def test_evaluation_still_covers_10_dims_5_axes_red_flags_and_recommendation():
     # rating and confidence stay separate keys on every rated node
     a_dim = evaluation_response_schema()["properties"]["dimensions"]["properties"]["music_fit"]
     assert "rating" in a_dim["properties"] and "confidence" in a_dim["properties"]
+
+
+def test_evaluation_reference_schema_and_the_strict_validator_agree():
+    # the reference schema is not sent any more — the strict raw validator is what
+    # enforces the shape now. Pin them to the same key sets so they can't drift.
+    from market_intelligence.evaluation import _reject_malformed_evaluation
+    from market_intelligence.schema.enums import AXIS_KEYS, DIMENSION_KEYS
+
+    schema = evaluation_response_schema()["properties"]
+    assert set(schema["dimensions"]["properties"]) == set(DIMENSION_KEYS)
+    assert set(schema["business_outcome_profile"]["properties"]) == set(AXIS_KEYS)
+
+    # a fully-populated raw response built from the schema's own key sets passes
+    good = {
+        "dimensions": {k: {"rating": "MEDIUM", "confidence": "LOW", "justification": "x",
+                           "blocked_by": []} for k in DIMENSION_KEYS},
+        "business_outcome_profile": {k: {"rating": "LOW", "confidence": "LOW",
+                                         "justification": "x"} for k in AXIS_KEYS},
+        "red_flags": [],
+        "overall_confidence": "LOW",
+        "summary": "s",
+        "recommendation": {"target_state": "EXPLORE", "suggested_next_step": "n",
+                           "justification": "j", "confidence": "LOW"},
+    }
+    assert _reject_malformed_evaluation(good) == good
 
 
 # --- framing: audience.attributes is a closed pair list, not an open map --

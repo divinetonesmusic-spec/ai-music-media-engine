@@ -1,0 +1,130 @@
+{
+  "dimensions": {
+    "signal_strength": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "Only a single OBSERVED evidence item (sig_run_live_01_dry_0012) exists, itself tagged LOW confidence, describing one Spanish-language video about angel number 927. There is no corroborating volume, view-count, or hashtag data to support a stronger signal.",
+      "blocked_by": []
+    },
+    "audience_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "Spanish-speaking TikTok is a large addressable audience generally, and angel-number/numerology spiritual content is a known cross-language format, but no audience-size, follower, or engagement metrics specific to this niche are provided.",
+      "blocked_by": [
+        "audience size/engagement metrics for Spanish angel-number niche"
+      ]
+    },
+    "growth_momentum": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "The opportunity is labeled 'EMERGING' with 'LOW' urgency, and the single supporting evidence item shows only that the format has spread to Spanish, not that it is accelerating; no time-series or trend-velocity data is available.",
+      "blocked_by": [
+        "trend velocity data (view/engagement growth over time)"
+      ]
+    },
+    "durability_opportunity_window": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "Angel-number numerology is a recurring, evergreen spiritual-content genre on TikTok, suggesting some durability, but the Spanish-market variant is explicitly marked EMERGING with no historical performance data to confirm how long the window stays open.",
+      "blocked_by": [
+        "historical lifecycle data for angel-number content in Spanish market"
+      ]
+    },
+    "music_fit": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "The business's musical DNA/catalog detail is marked NEEDS_INPUT, so no reliable fit assessment can be made. The title references 'frequency content,' which could tie to audio/sound themes, but this is speculative without catalog data.",
+      "blocked_by": [
+        "business musical catalog/DNA specification"
+      ]
+    },
+    "content_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "The observed video format (explaining an angel number's link to career/purpose) is a replicable, low-production-cost TikTok content template that could be localized further, but only one example exists to judge format flexibility.",
+      "blocked_by": [
+        "sample size of comparable Spanish-language content pieces"
+      ]
+    },
+    "competitive_position": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "Asset data shows zero matching pages currently targeting this niche in Spanish, implying no established competitive footprint for the business, but there is no data on third-party creators/pages already dominating this space.",
+      "blocked_by": [
+        "competitor landscape data for Spanish angel-number TikTok content"
+      ]
+    },
+    "differentiation_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "Because no existing page asset targets angel-number content for Spanish TikTok audiences (matching_counts.pages: 0), a purpose-built localized page could differentiate early, though this is unproven without market testing.",
+      "blocked_by": []
+    },
+    "asset_fit": {
+      "rating": "MEDIUM",
+      "confidence": "MEDIUM",
+      "justification": "Asset data shows 5 matching playlists and 37 matching artists but 0 matching pages, with a new localized page explicitly recommended ('No existing page asset targets angel-number/numerology content for Spanish TikTok audience'). This indicates partial catalog fit but a real asset gap for page-based distribution.",
+      "blocked_by": []
+    },
+    "business_outcome_potential": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "Given the single low-confidence signal, EMERGING/LOW-urgency labeling, and lack of a matched page asset, near-term business outcomes cannot be reliably projected; potential exists but is unvalidated.",
+      "blocked_by": [
+        "engagement/conversion data linking this content type to measurable outcomes"
+      ]
+    }
+  },
+  "business_outcome_profile": {
+    "playlist_growth_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "5 matching playlists were identified in asset data, suggesting some existing catalog alignment, but no listener/follow growth data ties this specific content trend to those playlists."
+    },
+    "music_trend_ugc_potential": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "The single evidence point describes explanatory numerology videos, not a music/audio-driven UGC trend (e.g., a sound or challenge), so UGC-music tie-in potential is currently speculative."
+    },
+    "streaming_royalty_potential": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "No evidence links this content format to streaming plays or royalty-generating music placements; the observed signal concerns spoken/text explainer content about numbers, not track promotion."
+    },
+    "page_growth_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "A new localized page is recommended due to a zero-page match, and if the Spanish-language angel-number trend continues to spread, an early dedicated page could capture growth, though this is unproven with only one supporting data point."
+    },
+    "youtube_media_potential": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "No evidence in the provided signal or asset data references YouTube crossover, long-form adaptation, or media potential beyond TikTok."
+    }
+  },
+  "red_flags": [
+    {
+      "description": "evidence_gap: The entire opportunity rests on a single OBSERVED signal already flagged LOW confidence (sig_run_live_01_dry_0012); no volume, engagement, or trend-velocity data corroborates the claim that this format is meaningfully spreading in the Spanish market.",
+      "severity": "MEDIUM",
+      "kind": "evidence_gap"
+    },
+    {
+      "description": "asset_gap: No existing page asset targets this niche for Spanish TikTok audiences (matching_counts.pages: 0), meaning any activation requires building a new localized asset from scratch with unproven audience response.",
+      "severity": "LOW",
+      "kind": "asset_gap"
+    },
+    {
+      "description": "compliance (G09/G10): Content framing angel numbers as guiding a person's 'life purpose' or 'career' makes an experiential/spiritual claim; per G09 this must be flagged as unvalidated subjective belief rather than factual guidance, and uncertainty about its real-world effect should be stated explicitly rather than implied as established.",
+      "severity": "MEDIUM",
+      "kind": "compliance"
+    }
+  ],
+  "overall_confidence": "LOW",
+  "summary": "A single low-confidence signal indicates angel-number numerology content (e.g., number 927 tied to 'career' and life purpose) is appearing in Spanish-language TikTok content, suggesting possible cross-language spread of an existing format. Asset data shows some playlist/artist catalog alignment but no existing page targeting this niche, so a new localized asset would be needed to pursue it. Given the EMERGING/LOW-urgency labeling and thin evidence base, this remains an unvalidated, exploratory opportunity rather than a proven trend.",
+  "recommendation": {
+    "target_state": "EXPLORE",
+    "suggested_next_step": "Monitor Spanish-language TikTok for additional angel-number/frequency content signals (view counts, hashtag volume, creator activity) over the next few weeks before committing to a new localized page or content production.",
+    "justification": "Only one low-confidence data point supports this opportunity and no page asset currently exists to activate against it; further signal collection is needed before investing resources.",
+    "confidence": "LOW"
+  }
+}

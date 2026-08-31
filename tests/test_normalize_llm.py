@@ -298,6 +298,74 @@ def test_anthropic_client_is_built_with_a_bounded_timeout_and_retry(monkeypatch)
     assert 30.0 <= read <= 480.0
 
 
+def _sdk_returning(blocks, stop_reason="end_turn", category=None):
+    details = types.SimpleNamespace(category=category) if category else None
+    msg = types.SimpleNamespace(content=blocks, stop_reason=stop_reason,
+                                stop_details=details)
+
+    class _Messages:
+        def create(self, **kw):
+            return msg
+
+    return types.SimpleNamespace(messages=_Messages())
+
+
+def _txt(s):
+    return types.SimpleNamespace(type="text", text=s)
+
+
+def _thinking():
+    return types.SimpleNamespace(type="thinking", thinking="…")
+
+
+def test_classify_concatenates_json_split_across_text_blocks():
+    sdk = _sdk_returning([
+        _thinking(),
+        _txt('{"signal_id": "sig_1", "suggestions": {"market":'),
+        _txt(' "Brasil"}, "rationale": "x"}'),
+    ])
+    out = AnthropicNormalization(client=sdk).classify(
+        "sig_1", context={}, ambiguous_fields=["market"], model="m"
+    )
+    assert out["suggestions"]["market"] == "Brasil"
+
+
+def test_classify_reports_stop_reason_and_block_types_on_empty_text():
+    sdk = _sdk_returning([_thinking()], stop_reason="max_tokens")
+    with pytest.raises(ResponseRejected) as ei:
+        AnthropicNormalization(client=sdk).classify(
+            "sig_1", context={}, ambiguous_fields=["market"], model="m"
+        )
+    m = str(ei.value)
+    assert "max_tokens" in m and "thinking" in m       # diagnosable, not a bare "non-JSON"
+
+
+def test_classify_reports_a_model_refusal():
+    sdk = _sdk_returning([], stop_reason="refusal", category="policy")
+    with pytest.raises(ResponseRejected) as ei:
+        AnthropicNormalization(client=sdk).classify(
+            "sig_1", context={}, ambiguous_fields=["market"], model="m"
+        )
+    assert "refus" in str(ei.value).lower()
+
+
+def test_classify_truncated_json_names_the_cap():
+    sdk = _sdk_returning([_txt('{"signal_id": "sig_1", "sugg')], stop_reason="max_tokens")
+    with pytest.raises(ResponseRejected) as ei:
+        AnthropicNormalization(client=sdk).classify(
+            "sig_1", context={}, ambiguous_fields=["market"], model="m"
+        )
+    assert "max_tokens" in str(ei.value)
+
+
+def test_classify_rejects_a_non_object_json_response():
+    sdk = _sdk_returning([_txt('["not", "an", "object"]')])
+    with pytest.raises(ResponseRejected):
+        AnthropicNormalization(client=sdk).classify(
+            "sig_1", context={}, ambiguous_fields=["market"], model="m"
+        )
+
+
 def test_timeout_becomes_a_normalization_error_without_leaking_the_key():
     req = types.SimpleNamespace(
         method="POST", url="https://api.anthropic.com/v1/messages",

@@ -188,11 +188,57 @@ class AnthropicNormalization(NormalizationClient):
             ) from e
         except anthropic.APIError as e:
             raise NormalizationError(_redact(f"normalization API call failed: {e}")) from e
-        text = next((b.text for b in msg.content if getattr(b, "type", None) == "text"), "")
-        try:
-            return json.loads(text)
-        except json.JSONDecodeError as e:
-            raise ResponseRejected(f"model returned non-JSON: {e}") from e
+        return _message_to_json_object(msg)
+
+
+def _message_to_json_object(msg) -> dict:
+    """A structured-output response -> a JSON object, or a ``ResponseRejected`` that
+    says exactly what came back (``stop_reason``, block types, refusal category)
+    instead of a bare ``json.loads`` on an empty / truncated string. Never
+    fabricates JSON. Mirrors ``llm_stage._response_to_json_object`` (spec §22 —
+    every Anthropic call site gets the same robust handling).
+
+    Per the Anthropic docs the JSON arrives in a ``text`` block; with thinking on
+    (Sonnet 5 default) ``thinking`` blocks precede it and the model may split the
+    JSON across several ``text`` blocks; a ``stop_reason`` of ``max_tokens`` or
+    ``refusal`` can leave the response unusable.
+    """
+    blocks = getattr(msg, "content", None) or []
+    text = "".join(
+        b.text for b in blocks
+        if getattr(b, "type", None) == "text" and getattr(b, "text", None)
+    ).strip()
+    stop = getattr(msg, "stop_reason", None)
+
+    if not text:
+        kinds = sorted({str(getattr(b, "type", "?")) for b in blocks})
+        if stop == "refusal":
+            cat = getattr(getattr(msg, "stop_details", None), "category", None)
+            raise ResponseRejected(
+                "normalization: the model refused (stop_reason=refusal"
+                + (f", category={cat}" if cat else "") + ") — no structured output"
+            )
+        raise ResponseRejected(
+            f"normalization: empty response, no JSON text "
+            f"(stop_reason={stop!r}, blocks={kinds})"
+        )
+
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError as e:
+        hint = (
+            " — the response was truncated at the max_tokens cap"
+            if stop == "max_tokens" else ""
+        )
+        raise ResponseRejected(
+            _redact(f"model returned non-JSON: {e} (stop_reason={stop!r}){hint}")
+        ) from e
+    if not isinstance(payload, dict):
+        raise ResponseRejected(
+            f"normalization: structured response is a {type(payload).__name__}, "
+            f"not a JSON object"
+        )
+    return payload
 
 
 def _response_schema() -> dict:

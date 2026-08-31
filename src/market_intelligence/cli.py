@@ -5,6 +5,7 @@ Commands:
   collect   <config>   run Signal Collection (spec §18 stage 1) — NOT Normalization
   normalize <config>   run Signal Collection + Normalization (stages 1–2) — NOT Analysis
   run       <config>   run the full Market Intelligence V1 pipeline (spec §5)
+  gate      <reviews>  report the C10 3-run Definition-of-Done gate (spec §21.1)
 """
 
 from __future__ import annotations
@@ -16,6 +17,7 @@ from typing import List, Optional
 from .collect.base import SignalCollectionError
 from .collect.runner import manifest_path, run_collection
 from .config.loader import ConfigError, load_dedup_config, load_run_config
+from .gate import GateError, check_gate, discover_reviews
 from .normalize.runner import normalized_path, run_normalization
 from .orchestrator import OrchestratorError, run_pipeline
 from .preflight import PreflightError, PreflightResult, preflight
@@ -172,25 +174,76 @@ def _run_pipeline(config: str, root: Path) -> int:
 
     ranking = result.ranking
     reporting = result.reporting
+    tech = list(getattr(ranking, "technical_failures", []))
     print(f"                 presented {len(ranking.presented)} · "
-          f"parked {len(ranking.parked)} · excluded {len(ranking.excluded)}")
+          f"parked {len(ranking.parked)} · excluded {len(ranking.excluded)}"
+          + (f" · technical failures {len(tech)}" if tech else ""))
     for rank_id in ranking.presented:
         opp = reporting.opportunities.get(rank_id)
         if opp is not None:
             print(f"  #{opp.rank} {opp.title}  [{opp.recommendation.target_state.value}] "
                   f"({rank_id})")
+    if tech:
+        print("\ntechnical failures (NOT a business decision — not ranked, not "
+              "registered; re-run once the cause is fixed):")
+        for oid in tech:
+            r = ranking.by_id(oid)
+            reason = getattr(r, "technical_failure_reason", None) or "Evaluation could not run"
+            print(f"  - {oid}: {reason}")
     reg = result.registry
     print(f"registry:        +{len(reg.added)} new / ~{len(reg.updated)} updated "
           f"→ {reg.path.name} ({reg.total} total)")
     try:
-        digest_display = reporting.digest_path.relative_to(root)
+        run_dir_display = reporting.digest_path.parent.relative_to(root)
     except (ValueError, AttributeError):  # pragma: no cover
-        digest_display = reporting.digest_path
-    print(f"digest:          {digest_display}")
+        run_dir_display = reporting.digest_path.parent
+    print(f"reports:         {run_dir_display}/  (digest.md · review.md · <opp>.md/.json)")
+    print(f"data:            data/{cfg_run_id}/  (signals/ · opportunities.json · run.log)")
     if len(ranking.presented) < 5:
         print("\nnote: fewer than 5 opportunities presented (below the C10 target — §12.5)")
     print("\nRUN OK")
     return 0
+
+
+def _run_gate(reviews: List[str], reports_dir: Optional[str], root: Path) -> int:
+    try:
+        if reviews:
+            paths = [Path(r) for r in reviews]
+        else:
+            paths = discover_reviews(Path(reports_dir or (root / "reports")))
+        result = check_gate(paths)
+    except GateError as e:
+        print(f"GATE ERROR\n{e}")
+        return 2
+
+    print("C10 3-run Definition-of-Done gate (spec §21)\n")
+    for r in result.runs:
+        ratio = f"{r.relevant_ratio:.2f}" if r.relevant_ratio is not None else "—"
+        adv = r.advanced_opportunity_id or "—"
+        flag = "reviewed" if r.reviewed else "NOT REVIEWED"
+        print(f"  {r.run_id}: presented {r.opportunities_presented} · "
+              f"relevant {r.relevant_count} · ratio {ratio} · advanced {adv}  [{flag}]")
+
+    def _mark(ok: bool) -> str:
+        return "PASS" if ok else "FAIL"
+
+    print()
+    print(f"  C10.1 volume band 5–10 per run : {_mark(result.c10_1_volume)}")
+    print(f"  C10.5 relevance ≥ 0.70 per run : {_mark(result.c10_5_relevance)}")
+    print(f"  C10.6 ≥1 opportunity advanced  : {_mark(result.c10_6_advanced)}")
+    if result.failures:
+        print("\n  reasons:")
+        for f in result.failures:
+            print(f"    - {f}")
+
+    if result.passed:
+        print("\nGATE PASS — V1 is validated over the 3-run window.")
+        return 0
+    if not result.complete:
+        print("\nGATE INCOMPLETE — one or more review.md files are not filled in.")
+        return 1
+    print("\nGATE FAIL — the 3-run window does not meet C10.")
+    return 1
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -223,6 +276,20 @@ def main(argv: Optional[List[str]] = None) -> int:
     rn.add_argument("config", help="path to a RunConfig YAML")
     rn.add_argument("--project-root", default=".", help="repo root (default: cwd)")
 
+    ga = sub.add_parser(
+        "gate",
+        help="report the C10 3-run Definition-of-Done gate from review.md files (spec §21.1)",
+    )
+    ga.add_argument(
+        "reviews", nargs="*",
+        help="exactly 3 review.md paths; omit to auto-discover the 3 most recent",
+    )
+    ga.add_argument(
+        "--reports-dir", default=None,
+        help="directory to auto-discover review.md files under (default: <root>/reports)",
+    )
+    ga.add_argument("--project-root", default=".", help="repo root (default: cwd)")
+
     args = parser.parse_args(argv)
     root = Path(args.project_root).resolve()
 
@@ -234,4 +301,6 @@ def main(argv: Optional[List[str]] = None) -> int:
         return _run_normalize(args.config, root)
     if args.command == "run":
         return _run_pipeline(args.config, root)
+    if args.command == "gate":
+        return _run_gate(args.reviews, args.reports_dir, root)
     return 2  # pragma: no cover - argparse requires a subcommand

@@ -173,6 +173,61 @@ def test_live_client_parses_json_text_block(monkeypatch):
 
 # --- helpers -----------------------------------------------------
 
+# --- call_stage: one retry on a transient bad emit (spec §14) ------
+
+
+class _FlakyLiveClient(AnthropicStageClient):
+    def __init__(self, outcomes):
+        super().__init__(client=object())
+        self._outcomes = list(outcomes)
+        self.calls = 0
+
+    def complete(self, **kw):
+        self.calls += 1
+        o = self._outcomes.pop(0)
+        if isinstance(o, Exception):
+            raise o
+        return o
+
+
+def test_call_stage_retries_once_on_a_transient_response_rejection():
+    c = _FlakyLiveClient([ResponseRejected("framing: model returned non-JSON: x"),
+                          {"ok": 1}])
+    out = call_stage(c, stage="framing", key="k", prompt="p", schema={}, model="m",
+                     validate=lambda r: r)
+    assert out == {"ok": 1}
+    assert c.calls == 2
+
+
+def test_call_stage_does_not_retry_a_truncation_or_refusal():
+    for msg in ("evaluation: model returned non-JSON: y — the response was truncated "
+                "at the max_tokens cap; raise this stage's budget",
+                "framing: the model refused (stop_reason=refusal) — no structured output"):
+        c = _FlakyLiveClient([ResponseRejected(msg), {"ok": 1}])
+        with pytest.raises(ResponseRejected):
+            call_stage(c, stage="framing", key="k", prompt="p", schema={}, model="m",
+                       validate=lambda r: r)
+        assert c.calls == 1
+
+
+def test_call_stage_does_not_retry_a_recorded_client(tmp_path):
+    (tmp_path / "framing").mkdir()
+    (tmp_path / "framing" / "bad.json").write_text("{ broken", encoding="utf-8")
+    c = RecordedStageClient(tmp_path)
+    with pytest.raises(ResponseRejected):
+        call_stage(c, stage="framing", key="bad", prompt="p", schema={}, model="m",
+                   validate=lambda r: r)
+
+
+def test_call_stage_gives_up_after_one_retry():
+    c = _FlakyLiveClient([ResponseRejected("framing: model returned non-JSON: a"),
+                          ResponseRejected("framing: model returned non-JSON: b")])
+    with pytest.raises(ResponseRejected):
+        call_stage(c, stage="framing", key="k", prompt="p", schema={}, model="m",
+                   validate=lambda r: r)
+    assert c.calls == 2
+
+
 def test_stage_key_is_filesystem_safe():
     assert stage_key("a b", "c/d", "") == "a_b__c_d"
     assert stage_key() == "default"
@@ -301,12 +356,105 @@ def test_framing_call_max_tokens_is_the_chosen_value():
     assert _capture_output_config("framing")["max_tokens"] == 32000
 
 
-@pytest.mark.parametrize("stage", ["matching", "evaluation"])
-def test_other_stages_do_not_get_the_framing_override(stage):
-    kw = _capture_output_config(stage)
-    assert "effort" not in kw["output_config"]           # no effort override
-    assert kw["max_tokens"] == ls._DEFAULT_MAX_TOKENS     # 8000 — unchanged
-    assert kw["output_config"]["format"]["type"] == "json_schema"
+def test_matching_call_uses_low_effort_and_a_raised_budget():
+    # The first live Matching run hit stop_reason=max_tokens on all 3 calls —
+    # adaptive thinking at the default effort consumed the whole 8000-token
+    # output budget before any JSON (prompt = opportunity + ~47 inventory
+    # candidates). Matching is bounded per-candidate fit judgement, so it runs at
+    # effort "low" (like the Web Search structuring call) with more room.
+    assert ls._STAGE_OUTPUT["matching"]["effort"] == "low"
+    assert ls._STAGE_OUTPUT["matching"]["max_tokens"] >= 16000
+    kw = _capture_output_config("matching")
+    assert kw["output_config"]["effort"] == "low"
+    assert "effort" not in kw["output_config"]["format"]   # sibling of `format`
+    assert kw["max_tokens"] == ls._STAGE_OUTPUT["matching"]["max_tokens"]
+
+
+# --- evaluation: structured outputs removed (owner decision 2026-08-31) ----
+#
+# The Evaluation JSON Schema compiles to a grammar over Anthropic's size limit
+# even after the 5d9781f flatten. Evaluation now asks for prompt-guided JSON and
+# validates it deterministically. Framing / Matching / Web Search / Normalization
+# keep structured outputs.
+
+
+def test_evaluation_call_does_not_send_output_config_format():
+    kw = _capture_output_config("evaluation")
+    oc = kw.get("output_config", {})
+    assert "format" not in oc, "Evaluation must not send output_config.format"
+
+
+def test_evaluation_call_still_bounds_max_tokens_for_the_json_plus_thinking():
+    kw = _capture_output_config("evaluation")
+    assert kw["max_tokens"] == ls._STAGE_OUTPUT["evaluation"]["max_tokens"]
+    assert kw["max_tokens"] >= 16000            # room for thinking + the ~2k JSON
+    assert ls._STAGE_OUTPUT["evaluation"].get("structured") is False
+
+
+def test_framing_and_matching_still_send_a_json_schema():
+    for stage in ("framing", "matching"):
+        oc = _capture_output_config(stage)["output_config"]
+        assert oc["format"]["type"] == "json_schema", stage
+
+
+# --- lenient parser (evaluation: prompt-guided JSON, no schema to guard shape) --
+
+
+def _msg(*texts, stop_reason="end_turn"):
+    return types.SimpleNamespace(
+        stop_reason=stop_reason,
+        content=[_block("text", text=t) for t in texts],
+    )
+
+
+def test_lenient_parser_accepts_a_bare_json_object():
+    out = ls._response_to_json_object(_msg('{"a": 1}'), stage="evaluation", lenient=True)
+    assert out == {"a": 1}
+
+
+def test_lenient_parser_strips_a_markdown_code_fence():
+    out = ls._response_to_json_object(
+        _msg('```json\n{"a": 1, "b": [2, 3]}\n```'), stage="evaluation", lenient=True
+    )
+    assert out == {"a": 1, "b": [2, 3]}
+
+
+def test_lenient_parser_extracts_the_object_from_a_prose_preamble():
+    out = ls._response_to_json_object(
+        _msg('Here is the evaluation:\n\n{"a": {"x": 1}}\n\nDone.'),
+        stage="evaluation", lenient=True,
+    )
+    assert out == {"a": {"x": 1}}
+
+
+def test_lenient_parser_joins_json_split_across_text_blocks():
+    out = ls._response_to_json_object(
+        _msg('{"a": 1,', ' "b": 2}'), stage="evaluation", lenient=True
+    )
+    assert out == {"a": 1, "b": 2}
+
+
+def test_lenient_parser_rejects_a_top_level_array():
+    with pytest.raises(ResponseRejected) as ei:
+        ls._response_to_json_object(_msg('[1, 2, 3]'), stage="evaluation", lenient=True)
+    assert "not a JSON object" in str(ei.value)
+
+
+def test_lenient_parser_rejects_genuinely_invalid_json():
+    with pytest.raises(ResponseRejected):
+        ls._response_to_json_object(
+            _msg('the model wrote no json at all'), stage="evaluation", lenient=True
+        )
+
+
+def test_lenient_parser_still_reports_a_refusal():
+    with pytest.raises(ResponseRejected) as ei:
+        ls._response_to_json_object(
+            types.SimpleNamespace(stop_reason="refusal", content=[_block("thinking")],
+                                  stop_details=types.SimpleNamespace(category="policy")),
+            stage="evaluation", lenient=True,
+        )
+    assert "refus" in str(ei.value).lower()
 
 
 def test_a_truncated_max_tokens_response_is_a_diagnostic_ResponseRejected():

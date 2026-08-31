@@ -1,0 +1,297 @@
+{
+  "candidates": [
+    {
+      "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Hero artist but cluster is Sono, not abundance/prosperity.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist status gives baseline candidacy despite unknown cluster.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+      "asset_type": "artist",
+      "fit": "HIGH",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Primary cluster is Abundância/Prosperidade with 888 Hz secondary cluster directly matching the numerology-frequency abundance need.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Hero artist but classified as Sono, not abundance.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist candidacy though cluster unknown.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Sono cluster with Manifestação secondary tag, tangential relevance.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist candidacy, cluster unknown but name suggests frequency alignment.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Cluster is Anjos/Espiritualidade Religiosa, adjacent spirituality but not abundance focus."
+    },
+    {
+      "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Name suggests abundance theme but no classification confirms."
+    },
+    {
+      "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist candidacy despite unknown cluster.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Name suggests vibration/frequency content, tangential relevance."
+    },
+    {
+      "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Sono cluster, not abundance-focused."
+    },
+    {
+      "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Anjos/Espiritualidade Religiosa cluster, adjacent but not abundance-focused."
+    },
+    {
+      "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist candidacy despite unknown cluster.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist candidacy, name suggests frequency alignment.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Sono cluster, not aligned with abundance messaging."
+    },
+    {
+      "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist candidacy despite unknown cluster.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Sono cluster with 963 Hz tag, tangential relevance."
+    },
+    {
+      "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Anjos cluster with Prosperidade secondary tag, some relevance."
+    },
+    {
+      "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Abundância/Prosperidade cluster with Manifestação secondary tag matches opportunity theme well, but 963Hz not exact 888/1111.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Hero artist but classified Sono, not abundance.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available."
+    },
+    {
+      "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Abundância/Prosperidade cluster with Manifestação and 528Hz tags, relevant but not exact 888/1111Hz match.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Anjos/Espiritualidade Religiosa cluster, adjacent but not abundance-focused."
+    },
+    {
+      "asset_id": "page_tiktok_abundancia.divinaaofc",
+      "asset_type": "page",
+      "fit": "MEDIUM",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Cluster matches abundância/prosperidade and purpose fits audience acquisition/promotion, but market/language is Brazil/pt vs required English TikTok audience.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "pl_2vZzaPRyZrrWqpt8zZ5wDs",
+      "asset_type": "playlist",
+      "fit": "MEDIUM",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Directly titled around 888Hz Abundância/Prosperidade activation matching numerology-frequency abundance theme, but is Portuguese/Brazil market rather than English TikTok audience.",
+      "role": "candidate"
+    }
+  ],
+  "best_playlist": "pl_2vZzaPRyZrrWqpt8zZ5wDs",
+  "best_page": "page_tiktok_abundancia.divinaaofc",
+  "best_artist": "art_1ZtIHebQHlyC9S7ipjyVGj",
+  "unmatched_reason": "No English-language/TikTok-native assets exist in this cluster; best matches are Portuguese/Brazil-market assets repurposed with medium confidence."
+}

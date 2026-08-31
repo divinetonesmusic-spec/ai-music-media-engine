@@ -13,6 +13,7 @@ never stored, logged or written to a fixture.
 from __future__ import annotations
 
 import json
+import logging
 import os
 import re
 from pathlib import Path
@@ -21,6 +22,7 @@ from typing import Callable, Optional, Union
 from .io_utils import LoadError, read_json
 from .schema.models import RunConfig
 
+_LOG = logging.getLogger(__name__)
 _DEFAULT_MAX_TOKENS = 8000
 _KEY_IN_TEXT = re.compile(r"(sk-ant-[A-Za-z0-9_-]+)")
 
@@ -34,8 +36,27 @@ _KEY_IN_TEXT = re.compile(r"(sk-ant-[A-Za-z0-9_-]+)")
 # freeing budget for the JSON. Matching and Evaluation are per-opportunity and
 # small; they are absent here and fall through to the default budget / effort.
 # 32000 = ~15 opportunities * ~1.2k JSON tokens + medium-effort thinking headroom.
+#
+# Matching: the first live run hit stop_reason=max_tokens on all 3 calls — adaptive
+# thinking at the default effort consumed the whole 8000-token budget before any
+# JSON (prompt = one opportunity + ~47 inventory candidates, since §10.2a makes
+# every artist a candidate). It is bounded per-candidate fit judgement, so it runs
+# at effort "low" (like the Web Search structuring call) with more room: 16000 =
+# ~47 candidates * ~90 JSON tokens + low-effort thinking headroom.
+#
+# Evaluation: ``structured: False`` — no ``output_config.format``. Its JSON Schema
+# compiles to a grammar over Anthropic's size limit even after the 5d9781f flatten
+# (10 dims + 5 axes = 15 nested rating objects, ~30 enum productions inlined 15×;
+# confirmed live 2026-08-31, HTTP 400 "The compiled grammar is too large").
+# Evaluation asks for prompt-guided JSON, parses it with the lenient parser, and
+# validates the shape deterministically (``_reject_malformed_evaluation``) — an
+# invalid response is a technical_failure, never a business state. Owner decision
+# 2026-08-31 (spec §19 fallback C). 24000 = ~2k JSON + default-``high``-effort
+# thinking headroom (effort left at the default to preserve judgement quality).
 _STAGE_OUTPUT: "dict[str, dict]" = {
     "framing": {"max_tokens": 32000, "effort": "medium"},
+    "matching": {"max_tokens": 16000, "effort": "low"},
+    "evaluation": {"max_tokens": 24000, "structured": False},
 }
 
 # Timeout / retry policy (spec §14). The anthropic SDK defaults to a 600s read
@@ -125,36 +146,89 @@ class AnthropicStageClient(StageClient):
         client = self._build_client()
 
         budget = _STAGE_OUTPUT.get(stage, {})
-        output_config: dict = {"format": {"type": "json_schema", "schema": schema}}
+        structured = budget.get("structured", True)
+        output_config: dict = {}
+        if structured:
+            output_config["format"] = {"type": "json_schema", "schema": schema}
         # `effort` is a direct key of output_config, sibling of `format` (not
         # nested in it) — Anthropic effort docs, verified 2026-08-30.
         if budget.get("effort"):
             output_config["effort"] = budget["effort"]
 
+        create_kwargs: dict = {
+            "model": model,
+            "max_tokens": budget.get("max_tokens", _DEFAULT_MAX_TOKENS),
+            "messages": [{"role": "user", "content": prompt}],
+        }
+        if output_config:
+            create_kwargs["output_config"] = output_config
+
         try:
-            msg = client.messages.create(
-                model=model,
-                max_tokens=budget.get("max_tokens", _DEFAULT_MAX_TOKENS),
-                messages=[{"role": "user", "content": prompt}],
-                output_config=output_config,
-            )
+            msg = client.messages.create(**create_kwargs)
         except anthropic.APITimeoutError as e:
             raise StageError(
                 f"{stage}: the model call did not return within ~{_READ_TIMEOUT:.0f}s"
             ) from e
         except anthropic.APIError as e:
             raise StageError(redact(f"{stage} API call failed: {e}")) from e
-        return _response_to_json_object(msg, stage=stage)
+        return _response_to_json_object(msg, stage=stage, lenient=not structured)
 
 
-def _response_to_json_object(msg, *, stage: str) -> dict:
-    """A structured-output response -> a JSON object, or ``ResponseRejected`` that
-    says exactly what came back (``stop_reason``, block types) instead of a bare
-    ``json.loads`` on a truncated / empty string. Never fabricates JSON.
+def _unwrap_json_object(text: str) -> str:
+    """Best-effort: pull a single JSON object out of prompt-guided (non-schema)
+    output. Strips a ``` / ```json fence, and when the text is not already a bare
+    JSON value, extracts the first balanced ``{ … }`` span (string-aware). Never
+    fabricates — if there is no object, the original text is returned and
+    ``json.loads`` reports the real error.
+    """
+    t = text.strip()
+    if t.startswith("```"):
+        t = t[3:]
+        if t[:4].lower() == "json":
+            t = t[4:]
+        if t.rstrip().endswith("```"):
+            t = t.rstrip()[:-3]
+        t = t.strip()
+    if t[:1] in "{[":
+        return t
+    start = t.find("{")
+    if start == -1:
+        return t
+    depth, in_str, esc = 0, False, False
+    for i in range(start, len(t)):
+        c = t[i]
+        if in_str:
+            if esc:
+                esc = False
+            elif c == "\\":
+                esc = True
+            elif c == '"':
+                in_str = False
+        elif c == '"':
+            in_str = True
+        elif c == "{":
+            depth += 1
+        elif c == "}":
+            depth -= 1
+            if depth == 0:
+                return t[start:i + 1]
+    return t[start:]
 
-    Per the Anthropic docs the JSON arrives in a ``text`` block; with thinking on
-    (Sonnet 5 default) ``thinking`` blocks precede it, and a ``stop_reason`` of
-    ``max_tokens`` or ``refusal`` can leave the response unusable.
+
+def _response_to_json_object(msg, *, stage: str, lenient: bool = False) -> dict:
+    """A model response -> a JSON object, or ``ResponseRejected`` that says exactly
+    what came back (``stop_reason``, block types, refusal category) instead of a
+    bare ``json.loads`` on a truncated / empty string. Never fabricates JSON.
+
+    Per the Anthropic docs the JSON arrives in ``text`` block(s); with thinking on
+    (Sonnet 5 default) ``thinking`` blocks precede it, the model may split the JSON
+    across several ``text`` blocks, and a ``stop_reason`` of ``max_tokens`` or
+    ``refusal`` can leave the response unusable.
+
+    ``lenient=True`` (Evaluation — prompt-guided JSON, no schema): also tolerate a
+    ``` fence or a prose preamble around the object. It never makes an invalid
+    response valid — a top-level array or genuinely non-JSON text is still
+    rejected.
     """
     blocks = getattr(msg, "content", None) or []
     text = "".join(
@@ -170,14 +244,16 @@ def _response_to_json_object(msg, *, stage: str) -> dict:
             raise ResponseRejected(
                 f"{stage}: the model refused (stop_reason=refusal"
                 + (f", category={cat}" if cat else "")
-                + ") — no structured output"
+                + ") — no usable output"
             )
         raise ResponseRejected(
             f"{stage}: response carried no JSON text block "
             f"(stop_reason={stop!r}, blocks={kinds})"
         )
+
+    candidate = _unwrap_json_object(text) if lenient else text
     try:
-        payload = json.loads(text)
+        payload = json.loads(candidate)
     except json.JSONDecodeError as e:
         hint = (
             " — the response was truncated at the max_tokens cap; raise this stage's budget"
@@ -188,7 +264,7 @@ def _response_to_json_object(msg, *, stage: str) -> dict:
         ) from e
     if not isinstance(payload, dict):
         raise ResponseRejected(
-            f"{stage}: structured response is a {type(payload).__name__}, not a JSON object"
+            f"{stage}: response is a {type(payload).__name__}, not a JSON object"
         )
     return payload
 
@@ -230,6 +306,12 @@ def enum_str(values) -> dict:
     return {"type": "string", "enum": sorted({str(v) for v in values})}
 
 
+# A ``ResponseRejected`` whose cause an identical retry cannot fix (spec §14 — the
+# retry is for a transient malformed emit, not for truncation / refusal).
+_UNRECOVERABLE = ("truncated at the max_tokens cap", "stop_reason=max_tokens",
+                  "refus", "stop_reason=refusal")
+
+
 def call_stage(
     client: StageClient,
     *,
@@ -240,6 +322,26 @@ def call_stage(
     model: str,
     validate: Callable[[dict], object],
 ):
-    """Run one call and hand the parsed response to ``validate`` (which may raise)."""
-    raw = client.complete(stage=stage, key=key, prompt=prompt, schema=schema, model=model)
-    return validate(raw)
+    """Run one structured-output call and hand the parsed response to ``validate``.
+
+    Spec §14 — a schema-invalid model response is **retried once**. Constrained
+    decoding makes a genuinely malformed emit rare, so the retry is narrow: only a
+    live client, only a ``ResponseRejected`` (a 200 with unusable content), and not
+    when the message says the response was truncated or refused (an identical retry
+    would fail the same way). A ``StageError`` (missing SDK / credentials / HTTP
+    error / timeout) and a ``MissingFixtureError`` are never retried here — the
+    SDK already retries transient HTTP, and a missing fixture is deterministic.
+    """
+    attempts = 2 if isinstance(client, AnthropicStageClient) else 1
+    for attempt in range(attempts):
+        try:
+            raw = client.complete(
+                stage=stage, key=key, prompt=prompt, schema=schema, model=model
+            )
+            return validate(raw)
+        except ResponseRejected as e:
+            last = attempt == attempts - 1
+            if last or any(m in str(e).lower() for m in _UNRECOVERABLE):
+                raise
+            _LOG.info("%s: response rejected (%s) — retrying once", stage, e)
+    raise AssertionError("unreachable")  # pragma: no cover

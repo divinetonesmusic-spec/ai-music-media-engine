@@ -132,6 +132,20 @@ def _scan_for_numeric_score(entity: Any, base_path: str) -> List[ValidationError
     return out
 
 
+def scan_json_for_numeric_score(raw: Any, base_path: str = "$") -> List[str]:
+    """Reason strings for any 0–100 score in a raw parsed-JSON structure (C6).
+
+    Same patterns as ``_scan_for_numeric_score`` but over a plain dict/list (no
+    dataclass ``encode``) — used to reject a malformed Evaluation response before
+    it is assembled (spec §19, owner decision 2026-08-31).
+    """
+    return [
+        f"{path} reads as a 0–100 score (C6): {text!r}"
+        for path, text in _iter_strings(raw, base_path)
+        if any(p.search(text) for p in _SCORE_PATTERNS)
+    ]
+
+
 def _parse_date(value: str) -> Optional[_dt.date]:
     try:
         return _dt.date.fromisoformat(value[:10])

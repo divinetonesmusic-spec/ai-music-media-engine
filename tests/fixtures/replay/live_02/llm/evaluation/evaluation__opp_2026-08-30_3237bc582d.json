@@ -1,0 +1,136 @@
+{
+  "dimensions": {
+    "signal_strength": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "Only two OBSERVED signals support this opportunity (sig_run_live_01_dry_0010, sig_run_live_01_dry_0011), both rated MEDIUM confidence and describing the same narrow pattern (numerology-frequency titles paired with abundance messaging). No volume, engagement, or repetition-across-sources data is present.",
+      "blocked_by": []
+    },
+    "audience_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "Manifestation/abundance spirituality is a recognizable TikTok niche and the audience is clearly described (English-speaking manifestation viewers), but no follower counts, view counts, or hashtag volume are provided to size the audience.",
+      "blocked_by": [
+        "view/engagement metrics",
+        "hashtag or search volume data"
+      ]
+    },
+    "growth_momentum": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "Opportunity metadata labels durability as EMERGING with MEDIUM urgency, suggesting a rising but unconfirmed trend. No time-series or trend-growth evidence (e.g., week-over-week video counts) is included in the evidence set.",
+      "blocked_by": [
+        "trend growth/time-series data"
+      ]
+    },
+    "durability_opportunity_window": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "Labeled EMERGING/MEDIUM urgency in the opportunity record, implying a window that is open but not yet mature or proven to persist. No historical lifecycle data for similar numerology-frequency trends is provided.",
+      "blocked_by": [
+        "historical trend lifecycle data for comparable numerology-frequency content"
+      ]
+    },
+    "music_fit": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "The business's musical DNA/catalog affinity profile is not specified (NEEDS_INPUT), and the asset fit evidence explicitly notes no English-language/TikTok-native assets exist in this cluster, with best matches being Portuguese/Brazil-market assets repurposed at medium confidence.",
+      "blocked_by": [
+        "catalog musical DNA profile"
+      ]
+    },
+    "content_potential": {
+      "rating": "MEDIUM",
+      "confidence": "MEDIUM",
+      "justification": "The evidence shows a clear, replicable content template (numeric code + spiritual/abundance framing, e.g. 888Hz, 1111Hz, 444Hz, 777Hz, 8888Hz) well suited to short-form background-audio content, giving a plausible basis for a content series.",
+      "blocked_by": []
+    },
+    "competitive_position": {
+      "rating": "LOW",
+      "confidence": "MEDIUM",
+      "justification": "Asset fit data explicitly states no English-language/TikTok-native assets exist in this cluster; the best available page and playlist are Portuguese/Brazil-market assets repurposed with only medium confidence, indicating a weak starting competitive position for the target English-speaking audience.",
+      "blocked_by": []
+    },
+    "differentiation_potential": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "Numerology-frequency abundance content (888Hz/1111Hz style) appears to be a generic, widely replicated TikTok content pattern based on the evidence provided; no distinguishing creative angle or unique asset is identified that would differentiate this entry from existing creators.",
+      "blocked_by": [
+        "competitor content landscape data"
+      ]
+    },
+    "asset_fit": {
+      "rating": "LOW",
+      "confidence": "MEDIUM",
+      "justification": "matching_counts show only 1 matching playlist and 1 matching page against 37 matching artists, and unmatched_reason explicitly states no English/TikTok-native assets exist, with best matches being Portuguese/Brazil-market assets repurposed at medium confidence — a clear language/market mismatch for an English-speaking TikTok audience.",
+      "blocked_by": []
+    },
+    "business_outcome_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "A plausible content format exists (per content_potential) but is undercut by weak asset fit and thin signal evidence, capping realistic near-term business outcomes at a moderate level pending validation.",
+      "blocked_by": [
+        "quantified performance data for pilot content"
+      ]
+    }
+  },
+  "business_outcome_profile": {
+    "playlist_growth_potential": {
+      "rating": "LOW",
+      "confidence": "MEDIUM",
+      "justification": "Only one matching playlist was found (pl_2vZzaPRyZrrWqpt8zZ5wDs) and it is drawn from a mismatched (non-English/TikTok-native) asset cluster, limiting near-term playlist growth potential."
+    },
+    "music_trend_ugc_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "Frequency-labeled audio used as background for affirmation practice is a recognizable TikTok UGC pattern per the observed evidence, but no data on duet/stitch rates, sound usage counts, or UGC adoption is available to confirm strength."
+    },
+    "streaming_royalty_potential": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "No evidence is provided on cross-platform streaming performance (Spotify/Apple Music) for this content type; TikTok-native short audio clips typically generate limited direct streaming royalties without confirmed off-platform migration.",
+      "blocked_by": []
+    },
+    "page_growth_potential": {
+      "rating": "LOW",
+      "confidence": "MEDIUM",
+      "justification": "The best-matched page (page_tiktok_abundancia.divinaaofc) is a Portuguese/Brazil-market asset being repurposed for an English-speaking audience, per the unmatched_reason, which constrains organic page growth potential until a native asset is developed."
+    },
+    "youtube_media_potential": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "No evidence regarding YouTube performance, channel assets, or long-form frequency-audio uploads is included in the evidence set, so potential cannot be reliably assessed.",
+      "blocked_by": []
+    }
+  },
+  "red_flags": [
+    {
+      "description": "evidence_gap: Only two OBSERVED signals (both MEDIUM confidence, same narrow pattern) support the opportunity; no quantitative audience, growth, or competitive data is present.",
+      "severity": "MEDIUM",
+      "kind": "evidence_gap"
+    },
+    {
+      "description": "asset_gap: No English-language/TikTok-native playlist, page, or artist assets exist for this cluster; best matches are Portuguese/Brazil-market assets repurposed at medium confidence, per unmatched_reason.",
+      "severity": "MEDIUM",
+      "kind": "asset_gap"
+    },
+    {
+      "description": "compliance (G09/G10): Source content frames specific frequencies (e.g., '444 Hz is the frequency of divine manifestation') as established fact about abundance/prosperity outcomes. Any content produced from this opportunity must avoid restating these as verified claims and instead frame them as subjective spiritual practice/intention-setting, since the underlying claims are unverified and must be flagged for validation rather than asserted.",
+      "severity": "MEDIUM",
+      "kind": "compliance"
+    },
+    {
+      "description": "compliance (G07): The content pattern relies on cycling through many numeric variants (444, 777, 888, 1111, 8888 Hz) with near-identical framing; if scaled without adding genuine variety or value, this risks becoming templated/formulaic content rather than audience-relevant material.",
+      "severity": "LOW",
+      "kind": "compliance"
+    }
+  ],
+  "overall_confidence": "LOW",
+  "summary": "Evidence shows a recognizable but thinly-documented TikTok pattern pairing numerology frequencies (888Hz, 1111Hz, 444Hz, 777Hz, 8888Hz) with abundance/manifestation messaging, based on only two MEDIUM-confidence observed signals. Asset fit is weak: no English-language/TikTok-native playlist, page, or artist assets exist, with the best matches being repurposed Portuguese/Brazil-market assets. Content format potential is plausible for short-form background-audio series, but claims about specific frequencies' spiritual effects are unverified and should be framed as subjective practice rather than fact.",
+  "recommendation": {
+    "target_state": "TEST",
+    "suggested_next_step": "Run a small-scale pilot of 3-5 English-language numerology-frequency abundance videos on the best-matched TikTok page/playlist assets (adapted for English audience), reframing frequency claims as intention-setting/ritual rather than factual effect claims, and measure view/engagement/UGC-adoption metrics before further investment.",
+    "justification": "The content pattern and audience niche are plausible per the two observed signals, but weak asset fit (no native English/TikTok assets) and thin evidence (only two MEDIUM-confidence signals) mean a low-cost pilot is warranted before committing to EXPLORE-level resourcing.",
+    "confidence": "LOW"
+  }
+}

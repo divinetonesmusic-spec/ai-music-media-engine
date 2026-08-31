@@ -1,0 +1,132 @@
+{
+  "dimensions": {
+    "signal_strength": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "Only a single OBSERVED evidence item (sig_run_live_01_dry_0017) supports the emotional-wellness framing trend in study music, with MEDIUM confidence and no corroborating signals or volume metrics.",
+      "blocked_by": []
+    },
+    "audience_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "Students and knowledge workers seeking study/focus content on TikTok represent a broadly recognized content category, but no audience size, engagement, or demographic data is provided to size this specific emotional-wellness sub-segment.",
+      "blocked_by": [
+        "audience size/engagement metrics for emotional-wellness study content"
+      ]
+    },
+    "growth_momentum": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "Durability is labeled EMERGING and urgency MEDIUM, but there is no time-series or trend-volume evidence showing the emotional-wellness framing is accelerating versus static or declining.",
+      "blocked_by": [
+        "trend velocity / historical volume data"
+      ]
+    },
+    "durability_opportunity_window": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "Labeled EMERGING durability suggests an open but early window; absence of longitudinal data prevents confident assessment of how long this framing will remain differentiated before becoming standard.",
+      "blocked_by": [
+        "longitudinal trend tracking"
+      ]
+    },
+    "music_fit": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "No existing playlists or pages match the focus-study/emotional-wellness cluster (matching_counts: playlists 0, pages 0); the 10 candidate artists are unclassified against this cluster, and detailed musical DNA data for the business catalog is not available (NEEDS_INPUT), so fit cannot be confirmed.",
+      "blocked_by": [
+        "catalog musical-DNA classification",
+        "artist cluster classification"
+      ]
+    },
+    "content_potential": {
+      "rating": "MEDIUM",
+      "confidence": "MEDIUM",
+      "justification": "Emotional-wellness language ('created for moments when your mind feels full', 'calm productivity') lends itself to relatable, ritual/mood-based short-form video hooks that fit TikTok's study-with-me and calming-content formats (per sig_run_live_01_dry_0017), though only one signal source confirms this framing exists.",
+      "blocked_by": []
+    },
+    "competitive_position": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "No data is provided on competing creators, brands, or catalogs already occupying this emotional-wellness study-music niche on TikTok, making competitive positioning unassessable.",
+      "blocked_by": [
+        "competitor landscape analysis"
+      ]
+    },
+    "differentiation_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "Framing study music around emotional balance rather than pure concentration is a distinct angle relative to typical functional focus-music marketing, per the observed language shift in the evidence, but this is based on a single signal and no comparison to existing catalog positioning.",
+      "blocked_by": []
+    },
+    "asset_fit": {
+      "rating": "LOW",
+      "confidence": "MEDIUM",
+      "justification": "Asset fit data explicitly shows zero matching playlists or pages for this cluster, and the 10 candidate artists remain unclassified against the foco-estudo/emotional-wellness framing, leading to a formal recommendation for a NEW_ASSET rather than leveraging existing assets.",
+      "blocked_by": [
+        "cluster classification for candidate artists"
+      ]
+    },
+    "business_outcome_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "The framing has plausible relevance to TikTok's study/focus content ecosystem, but weak signal volume, no asset alignment, and absence of competitive or growth data limit confident assessment of overall business outcome potential.",
+      "blocked_by": [
+        "additional corroborating signals",
+        "asset alignment data"
+      ]
+    }
+  },
+  "business_outcome_profile": {
+    "playlist_growth_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "No existing playlist matches this cluster (matching_counts.playlists = 0), so growth would require building a new playlist from scratch; potential exists given TikTok's appetite for study-music playlists but is unproven here."
+    },
+    "music_trend_ugc_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "Emotional-wellness framed study content aligns with TikTok's existing study-with-me and calming-routine UGC formats, suggesting moderate trend/UGC potential, though based on only one observed signal."
+    },
+    "streaming_royalty_potential": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "No streaming performance, catalog placement, or royalty-relevant data is provided for this specific framing, so royalty potential cannot be meaningfully assessed beyond the general study-music category norm."
+    },
+    "page_growth_potential": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "A NEW_ASSET is recommended given no matching page exists; a dedicated page targeting emotional-wellness study content could grow within the broader focus-music niche, but no audience or follower projections are available."
+    },
+    "youtube_media_potential": {
+      "rating": "LOW",
+      "confidence": "LOW",
+      "justification": "No evidence addresses YouTube performance, long-form study-music consumption patterns, or cross-platform repurposing for this specific emotional-wellness framing."
+    }
+  },
+  "red_flags": [
+    {
+      "description": "evidence_gap: Only a single OBSERVED signal (sig_run_live_01_dry_0017) underlies the entire opportunity; no volume, trend, or competitive data corroborates the emotional-wellness framing claim.",
+      "severity": "MEDIUM",
+      "kind": "evidence_gap"
+    },
+    {
+      "description": "asset_gap: Zero matching playlists or pages exist for this cluster and hero artists are unclassified against it, requiring a net-new asset with unverified fit.",
+      "severity": "MEDIUM",
+      "kind": "asset_gap"
+    },
+    {
+      "description": "G09: Marketing language around 'emotional balance' and 'calm productivity' constitutes a claim about listener effect; per G09 this must be flagged for validation rather than asserted as established fact — the justification above is framed as an observed marketing pattern, not a verified outcome, and no therapeutic or medical benefit is claimed in this evaluation's own text.",
+      "severity": "MEDIUM",
+      "kind": "compliance"
+    }
+  ],
+  "overall_confidence": "LOW",
+  "summary": "This opportunity rests on a single MEDIUM-confidence signal indicating study-music marketing is shifting toward emotional-wellness language rather than pure focus framing, which plausibly fits TikTok's calming/study-with-me content formats. However, there is no existing playlist, page, or classified artist alignment (asset_fit shows 0 matching playlists/pages), no competitive or trend-volume data, and durability is only EMERGING with MEDIUM urgency. Confidence is low across nearly all dimensions due to the thin, single-source evidence base.",
+  "recommendation": {
+    "target_state": "TEST",
+    "suggested_next_step": "Run a small-scale TikTok content test using emotional-wellness framed study-music copy/visuals on a new, unbranded page to validate engagement lift versus standard focus-music framing before committing catalog or playlist assets.",
+    "justification": "The single observed signal suggests a plausible emerging framing shift, but with no asset alignment, competitive data, or trend corroboration, a low-cost test is warranted before further investment rather than immediate exploration or parking.",
+    "confidence": "LOW"
+  }
+}

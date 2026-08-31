@@ -1,0 +1,98 @@
+{
+  "candidates": [
+    {
+      "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Sono cluster does not match foco-estudo emotional wellness study framing.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Sono cluster mismatched with study/focus opportunity.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Sono cluster mismatched with study/focus opportunity.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "Hero artist with no cluster data; unclear alignment to study/focus wellness framing.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "Hero artist, cluster unknown, no basis to confirm fit to study/focus theme.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "Hero artist, cluster unknown; name suggests frequency/binaural focus but unverified.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "Hero artist, cluster unknown; theta/frequency name hints at focus but unverified.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "Hero artist, cluster unknown, meditation-oriented name not confirmed study-focused.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Name 'Brainhertz' suggests brainwave/focus frequencies, plausible alignment to study/focus theme though unverified.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "Hero artist, cluster unknown; spiritual/divine framing not clearly emotional-wellness study focused.",
+      "role": "hero"
+    }
+  ],
+  "best_playlist": "UNKNOWN",
+  "best_page": "NEW_ASSET",
+  "best_artist": "art_5SQX7a6G5C9Dz2SobHcdRI",
+  "unmatched_reason": "No existing playlist or page candidates align with the foco-estudo cluster or emotional-wellness study/focus framing; all classified candidates belong to sono, abundancia-prosperidade, or anjos-espiritualidade-religiosa clusters, and unclassified hero artists lack confirmed cluster data to verify fit.",
+  "new_asset_recommendation": {
+    "asset_type": "playlist",
+    "rationale": "No current playlist or page inventory targets the foco-estudo cluster with emotional-wellness framing for TikTok study/focus audiences; a new playlist combining calm productivity messaging with focus-oriented audio could capture this underserved niche, differentiating from existing sleep/prosperity/spiritual clusters.",
+    "i5_conditions_met": {
+      "no_adequate_fit": true,
+      "relevant_potential": true,
+      "differentiation_potential": true,
+      "sufficient_window": true
+    }
+  }
+}

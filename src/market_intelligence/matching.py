@@ -206,7 +206,6 @@ def _artist_candidates(
     opp: FramedOpportunity, knowledge: KnowledgeBundle, cx: _ClusterCtx
 ) -> List[_Cand]:
     hero_ids = set(_hero_artist_ids(knowledge))
-    opp_tokens = _tokens(opp.title) | _tokens(opp.need)
     out: List[_Cand] = []
     for a in knowledge.artists:
         aid = a["artist_id"]
@@ -214,10 +213,12 @@ def _artist_candidates(
         primary = a.get("primary_cluster")
         secondary = a.get("secondary_clusters")
         cluster_related = cx.matches(primary) or cx.any_matches(secondary)
-        lexical = bool(opp_tokens & _tokens(a.get("name", "")))
-        # §10.2a — hero artists are ALWAYS candidates; others need a relation/lexical hint.
-        if not (is_hero or cluster_related or lexical):
-            continue
+        # §10.2a (DECIDED 2026-08-27) — an artist's catalog affinity is NOT an
+        # eligibility filter: ANY artist may serve ANY opportunity. Candidate
+        # generation MUST NOT drop an artist for a cluster mismatch, and MUST NOT
+        # infer "does not fit" from a catalog-affinity mismatch alone. So EVERY
+        # artist is a candidate; the cluster relation only sets whether an OBSERVED
+        # fit basis is available (below) and informs Claude's fit judgement.
         out.append(_Cand(
             asset_type="artist",
             asset_id=aid,
@@ -225,12 +226,14 @@ def _artist_candidates(
             # §10.2 step 2 — an OBSERVED fit basis needs either hero status (a
             # consolidated strategic classification, strong for any opportunity —
             # §10.2a) or a consolidated primary/secondary cluster that *relates* to
-            # this opportunity. A catalog-affinity mismatch is not itself a basis.
+            # this opportunity. A catalog-affinity mismatch is not itself a basis,
+            # and is never a reason to exclude or down-rank the artist.
             consolidated_basis=is_hero or cluster_related,
             role=_HERO if is_hero else _CANDIDATE,
             facts={"primary_cluster": primary,
                    "canonical_cluster_id": cx.resolve(primary),
-                   "secondary_clusters": secondary, "hero_artist": is_hero},
+                   "secondary_clusters": secondary, "hero_artist": is_hero,
+                   "catalog_affinity_relates": cluster_related},
         ))
     return out
 

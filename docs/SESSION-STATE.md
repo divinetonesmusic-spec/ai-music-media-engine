@@ -1,7 +1,7 @@
 ---
 title: Session State — AI Music Media Engine
 status: current
-updated: "2026-08-28"
+updated: "2026-08-31"
 owner: Nicolas Alves (divinetonesmusic@gmail.com)
 purpose: >
   Snapshot of the current project state so a new Claude Code session can resume
@@ -23,16 +23,58 @@ sources_of_truth:
 ## Current Phase
 
 **V1 — Market Intelligence + Opportunity Analysis.** The knowledge base and technical
-specification are complete and reconciled. The **Foundation layer** is **committed**
-(`37b0db4`, pushed to `origin/main`).
+specification are complete and reconciled. The full V1 pipeline (canonical stages 1–2)
+is **implemented, tested and committed** (`origin/main` at `f1e0100`; local `HEAD` is
+`5d9781f`, **1 commit ahead, not pushed**).
 
-**The full V1 pipeline (canonical stages 1–2) is now implemented end-to-end and
-UNCOMMITTED** (one working tree, owner authorized code 2026-08-28). It runs locally:
 `python -m market_intelligence run <config>` executes
 `preflight → Signal Collection → Signal Normalization → Analysis/Framing → Asset Matching
 → Evaluation → Ranking → Report Generation (+ digest + review + opportunities.json + run.log)
 → Registry update`, and `config/run.pipeline.replay.example.yaml` runs the whole thing
 **offline** (recorded LLM fixtures, no network, no API keys).
+
+**Live status (2026-08-31):** **all 8 pipeline stages have now run successfully against
+the real Anthropic API.** Web Search, Normalization, Framing, Asset Matching and
+Evaluation are each validated live (fixtures under `tests/fixtures/replay/live_01/` and
+`live_02/`); Ranking, Reporting and Registry are deterministic and fully covered offline.
+Evaluation was validated after **removing structured outputs from that stage**
+(owner-approved fallback C).
+
+- **Asset Matching — VALIDATED LIVE (2026-08-31).** A targeted capture over 3 of the 13
+  `live_02` opportunities: 3/3 calls returned valid structured output; the 3 real
+  responses are captured at `tests/fixtures/replay/live_02/llm/matching/` (no secrets,
+  regression test `test_replay_live_02_matching.py`). First attempt failed
+  (`stop_reason=max_tokens` on all 3 — adaptive thinking consumed the 8000-token budget
+  before any JSON, over the ~47-candidate prompt the §10.2a fix produces); fixed with
+  `_STAGE_OUTPUT["matching"] = {max_tokens: 16000, effort: "low"}` (same per-stage-budget
+  pattern as Framing). Second attempt: all 3 passed.
+- **Evaluation — structured outputs REMOVED; VALIDATED LIVE 3/3 (2026-08-31).** The first
+  isolated Evaluation run returned the grammar-size `400` on all 3 calls even after the
+  `5d9781f` flatten. **Owner approved fallback C:** Evaluation no longer sends
+  `output_config.format`. New path: prompt-guided JSON → `_response_to_json_object(...,
+  lenient=True)` (strips a ``` fence / prose preamble, joins split text blocks, rejects a
+  top-level array) → `_reject_malformed_evaluation` (strict raw-shape / enum / completeness
+  / no-0–100-score check; any deviation → `technical_failure`) → `_build_bundle` (the §13
+  business layer, unchanged). `_STAGE_OUTPUT["evaluation"] = {max_tokens: 24000, structured:
+  False}`, effort left at the default `high`. Live result: **`output_config` = None on
+  every call → the grammar 400 is gone.** First isolated run: 2/3 clean, 1 model
+  property-name JSON slip (`stop_reason=end_turn` — not truncation, not the 400) → correctly
+  a `technical_failure`. Re-run with `call_stage`'s retry-once enabled (the first harness's
+  capturing wrapper had defeated the `isinstance(client, AnthropicStageClient)` check):
+  **the 3rd opp passed on the first attempt — no retry needed** (the slip was a one-off).
+  **All 3 evaluations are clean and deterministic-valid** (10 dims + 5 axes,
+  `rating`≠`confidence`, `music_fit` capped LOW, `overall_confidence` LOW, compliance
+  self-check fires a `G09/G10` red_flag, no score, `target_state` EXPLORE/TEST) and flow
+  through Ranking (3 presented, 0 excluded, 0 technical failures). 3 real fixtures at
+  `tests/fixtures/replay/live_02/llm/evaluation/`, regression test
+  `test_replay_live_02_evaluation.py` (8).
+
+**8 Anthropic-API robustness bugs** found and fixed across this and prior sessions (union
+`type` array in a schema; a framing open-map field; the Web Search structuring response
+parser; unbounded client timeouts; the Framing `max_tokens` budget; the Normalization
+response parser; the Matching `max_tokens` budget; the Evaluation compiled-grammar size
+limit — resolved by removing structured outputs from that stage). See the per-session
+memory notes and the `fix:` commits `341236b`…`5d9781f`.
 
 - **Signal Collection** (`collect.*`): 4 modular collectors (`internal_data`, `web_search`
   = Claude server-side search, `youtube` = deterministic Data API, `tiktok` = deterministic
@@ -75,7 +117,15 @@ UNCOMMITTED** (one working tree, owner authorized code 2026-08-28). It runs loca
   hard-fails only on preflight / all-sources-down / framing-cannot-run; writes
   `data/<run_id>/run.log` (§14). `dry_run` stops after Framing.
 
-**354 pytest tests green (no network), `ruff check src tests` clean, `preflight` OK,
+- **`gate` command** (`gate.py`): the deterministic C10 3-run Definition-of-Done
+  checker (spec §21.1, §22). Reads the 3 per-run `reports/<run_id>/review.md` files
+  the owner filled in and reports C10.1 (5–10 presented/run), C10.5 (relevant_ratio
+  ≥ 0.70/run) and C10.6 (≥1 opportunity advanced) as PASS / FAIL / INCOMPLETE.
+- **CLI** now has 5 commands: `preflight` · `collect` · `normalize` · `run` · `gate`.
+  `run` surfaces technical failures separately from presented/parked/excluded and
+  prints where the `reports/` and `data/` artifacts landed.
+
+**493 pytest tests green (no network), `ruff check src tests` clean, `preflight` OK,
 `run config/run.pipeline.replay.example.yaml` OK offline.** Runtime deps: `PyYAML` +
 `anthropic>=1.2.0` (lazily imported — only a live run needs it).
 
@@ -208,6 +258,11 @@ Per `docs/TECHNICAL-SPEC-V1.md` (the authoritative implementation spec):
 
 Essential decisions for resuming (full text + history in `knowledge/DECISIONS-NEEDED.md`):
 
+- **D1 — Business DNA V1 vs the V1 contract (owner, 2026-08-31):** `AI Music Media Engine —
+  Business DNA V1.md` is the **strategic vision**, not implementation governance.
+  **C6 / I2 / C7-C8 / I4 remain the operational V1 contract** — no 0–100 score, no
+  operational LAUNCH/SCALE/KILL, V1 = canonical stages 1–2, the 9-section report is
+  unchanged. Full record in **Open Issues → D1**.
 - **C1 — Opportunity unit:** an opportunity is an audience need/desire/behavior with demand
   or growth signals, turnable into a content cluster, in a specific market/language/platform,
   connected to an existing musical asset or a potential new content operation. Mandatory
@@ -263,26 +318,54 @@ Not yet inventoried: Instagram and Facebook pages (`UNKNOWN`). Historical perfor
 
 ## Last Completed Step
 
-**The complete V1 Market Intelligence pipeline** (2026-08-28, uncommitted): SN-3 +
-Analysis/Framing + Asset Matching + Guardrails + Evaluation + Ranking + Report Generation +
-Registry Updater + Orchestrator + the `normalize` / `run` CLI commands. Built TDD; the
-end-to-end integration test (`tests/test_pipeline_e2e.py`) exercises
-`fixture signals → normalization → framing → matching → evaluation → ranking → report →
-registry` fully offline. **354 pytest tests green, `ruff` clean, `preflight` OK,
-`run config/run.pipeline.replay.example.yaml` OK offline.**
+**Targeted live validation of Asset Matching + Evaluation (2026-08-31, working tree).**
+Offline: reconstructed the 13 `live_02` FramedOpportunities, picked the first 3 by
+`opportunity_id`. Live (Keychain-sourced key, via a scratchpad harness — same mechanism
+as `scripts/run-live.sh`): 1-token balance probe (OK) → 3 Matching calls → 3 Evaluation
+calls.
 
-Three reviews were run and their in-scope findings fixed: **spec-consistency** (verdict
-PASS), a **code review**, and a **security review** (no HIGH/MEDIUM). Fixes applied this
-pass: framing wraps `ResponseRejected` as a clean `FramingError`; an INFERRED evidence item
-with no basis is dropped (not the whole opportunity); the G01/G03/G04 compliance scanners
-no longer false-positive on the permitted wellness themes (anxiety / insomnia / stress) or
-the PT/ES "trata-se de" idiom; the Evaluation prompt now enumerates G01–G10 for a Claude
-self-check; the digest gained `config_snapshot` and itemizes report-time exclusions; the
-run writes `data/<run_id>/run.log` (§14) and `data/<run_id>/opportunities.json` (§17); the
-"no 0–100 score" scan covers the Recommendation and BOP too; `validate_opportunity` now
-checks §16.3(d) (`provenance.signal_ids` covers every cited signal); the registry keeps
-existing entries in place and marks replay-run entries `replay_origin: true`; file writes
-are atomic (`.tmp` + `os.replace`); `reporting` receives the real `musical_dna_needs_input`.
+- **Asset Matching: 3/3 PASS.** Real responses captured at
+  `tests/fixtures/replay/live_02/llm/matching/`; regression test
+  `test_replay_live_02_matching.py` (6). A first attempt failed on
+  `stop_reason=max_tokens` → fixed with `_STAGE_OUTPUT["matching"]`
+  (`max_tokens: 16000, effort: "low"`).
+- **Evaluation: 0/3 — grammar-size 400 persists.** Not auto-fixed; owner decision
+  pending (Open Issues → Evaluation schema).
+
+**Earlier the same day — V1 hardening + operability pass:**
+
+- `gate.py` + the `gate` CLI command — the C10 3-run Definition-of-Done checker the
+  spec requires (§21.1, §22) but that had never been built. `tests/test_gate.py` (13),
+  `tests/test_cli.py` (5).
+- Robust Anthropic-response parsing in `normalize/llm.py` (the last call site still on
+  the weak parser — `stop_reason` / block types / refusal / truncation are now named).
+- `call_stage` retries once on a transient live `ResponseRejected` (spec §14).
+- `matching._artist_candidates` — §10.2a fix: every artist is now a candidate (was
+  gated on cluster/lexical match).
+- `run` CLI surfaces technical failures separately and prints artifact locations.
+- 4 reviewer agent definitions under `.claude/agents/` (implementation-conformance,
+  security, replay-integration, report-quality) beside the existing spec-consistency
+  reviewer.
+
+An **implementation-conformance review** (`.claude/agents/implementation-conformance-reviewer`)
+found and this pass fixed: (1) HIGH — `matching._artist_candidates` dropped a non-hero
+artist whose catalog affinity did not match the opportunity's cluster and whose name had
+no lexical overlap, violating **§10.2a** (DECIDED: catalog affinity is not an eligibility
+filter). Now **every** artist is an Asset-Matching candidate; the cluster relation only
+sets whether an `OBSERVED` fit basis is available. (2) MEDIUM — `call_stage` now **retries
+once** on a transient `ResponseRejected` from a live client (spec §14), skipping the retry
+for truncation / refusal which an identical call cannot fix.
+
+**533 pytest tests green, `ruff check src tests` clean, `preflight` OK,
+`run config/run.pipeline.replay.example.yaml` OK offline (deterministic across re-runs
+except the recorded wall-clock `generated_at` and measured stage timings — §16.4).**
+
+Prior committed work (`8e13e62` "implement V1 Market Intelligence pipeline" and the
+`fix:` commits through `5d9781f`): the full stage-1–2 pipeline; the "technical failure
+≠ business exclusion ≠ PARK" mechanism; the Evaluation schema flattened to fit the
+Anthropic grammar-size limit; 7 Anthropic-API robustness fixes; two live replay
+fixtures (`live_01` 37 signals, `live_02` 23 signals + a real 13-opportunity Framing
+response).
 
 Historical increment detail (SN-1/SN-2/SC-1..SC-5) is retained below.
 
@@ -462,41 +545,44 @@ migration.
 ## Last Commit
 
 ```
-37b0db4  feat: implement V1 foundation layer
+5d9781f  fix: harden evaluation failures and structured output schema
 ```
 
-Full hash: `37b0db45200034a9861e36aeb0cf14d11901d516`
-The full Foundation layer (schemas, codec, ids, §13 validators, fixtures, config loader +
-`config/*.yaml`, Knowledge Loader, preflight, `pyproject.toml`, README, `.gitignore`) —
-32 files. Pushed to `origin/main`.
+Full hash: `5d9781f4e98252dc29d5139a24594e3674f3e85b`. Flattened the Evaluation
+structured-output schema to fit the Anthropic compiled-grammar size limit, and added
+the "technical failure ≠ business state" mechanism (evaluation / ranking / registry /
+reporting / orchestrator). **1 commit ahead of `origin/main` — not pushed.**
 
 Recent history:
 
 ```
+5d9781f  fix: harden evaluation failures and structured output schema   (HEAD, not pushed)
+f1e0100  test: preserve live framing replay fixture                     (origin/main)
+f57d4c7  fix: harden framing and preserve live run replay fixture
+9b06f77  fix: run Web Search structuring at effort=low
+a983c5c  fix: harden Anthropic client timeouts and retries
+6809a64  fix: harden Anthropic Web Search structuring response handling
+341236b  fix: harden Anthropic structured output schemas
+cad5fa9  fix: update Anthropic Web Search pause handling
+4f3e1fe  fix: harden asset matching and registry writes
+8e13e62  feat: implement V1 Market Intelligence pipeline
 37b0db4  feat: implement V1 foundation layer
-0ee23b1  chore: add project engineering guardrails and session state
-b8fec98  feat: finalize market intelligence v1 specification
-2154c07  feat: V1 knowledge base — asset classification, cluster taxonomy, technical spec
-d236323  docs: reconcile V1 project specification
-859c731  chore: ignore .DS_Store files
-00600cc  chore: initialize AI Music Media Engine
 ```
 
-**Uncommitted working tree** — the full stage-1–2 pipeline, awaiting owner review
-(nothing committed or pushed):
+**Uncommitted working tree** — the 2026-08-31 hardening + operability pass:
 
-- Untracked src: `src/market_intelligence/{collect/*, normalize/*, cli.py, llm_stage.py,
-  framing.py, matching.py, guardrails.py, evaluation.py, ranking.py, reporting.py,
-  registry.py, orchestrator.py}`.
-- Untracked tests: `tests/test_{collect_*, normalize_*, llm_stage, framing, matching,
-  guardrails, evaluation, ranking, reporting, registry, pipeline_e2e}.py` +
-  `tests/fixtures/{pipeline/, replay/, normalize/, internal_data_example.yaml,
-  web_search_research.json, youtube_*_list.json, tiktok_capture.yaml}`.
-- Untracked config: `config/run.replay.example.yaml`, `config/run.pipeline.replay.example.yaml`.
-- Modified (committed files touched this work): `pyproject.toml` (`anthropic>=1.2.0`),
-  `src/market_intelligence/{schema/validate.py, schema/models.py, preflight.py, io_utils.py,
-  __main__.py}`, `config/run.example.yaml`, `README.md`, `tests/test_validate.py`,
-  `docs/SESSION-STATE.md`.
+- Untracked: `src/market_intelligence/gate.py`, `tests/test_gate.py`, `tests/test_cli.py`,
+  `.claude/agents/{implementation-conformance,security,replay-integration,report-quality}-reviewer.md`.
+- Modified: `src/market_intelligence/cli.py` (the `gate` command; `run` output),
+  `src/market_intelligence/normalize/llm.py` (robust response parser),
+  `tests/test_normalize_llm.py`, `docs/SESSION-STATE.md`.
+- Untracked, intentionally **never committed**: `config/run.live-01.yaml`,
+  `scripts/run-live.sh`, `tests/test_run_live_script.py` (the Keychain live-run wrapper;
+  kept out of the repo per the owner's credential-isolation instruction).
+- Untracked: `AI Music Media Engine — Business DNA V1.md` at the repo root — the business's
+  **strategic vision / evolution architecture**. Per **owner decision D1 (2026-08-31)** it
+  does **not** supersede the DECIDED decisions governing the current V1 (see
+  **Open Issues → D1**). Whether/where it is committed is an owner call.
 - **`knowledge/`, `CLAUDE.md`, `docs/TECHNICAL-SPEC-V1.md`, `knowledge/DECISIONS-NEEDED.md`
   are untouched.**
 
@@ -504,29 +590,28 @@ d236323  docs: reconcile V1 project specification
 
 - **Branch:** `main`
 - **Remote:** `origin` → `https://github.com/divinetonesmusic-spec/ai-music-media-engine.git` (PRIVATE)
-- **Relation to `origin/main`:** **in sync** — local `HEAD` == `origin/main` == `37b0db4`.
-  The whole stage-1–2 pipeline sits on top as uncommitted changes.
-- **Working tree:** **not clean** — the files above. (`.venv/`, `/data/` and Python
-  artifacts are git-ignored. Tests write only under pytest `tmp_path`. No test touches the
-  network. The `reports/` dir has no run output committed — the replay demo's
-  `reports/run_pipeline_replay_demo/` should be removed before commit.)
+- **Relation to `origin/main`:** local `HEAD` (`5d9781f`) is **1 commit ahead**, 0 behind.
+  The hardening pass above sits on top as an uncommitted working tree.
+- **Working tree:** not clean — the files above. `.venv/`, `/data/` and Python artifacts
+  are git-ignored; tests write only under pytest `tmp_path`; no test touches the network.
 - **Local runtime:** Python 3.12.14 in `.venv/`; `pip install -e ".[dev]"` (PyYAML,
   anthropic, pytest, ruff).
 
 ## Next Action
 
-**The full V1 pipeline is implemented, tested and reviewed. It is not committed.**
+**The V1 pipeline is implemented, tested and hardened; 7 of the 8 stages are validated
+live.** The Evaluation structured-output schema is the one remaining blocker.
 
-1. **Owner review of the working tree**, then a commit (the pipeline package + tests +
-   fixtures + the two config examples + the touched Foundation files). Remove the replay
-   demo's `reports/run_pipeline_replay_demo/` first. Do **not** push without asking.
-2. Before the 3-run C10 validation gate, decide on the deferred-but-in-spec items in
-   **Open Issues** below — chiefly the compliance-enforcement depth and whether a live
-   (non-replay) run should be done first.
-3. Owner decisions that still gate quality (not blocking): value-engine weighting for
+1. **Owner review + commit** the working tree (`gate.py` + CLI + normalize/matching/
+   llm_stage changes + the `live_02` matching fixtures + reviewer agents + this file),
+   then decide whether to push `5d9781f` and the new commit.
+2. **Begin the C10 3-run validation gate** — all 8 stages are validated live; run the
+   full pipeline live 3 times, fill each `reports/<run_id>/review.md`, then
+   `python -m market_intelligence gate --reports-dir reports/`.
+4. Owner decisions that still gate quality (not blocking): value-engine weighting for
    ranking (`NEEDS_INPUT` → §11 keys 3–4); musical DNA detail (caps `music_fit`
-   confidence); the rating-anchors appendix (§8.3), to be written alongside the first
-   real run.
+   confidence); the rating-anchors appendix (§8.3). **D1 (Business DNA V1 vs the V1
+   contract) is RESOLVED** — see **Open Issues → D1**.
 
 **How to run it:** `./.venv/bin/python -m market_intelligence run <config>` — or
 `config/run.pipeline.replay.example.yaml` for a fully offline demo.
@@ -556,8 +641,84 @@ Surfaced by the spec-consistency + code reviews; each is a documented gap, not a
   `AssetMatch` (spec §10.3 permits it for competitive context) — the implementation is
   stricter (own pages only). Safe; competitive context lives in the `competitive_position`
   dimension instead.
-- **A live (non-replay) run has not been done.** Every stage is exercised only against
-  recorded fixtures.
+### Evaluation — structured outputs removed (owner-approved fallback C, 2026-08-31)
+
+**Resolved in code; one sub-question open.** The `5d9781f` flatten did not clear the
+grammar-size limit (confirmed live: 3/3 calls `400 "compiled grammar is too large …
+reduce the number of strict tools"`). The owner approved **fallback C**: Evaluation
+sends no `output_config.format`.
+
+Final Evaluation architecture:
+`Claude (prompt-guided JSON, effort default `high`, `max_tokens: 24000`, NO schema)`
+→ `_response_to_json_object(msg, stage="evaluation", lenient=True)` — strips a ``` fence
+   / prose preamble, joins JSON split across text blocks, rejects a top-level array, names
+   `stop_reason` / refusal / truncation
+→ `_reject_malformed_evaluation(raw)` — strict: exactly the 10 `DIMENSION_KEYS` + 5
+   `AXIS_KEYS`; each rating node `{rating∈Rating, confidence∈Confidence, non-empty
+   justification[, blocked_by: [str]]}`; `red_flags` a list of `{description, severity∈
+   Severity, kind∈RedFlagKind}`; valid `overall_confidence`, non-empty `summary`; a
+   `recommendation` with `target_state∈LifecycleState`, non-empty `suggested_next_step` /
+   `justification`, valid `confidence`; **no 0–100 score** anywhere
+   (`scan_json_for_numeric_score`). ANY deviation → `ResponseRejected` → `technical_failure`
+   (never PARK, never registry). `call_stage` retries a transient `ResponseRejected` once.
+→ `_build_bundle(raw)` — the §13 business layer, **unchanged** (coercion kept as a second
+   net; `validate_evaluation` / `validate_business_outcome_profile` / compliance / the
+   `music_fit` cap / `_constrain_target_state` / `EXECUTION_NOTE` all still run).
+
+`evaluation._response_schema()` is kept as the machine-readable *reference* shape (not
+sent); `test_structured_output_schema.py` pins it to the strict validator's key sets.
+
+**Isolated live validation (2026-08-31) — 3/3 PASS.** `output_config` = None on every
+call → the grammar 400 is **gone**. First run: 2/3 clean + 1 model property-name JSON
+slip (`stop_reason=end_turn`, 6463 tokens — not truncation, not the 400) → correctly a
+`technical_failure`. Re-run with `call_stage`'s retry-once enabled: the 3rd opp passed on
+the first attempt (no retry needed — the slip was a one-off). **All 3 real fixtures
+captured** (`tests/fixtures/replay/live_02/llm/evaluation/`, secret-clean); all 3
+deterministic-valid; all 3 flow through Ranking. Regression: `test_replay_live_02_evaluation.py`.
+The lenient parser was **not** made to tolerate trailing commas / `//` — `call_stage`'s
+retry-once is the safety net for a transient model JSON slip, and a live re-attempt
+produced clean JSON directly.
+
+### D1 — Business DNA V1 vs the current V1 contract — RESOLVED (owner, 2026-08-31)
+
+An untracked strategic document, `AI Music Media Engine — Business DNA V1.md`, was added
+at the repo root. It is a broad vision doc (the full 9-stage system, agent hierarchy).
+Where it specifies **V1 mechanics** it diverges from DECIDED decisions:
+
+| Business DNA V1 | Diverges from | Current behaviour (kept) |
+|---|---|---|
+| §8 — every opportunity gets a **0–100 Opportunity Score** with a weighted formula (Trend 25% / Audience 15% / …) | **C6** (DECIDED: no composite 0–100 score) + spec §8 | qualitative 10-dimension profile, `rating` + separate `confidence`, no score; `_scan_for_numeric_score` rejects any 0–100 score in evaluation / BOP / recommendation |
+| §9 / §10 — recommendation set is **EXPLORE / TEST / LAUNCH / SCALE / KILL** (no PARK) | **I2** (DECIDED: V1 operational states are EXPLORE / TEST / PARK; LAUNCH/SCALE/KILL deferred) | `_constrain_target_state` clamps to EXPLORE / TEST / PARK (KILL→PARK, LAUNCH/SCALE→TEST) |
+| §35 — "V1 will have: MARKET INTELLIGENCE → OPPORTUNITY REPORT → OPPORTUNITY SCORE → **CLUSTER STRATEGY → CONTENT PLAN**" | **C7 / C8** (DECIDED: V1 = canonical stages 1–2 only) + spec §2 | V1 stops at the Opportunity Report; cluster / positioning / first-content-direction are non-binding hypotheses only; no Cluster Strategy / Content Plan stage exists |
+| §10 — Opportunity Report has **Conteúdo** (formats, hooks, structures, pillars, duration…) and **Execução** (batch sizes, templates, schedule) as required sections | **I4** (DECIDED: the 9-section report schema) + **C7** | 9 sections per I4; content/execution detail is out of V1 scope |
+
+**Owner decision (Nicolas Alves, 2026-08-31):** for the current implementation,
+**C6 / I2 / C7-C8 / I4 remain the operational V1 contract.** `AI Music Media Engine —
+Business DNA V1.md` represents the **strategic vision and the business's evolution
+architecture** — it does **not** supersede the DECIDED decisions that govern the current
+V1 implementation. Consequently: do **not** implement a 0–100 score; do **not** implement
+LAUNCH/SCALE/KILL operationally in V1; do **not** build Cluster Strategy or Content Plan
+as pipeline stages yet; do **not** change the Opportunity Report contract; do **not**
+change the current architecture. The canonical stages 3–13 (incl. Cluster Strategy,
+Content Plan) stay **deferred (P4)** until the V1 C10 gate passes.
+
+This decision is recorded here only. `knowledge/DECISIONS-NEEDED.md` is human-owned
+source knowledge protected by the `guard-knowledge` PreToolUse hook (fail-closed); the
+project process is that a Claude Code session does not edit it. If the owner wants D1
+folded into that file (e.g. a note under C6 / C7 / I2 / I4, or the P4 entry), that is a
+manual owner edit — the minimal text to paste is the "Owner decision" paragraph above.
+No decision `status` changes: C6 / I2 / C7 / C8 / I4 were already `DECIDED`; D1 only
+reaffirms them against a newer document.
+
+**Verified 2026-08-31 that the current code still obeys the contract** (see
+`pytest -q` / `ruff` / `preflight`, all green; and the checks in **Last Completed Step**):
+`_scan_for_numeric_score` wired into all three validators; no `score` field on any model;
+`ranking` is a purely ordinal comparator (`config/ranking.yaml`:
+`value_engine_weighting: NEEDS_INPUT`, not applied); `V1_OPERATIONAL_STATES = {EXPLORE,
+TEST, PARK}`; `_constrain_target_state` enforced; the 8-stage orchestrator ends at
+Report + Registry; no `cluster` / `content` / `page-blueprint` / `video` / `audio` /
+`publishing` / `analytics` / `optimization` / `learning` module exists; the report
+renders exactly the 9 I4 sections in order.
 
 ### New TECHNICAL DEFAULTs (this pipeline) — to record in `knowledge/DECISIONS-NEEDED.md`
 

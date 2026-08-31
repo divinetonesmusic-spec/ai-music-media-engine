@@ -1,0 +1,354 @@
+{
+  "candidates": [
+    {
+      "asset_id": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+      "asset_type": "playlist",
+      "fit": "MEDIUM",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Spanish spiritual frequency playlist targeting third eye/spirituality, close but not angel-number specific cluster.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "pl_0fzUPuhRHjqMyfOgNx0d4S",
+      "asset_type": "playlist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Spanish lucid dream cluster, unrelated to angel numbers.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+      "asset_type": "playlist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Sleep-focused cluster, not angel/spirituality themed.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "pl_4oV5F1W2E6azZePnmqBanN",
+      "asset_type": "playlist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Energy cleansing cluster, not angel numbers specific.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+      "asset_type": "playlist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Sleep cluster, not aligned with angel-number theme.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+      "asset_type": "artist",
+      "fit": "HIGH",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Canonical cluster matches anjos-espiritualidade-religiosa exactly with catalog affinity relates true.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+      "asset_type": "artist",
+      "fit": "HIGH",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Canonical cluster matches anjos-espiritualidade-religiosa, angel/psalm themed with affinity.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+      "asset_type": "artist",
+      "fit": "HIGH",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Archangels themed artist matching canonical cluster anjos-espiritualidade-religiosa.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+      "asset_type": "artist",
+      "fit": "HIGH",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Seraphim Frequencies matches canonical cluster anjos-espiritualidade-religiosa exactly.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Hero artist but sleep-focused cluster, not angel-number aligned; hero status still relevant.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Hero artist, sleep cluster, tangential relevance via spiritual/purification secondary clusters.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Hero artist with sleep cluster but 'Amor Divino' name suggests spiritual overlap.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist, name suggests frequency-themed content but cluster unknown.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist with 'Healing Codes' name hinting at spiritual/numerology content though unclassified.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist, frequency-themed name, cluster unknown.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist, name suggests theta/frequency focus, cluster unknown.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist, meditation-themed name, cluster unknown.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist, frequency-themed name, cluster unknown.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+      "asset_type": "artist",
+      "fit": "MEDIUM",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Hero artist, 'Divine Tones' name suggests spiritual alignment though unclassified.",
+      "role": "hero"
+    },
+    {
+      "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Abundance/prosperity cluster, tangential to angel numbers via numerology theme.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Prosperity cluster, not angel-number aligned.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Prosperity/manifestation cluster, tangential relevance.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Sleep cluster with manifestation secondary tag, weak relevance.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Sleep cluster with chakra/spirituality secondary tag, weak relevance.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Sleep cluster, minimal spiritual relevance.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "OBSERVED",
+      "fit_rationale": "Sleep cluster, minimal relevance to angel numbers.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Name suggests psalm/spiritual content but no cluster data.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Name suggests religious meditation but no cluster data.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Name suggests divine abundance theme, tangential.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Name suggests conscious vibration, tangential spiritual relevance.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Name suggests divine tones, tangential relevance, no cluster data.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Name suggests archangel healing theme, tangential relevance.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+      "asset_type": "artist",
+      "fit": "NONE",
+      "fit_basis": "UNKNOWN",
+      "fit_rationale": "No classification data available.",
+      "role": "candidate"
+    },
+    {
+      "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+      "asset_type": "artist",
+      "fit": "LOW",
+      "fit_basis": "INFERRED",
+      "fit_rationale": "Name suggests psalm frequencies, tangential relevance.",
+      "role": "candidate"
+    }
+  ],
+  "best_playlist": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+  "best_page": "NEW_ASSET",
+  "best_artist": "art_4FS4kfkdU1O5eAqrr8yZAf",
+  "unmatched_reason": "No existing page asset targets angel-number/numerology content for Spanish TikTok audience; a new localized page is warranted.",
+  "new_asset_recommendation": {
+    "asset_type": "page",
+    "rationale": "No existing page matches the specific angel-number/frequency-to-life-purpose niche for Spanish-speaking TikTok audiences. Existing playlists and artists cover adjacent spiritual/frequency clusters but not the numerology-career angle directly. A dedicated Spanish-language page could capture this trending niche and differentiate from generic spirituality content while there appears to be a live trend window on TikTok.",
+    "i5_conditions_met": {
+      "no_adequate_fit": true,
+      "relevant_potential": true,
+      "differentiation_potential": true,
+      "sufficient_window": true
+    }
+  }
+}

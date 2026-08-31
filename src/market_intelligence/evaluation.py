@@ -64,6 +64,7 @@ from .schema.models import (
 )
 from .schema.validate import (
     blocking,
+    scan_json_for_numeric_score,
     validate_business_outcome_profile,
     validate_evaluation,
 )
@@ -174,6 +175,128 @@ def _response_schema() -> dict:
     )
 
 
+# --- strict shape check on the raw (non-schema) response --------
+#
+# Evaluation no longer sends ``output_config.format`` (its JSON Schema compiles to
+# an over-limit grammar — owner decision 2026-08-31, spec §19 fallback C). The
+# structured-output validator used to guarantee the shape; this does it now. Any
+# deviation raises ``ResponseRejected`` → the opportunity becomes a
+# ``technical_failure`` (never PARK, never registered), which is distinct from the
+# §13 business validation that ``_build_bundle`` still runs on a well-formed
+# response. ``_build_bundle``'s coercion is deliberately kept as a second layer.
+
+_RATINGS = {r.value for r in Rating}
+_CONFIDENCES = {c.value for c in Confidence}
+_SEVERITIES = {s.value for s in Severity}
+_RF_KINDS = {k.value for k in RedFlagKind}
+_LIFECYCLE = {s.value for s in LifecycleState}
+
+
+def _nonempty_str(v) -> bool:
+    return isinstance(v, str) and bool(v.strip())
+
+
+def _check_rating_node(node, path: str, *, need_blocked_by: bool) -> List[str]:
+    if not isinstance(node, dict):
+        return [f"{path} is missing or not an object"]
+    out: List[str] = []
+    if node.get("rating") not in _RATINGS:
+        out.append(f"{path}.rating is not one of {sorted(_RATINGS)}: {node.get('rating')!r}")
+    if node.get("confidence") not in _CONFIDENCES:
+        out.append(
+            f"{path}.confidence is not one of {sorted(_CONFIDENCES)}: {node.get('confidence')!r}"
+        )
+    if not _nonempty_str(node.get("justification")):
+        out.append(f"{path}.justification is missing or empty")
+    if need_blocked_by:
+        bb = node.get("blocked_by")
+        if not isinstance(bb, list) or not all(isinstance(x, str) for x in bb):
+            out.append(f"{path}.blocked_by must be an array of strings")
+    return out
+
+
+def _reject_malformed_evaluation(raw: object) -> dict:
+    """Return ``raw`` unchanged, or raise ``ResponseRejected`` naming every way the
+    prompt-guided Evaluation JSON deviates from the structure ``_build_bundle``
+    needs (spec §19, owner decision 2026-08-31)."""
+    if not isinstance(raw, dict):
+        raise ResponseRejected(
+            f"evaluation: response is a {type(raw).__name__}, not a JSON object"
+        )
+
+    problems: List[str] = []
+
+    dims = raw.get("dimensions")
+    if not isinstance(dims, dict):
+        problems.append("dimensions is missing or not an object")
+    else:
+        for k in sorted(set(DIMENSION_KEYS) - set(dims)):
+            problems.append(f"dimensions is missing '{k}'")
+        for k in sorted(set(dims) - set(DIMENSION_KEYS)):
+            problems.append(f"dimensions has an unexpected key '{k}'")
+        for k in DIMENSION_KEYS:
+            if k in dims:
+                problems += _check_rating_node(dims[k], f"dimensions.{k}", need_blocked_by=True)
+
+    axes = raw.get("business_outcome_profile")
+    if not isinstance(axes, dict):
+        problems.append("business_outcome_profile is missing or not an object")
+    else:
+        for k in sorted(set(AXIS_KEYS) - set(axes)):
+            problems.append(f"business_outcome_profile is missing '{k}'")
+        for k in sorted(set(axes) - set(AXIS_KEYS)):
+            problems.append(f"business_outcome_profile has an unexpected key '{k}'")
+        for k in AXIS_KEYS:
+            if k in axes:
+                problems += _check_rating_node(
+                    axes[k], f"business_outcome_profile.{k}", need_blocked_by=False
+                )
+
+    rf = raw.get("red_flags")
+    if not isinstance(rf, list):
+        problems.append("red_flags is missing or not an array")
+    else:
+        for i, item in enumerate(rf):
+            if not isinstance(item, dict):
+                problems.append(f"red_flags[{i}] is not an object")
+                continue
+            if not _nonempty_str(item.get("description")):
+                problems.append(f"red_flags[{i}].description is missing or empty")
+            if item.get("severity") not in _SEVERITIES:
+                problems.append(f"red_flags[{i}].severity is invalid: {item.get('severity')!r}")
+            if item.get("kind") not in _RF_KINDS:
+                problems.append(f"red_flags[{i}].kind is invalid: {item.get('kind')!r}")
+
+    if raw.get("overall_confidence") not in _CONFIDENCES:
+        problems.append(f"overall_confidence is invalid: {raw.get('overall_confidence')!r}")
+    if not _nonempty_str(raw.get("summary")):
+        problems.append("summary is missing or empty")
+
+    rec = raw.get("recommendation")
+    if not isinstance(rec, dict):
+        problems.append("recommendation is missing or not an object")
+    else:
+        if rec.get("target_state") not in _LIFECYCLE:
+            problems.append(
+                f"recommendation.target_state is invalid: {rec.get('target_state')!r}"
+            )
+        if not _nonempty_str(rec.get("suggested_next_step")):
+            problems.append("recommendation.suggested_next_step is missing or empty")
+        if not _nonempty_str(rec.get("justification")):
+            problems.append("recommendation.justification is missing or empty")
+        if rec.get("confidence") not in _CONFIDENCES:
+            problems.append(f"recommendation.confidence is invalid: {rec.get('confidence')!r}")
+
+    problems += scan_json_for_numeric_score(raw, "evaluation")
+
+    if problems:
+        raise ResponseRejected(
+            "evaluation: the response does not match the required structure — "
+            + "; ".join(problems[:8])
+        )
+    return raw
+
+
 # --- prompt ---------------------------------------------------
 
 def _prompt(opp: FramedOpportunity, am: AssetMatch, knowledge: KnowledgeBundle) -> str:
@@ -236,7 +359,28 @@ def _prompt(opp: FramedOpportunity, am: AssetMatch, knowledge: KnowledgeBundle) 
         f"OPPORTUNITY:\n{opp_json}\n\n"
         f"EVIDENCE:\n{json.dumps(evidence, ensure_ascii=False, indent=1)}\n\n"
         f"ASSET FIT:\n{json.dumps(asset, ensure_ascii=False, indent=1)}\n\n"
-        "Return the JSON object matching the schema exactly."
+        "OUTPUT — return ONE JSON object and nothing else (no prose, no markdown "
+        "fence). Exactly this shape:\n"
+        "{\n"
+        '  "dimensions": {  // ALL 10 keys, each: '
+        '{"rating": "LOW|MEDIUM|HIGH|VERY_HIGH", "confidence": "LOW|MEDIUM|HIGH", '
+        '"justification": "<text citing evidence>", "blocked_by": ["<missing input>", ...]}\n'
+        f"    {', '.join(DIMENSION_KEYS)}\n"
+        "  },\n"
+        '  "business_outcome_profile": {  // ALL 5 keys, each: '
+        '{"rating": ..., "confidence": ..., "justification": ...}  (no blocked_by)\n'
+        f"    {', '.join(AXIS_KEYS)}\n"
+        "  },\n"
+        '  "red_flags": [ {"description": "<text>", "severity": "LOW|MEDIUM|HIGH", '
+        '"kind": "compliance|feasibility|evidence_gap|asset_gap|market|other"} ],  // [] if none\n'
+        '  "overall_confidence": "LOW|MEDIUM|HIGH",\n'
+        '  "summary": "<2-4 sentences grounded in evidence>",\n'
+        '  "recommendation": {"target_state": "EXPLORE|TEST|PARK", '
+        '"suggested_next_step": "<concrete action>", "justification": "<text>", '
+        '"confidence": "LOW|MEDIUM|HIGH"}\n'
+        "}\n"
+        "Every string is required and non-empty. Use the exact enum spellings above. "
+        "There is NO numeric score anywhere — never write '85/100', 'score: 72' or similar."
     )
 
 
@@ -450,9 +594,9 @@ def evaluate_opportunities(
                 stage=STAGE,
                 key=stage_key(STAGE, opp.opportunity_id),
                 prompt=_prompt(opp, am, knowledge),
-                schema=_response_schema(),
+                schema=_response_schema(),  # reference shape only — not sent (see llm_stage)
                 model=config.model,
-                validate=lambda r: r,
+                validate=_reject_malformed_evaluation,
             )
         except MissingFixtureError as e:
             # Replay with no recorded fixture — a documented offline-testing degrade
