@@ -22,7 +22,7 @@ import yaml
 
 from .framing import FramedOpportunity
 from .io_utils import LoadError, read_yaml, write_text
-from .ranking import RankingResult
+from .ranking import TECHNICAL_FAILURE, RankingResult
 from .schema.models import Opportunity, RunConfig
 
 SCHEMA_VERSION = "1.0.0"
@@ -114,6 +114,11 @@ def update_registry(
         fo = framed.get(oid)
         if fo is None:
             continue
+        if ranked.bucket == TECHNICAL_FAILURE or ranked.status is None:
+            # An Evaluation technical failure is not a business state — it never
+            # enters the registry (§17). It lives only in run.log / digest / the
+            # opportunities.json technical artefact.
+            continue
         status = ranked.status.value
         opp = presented.get(oid)
         report_ref = opp.report_ref if opp is not None else None
@@ -147,9 +152,13 @@ def update_registry(
     # Existing entries keep their file order (localized git diff, §17); only the
     # newly appended ones extend the list. Written atomically (.tmp + os.replace) so
     # a crash mid-write can never corrupt the one knowledge/ file the pipeline touches.
-    payload = {"schema_version": SCHEMA_VERSION, "opportunities": existing}
-    write_text(
-        path,
-        yaml.safe_dump(payload, sort_keys=False, allow_unicode=True, default_flow_style=False),
-    )
+    # A run that has nothing to register (e.g. every opportunity was a technical
+    # failure) never creates the file.
+    if existing:
+        payload = {"schema_version": SCHEMA_VERSION, "opportunities": existing}
+        write_text(
+            path,
+            yaml.safe_dump(payload, sort_keys=False, allow_unicode=True,
+                           default_flow_style=False),
+        )
     return RegistryUpdateResult(path=path, added=added, updated=updated, total=len(existing))

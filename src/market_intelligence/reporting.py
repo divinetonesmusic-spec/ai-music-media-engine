@@ -78,9 +78,11 @@ def _partial_record(oid, bucket, framed, bundles, asset_matches, reason):
             "durability": fo.durability.value, "urgency": fo.urgency.value,
             "signal_ids": list(fo.signal_ids),
         })
-    if bundle is not None and not bundle.excluded:
+    if bundle is not None and not bundle.excluded and not bundle.technical_failure:
         rec["overall_confidence"] = bundle.evaluation.overall_confidence.value
         rec["target_state"] = bundle.recommendation.target_state.value
+    if bundle is not None and bundle.technical_failure:
+        rec["technical_failure_reason"] = bundle.technical_failure_reason
     if am is not None:
         rec["best_assets"] = {
             "playlist": am.best_playlist, "page": am.best_page, "artist": am.best_artist,
@@ -524,6 +526,22 @@ def _digest(
         lines.append("_None._")
     lines.append("")
 
+    lines.append("## Technical failures\n")
+    lines.append(
+        "> Evaluation could not complete for these opportunities (infrastructure / API "
+        "error). This is NOT a business decision — they carry no status and are not in "
+        "the opportunity registry. Re-run once the cause is fixed.\n"
+    )
+    if ranking.technical_failures:
+        by_ranked = {r.opportunity_id: r for r in ranking.ordered}
+        for oid in sorted(ranking.technical_failures):
+            fo = framed.get(oid)
+            reason = getattr(by_ranked.get(oid), "technical_failure_reason", None) or "unknown"
+            lines.append(f"- `{oid}` — {fo.title if fo else 'UNKNOWN'} — {reason}")
+    else:
+        lines.append("_None._")
+    lines.append("")
+
     lines.append("## NEEDS_INPUT encountered\n")
     if needs_input_notes:
         for note in sorted(set(needs_input_notes)):
@@ -645,6 +663,7 @@ def generate_reports(
         "presented": len(presented_final),
         "parked": len(ranking.parked),
         "excluded": len(ranking.excluded) + len(result.excluded_at_report),
+        "technical_failures": len(ranking.technical_failures),
     }
     if counts_extra:
         counts.update(counts_extra)
@@ -664,6 +683,11 @@ def generate_reports(
             _partial_record(oid, "excluded", framed, bundles, asset_matches,
                             excluded_reasons.get(oid))
             for oid in sorted(set(ranking.excluded) | set(result.excluded_at_report))
+        ],
+        # not a business state — Evaluation could not complete (§14)
+        "technical_failures": [
+            _partial_record(oid, "technical_failure", framed, bundles, asset_matches, None)
+            for oid in sorted(ranking.technical_failures)
         ],
     })
 

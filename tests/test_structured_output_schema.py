@@ -91,6 +91,30 @@ def schema_accepts(schema: dict, instance: object) -> bool:
     return True
 
 
+def _optional_field_paths(schema: object, path: str = "$") -> list:
+    """Every property declared but NOT listed in its object's ``required``.
+
+    An optional field roughly doubles the constrained-decoding grammar's state
+    space; 15 optional fields (~2^15) is what blew Evaluation's compiled grammar
+    past the API limit ("The compiled grammar is too large", HTTP 400).
+    """
+    out: list = []
+    if not isinstance(schema, dict):
+        return out
+    if schema.get("type") == "object":
+        required = set(schema.get("required") or [])
+        for name, sub in (schema.get("properties") or {}).items():
+            if name not in required:
+                out.append(f"{path}.{name}")
+            out += _optional_field_paths(sub, f"{path}.{name}")
+    if isinstance(schema.get("items"), dict):
+        out += _optional_field_paths(schema["items"], f"{path}[]")
+    for keyword in ("anyOf", "allOf", "oneOf"):
+        for i, sub in enumerate(schema.get(keyword, [])):
+            out += _optional_field_paths(sub, f"{path}/{keyword}[{i}]")
+    return out
+
+
 def _finding_props() -> dict:
     return _findings_schema()["properties"]["findings"]["items"]["properties"]
 
@@ -135,6 +159,53 @@ def test_every_stage_schema_is_within_the_anthropic_subset(name):
 def test_every_stage_schema_serialises_for_the_sdk(name):
     dumped = json.dumps(ALL_STAGE_SCHEMAS[name])
     assert json.loads(dumped) == ALL_STAGE_SCHEMAS[name]
+
+
+# --- evaluation: the schema must compile to a bounded grammar (7th live bug) --
+#
+# The first full live run failed Evaluation with HTTP 400 "The compiled grammar
+# is too large". Root cause: 15 OPTIONAL ``blocked_by`` fields (10 dimensions +
+# 5 Business Outcome axes). The fix makes every field required — an empty
+# ``blocked_by: []`` is the "no blocker" signal — and drops ``blocked_by`` from
+# the axes entirely (``_axis`` never read it). No dimension / axis / rating /
+# confidence / red_flag / recommendation semantics change.
+
+
+def test_evaluation_schema_has_no_optional_fields():
+    assert _optional_field_paths(evaluation_response_schema()) == []
+
+
+def test_evaluation_dimension_rating_requires_blocked_by_as_an_array():
+    dims = evaluation_response_schema()["properties"]["dimensions"]["properties"]
+    assert set(dims) and len(dims) == 10
+    for key, rated in dims.items():
+        assert "blocked_by" in rated["required"], key
+        assert rated["properties"]["blocked_by"] == {
+            "type": "array", "items": {"type": "string"}
+        }, key
+    # an empty list is a valid "no blocker" value the model can emit
+    assert schema_accepts(dims["signal_strength"]["properties"]["blocked_by"], [])
+    assert schema_accepts(dims["signal_strength"]["properties"]["blocked_by"], ["x"])
+
+
+def test_evaluation_bop_axis_drops_the_dead_blocked_by_field():
+    axes = evaluation_response_schema()["properties"]["business_outcome_profile"]["properties"]
+    assert set(axes) and len(axes) == 5
+    for key, rated in axes.items():
+        assert "blocked_by" not in rated["properties"], key
+        assert set(rated["required"]) == {"rating", "confidence", "justification"}, key
+
+
+def test_evaluation_still_covers_10_dims_5_axes_red_flags_and_recommendation():
+    schema = evaluation_response_schema()["properties"]
+    assert len(schema["dimensions"]["properties"]) == 10
+    assert len(schema["business_outcome_profile"]["properties"]) == 5
+    assert schema["red_flags"]["type"] == "array"
+    rec = schema["recommendation"]["properties"]
+    assert set(rec) == {"target_state", "suggested_next_step", "justification", "confidence"}
+    # rating and confidence stay separate keys on every rated node
+    a_dim = evaluation_response_schema()["properties"]["dimensions"]["properties"]["music_fit"]
+    assert "rating" in a_dim["properties"] and "confidence" in a_dim["properties"]
 
 
 # --- framing: audience.attributes is a closed pair list, not an open map --

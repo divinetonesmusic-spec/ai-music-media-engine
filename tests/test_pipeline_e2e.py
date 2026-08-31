@@ -168,6 +168,38 @@ def test_missing_framing_fixture_fails_the_run_cleanly(tmp_path):
         run_pipeline(cfg, project_root=PROJECT_ROOT, now=FIXED)
 
 
+def test_all_evaluations_failing_technically_is_a_controlled_error_no_registry(tmp_path):
+    from market_intelligence.orchestrator import OrchestratorError
+
+    fx = tmp_path / "fx"
+    (fx / "signals" / "raw").mkdir(parents=True)
+    for f in (_FIXTURE_ROOT / "signals" / "raw").glob("*.json"):
+        (fx / "signals" / "raw" / f.name).write_text(f.read_text(), encoding="utf-8")
+    for sub in ("framing", "matching", "evaluation"):
+        (fx / "llm" / sub).mkdir(parents=True)
+        for f in (_FIXTURE_ROOT / "llm" / sub).glob("*.json"):
+            (fx / "llm" / sub / f.name).write_text(f.read_text(), encoding="utf-8")
+    # corrupt every evaluation fixture -> ResponseRejected -> technical failure
+    for f in (fx / "llm" / "evaluation").glob("*.json"):
+        f.write_text("{ not valid json", encoding="utf-8")
+
+    cfg = _cfg(tmp_path, replay={"enabled": True, "llm": "recorded", "fixture_path": str(fx)})
+    try:
+        run_pipeline(cfg, project_root=PROJECT_ROOT, now=FIXED)
+        raised = None
+    except OrchestratorError as e:
+        raised = e
+
+    assert raised is not None
+    assert "Evaluation failed technically for all" in str(raised)
+    assert "registry not written" in str(raised)
+    # the registry file was never created — no spurious PARK entries
+    assert not (tmp_path / "registry.yaml").exists()
+    # a diagnostic run.log was still written
+    log = (tmp_path / "data" / "run_pipe" / "run.log").read_text()
+    assert "TECHNICAL FAILURE" in log
+
+
 def test_missing_evaluation_fixture_excludes_the_opportunity(tmp_path):
     fx = tmp_path / "fx"
     (fx / "signals" / "raw").mkdir(parents=True)

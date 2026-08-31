@@ -8,7 +8,7 @@ from market_intelligence.config.loader import load_ranking_config
 from market_intelligence.evaluation import EvaluationBundle
 from market_intelligence.framing import FramedOpportunity
 from market_intelligence.guardrails import ComplianceResult
-from market_intelligence.ranking import EXCLUDED, rank_opportunities
+from market_intelligence.ranking import EXCLUDED, TECHNICAL_FAILURE, rank_opportunities
 from market_intelligence.schema.enums import (
     AXIS_KEYS,
     DIMENSION_KEYS,
@@ -89,6 +89,14 @@ def _bundle(oid, *, overall=Confidence.MEDIUM, dims_high=3, axes_high=2,
     )
 
 
+def _tech_fail_bundle(oid, reason="evaluation API call failed: 400 grammar too large"):
+    return EvaluationBundle(
+        opportunity_id=oid, evaluation=None, business_outcome_profile=None,
+        recommendation=None, compliance=ComplianceResult(),
+        technical_failure=True, technical_failure_reason=reason,
+    )
+
+
 def _rank(pairs, max_presented=10):
     opps = [p[0] for p in pairs]
     bundles = {p[0].opportunity_id: p[1] for p in pairs}
@@ -149,6 +157,44 @@ def test_evaluation_stage_exclusion_is_carried_through():
     result = _rank([a, b])
     assert result.excluded == ["opp_a"]
     assert result.by_id("opp_a").exclusion_reason
+
+
+# --- technical failure is NOT a ranking / business decision (spec §14) -----
+
+
+def test_a_technical_failure_is_not_hard_excluded_and_carries_no_status():
+    a = (_opp("opp_a"), _tech_fail_bundle("opp_a"))
+    b = (_opp("opp_b"), _bundle("opp_b"))
+    result = _rank([a, b])
+
+    assert result.presented == ["opp_b"]
+    assert result.excluded == []                       # NOT a business exclusion
+    assert result.technical_failures == ["opp_a"]
+    r = result.by_id("opp_a")
+    assert r.bucket == TECHNICAL_FAILURE
+    assert r.status is None                            # no PARK, no EXPLORE
+    assert r.technical_failure_reason
+
+
+def test_a_technical_failure_is_not_converted_to_compliance_or_zero_evidence_exclusion():
+    # opp_a technically failed AND has only hypothesis evidence (zero OBSERVED) —
+    # it must still be technical_failure, never a zero-evidence hard exclusion.
+    a = (_opp("opp_a", observed=False), _tech_fail_bundle("opp_a"))
+    result = _rank([a])
+    assert result.technical_failures == ["opp_a"]
+    assert result.excluded == []
+    assert result.by_id("opp_a").bucket == TECHNICAL_FAILURE
+
+
+def test_evaluated_opportunities_still_rank_while_another_fails_technically():
+    good = (_opp("opp_good"), _bundle("opp_good", overall=Confidence.HIGH))
+    bad = (_opp("opp_bad"), _tech_fail_bundle("opp_bad"))
+    result = _rank([bad, good])
+
+    assert result.presented == ["opp_good"]            # the evaluated one flows through
+    assert result.by_id("opp_good").status is LifecycleState.EXPLORE
+    assert result.technical_failures == ["opp_bad"]
+    assert "opp_bad" not in result.presented + result.parked + result.excluded
 
 
 def test_non_compliance_red_flags_penalise_but_do_not_exclude():

@@ -32,6 +32,7 @@ from .guardrails import (
 )
 from .knowledge_loader import KnowledgeBundle
 from .llm_stage import (
+    MissingFixtureError,
     ResponseRejected,
     StageClient,
     StageError,
@@ -77,12 +78,22 @@ _V1_TARGET_STATES = {LifecycleState.EXPLORE, LifecycleState.TEST, LifecycleState
 @dataclass
 class EvaluationBundle:
     opportunity_id: str
-    evaluation: Evaluation
-    business_outcome_profile: BusinessOutcomeProfile
-    recommendation: Recommendation
+    # ``evaluation`` / ``business_outcome_profile`` / ``recommendation`` are ``None``
+    # only for a ``technical_failure`` — the model call itself could not complete, so
+    # no profile and (crucially) no business ``Recommendation`` exists.
+    evaluation: Optional[Evaluation]
+    business_outcome_profile: Optional[BusinessOutcomeProfile]
+    recommendation: Optional[Recommendation]
     compliance: ComplianceResult
+    # ``excluded`` is a BUSINESS decision from a completed evaluation — a HIGH-severity
+    # guardrail violation in core content, or a §13 validation failure.
     excluded: bool = False
     exclusion_reason: Optional[str] = None
+    # ``technical_failure`` is an INFRASTRUCTURE failure of the Evaluation call
+    # (API error, timeout, unparseable / over-limit response). It is NOT a business
+    # state: no PARK, no exclusion, never written to the opportunity registry.
+    technical_failure: bool = False
+    technical_failure_reason: Optional[str] = None
     stripped_hypothesis_scopes: set = field(default_factory=set)
 
 
@@ -93,23 +104,47 @@ class EvaluationResult:
 
 
 # --- response schema -------------------------------------------
+#
+# Every field is REQUIRED. Anthropic compiles this schema into a constrained-
+# decoding grammar; an optional field roughly doubles the grammar's state space,
+# so 15 optional `blocked_by` fields (10 dims + 5 axes) blew the compiled grammar
+# past the API limit ("The compiled grammar is too large", HTTP 400) on the first
+# full live run. `blocked_by` is now a required array — `[]` means "rateable, no
+# blocker", which the deterministic assembly already maps back to ``None`` — and
+# the axes drop `blocked_by` entirely (``_axis`` never read it). No dimension,
+# axis, rating/confidence, red_flag or recommendation semantic changes.
 
-def _rated(extra_required=()) -> dict:
-    props = {
-        "rating": enum_str([r.value for r in Rating]),
-        "confidence": enum_str([c.value for c in Confidence]),
-        "justification": {"type": "string"},
-        "blocked_by": {"type": "array", "items": {"type": "string"}},
-    }
-    return obj_schema(props, ["rating", "confidence", "justification", *extra_required])
+def _rated_dimension() -> dict:
+    return obj_schema(
+        {
+            "rating": enum_str([r.value for r in Rating]),
+            "confidence": enum_str([c.value for c in Confidence]),
+            "justification": {"type": "string"},
+            "blocked_by": {"type": "array", "items": {"type": "string"}},
+        },
+        ["rating", "confidence", "justification", "blocked_by"],
+    )
+
+
+def _rated_axis() -> dict:
+    return obj_schema(
+        {
+            "rating": enum_str([r.value for r in Rating]),
+            "confidence": enum_str([c.value for c in Confidence]),
+            "justification": {"type": "string"},
+        },
+        ["rating", "confidence", "justification"],
+    )
 
 
 def _response_schema() -> dict:
     return obj_schema(
         {
-            "dimensions": obj_schema({k: _rated() for k in DIMENSION_KEYS}, list(DIMENSION_KEYS)),
+            "dimensions": obj_schema(
+                {k: _rated_dimension() for k in DIMENSION_KEYS}, list(DIMENSION_KEYS)
+            ),
             "business_outcome_profile": obj_schema(
-                {k: _rated() for k in AXIS_KEYS}, list(AXIS_KEYS)
+                {k: _rated_axis() for k in AXIS_KEYS}, list(AXIS_KEYS)
             ),
             "red_flags": {
                 "type": "array",
@@ -179,8 +214,9 @@ def _prompt(opp: FramedOpportunity, am: AssetMatch, knowledge: KnowledgeBundle) 
         f"axes ({', '.join(AXIS_KEYS)}). Each: rating LOW/MEDIUM/HIGH/VERY_HIGH, a SEPARATE "
         "confidence LOW/MEDIUM/HIGH, and a justification citing specific evidence.\n\n"
         "Rules:\n"
-        "- A dimension you cannot rate from the evidence MUST be rating:LOW, confidence:LOW "
-        "with blocked_by naming the missing input. Never guess.\n"
+        "- Every dimension carries a blocked_by array: [] when you could rate it from the "
+        "evidence, otherwise the specific missing inputs. A dimension you cannot rate MUST "
+        "be rating:LOW, confidence:LOW with a non-empty blocked_by. Never guess.\n"
         "- music_fit: the business's musical DNA detail is NEEDS_INPUT, so music_fit "
         "confidence MUST be LOW or MEDIUM. A catalog-affinity mismatch is NOT a blocker.\n"
         "- overall_confidence MUST NOT be raised by high dimension ratings — it reflects how "
@@ -418,9 +454,20 @@ def evaluate_opportunities(
                 model=config.model,
                 validate=lambda r: r,
             )
-        except (StageError, ResponseRejected) as e:
-            # §14 — an opportunity Claude could not evaluate is excluded, run continues.
+        except MissingFixtureError as e:
+            # Replay with no recorded fixture — a documented offline-testing degrade
+            # (spec §22), not an operational failure. Treated as a business exclusion.
             bundles[opp.opportunity_id] = _excluded_bundle(
+                opp.opportunity_id, f"Evaluation fixture missing (replay): {e}"
+            )
+            continue
+        except (StageError, ResponseRejected) as e:
+            # An infrastructure failure of the Evaluation call (API error, timeout,
+            # over-limit / unparseable response). NOT a business decision — the
+            # opportunity is recorded as a technical failure, never PARKed, never
+            # registered, and the run continues (§14). If EVERY opportunity fails
+            # this way the orchestrator raises a controlled Evaluation error.
+            bundles[opp.opportunity_id] = _technical_failure_bundle(
                 opp.opportunity_id, f"Evaluation could not run: {e}"
             )
             continue
@@ -434,7 +481,7 @@ def evaluate_opportunities(
 
 
 def _excluded_bundle(opportunity_id: str, reason: str) -> EvaluationBundle:
-    """A minimal, schema-shaped bundle marked excluded (no model output available)."""
+    """A minimal, schema-shaped bundle marked BUSINESS-excluded (no model output)."""
     dims = {
         k: DimensionRating(rating=Rating.LOW, confidence=Confidence.LOW,
                            justification="Not evaluated.", blocked_by=["evaluation failed"])
@@ -458,4 +505,19 @@ def _excluded_bundle(opportunity_id: str, reason: str) -> EvaluationBundle:
         business_outcome_profile=BusinessOutcomeProfile(schema_version=SCHEMA_VERSION, axes=axes),
         recommendation=rec, compliance=ComplianceResult(),
         excluded=True, exclusion_reason=reason,
+    )
+
+
+def _technical_failure_bundle(opportunity_id: str, reason: str) -> EvaluationBundle:
+    """The Evaluation call could not complete. No profile, no ``Recommendation``,
+    no business state — just a diagnosable technical error the run surfaces."""
+    return EvaluationBundle(
+        opportunity_id=opportunity_id,
+        evaluation=None,
+        business_outcome_profile=None,
+        recommendation=None,
+        compliance=ComplianceResult(),
+        excluded=False,
+        technical_failure=True,
+        technical_failure_reason=reason,
     )

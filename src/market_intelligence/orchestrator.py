@@ -105,11 +105,17 @@ def _write_run_log(result: RunResult, root: Path, cfg, generated_at: str) -> Non
             lines.append(f"  - {w.opportunity_id}: [{w.error.code}] {w.error.message}")
 
     if result.evaluation:
-        excl = [b for b in result.evaluation.bundles.values() if b.excluded]
+        bundles = list(result.evaluation.bundles.values())
+        excl = [b for b in bundles if b.excluded]
+        tech = [b for b in bundles if b.technical_failure]
         lines.append("")
-        lines.append(f"[evaluation] {len(excl)} opportunity(ies) excluded:")
+        lines.append(f"[evaluation] {len(excl)} opportunity(ies) business-excluded:")
         for b in excl:
             lines.append(f"  - {b.opportunity_id}: {b.exclusion_reason}")
+        lines.append(f"[evaluation] {len(tech)} opportunity(ies) TECHNICAL FAILURE "
+                     f"(not a business state — not registered):")
+        for b in tech:
+            lines.append(f"  - {b.opportunity_id}: {b.technical_failure_reason}")
 
     if result.ranking:
         lines.append("")
@@ -225,6 +231,19 @@ def run_pipeline(
         project_root=root, client=stage_client, musical_dna_needs_input=musical_dna_ni,
     ))
     result.evaluation = evaluation
+
+    _tech_fail = [b for b in evaluation.bundles.values() if b.technical_failure]
+    _evaluated = [b for b in evaluation.bundles.values() if not b.technical_failure]
+    if evaluation.bundles and not _evaluated:
+        # §14 — every opportunity's Evaluation call failed technically. Stop with a
+        # controlled error BEFORE Ranking / Reports / Registry: no business state is
+        # assigned to any opportunity and the registry is left untouched.
+        _write_run_log(result, root, cfg, generated_at)
+        raise OrchestratorError(
+            f"Evaluation failed technically for all {len(_tech_fail)} opportunity(ies) — "
+            f"no business state assigned, registry not written. "
+            f"First failure: {_tech_fail[0].technical_failure_reason}"
+        )
 
     # --- 6. Ranking -----------------------------------------
     ranking = _timed("ranking", lambda: rank_opportunities(

@@ -20,6 +20,7 @@ from .schema.enums import EvidenceType, LifecycleState, Rating, RedFlagKind
 PRESENTED = "presented"
 PARKED = "parked"
 EXCLUDED = "excluded"
+TECHNICAL_FAILURE = "technical_failure"
 
 _SEVERITY_WEIGHTS_DEFAULT = {"HIGH": 3, "MEDIUM": 2, "LOW": 1}
 
@@ -27,10 +28,13 @@ _SEVERITY_WEIGHTS_DEFAULT = {"HIGH": 3, "MEDIUM": 2, "LOW": 1}
 @dataclass
 class RankedOpportunity:
     opportunity_id: str
-    bucket: str                       # presented | parked | excluded
+    bucket: str                       # presented | parked | excluded | technical_failure
     rank: Optional[int]               # 1..N for presented, else None
-    status: LifecycleState            # EXPLORE (presented) | PARK (parked / excluded)
+    # EXPLORE (presented) | PARK (parked / business-excluded) | None (technical_failure —
+    # the Evaluation call did not complete, so no business state was decided).
+    status: Optional[LifecycleState]
     exclusion_reason: Optional[str] = None
+    technical_failure_reason: Optional[str] = None
     sort_key: Tuple = ()
 
 
@@ -40,6 +44,7 @@ class RankingResult:
     presented: List[str] = field(default_factory=list)
     parked: List[str] = field(default_factory=list)
     excluded: List[str] = field(default_factory=list)
+    technical_failures: List[str] = field(default_factory=list)
 
     def by_id(self, opportunity_id: str) -> Optional[RankedOpportunity]:
         return next((r for r in self.ordered if r.opportunity_id == opportunity_id), None)
@@ -131,6 +136,7 @@ def rank_opportunities(
 
     eligible: List[Tuple[Tuple, FramedOpportunity]] = []
     excluded: List[RankedOpportunity] = []
+    technical: List[RankedOpportunity] = []
 
     for opp in opportunities:
         bundle = bundles.get(opp.opportunity_id)
@@ -138,6 +144,16 @@ def rank_opportunities(
             excluded.append(RankedOpportunity(
                 opp.opportunity_id, EXCLUDED, None, LifecycleState.PARK,
                 "no evaluation was produced for this opportunity",
+            ))
+            continue
+        if bundle.technical_failure:
+            # An Evaluation infrastructure failure is NOT a ranking decision — it is
+            # never a hard exclusion (not for compliance, not for zero evidence) and
+            # carries no business status (§14). It cannot be presented or parked.
+            technical.append(RankedOpportunity(
+                opp.opportunity_id, TECHNICAL_FAILURE, None, None,
+                technical_failure_reason=bundle.technical_failure_reason
+                or "Evaluation could not run",
             ))
             continue
         if bundle.excluded:
@@ -180,9 +196,11 @@ def rank_opportunities(
             parked.append(opp.opportunity_id)
 
     ordered.extend(sorted(excluded, key=lambda r: r.opportunity_id))
+    ordered.extend(sorted(technical, key=lambda r: r.opportunity_id))
     return RankingResult(
         ordered=ordered,
         presented=presented,
         parked=parked,
         excluded=[r.opportunity_id for r in excluded],
+        technical_failures=[r.opportunity_id for r in technical],
     )

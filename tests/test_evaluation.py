@@ -114,6 +114,68 @@ def test_overall_confidence_is_not_raised_by_high_dimension_ratings():
     assert bundle.evaluation.overall_confidence is Confidence.MEDIUM
 
 
+def test_required_blocked_by_array_from_the_model_keeps_its_semantics():
+    # `blocked_by` is a required array in the live schema now (7th-bug fix). An
+    # empty list means "no blocker" and maps to None; a non-empty list is kept.
+    dims = _evaluate().bundles[_OPP_ID].evaluation.dimensions
+    assert dims["signal_strength"].blocked_by is None                  # fixture: []
+    assert dims["growth_momentum"].blocked_by == [
+        "historical performance data (UNKNOWN)"
+    ]
+
+
+def test_a_dimension_with_no_justification_still_gets_a_blocker(tmp_path):
+    fx = _clone_fixtures(tmp_path)
+    resp = load_fixture("pipeline/llm/evaluation/evaluation__" + _OPP_ID + ".json")
+    resp["dimensions"]["signal_strength"] = {
+        "rating": "LOW", "confidence": "LOW", "justification": "", "blocked_by": [],
+    }
+    (fx / "llm" / "evaluation" / f"evaluation__{_OPP_ID}.json").write_text(
+        json.dumps(resp), encoding="utf-8"
+    )
+    cfg = _cfg(replay={"enabled": True, "llm": "recorded", "fixture_path": str(fx)})
+    framed, matches, kn, cfg = _pipeline_to_matches(cfg)
+    dim = evaluate_opportunities(
+        framed, matches, knowledge=kn, config=cfg, project_root=PROJECT_ROOT
+    ).bundles[_OPP_ID].evaluation.dimensions["signal_strength"]
+    assert dim.blocked_by == ["insufficient evidence"]
+
+
+def test_evaluation_api_failure_is_a_technical_failure_not_a_business_exclusion(tmp_path):
+    # a corrupt recorded fixture -> ResponseRejected -> the Evaluation call could not
+    # complete. That is infrastructure, not a business decision.
+    fx = _clone_fixtures(tmp_path)
+    (fx / "llm" / "evaluation" / f"evaluation__{_OPP_ID}.json").write_text(
+        "{ this is not valid json", encoding="utf-8"
+    )
+    cfg = _cfg(replay={"enabled": True, "llm": "recorded", "fixture_path": str(fx)})
+    framed, matches, kn, cfg = _pipeline_to_matches(cfg)
+    bundle = evaluate_opportunities(
+        framed, matches, knowledge=kn, config=cfg, project_root=PROJECT_ROOT
+    ).bundles[_OPP_ID]
+
+    assert bundle.technical_failure is True
+    assert bundle.technical_failure_reason
+    assert bundle.excluded is False                 # NOT a business exclusion
+    assert bundle.recommendation is None            # no PARK, no recommendation at all
+    assert bundle.evaluation is None
+
+
+def test_a_missing_replay_fixture_stays_a_business_exclusion(tmp_path):
+    # spec §22 — a missing recorded fixture is a documented offline-testing degrade,
+    # distinct from an operational failure.
+    fx = _clone_fixtures(tmp_path)
+    (fx / "llm" / "evaluation" / f"evaluation__{_OPP_ID}.json").unlink()
+    cfg = _cfg(replay={"enabled": True, "llm": "recorded", "fixture_path": str(fx)})
+    framed, matches, kn, cfg = _pipeline_to_matches(cfg)
+    bundle = evaluate_opportunities(
+        framed, matches, knowledge=kn, config=cfg, project_root=PROJECT_ROOT
+    ).bundles[_OPP_ID]
+
+    assert bundle.technical_failure is False
+    assert bundle.excluded is True
+
+
 def test_compliance_violation_in_core_content_excludes_the_opportunity(tmp_path):
     fx = _clone_fixtures(tmp_path)
     resp = load_fixture("pipeline/llm/evaluation/evaluation__" + _OPP_ID + ".json")

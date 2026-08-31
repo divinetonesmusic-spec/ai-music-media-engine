@@ -66,8 +66,7 @@
     },
     "page_growth_potential": {
       "rating": "MEDIUM", "confidence": "LOW",
-      "justification": "A pagina propria de sono pode crescer com o formato, mas sem dados historicos de seguidores a estimativa e fraca.",
-      "blocked_by": ["page follower history (UNKNOWN)"]
+      "justification": "A pagina propria de sono pode crescer com o formato, mas sem dados historicos de seguidores a estimativa e fraca."
     },
     "youtube_media_potential": {
       "rating": "LOW", "confidence": "LOW",

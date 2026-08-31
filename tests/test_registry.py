@@ -64,6 +64,31 @@ def _registry(tmp_path):
     return yaml.safe_load(path.read_text())
 
 
+def test_a_technical_failure_is_never_written_to_the_registry(tmp_path):
+    from market_intelligence.ranking import TECHNICAL_FAILURE, RankedOpportunity, RankingResult
+
+    fo = frame_signals(
+        [decode(Signal, d) for d in load_fixture("pipeline/signals.json")],
+        knowledge=load_knowledge(RunPaths(), project_root=PROJECT_ROOT),
+        config=_cfg(), project_root=PROJECT_ROOT,
+    ).opportunities[0]
+
+    ranking = RankingResult(
+        ordered=[RankedOpportunity(
+            fo.opportunity_id, TECHNICAL_FAILURE, None, None,
+            technical_failure_reason="evaluation API call failed: 400 grammar too large",
+        )],
+        technical_failures=[fo.opportunity_id],
+    )
+    reg = update_registry(
+        {}, ranking, {fo.opportunity_id: fo},
+        run_config=_cfg(), project_root=tmp_path, generated_at="2026-08-28T12:00:00Z",
+    )
+
+    assert reg.added == [] and reg.updated == [] and reg.total == 0
+    assert not (tmp_path / "knowledge" / "market" / "opportunity-registry.yaml").exists()
+
+
 def test_first_run_appends_a_new_entry(tmp_path):
     reg, _ = _run(tmp_path, _cfg())
     assert _OPP_ID in reg.added
