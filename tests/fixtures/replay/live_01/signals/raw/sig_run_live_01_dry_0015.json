@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0015",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "432hz 528hz frequency music trend TikTok",
+  "url": "https://www.tiktok.com/discover/432hz%E3%81%AE%E6%9B%B2",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "432hz 528hz frequency music trend TikTok",
+    "result_url": "https://www.tiktok.com/discover/432hz%E3%81%AE%E6%9B%B2",
+    "result_title": "432hzの曲 | TikTok",
+    "result_page_age": "2 weeks ago",
+    "evidence": "Frequency-themed sleep content also surfaces in Chinese-language discovery results, indicating the theme is global rather than confined to pt/es/en.",
+    "context": "Suggests frequency-music theme is genuinely cross-market/global, not specific to the three V1 languages.",
+    "market": "UNKNOWN",
+    "language": "UNKNOWN",
+    "platform": "tiktok",
+    "signal_type": "regional_opportunity",
+    "confidence": "LOW",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "the same discovery page surfaced Chinese-language 432Hz sleep content, indicating this theme is genuinely global/cross-market"
+  }
+}

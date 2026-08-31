@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0036",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "lucid dreaming music angels frequency spirituality TikTok trend",
+  "url": "https://www.tiktok.com/discover/sound-that-sounds-like-a-dream",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "lucid dreaming music angels frequency spirituality TikTok trend",
+    "result_url": "https://www.tiktok.com/discover/sound-that-sounds-like-a-dream",
+    "result_title": "Sound That Sounds Like A Dream | TikTok",
+    "result_page_age": "2 weeks ago",
+    "evidence": "Content includes a guided-visualization variant: 'Practice Flying in LUCID DREAMS with This Sound + Guided Visualization Exercise... Isometric 528Hz Sound with a 3 minute guided introduction.'",
+    "context": "Shows guided-visualization-plus-frequency as a specific content format variant within the lucid dreaming cluster.",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "Practice Flying in LUCID DREAMS with This Sound + Guided Visualization Exercise... Isometric 528Hz Sound with a 3 minute guided introduction."
+  }
+}

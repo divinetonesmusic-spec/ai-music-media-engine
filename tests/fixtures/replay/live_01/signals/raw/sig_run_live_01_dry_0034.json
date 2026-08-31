@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0034",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "lucid dreaming music angels frequency spirituality TikTok trend",
+  "url": "https://www.tiktok.com/discover/trending-spiritual-music",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "lucid dreaming music angels frequency spirituality TikTok trend",
+    "result_url": "https://www.tiktok.com/discover/trending-spiritual-music",
+    "result_title": "Trending Spiritual Music | TikTok",
+    "result_page_age": "1 week ago",
+    "evidence": "Discovery page surfaces explicit Christian-worship dance track content adjacent to spiritual/angelic instrumental content, described as 'spiritual warfare song.'",
+    "context": "HYPOTHESIS: confessional worship content may be a separate, higher-energy neighboring category rather than direct competitor to instrumental angelic content.",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "competitor_activity",
+    "confidence": "LOW",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "\"Spiritual warfare song\" — Powerful Christian Worship Dance Track"
+  }
+}

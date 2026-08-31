@@ -223,7 +223,7 @@ def test_live_client_is_built_with_a_bounded_timeout_and_retry(monkeypatch):
     kw = _CapturingAnthropic.last_kwargs
     assert kw.get("max_retries") is not None and kw["max_retries"] <= 1   # SDK default is 2
     read = float(getattr(kw.get("timeout"), "read", kw.get("timeout")))
-    assert 30.0 <= read <= 480.0
+    assert 30.0 <= read <= 900.0        # explicit and bounded (SDK default retries to ~30 min)
 
 
 def test_live_client_timeout_becomes_a_stage_error_without_leaking_the_key():
@@ -247,3 +247,112 @@ def test_live_client_timeout_becomes_a_stage_error_without_leaking_the_key():
     assert "did not return" in msg or "timed out" in msg.lower()
     assert "sk-ant-api03-MUST-NOT-LEAK" not in msg
     assert ls._READ_TIMEOUT >= 60
+
+
+# --- per-stage output budget + effort (spec §19; the live Framing failure) ---
+
+
+def _block(kind: str, **kw):
+    return types.SimpleNamespace(type=kind, **kw)
+
+
+class _RecordingSDK:
+    """Captures each messages.create call and returns a preset response."""
+
+    def __init__(self, response):
+        self._response = response
+        self.calls: list = []
+        outer = self
+
+        class _Messages:
+            def create(self, **kw):
+                outer.calls.append(kw)
+                if isinstance(outer._response, BaseException):
+                    raise outer._response
+                return outer._response
+
+        self.messages = _Messages()
+
+
+def _ok_msg():
+    return types.SimpleNamespace(
+        stop_reason="end_turn", content=[_block("text", text='{"opportunities": []}')]
+    )
+
+
+def _capture_output_config(stage: str) -> dict:
+    sdk = _RecordingSDK(_ok_msg())
+    AnthropicStageClient(client=sdk).complete(
+        stage=stage, key="k", prompt="p", schema={"type": "object"}, model="claude-sonnet-5"
+    )
+    return sdk.calls[0]
+
+
+def test_framing_call_uses_medium_effort_as_a_sibling_of_format():
+    kw = _capture_output_config("framing")
+    oc = kw["output_config"]
+    assert oc["effort"] == "medium"               # thinking step-down from the default high
+    assert "effort" not in oc["format"]           # sibling of `format`, not nested in it
+    assert oc["format"]["type"] == "json_schema"  # structured output preserved
+
+
+def test_framing_call_max_tokens_is_the_chosen_value():
+    assert ls._STAGE_OUTPUT["framing"]["max_tokens"] == 32000
+    assert _capture_output_config("framing")["max_tokens"] == 32000
+
+
+@pytest.mark.parametrize("stage", ["matching", "evaluation"])
+def test_other_stages_do_not_get_the_framing_override(stage):
+    kw = _capture_output_config(stage)
+    assert "effort" not in kw["output_config"]           # no effort override
+    assert kw["max_tokens"] == ls._DEFAULT_MAX_TOKENS     # 8000 — unchanged
+    assert kw["output_config"]["format"]["type"] == "json_schema"
+
+
+def test_a_truncated_max_tokens_response_is_a_diagnostic_ResponseRejected():
+    cut_off = '{"opportunities": [{"title": "Rotina de sono'  # JSON truncated mid-string
+    truncated = types.SimpleNamespace(
+        stop_reason="max_tokens",
+        content=[_block("text", text=cut_off)],
+    )
+    client = AnthropicStageClient(client=_RecordingSDK(truncated))
+    with pytest.raises(ResponseRejected) as ei:
+        client.complete(stage="framing", key="k", prompt="p", schema={}, model="m")
+    msg = str(ei.value)
+    assert "framing" in msg
+    assert "max_tokens" in msg
+    assert "truncated" in msg.lower()
+    assert "line 1 column 1" not in msg    # not the opaque json.loads("") message
+
+
+def test_an_empty_response_names_the_stop_reason_not_json_loads_empty():
+    empty = types.SimpleNamespace(stop_reason="max_tokens", content=[_block("thinking")])
+    client = AnthropicStageClient(client=_RecordingSDK(empty))
+    with pytest.raises(ResponseRejected) as ei:
+        client.complete(stage="framing", key="k", prompt="p", schema={}, model="m")
+    assert "stop_reason='max_tokens'" in str(ei.value)
+    assert "thinking" in str(ei.value)
+
+
+def test_a_complete_json_response_is_still_accepted():
+    full = types.SimpleNamespace(
+        stop_reason="end_turn",
+        content=[
+            _block("thinking"),  # thinking block precedes the JSON — must be skipped
+            _block("text", text='{"opportunities": [{"title": "X"}]}'),
+        ],
+    )
+    out = AnthropicStageClient(client=_RecordingSDK(full)).complete(
+        stage="framing", key="k", prompt="p", schema={}, model="m"
+    )
+    assert out == {"opportunities": [{"title": "X"}]}
+
+
+def test_a_json_array_at_top_level_is_rejected():
+    arr = types.SimpleNamespace(
+        stop_reason="end_turn", content=[_block("text", text="[1, 2, 3]")]
+    )
+    with pytest.raises(ResponseRejected):
+        AnthropicStageClient(client=_RecordingSDK(arr)).complete(
+            stage="framing", key="k", prompt="p", schema={}, model="m"
+        )

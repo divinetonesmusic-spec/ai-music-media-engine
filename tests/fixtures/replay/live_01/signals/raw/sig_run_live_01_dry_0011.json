@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0011",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "432hz 528hz frequency music trend TikTok",
+  "url": "https://www.tiktok.com/discover/432-hz-frequency-binaural",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "432hz 528hz frequency music trend TikTok",
+    "result_url": "https://www.tiktok.com/discover/432-hz-frequency-binaural",
+    "result_title": "432 Hz Frequency Binaural | TikTok",
+    "result_page_age": "1 month ago",
+    "evidence": "TikTok discovery page for '432 Hz Frequency Binaural' shows very high volume (4.9M posts) indicating this is one of the most active clusters observed.",
+    "context": "Frequency/pineal-gland content is a high-volume, active cluster spanning multiple languages.",
+    "market": "UNKNOWN",
+    "language": "UNKNOWN",
+    "platform": "tiktok",
+    "signal_type": "hashtag",
+    "confidence": "HIGH",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "4.9M posts on 432 Hz Frequency Binaural"
+  }
+}

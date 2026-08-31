@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0001",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "TikTok sleep music trend 2026 statistics",
+  "url": "https://sqmagazine.co.uk/tiktok-music-statistics/",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "TikTok sleep music trend 2026 statistics",
+    "result_url": "https://sqmagazine.co.uk/tiktok-music-statistics/",
+    "result_title": "TikTok Music Statistics 2026: Discovery, Charts and Streaming",
+    "result_page_age": "July 17, 2026",
+    "evidence": "84% of songs entering Billboard's Global 200 in 2024 went TikTok-viral first, confirming TikTok as primary discovery engine before chart success.",
+    "context": "Platform-level evidence that TikTok virality precedes mainstream music success, relevant to using TikTok as discovery funnel for wellness music.",
+    "market": "UNKNOWN",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "platform_opportunity",
+    "confidence": "MEDIUM",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "84% of songs that entered Billboard's Global 200 in 2024 went TikTok-viral first, with another 12% catching fire on the app after hitting the chart, and only 4% never experiencing a TikTok moment."
+  }
+}

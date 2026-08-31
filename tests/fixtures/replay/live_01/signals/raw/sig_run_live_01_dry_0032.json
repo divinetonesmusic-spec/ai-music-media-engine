@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0032",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "lucid dreaming music angels frequency spirituality TikTok trend",
+  "url": "https://www.tiktok.com/discover/angel-frequency",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "lucid dreaming music angels frequency spirituality TikTok trend",
+    "result_url": "https://www.tiktok.com/discover/angel-frequency",
+    "result_title": "Angel Frequency | TikTok",
+    "result_page_age": "1 month ago",
+    "evidence": "Content combines angel-number numerology (963Hz, 432Hz) with divine/angel connection claims through sound vibrations.",
+    "context": "Confirms angelic/religious spirituality cluster fused with frequency branding in en-language TikTok content.",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "Experience deep spiritual awakening using 963Hz and 432Hz frequencies. Connect with divine angels through sound vibrations."
+  }
+}

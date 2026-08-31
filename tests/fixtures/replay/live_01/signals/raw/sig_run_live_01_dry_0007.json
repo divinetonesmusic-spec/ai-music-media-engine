@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0007",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "música para dormir relajante TikTok tendencia 2026",
+  "url": "https://www.tiktok.com/discover/musica-relajante-para-beb%C3%A9",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "música para dormir relajante TikTok tendencia 2026",
+    "result_url": "https://www.tiktok.com/discover/musica-relajante-para-beb%C3%A9",
+    "result_title": "Musica Relajante Para Bebé | TikTok",
+    "result_page_age": "April 20, 2026",
+    "evidence": "Baby-sleep music sub-niche (Mozart & Brahms lullabies) is active on Spanish-language TikTok, promising infants fall asleep quickly.",
+    "context": "Reveals a distinct baby/infant sleep-music sub-audience within es market's sleep cluster.",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "signal_type": "emerging_theme",
+    "confidence": "MEDIUM",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "Baby Sleep Music – Mozart & Brahms Lullaby content promising babies fall asleep in 5 minutes, creating a peaceful atmosphere that helps newborns, infants, or toddlers relax and drift into deep sleep quickly."
+  }
+}

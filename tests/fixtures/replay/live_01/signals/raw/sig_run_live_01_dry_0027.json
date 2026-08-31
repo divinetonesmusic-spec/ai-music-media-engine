@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0027",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "limpieza energética abundancia prosperidad música manifestación TikTok tendencia",
+  "url": "https://www.tiktok.com/discover/est%C3%A1-es-la-canci%C3%B3n-de-abundancia-para-2026",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "limpieza energética abundancia prosperidad música manifestación TikTok tendencia",
+    "result_url": "https://www.tiktok.com/discover/est%C3%A1-es-la-canci%C3%B3n-de-abundancia-para-2026",
+    "result_title": "Está Es La Canción De Abundancia Para 2026 | TikTok",
+    "result_page_age": "May 25, 2026",
+    "evidence": "Year-anchored 'abundance anthem' content ('canción para manifestar abundancia en el 2026') suggests an annual New Year content cadence for the Abundance cluster.",
+    "context": "HYPOTHESIS: annual seasonal release cadence tied to New Year manifestation content could be a repeatable opportunity.",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "signal_type": "emerging_theme",
+    "confidence": "LOW",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "Canción para manifestar abundancia en el 2026"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0016",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "study music focus playlist YouTube growth 2026",
+  "url": "https://www.browwwser.com/resources/best-study-music-youtube-lofi-focus-playlists-2026/",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "study music focus playlist YouTube growth 2026",
+    "result_url": "https://www.browwwser.com/resources/best-study-music-youtube-lofi-focus-playlists-2026/",
+    "result_title": "Best Study Music on YouTube (2026)",
+    "result_page_age": "1 month ago",
+    "evidence": "A YouTube channel with over 6 million subscribers offers relaxing instrumental/ambient music for studying, sleeping and deep focus via ad-free live feeds.",
+    "context": "Demonstrates mature, large-scale evergreen infrastructure in en market for focus/study/sleep instrumental content.",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "competitor_activity",
+    "confidence": "HIGH",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "one channel with over 6 million subscribers offering relaxing instrumental and ambient music for studying, sleeping, and deep focus, with live feeds providing uninterrupted, soothing music with no ads breaking concentration"
+  }
+}

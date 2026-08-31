@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0035",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "lucid dreaming music angels frequency spirituality TikTok trend",
+  "url": "https://www.tiktok.com/discover/lucid-dream-frequency",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "lucid dreaming music angels frequency spirituality TikTok trend",
+    "result_url": "https://www.tiktok.com/discover/lucid-dream-frequency",
+    "result_title": "Lucid Dream Frequency",
+    "result_page_age": "None",
+    "evidence": "Content directly brands lucid dreaming with a specific frequency: 'Fall asleep and wake up inside your dreams — 528hz lucid dreaming frequency.'",
+    "context": "Confirms lucid dreaming canonical cluster is actively content-produced with frequency branding in en market.",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "Fall asleep and wake up inside your dreams — 528hz lucid dreaming frequency."
+  }
+}

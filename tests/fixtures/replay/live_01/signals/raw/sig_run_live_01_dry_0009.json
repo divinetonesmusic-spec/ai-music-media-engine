@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0009",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "música relaxante ansiedade Brasil TikTok tendência",
+  "url": "https://www.tiktok.com/@rafaelgrattap/video/7339171967297260806",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "música relaxante ansiedade Brasil TikTok tendência",
+    "result_url": "https://www.tiktok.com/@rafaelgrattap/video/7339171967297260806",
+    "result_title": "Música Relaxante para Reduzir Ansiedade em 65%",
+    "result_page_age": "None",
+    "evidence": "Content repeats the specific '65% anxiety reduction' claim as a hook for relaxing music in Brazilian Portuguese content.",
+    "context": "Confirms the same statistical claim recurs across multiple Brazilian creators, indicating a shared viral talking point.",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "Música Relaxante para Reduzir Ansiedade em 65%"
+  }
+}

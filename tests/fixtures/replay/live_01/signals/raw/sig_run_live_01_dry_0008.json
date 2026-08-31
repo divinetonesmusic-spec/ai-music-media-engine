@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0008",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "música relaxante ansiedade Brasil TikTok tendência",
+  "url": "https://www.tiktok.com/@vitoramaraljr/video/7444328283149176120",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "música relaxante ansiedade Brasil TikTok tendência",
+    "result_url": "https://www.tiktok.com/@vitoramaraljr/video/7444328283149176120",
+    "result_title": "Essa música pode ser uma aliada no seu dia a dia : Ouçam Weightless do Marconi Union !  #ansiedadenaoebrincadeira #ansiedadetemcura #ansiedadetemtratamento #ansiedadenãoéfrescura  | TikTok",
+    "result_page_age": "None",
+    "evidence": "Brazilian TikTok creator content centers around 'Weightless' by Marconi Union as reference relaxation song for anxiety, framed with mental-health hashtags.",
+    "context": "Shows dominant mental-health framing (not just relaxation) as a content angle for anxiety-relief music in Brazil.",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "World's Most Relaxing Song May Reduce Anxiety by 65% - the psychiatrist."
+  }
+}

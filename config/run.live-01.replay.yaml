@@ -1,0 +1,52 @@
+# run.live-01.replay.yaml — offline replay of the 2026-08-30 first live dry run.
+#
+# Reconstructs the 37 real Signals that live run produced (web_search), with NO
+# network and NO API key, from the fixture under
+# tests/fixtures/replay/live_01/ (37 raw captures + the reconstructed
+# WebSearchResearch + the 37 normalized Signals as signals.json).
+#
+#   ./.venv/bin/python -m market_intelligence collect   config/run.live-01.replay.yaml
+#   ./.venv/bin/python -m market_intelligence normalize config/run.live-01.replay.yaml
+#
+# A full `run` stops at Framing: there is no recorded framing response for these
+# 37 signals (the live run failed at Framing — see the Anthropic-client fixes).
+# Capture one from a live run that gets past Framing to enable an end-to-end replay.
+
+schema_version: "1.0.0"
+run_id: run_live_01_replay
+run_date: "2026-08-30"
+model: "claude-sonnet-5"
+prompt_version: "mi-v1-live-01-replay"
+
+scope:
+  clusters: []
+  markets: []
+  languages: ["pt", "es", "en"]
+  discovery_platforms: ["tiktok", "youtube"]
+  notes: >
+    Offline replay of the first controlled live dry run. Fixtures are historical
+    (2026-08-30) — this is NOT a validation of current trends (spec §22).
+  queries: []
+
+signal_sources: ["web_search"]
+
+max_opportunities_presented: 10
+min_opportunities_target: 5
+max_candidates: 15
+
+dry_run: true
+
+replay:
+  enabled: true
+  fixture_path: "tests/fixtures/replay/live_01"
+
+paths:
+  knowledge_dir: "knowledge"
+  inventories_dir: "knowledge/inventories"
+  business_dna_path: "knowledge/business-dna/business-dna.md"
+  content_methodology_path: "knowledge/business-dna/content-methodology.md"
+  guardrails_path: "knowledge/rules/guardrails.yaml"
+  taxonomy_path: "knowledge/clusters/cluster-taxonomy.md"
+  registry_path: "knowledge/market/opportunity-registry.yaml"
+  reports_dir: "reports"
+  data_dir: "data"

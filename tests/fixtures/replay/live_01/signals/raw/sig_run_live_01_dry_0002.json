@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0002",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "TikTok sleep music trend 2026 statistics",
+  "url": "https://soundcamps.com/blog/tiktok-statistics/",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "TikTok sleep music trend 2026 statistics",
+    "result_url": "https://soundcamps.com/blog/tiktok-statistics/",
+    "result_title": "TikTok Statistics 2026: Complete Data Guide for Music Marketing",
+    "result_page_age": "January 4, 2026",
+    "evidence": "TikTok's Add to Music App tool surpassed 6 billion track saves in the past year, translating into streams across Spotify, Apple Music, YouTube Music.",
+    "context": "Shows TikTok saves directly convert to cross-platform streaming, validating TikTok-to-Spotify funnel strategy.",
+    "market": "UNKNOWN",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "platform_opportunity",
+    "confidence": "MEDIUM",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "TikTok's Add to Music App tool surpassed 6 billion track saves in the past year per TikTok's April 24, 2026 newsroom update, with those saves translating into billions of streams across Spotify, Apple Music, YouTube Music and other platforms."
+  }
+}

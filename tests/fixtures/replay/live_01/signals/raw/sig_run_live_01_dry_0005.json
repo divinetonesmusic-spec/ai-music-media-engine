@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0005",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "música para dormir relajante TikTok tendencia 2026",
+  "url": "https://www.tiktok.com/discover/musica-relajante-pa-dormir",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "música para dormir relajante TikTok tendencia 2026",
+    "result_url": "https://www.tiktok.com/discover/musica-relajante-pa-dormir",
+    "result_title": "Musica Relajante Pa Dormir | TikTok",
+    "result_page_age": "July 27, 2026",
+    "evidence": "Spanish-language TikTok discovery page shows content designed to help listeners relax using gentle flute melodies, no vocals or sudden sounds, so the body/mind can fully unwind.",
+    "context": "Shows sleep/relaxation content pattern specific to es-market with clear instrumental sonic preferences.",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "designed to help listeners relax, release stress, and feel safe and grounded, using gentle flute melodies with no vocals, chanting or sudden sounds so the body and mind can fully unwind"
+  }
+}

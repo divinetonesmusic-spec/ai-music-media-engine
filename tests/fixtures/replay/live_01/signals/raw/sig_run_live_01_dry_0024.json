@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0024",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "Spotify wellness sleep playlist streaming growth statistics 2026",
+  "url": "https://www.chartlex.com/streaming/lo-fi",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "Spotify wellness sleep playlist streaming growth statistics 2026",
+    "result_url": "https://www.chartlex.com/streaming/lo-fi",
+    "result_title": "Spotify Growth for Lo-Fi & Ambient Artists (2026) - Streaming",
+    "result_page_age": "None",
+    "evidence": "Mid-tier functional playlists (Deep Focus, Brain Food, Sleep) collectively generate more streams and higher track turnover than flagship playlists like Lo-Fi Beats, meaning more frequent placement opportunities.",
+    "context": "Actionable mechanic: mid-tier functional playlists rotate tracks more often, offering more placement chances than flagship playlists.",
+    "market": "UNKNOWN",
+    "language": "en",
+    "platform": "spotify",
+    "signal_type": "platform_opportunity",
+    "confidence": "MEDIUM",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "mid-tier functional playlists (Deep Focus, Brain Food, Sleep) collectively generate more streams and have higher track turnover than flagship playlists like Lo-Fi Beats, meaning more frequent opportunities for placement"
+  }
+}

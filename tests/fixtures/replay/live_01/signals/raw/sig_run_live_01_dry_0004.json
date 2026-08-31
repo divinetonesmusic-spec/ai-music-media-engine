@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0004",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "TikTok sleep music trend 2026 statistics",
+  "url": "https://www.snorple.com/blog/dangerous-tiktok-sleep-trends-2026.html",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "TikTok sleep music trend 2026 statistics",
+    "result_url": "https://www.snorple.com/blog/dangerous-tiktok-sleep-trends-2026.html",
+    "result_title": "Dangerous TikTok Sleep Trends 2026: Safe or Deadly? | Snorple",
+    "result_page_age": "April 5, 2026",
+    "evidence": "A 2025 AASM survey found 37% of American adults tried at least one viral sleep trend discovered on social media, and some hacks are flagged as dangerous by health authorities.",
+    "context": "Indicates sleep-hack content is highly active and trust-seeking category on English TikTok, with a differentiation opportunity for legitimate music-based sleep content vs risky hacks.",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "audience_behavior",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "a 2025 survey from the American Academy of Sleep Medicine found that 37% of American adults have tried at least one viral sleep trend they discovered on social media"
+  }
+}

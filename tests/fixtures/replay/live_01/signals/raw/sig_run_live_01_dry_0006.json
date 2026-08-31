@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0006",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "música para dormir relajante TikTok tendencia 2026",
+  "url": "https://www.tiktok.com/discover/musica-para-dormir-de-1-hora",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "música para dormir relajante TikTok tendencia 2026",
+    "result_url": "https://www.tiktok.com/discover/musica-para-dormir-de-1-hora",
+    "result_title": "Musica Para Dormir De 1 Hora | TikTok",
+    "result_page_age": "June 22, 2026",
+    "evidence": "Hour-long piano-format sleep music compilations are a recurring content format on Spanish TikTok.",
+    "context": "Confirms long-form (1-hour) piano compilation format demand in es market.",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "for everyone that wants to relax for 1 hour with beautiful piano music"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0017",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "study music focus playlist YouTube growth 2026",
+  "url": "https://freeyourmusic.com/blog/best-music-for-studying",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "study music focus playlist YouTube growth 2026",
+    "result_url": "https://freeyourmusic.com/blog/best-music-for-studying",
+    "result_title": "Free Your Music - Best Music for Studying: Playlists and Tips to Boost Focus in 2026",
+    "result_page_age": "July 8, 2026",
+    "evidence": "Guidance recommends instrumental tracks at 60-120 BPM, consistent mood throughout, at least 2 hours of music, avoiding emotionally triggering songs.",
+    "context": "Provides concrete production/track-construction tactics relevant to designing focus playlists.",
+    "market": "UNKNOWN",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "choose instrumental tracks at 60-120 BPM, keep a consistent mood throughout, aim for at least 2 hours of music, and avoid songs that trigger emotional responses"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0022",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "study music focus playlist YouTube growth 2026",
+  "url": "https://gyre.pro/blog/how-to-grow-your-music-youtube-channel-a-complete-guide-for-musicians",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "study music focus playlist YouTube growth 2026",
+    "result_url": "https://gyre.pro/blog/how-to-grow-your-music-youtube-channel-a-complete-guide-for-musicians",
+    "result_title": "How to grow your music YouTube channel in 2026: a guide for musicians | Gyre",
+    "result_page_age": "1 month ago",
+    "evidence": "Case study of a music radio loop channel running 15-25 concurrent streams pulled over 98% of total watch time from continuous playback, with recommendation traffic rising from 22% to 41.8%.",
+    "context": "Demonstrates that 24/7 loop formats can dramatically increase algorithmic recommendation traffic for ambient/wellness channels.",
+    "market": "UNKNOWN",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "a creator running 15–25 concurrent streams pulled over 98% of total watch time from continuous playback alone, with recommendation traffic climbing from 22% to 41.8%"
+  }
+}

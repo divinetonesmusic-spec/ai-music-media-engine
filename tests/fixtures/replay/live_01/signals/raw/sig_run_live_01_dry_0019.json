@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0019",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "study music focus playlist YouTube growth 2026",
+  "url": "https://freeyourmusic.com/blog/best-music-for-studying",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "study music focus playlist YouTube growth 2026",
+    "result_url": "https://freeyourmusic.com/blog/best-music-for-studying",
+    "result_title": "Free Your Music - Best Music for Studying: Playlists and Tips to Boost Focus in 2026",
+    "result_page_age": "July 8, 2026",
+    "evidence": "Video-game soundtracks (Minecraft, Zelda, Stardew Valley) are cited as popular study companions using repetitive ambient motifs.",
+    "context": "Indicates a competitive substitute/stylistic-adjacent aesthetic (game music) worth noting as a design influence, not a demand cluster itself.",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "competitor_activity",
+    "confidence": "LOW",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "game composer soundtracks from titles like Minecraft, The Legend of Zelda, and Stardew Valley are popular study companions, using repetitive motifs and ambient textures built for sustained concentration"
+  }
+}

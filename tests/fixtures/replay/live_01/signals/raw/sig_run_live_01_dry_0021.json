@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0021",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "study music focus playlist YouTube growth 2026",
+  "url": "https://gyre.pro/blog/how-to-grow-your-music-youtube-channel-a-complete-guide-for-musicians",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "study music focus playlist YouTube growth 2026",
+    "result_url": "https://gyre.pro/blog/how-to-grow-your-music-youtube-channel-a-complete-guide-for-musicians",
+    "result_title": "How to grow your music YouTube channel in 2026: a guide for musicians | Gyre",
+    "result_page_age": "1 month ago",
+    "evidence": "YouTube is testing a 'Station' feature (early 2026) letting artists run a 24/7 stream from their own catalog with chat.",
+    "context": "New platform feature relevant to ambient/wellness music channels wanting continuous-play infrastructure.",
+    "market": "UNKNOWN",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "platform_opportunity",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "YouTube is also testing a \"Station\" feature, surfaced in early 2026, that lets an artist run a 24/7 stream built from their own music videos, chat included."
+  }
+}

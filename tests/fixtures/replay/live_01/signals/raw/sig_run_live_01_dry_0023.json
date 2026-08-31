@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0023",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "Spotify wellness sleep playlist streaming growth statistics 2026",
+  "url": "https://sqmagazine.co.uk/spotify-statistics/",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "Spotify wellness sleep playlist streaming growth statistics 2026",
+    "result_url": "https://sqmagazine.co.uk/spotify-statistics/",
+    "result_title": "Spotify Statistics 2026: 761 Million Users, 293 Million Premium Subscribers, and Where Streaming Goes Next",
+    "result_page_age": "July 17, 2026",
+    "evidence": "Spotify introduced 'Soundscape Mode' for smart speakers, with 19 million wellness streams monthly, and AI-assisted playlist features led to a 31% spike in playlist saves.",
+    "context": "Direct evidence of wellness-specific streaming growth on Spotify and AI-features boosting playlist engagement, relevant to the business's distribution layer.",
+    "market": "UNKNOWN",
+    "language": "en",
+    "platform": "spotify",
+    "signal_type": "search_trend",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "Spotify introduced \"Soundscape Mode\" for smart speakers, with 19 million wellness streams monthly, and the rollout of AI-assisted playlist features led to a 31% spike in playlist saves."
+  }
+}

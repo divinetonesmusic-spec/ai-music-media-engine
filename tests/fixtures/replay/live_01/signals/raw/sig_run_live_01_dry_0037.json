@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0037",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "lucid dreaming music angels frequency spirituality TikTok trend",
+  "url": "https://www.tiktok.com/discover/lucid-dream-dance-meaning",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "lucid dreaming music angels frequency spirituality TikTok trend",
+    "result_url": "https://www.tiktok.com/discover/lucid-dream-dance-meaning",
+    "result_title": "Lucid Dream Dance Meaning | TikTok",
+    "result_page_age": "2 weeks ago",
+    "evidence": "Related discovery page references 'dreamcore' as an ambient aesthetic/mood tag describing 'what dreams sound like' with calming vibes, distinct from lucid-dreaming technique intent.",
+    "context": "HYPOTHESIS: dreamcore is an adjacent aesthetic-mood audience that could bridge discovery into the lucid dreaming cluster, not itself a canonical cluster.",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "emerging_theme",
+    "confidence": "LOW",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "content exploring \"the ambient world of dreamcore,\" described as experiencing \"what dreams sound like\" while embracing \"calming vibes.\""
+  }
+}

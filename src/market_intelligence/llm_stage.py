@@ -21,15 +21,30 @@ from typing import Callable, Optional, Union
 from .io_utils import LoadError, read_json
 from .schema.models import RunConfig
 
-_MAX_TOKENS = 8000
+_DEFAULT_MAX_TOKENS = 8000
 _KEY_IN_TEXT = re.compile(r"(sk-ant-[A-Za-z0-9_-]+)")
 
+# Per-stage output budget + effort (spec §19). ``max_tokens`` is a hard output
+# cap the model cannot see, so too small a value truncates the JSON mid-emit — a
+# live Framing run over 37 normalized signals hit ``stop_reason=max_tokens`` at
+# 8000. Framing emits the largest structured output (a list of up to
+# ``max_candidates`` opportunities, each ~1k tokens of JSON, over every signal),
+# so it gets the most room and runs at effort ``"medium"`` — a thinking
+# step-down from the default ``"high"`` that keeps the analysis intact while
+# freeing budget for the JSON. Matching and Evaluation are per-opportunity and
+# small; they are absent here and fall through to the default budget / effort.
+# 32000 = ~15 opportunities * ~1.2k JSON tokens + medium-effort thinking headroom.
+_STAGE_OUTPUT: "dict[str, dict]" = {
+    "framing": {"max_tokens": 32000, "effort": "medium"},
+}
+
 # Timeout / retry policy (spec §14). The anthropic SDK defaults to a 600s read
-# timeout retried twice — a stalled analysis call would hang ~30 min. These are
-# no-tool, thinking-on calls that normally finish in well under a minute; 300s is
-# a generous ceiling, one retry keeps transient-429/5xx recovery.
+# timeout retried twice — a stalled analysis call would hang ~30 min. Bounded
+# here to 600s (sized for Framing at its 32k-token budget; Matching / Evaluation
+# finish far sooner and only inherit the ceiling) with one retry (keeps
+# transient-429/5xx recovery without tripling the wait on a real timeout).
 _CONNECT_TIMEOUT = 10.0
-_READ_TIMEOUT = 300.0
+_READ_TIMEOUT = 600.0
 _MAX_RETRIES = 1
 
 
@@ -108,12 +123,20 @@ class AnthropicStageClient(StageClient):
         except ImportError as e:  # pragma: no cover
             raise StageError("this stage needs the 'anthropic' package") from e
         client = self._build_client()
+
+        budget = _STAGE_OUTPUT.get(stage, {})
+        output_config: dict = {"format": {"type": "json_schema", "schema": schema}}
+        # `effort` is a direct key of output_config, sibling of `format` (not
+        # nested in it) — Anthropic effort docs, verified 2026-08-30.
+        if budget.get("effort"):
+            output_config["effort"] = budget["effort"]
+
         try:
             msg = client.messages.create(
                 model=model,
-                max_tokens=_MAX_TOKENS,
+                max_tokens=budget.get("max_tokens", _DEFAULT_MAX_TOKENS),
                 messages=[{"role": "user", "content": prompt}],
-                output_config={"format": {"type": "json_schema", "schema": schema}},
+                output_config=output_config,
             )
         except anthropic.APITimeoutError as e:
             raise StageError(
@@ -121,11 +144,53 @@ class AnthropicStageClient(StageClient):
             ) from e
         except anthropic.APIError as e:
             raise StageError(redact(f"{stage} API call failed: {e}")) from e
-        text = next((b.text for b in msg.content if getattr(b, "type", None) == "text"), "")
-        try:
-            return json.loads(text)
-        except json.JSONDecodeError as e:
-            raise ResponseRejected(f"{stage}: model returned non-JSON: {e}") from e
+        return _response_to_json_object(msg, stage=stage)
+
+
+def _response_to_json_object(msg, *, stage: str) -> dict:
+    """A structured-output response -> a JSON object, or ``ResponseRejected`` that
+    says exactly what came back (``stop_reason``, block types) instead of a bare
+    ``json.loads`` on a truncated / empty string. Never fabricates JSON.
+
+    Per the Anthropic docs the JSON arrives in a ``text`` block; with thinking on
+    (Sonnet 5 default) ``thinking`` blocks precede it, and a ``stop_reason`` of
+    ``max_tokens`` or ``refusal`` can leave the response unusable.
+    """
+    blocks = getattr(msg, "content", None) or []
+    text = "".join(
+        b.text for b in blocks
+        if getattr(b, "type", None) == "text" and getattr(b, "text", None)
+    ).strip()
+    stop = getattr(msg, "stop_reason", None)
+
+    if not text:
+        kinds = sorted({str(getattr(b, "type", "?")) for b in blocks})
+        if stop == "refusal":
+            cat = getattr(getattr(msg, "stop_details", None), "category", None)
+            raise ResponseRejected(
+                f"{stage}: the model refused (stop_reason=refusal"
+                + (f", category={cat}" if cat else "")
+                + ") — no structured output"
+            )
+        raise ResponseRejected(
+            f"{stage}: response carried no JSON text block "
+            f"(stop_reason={stop!r}, blocks={kinds})"
+        )
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError as e:
+        hint = (
+            " — the response was truncated at the max_tokens cap; raise this stage's budget"
+            if stop == "max_tokens" else ""
+        )
+        raise ResponseRejected(
+            f"{stage}: model returned non-JSON: {e} (stop_reason={stop!r}){hint}"
+        ) from e
+    if not isinstance(payload, dict):
+        raise ResponseRejected(
+            f"{stage}: structured response is a {type(payload).__name__}, not a JSON object"
+        )
+    return payload
 
 
 def select_stage_client(

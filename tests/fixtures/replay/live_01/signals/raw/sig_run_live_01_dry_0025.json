@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0025",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "Spotify wellness sleep playlist streaming growth statistics 2026",
+  "url": "https://www.chartlex.com/streaming/lo-fi",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "Spotify wellness sleep playlist streaming growth statistics 2026",
+    "result_url": "https://www.chartlex.com/streaming/lo-fi",
+    "result_title": "Spotify Growth for Lo-Fi & Ambient Artists (2026) - Streaming",
+    "result_page_age": "None",
+    "evidence": "A lo-fi/ambient track with a sudden loud section, unexpected tempo change, or aggressive sonic moment generates skips; the most successful tracks maintain consistent energy and mood start to finish.",
+    "context": "Concrete production guidance for avoiding skips in focus/sleep playlist contexts, directly relevant to track design.",
+    "market": "UNKNOWN",
+    "language": "en",
+    "platform": "spotify",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "a lo-fi/ambient track with a sudden loud section, unexpected tempo change, or aggressive sonic moment will generate skips in a focus or sleep playlist context, and the most successful tracks maintain consistent energy and mood from start to finish"
+  }
+}

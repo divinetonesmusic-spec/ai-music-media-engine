@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0031",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "limpieza energética abundancia prosperidad música manifestación TikTok tendencia",
+  "url": "https://www.tiktok.com/discover/frecuencia-para-atraer-riqueza-y-abundancia",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "limpieza energética abundancia prosperidad música manifestación TikTok tendencia",
+    "result_url": "https://www.tiktok.com/discover/frecuencia-para-atraer-riqueza-y-abundancia",
+    "result_title": "Frecuencia Para Atraer Riqueza Y Abundancia | TikTok",
+    "result_page_age": "May 25, 2026",
+    "evidence": "Content around '888 Hz para atraer abundancia y dinero' instructs listeners to close eyes and manifest prosperity, expanding beyond classic solfeggio numbers.",
+    "context": "HYPOTHESIS: money-specific frequency numbers beyond classic 432/528Hz solfeggio set are emerging as a sub-format.",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "signal_type": "emerging_theme",
+    "confidence": "LOW",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "content around \"888 hz para atraer abundancia y dinero,\" instructing listeners to close their eyes, manifest prosperity and \"open the door to wealth.\""
+  }
+}

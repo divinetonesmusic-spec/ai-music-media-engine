@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0010",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "música relaxante ansiedade Brasil TikTok tendência",
+  "url": "https://www.tiktok.com/@nutricionistafuncional/video/7295699741697002758",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "música relaxante ansiedade Brasil TikTok tendência",
+    "result_url": "https://www.tiktok.com/@nutricionistafuncional/video/7295699741697002758",
+    "result_title": "Conheça a música capaz de reduzir a ansiedade em até 65% Estudo mostrou que a canção produziu um estado de relaxamento maior do que qualquer outro som testado até hoje.  #musica #ansiedade #relaxamento #relaxar #cancao #nutricionista #fyp #foryou #vocesabia #estresse  | TikTok",
+    "result_page_age": "None",
+    "evidence": "A nutritionist-branded account uses the same '65%' relaxation-study claim with hashtags spanning music, anxiety, relaxation and stress.",
+    "context": "Shows cross-niche creators (health/wellness professionals) adopting the anxiety-music narrative in pt market.",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "tiktok",
+    "signal_type": "competitor_activity",
+    "confidence": "MEDIUM",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "Conheça a música capaz de reduzir a ansiedade em até 65% Estudo mostrou que a canção produziu um estado de relaxamento maior do que qualquer outro som testado até hoje."
+  }
+}

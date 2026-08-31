@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0028",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "limpieza energética abundancia prosperidad música manifestación TikTok tendencia",
+  "url": "https://www.tiktok.com/discover/frases-para-limpiar-energ%C3%ADa-en-casa",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "limpieza energética abundancia prosperidad música manifestación TikTok tendencia",
+    "result_url": "https://www.tiktok.com/discover/frases-para-limpiar-energ%C3%ADa-en-casa",
+    "result_title": "Frases Para Limpiar Energía En Casa | TikTok",
+    "result_page_age": "May 18, 2026",
+    "evidence": "Home energetic-cleansing content specifies bowls/drums as expected music genre and instructs playing music to help energy move.",
+    "context": "Confirms specific instrumental-genre expectations (singing bowls, drums) tied to the energetic cleansing cluster in es market.",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "EVERGREEN",
+    "raw_excerpt": "Si ya fue habitado, es clave hacer una limpieza energética para que suelte lo que no es tuyo... pon música de cuencos o tambores, y deja que la energía se mueva."
+  }
+}

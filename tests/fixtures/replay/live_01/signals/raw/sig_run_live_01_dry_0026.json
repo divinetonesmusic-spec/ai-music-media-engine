@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0026",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "limpieza energética abundancia prosperidad música manifestación TikTok tendencia",
+  "url": "https://www.tiktok.com/discover/frecuencia-para-atraer-riqueza-y-abundancia",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "limpieza energética abundancia prosperidad música manifestación TikTok tendencia",
+    "result_url": "https://www.tiktok.com/discover/frecuencia-para-atraer-riqueza-y-abundancia",
+    "result_title": "Frecuencia Para Atraer Riqueza Y Abundancia | TikTok",
+    "result_page_age": "May 25, 2026",
+    "evidence": "Content links specific frequencies (432Hz, 528Hz) directly to money-manifestation claims, e.g. 'attract money faster, remove limiting beliefs around wealth.'",
+    "context": "Shows fusion of frequency content and abundance/prosperity cluster is a distinct, active sub-format in es market.",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "signal_type": "emerging_theme",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "Why 432Hz + 528Hz Attract Money: 432Hz – Restores harmony, releases fear, dissolves financial blocks; 528Hz – The 'Miracle Frequency' that opens abundance, love, and transformation... Attract money faster, remove limiting beliefs around wealth, align with abundance and prosperity."
+  }
+}

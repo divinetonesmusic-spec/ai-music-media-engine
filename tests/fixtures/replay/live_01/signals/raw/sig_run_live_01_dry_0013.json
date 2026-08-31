@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0013",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "432hz 528hz frequency music trend TikTok",
+  "url": "https://www.tiktok.com/discover/528-hz-frequency-vs-432",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "432hz 528hz frequency music trend TikTok",
+    "result_url": "https://www.tiktok.com/discover/528-hz-frequency-vs-432",
+    "result_title": "528 Hz Frequency Vs 432 | TikTok",
+    "result_page_age": "1 week ago",
+    "evidence": "Comparison-format videos (12-second A/B of 432Hz vs 528Hz sound) are a recurring, low-effort, replicable content pattern.",
+    "context": "Identifies a specific, repeatable content format (comparison/education) that performs well in this cluster.",
+    "market": "UNKNOWN",
+    "language": "en",
+    "platform": "tiktok",
+    "signal_type": "content_format",
+    "confidence": "MEDIUM",
+    "durability_hint": "STRUCTURAL",
+    "raw_excerpt": "videos doing a 12-second comparison of what 432 Hz vs 528 Hz sounds like, since a lot of people interested in healing frequencies ask what the difference is"
+  }
+}

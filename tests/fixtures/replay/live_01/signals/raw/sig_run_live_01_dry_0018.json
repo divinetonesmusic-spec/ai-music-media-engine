@@ -1,0 +1,23 @@
+{
+  "signal_id": "sig_run_live_01_dry_0018",
+  "source_type": "web_search",
+  "capture_method": "claude_web_search",
+  "query_or_reference": "study music focus playlist YouTube growth 2026",
+  "url": "https://freeyourmusic.com/blog/best-music-for-studying",
+  "captured_at": "2026-08-30T23:40:07Z",
+  "raw_content": {
+    "query": "study music focus playlist YouTube growth 2026",
+    "result_url": "https://freeyourmusic.com/blog/best-music-for-studying",
+    "result_title": "Free Your Music - Best Music for Studying: Playlists and Tips to Boost Focus in 2026",
+    "result_page_age": "July 8, 2026",
+    "evidence": "Article cites Northeastern University-adjacent research indicating ADHD brains need stimulating-but-non-distracting music rather than standard calm study music.",
+    "context": "HYPOTHESIS: suggests a distinct, underserved audio-design need for neurodivergent listeners not covered by standard focus-music clusters.",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "youtube",
+    "signal_type": "emerging_theme",
+    "confidence": "LOW",
+    "durability_hint": "EMERGING",
+    "raw_excerpt": "the rules around focus music are different for ADHD brains — regular 'calm' study music often makes ADHD listeners drowsy or restless, and what works better is music stimulating enough to fill the attention gap without tipping into distraction"
+  }
+}
