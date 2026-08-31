@@ -1,0 +1,575 @@
+{
+  "opportunity_id": "opp_2026-08-31_96b1fb16fa",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-08-31_01",
+  "created_at": "2026-08-31T00:00:00Z",
+  "title": "Angel numbers and dream-linked spirituality content (EN TikTok)",
+  "need": "Spiritual/numerology content connecting angel numbers with dreams and daily life signs",
+  "audience": {
+    "description": "English-speaking TikTok users interested in angel numbers, numerology and non-confessional spirituality, often overlapping with dream-content audiences"
+  },
+  "market": "English-speaking markets",
+  "language": "en",
+  "platform": "tiktok",
+  "consumption_context": "Casual scrolling, engaging with spiritual/numerology trend content, sometimes tied to dreams or daily sign-spotting",
+  "durability": "EMERGING",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "An 'Angel Number Trend' discovery page confirms substantial ongoing TikTok activity around angel-number numerology content.",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-08-31_01_0019"
+      ]
+    },
+    {
+      "type": "OBSERVED",
+      "statement": "Discovery page dedicated to 'seeing angel numbers in dreams' shows content explicitly bridging lucid dreaming and angel-number spirituality themes.",
+      "confidence": "LOW",
+      "signal_ids": [
+        "sig_run_2026-08-31_01_0020"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [],
+    "matching_pages": [],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster anjos-espiritualidade-religiosa matches directly; angels theme aligns with angel numbers/spirituality content.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Matches anjos-espiritualidade-religiosa cluster with angels/psalms secondary tags.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Archangels theme matches cluster directly, strong angel-content fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Seraphim/angel themed artist matching cluster exactly.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity cluster with lucid dream tag, tangential to angel numbers theme.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity/manifestation cluster, loosely related to spirituality but not angels.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Abundance/manifestation with dream tag, tangential relevance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-focused hero artist, no angel/spirituality alignment beyond dream adjacency.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep cluster hero, tangential dream link only.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep cluster with manifestation secondary tag, weak relevance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep cluster with chakra/spirituality secondary tag, weak fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep-focused, dream-adjacent name but no angel/numerology link.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep cluster, no direct angel/numerology relevance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep hero artist, divine-sounding name but classified under sono cluster.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+        "name": "Cortiq",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available to assess fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no cluster data to confirm relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+        "name": "Templo Theta",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, unclassified, name suggests unrelated healing codes niche.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+        "name": "Synaptica",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+        "name": "Salmo Sonoro",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data, name suggests religious psalm content not angels/numerology.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+        "name": "David’s Harp Meditation",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data, religious harp meditation unrelated to angel numbers.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+        "name": "Meditara",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, unclassified frequency-themed name.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+        "name": "Opulentia Divina",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data, abundance-sounding name unrelated to angels.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist unclassified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+        "name": "Vibração Consciente",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+        "name": "Divine Tones by Nikolai",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data, divine tone name unclear relevance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+        "name": "Nathaniel Lior Grace",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+        "name": "Hipnocortex",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+        "name": "Silenciium",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist unclassified, generic meditation name.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+        "name": "Raphael’s Healing Choir",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data, healing choir name adjacent but unconfirmed.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist unclassified frequency name.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+        "name": "Brainora",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist unclassified divine tones name.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+        "name": "Hypnozzert",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+        "name": "Psalms Frequencies",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data, psalms name suggests religious content not angel numbers.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "UNKNOWN",
+    "best_page": "NEW_ASSET",
+    "best_artist": "art_4FS4kfkdU1O5eAqrr8yZAf",
+    "new_asset_recommendation": {
+      "asset_type": "page",
+      "rationale": "No existing playlist or page assets target the angel-numbers/dream-spirituality niche; strong artist matches (Coro dos Anjos, Seraphim Frequencies, etc.) exist in the same canonical cluster to seed a differentiated page/playlist combining angel numbers with dream content for TikTok EN audiences.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No playlist or page assets exist in the candidate inventory for this opportunity; all candidates are artist assets."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Only two OBSERVED evidence points support this opportunity: an 'Angel Number Trend' discovery page (MEDIUM confidence) and a dream-linked angel number discovery page (LOW confidence). No engagement metrics, view counts, or growth curves are provided."
+      },
+      "audience_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The audience is described as English-speaking TikTok users interested in angel numbers/numerology overlapping with dream content, and a dedicated discovery page exists, suggesting a real niche exists. However, no follower counts, view volumes or demographic sizing data are given.",
+        "blocked_by": [
+          "audience size / demographic metrics"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Durability is labeled EMERGING with MEDIUM urgency, and the existence of active discovery pages implies ongoing activity, but there is no time-series or trend-velocity data to confirm acceleration or decline.",
+        "blocked_by": [
+          "trend growth/time-series data"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Marked EMERGING with MEDIUM urgency in the opportunity metadata, indicating a plausible but unconfirmed window; no historical trend lifecycle data is available to assess how long the window will stay open.",
+        "blocked_by": [
+          "trend lifecycle/historical duration data"
+        ]
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Spiritual/numerology TikTok content commonly pairs with ambient, trending audio or mood-based sounds, suggesting plausible fit, but the business's musical DNA/catalog detail is NEEDS_INPUT, so this cannot be assessed with confidence beyond a general plausibility.",
+        "blocked_by": [
+          "business musical DNA / catalog detail"
+        ]
+      },
+      "content_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Two distinct discovery pages (general angel-number trend and dream-linked angel-number content) indicate an active content format ecosystem with room for storytelling, sign-spotting and dream-interpretation formats well suited to short-form video."
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The presence of an established 'Angel Number Trend' discovery page suggests other creators are already active in this space, implying moderate existing competition, but no data on market share, creator count, or saturation level is available.",
+        "blocked_by": [
+          "competitor volume / saturation data"
+        ]
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Bridging angel numbers with dream-sign content is a narrower sub-niche (per the LOW-confidence dream-linked discovery page), offering some differentiation versus generic angel-number content, but this signal is weak and unverified."
+      },
+      "asset_fit": {
+        "rating": "LOW",
+        "confidence": "HIGH",
+        "justification": "Asset fit data explicitly shows zero matching playlists or pages in inventory; only unrelated artist matches (37) exist, and a new asset is recommended, meaning no existing asset currently supports this opportunity."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The topic shows plausible content and audience potential but lacks monetization, royalty, or platform-crossover evidence, and no assets currently exist to capture value, limiting confidence in near-term business outcomes.",
+        "blocked_by": [
+          "monetization/royalty performance data",
+          "existing asset base"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "Evidence base is limited to two OBSERVED signals, one with only LOW confidence (dream-linked angel numbers), making claims of 'substantial ongoing activity' or niche audience size not yet independently validated (G09/G10: claims dependent on evidence should be flagged for further validation).",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "No playlist or page assets exist for this opportunity (0 matches in inventory); pursuing this opportunity requires building a new asset from scratch, which is a feasibility/asset gap.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      },
+      {
+        "description": "Angel-number and 'sign-spotting' spiritual content risks framing everyday events or dreams as predictive/diagnostic guidance; per G02/G03, any future content must stay framed as subjective experience, intention and reflection rather than implying predictive or medical/diagnostic claims about the user's life or health.",
+        "severity": "LOW",
+        "kind": "compliance"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "The opportunity is supported by only two OBSERVED signals showing active TikTok discovery pages around angel numbers and dream-linked numerology, with one signal carrying only LOW confidence. There is plausible audience and content potential given TikTok's established spiritual/numerology niche, but no quantitative audience, growth, or monetization data exists, and no playlist or page assets currently support the opportunity. Given the EMERGING durability label and thin evidence, this is best treated as an early-stage exploration rather than a committed build."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "Asset fit data shows zero matching playlists, and the content type (talk/visual spiritual commentary) is not inherently playlist-driven, limiting direct playlist growth potential."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Angel-number and dream content on TikTok often rides trending sounds/audio for UGC formats, which could support music-trend UGC, but no evidence in the provided signals directly ties this content to specific audio trends."
+      },
+      "streaming_royalty_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "The content is topic/spirituality-driven rather than song-driven, and no streaming or royalty-related signals are present in the evidence, so direct royalty impact is unclear and likely limited."
+      },
+      "page_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "A NEW_ASSET is recommended and the niche shows active discovery-page engagement, suggesting room to build a dedicated page, but no follower or growth-rate benchmarks exist to size this potential."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No evidence addresses cross-platform performance on YouTube or long-form media adaptation for this niche, so this potential cannot be assessed beyond a cautious low estimate."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "EXPLORE",
+    "suggested_next_step": "Monitor the identified angel-number and dream-linked discovery pages for engagement/growth trends over 2-4 weeks and scope a small pilot content test on a new TikTok page before committing further assets.",
+    "justification": "Evidence is directionally positive (active discovery pages, emerging niche) but too thin (LOW/MEDIUM confidence signals, no assets, no quantified audience or monetization data) to justify a full TEST or resource commitment yet.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-08-31_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-08-31T18:30:08Z",
+    "signal_ids": [
+      "sig_run_2026-08-31_01_0019",
+      "sig_run_2026-08-31_01_0020"
+    ],
+    "sources": [
+      {
+        "source": "Angel Number Trend | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2025-11-10",
+        "collected_at": "2026-08-31T18:30:08Z",
+        "query_or_reference": "lucid dreaming music TikTok trend angel numbers spirituality",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/angel-number-trend?lang=en"
+      },
+      {
+        "source": "Seeing Angel Number in Dream | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2025-08-11",
+        "collected_at": "2026-08-31T18:30:08Z",
+        "query_or_reference": "lucid dreaming music TikTok trend angel numbers spirituality",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/seeing-angel-number-in-dream"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-08-31T18:30:08Z",
+      "by": "system",
+      "note": "created by run run_2026-08-31_01"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "anjos-espiritualidade-religiosa",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Instrumental music paired with angel-number spiritual/numerology content, bridging into dream themes",
+    "potential_page": "EN TikTok channel 'angel numbers & music'",
+    "first_content_direction": "Short videos exploring angel number meanings paired with calming instrumental music, including dream-sign framing",
+    "format": "short-form vertical video with text overlay and ambient audio",
+    "hook": "Keep seeing this angel number? Here's what it means"
+  },
+  "rank": 4,
+  "report_ref": "reports/run_2026-08-31_01/opp_2026-08-31_96b1fb16fa.md"
+}

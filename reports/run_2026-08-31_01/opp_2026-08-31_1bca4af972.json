@@ -1,0 +1,496 @@
+{
+  "opportunity_id": "opp_2026-08-31_1bca4af972",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-08-31_01",
+  "created_at": "2026-08-31T00:00:00Z",
+  "title": "Energetic cleansing music for new-home rituals (ES market)",
+  "need": "Música para limpiar energéticamente una casa nueva o espacio",
+  "audience": {
+    "description": "Hispanohablantes que se mudan a una casa nueva y buscan rituales de limpieza energética"
+  },
+  "market": "Mercados hispanohablantes",
+  "language": "es",
+  "platform": "tiktok",
+  "consumption_context": "Durante o después de mudarse a un nuevo hogar, como parte de un ritual de limpieza",
+  "durability": "EMERGING",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "A dedicated discovery page exists for 'energetic cleansing of new house' content, linking music to the moving-house ritual occasion.",
+      "confidence": "LOW",
+      "signal_ids": [
+        "sig_run_2026-08-31_01_0014"
+      ]
+    },
+    {
+      "type": "OBSERVED",
+      "statement": "A YouTube playlist dedicated to energetic cleansing music for purifying homes and removing negative energies confirms competitor content production.",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-08-31_01_0015"
+      ]
+    },
+    {
+      "type": "OBSERVED",
+      "statement": "A Spotify album titled 'Música para Limpiar la Energía Negativa y Espacios' confirms commercial catalogue presence blending cleansing with frequency branding.",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-08-31_01_0016"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4oV5F1W2E6azZePnmqBanN",
+        "name": "Limpieza Energética & Protección del Hogar (2026)",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Playlist directly matches limpeza-energetica cluster, ES market, home protection/cleansing theme.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_0fzUPuhRHjqMyfOgNx0d4S",
+        "name": "Sueño Lúcido – Ondas Theta 8 Hz para Activar la Intuición y Controlar tus Sueños (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sonho Lúcido cluster, ES market but off-topic (dreams, not cleansing).",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+        "name": "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-focused cluster, ES market, tangential to cleansing ritual.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-focused cluster, not aligned with cleansing ritual need.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+        "name": "Frecuencia divina 963 Hz - Activación del tercer ojo",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Spiritual frequency cluster, adjacent but not cleansing-specific.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Secondary cluster includes Limpeza Energética, catalog affinity relates.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist with Limpeza Energética secondary cluster and catalog affinity relates true.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist, sono cluster with Purificação secondary but not direct cleansing focus.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist, sono cluster with Purificação secondary, not exact cluster match.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests healing codes, no classification data to confirm cluster fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, tangential to cleansing ritual.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, not cleansing-specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels cluster with Purificação secondary, tangential fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, not cleansing-specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Abundância/Prosperidade cluster, not cleansing-specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Abundância/Prosperidade cluster, not cleansing-specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster, not cleansing-specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster with Purificação secondary, tangential.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster with Purificação secondary, tangential.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster, not cleansing-specific.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "pl_4oV5F1W2E6azZePnmqBanN",
+    "best_page": "UNKNOWN",
+    "best_artist": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+    "new_asset_recommendation": {
+      "asset_type": "page",
+      "rationale": "A dedicated ES-language landing/content page for new-home energetic cleansing rituals could capture TikTok traffic and cross-promote the matched playlist and artist, filling a gap not covered by existing pages.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No page asset exists matching the limpeza-energetica cluster for ES TikTok home-cleansing rituals."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Three independent observed signals exist: a discovery page for 'energetic cleansing of new house' content (sig_run_2026-08-31_01_0014, LOW confidence), a YouTube playlist for home-cleansing music (sig_run_2026-08-31_01_0015, MEDIUM confidence), and a Spotify album on the same theme (sig_run_2026-08-31_01_0016, MEDIUM confidence). The convergence across three platforms supports a real but not yet strongly validated signal."
+      },
+      "audience_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The Hispanophone moving-house ritual audience is broad geographically (multiple Spanish-speaking markets) but the occasion itself (moving into a new home) is a recurring-but-niche life event; no audience size, demographic or search-volume data is provided.",
+        "blocked_by": [
+          "audience size / demand volume data"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Durability is tagged EMERGING and urgency MEDIUM, but no time-series or trend growth data (e.g., week-over-week views, search trend) is included in the evidence, so momentum cannot be confirmed beyond existence of competitor content.",
+        "blocked_by": [
+          "trend/growth time-series data"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Moving into a new home is an evergreen life event not tied to a single seasonal spike, suggesting a durable long-tail need; however the opportunity is explicitly labeled EMERGING with no historical persistence data, so the window's exact durability is uncertain."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "21 matching artists and 5 matching playlists suggest some catalog affinity with this cleansing/ritual music niche, but the business's detailed musical DNA is marked NEEDS_INPUT, so fit cannot be confirmed with higher confidence per policy.",
+        "blocked_by": [
+          "business musical DNA / catalog detail"
+        ]
+      },
+      "content_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "TikTok favors ritual/lifestyle content (moving-in videos, home tours, ritual demonstrations) which pairs naturally with the moving-house cleansing occasion described; existing YouTube and Spotify catalogues confirm demand for the audio format, supporting content adaptability, though no TikTok-native content examples are cited."
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Competitor presence already exists on YouTube (dedicated playlist, sig_0015) and Spotify (dedicated album, sig_0016), indicating the niche is not unclaimed but also validated as commercially viable; no direct TikTok-native competitor content is evidenced yet."
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "No matching page asset exists for this cluster (best_page: UNKNOWN, 0 matching pages) and a new asset is recommended, offering a chance to be first-mover on TikTok specifically for this ritual occasion versus existing YouTube/Spotify competitors, but there is no evidence yet distinguishing what a differentiated angle would look like.",
+        "blocked_by": [
+          "competitor TikTok content analysis"
+        ]
+      },
+      "asset_fit": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "5 matching playlists and 21 matching artists indicate reasonable existing catalog/asset alignment, but 0 matching pages and an explicit 'new_asset_recommended: true' with unmatched_reason confirming no page exists for this cluster means a new asset must be built before full exploitation.",
+        "blocked_by": [
+          "dedicated page asset"
+        ]
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Aggregate outlook is moderate: existing multi-platform competitor presence (YouTube, Spotify) plus available playlist/artist assets suggest monetizable potential, but the absence of a page asset, audience-size data, and growth trend data limits confidence in scale.",
+        "blocked_by": [
+          "audience size data",
+          "growth trend data",
+          "page asset"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "Framing this content as 'energetic cleansing' that removes 'negative energy' risks implying a therapeutic or healing effect rather than a subjective ritual/wellness experience (G03). Any such claims must be reframed as intention/ritual/subjective experience (permitted under G02) and flagged for validation (G09) rather than presented as fact.",
+        "severity": "MEDIUM",
+        "kind": "compliance"
+      },
+      {
+        "description": "No audience-size, search-volume, or growth time-series data is available to substantiate demand scale or momentum; ratings for growth_momentum and audience_potential rely on limited, low/medium-confidence evidence only.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "No dedicated page asset exists for this cluster on the target platform (TikTok); a new asset would need to be created, adding execution risk before growth can be measured.",
+        "severity": "LOW",
+        "kind": "asset_gap"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "Evidence shows a real but modestly validated niche: an existing TikTok discovery page (low confidence), a competitor YouTube playlist, and a Spotify album all center on 'energetic cleansing' music for new-home rituals in Spanish-speaking markets. Catalog assets (5 playlists, 21 artists) exist but there is no matching page asset, and audience size, growth trend, and detailed music-DNA fit data are missing. The opportunity is plausible for exploration but should be framed carefully as ritual/subjective wellness content rather than any therapeutic claim."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "5 existing matching playlists (best_playlist pl_4oV5F1W2E6azZePnmqBanN) indicate an established base that could be expanded with themed cleansing-ritual playlists, consistent with competitor Spotify album evidence (sig_0016)."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "A dedicated discovery page for this ritual theme (sig_0014, LOW confidence) suggests some UGC/trend potential on TikTok for home-cleansing content, but the low-confidence, single-signal nature of this evidence limits certainty."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "A commercial Spotify album ('Música para Limpiar la Energía Negativa y Espacios', sig_0016) confirms the niche generates streaming catalogue activity, suggesting comparable royalty potential for similar content."
+      },
+      "page_growth_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No page asset currently exists for this cluster (best_page: UNKNOWN, 0 matching pages), so page growth potential cannot be assessed from existing performance; it depends entirely on building a new asset."
+      },
+      "youtube_media_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "A confirmed competitor YouTube playlist dedicated to energetic home-cleansing music (sig_0015, MEDIUM confidence) demonstrates existing demand and a viable format for YouTube media expansion."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Run a small TikTok content pilot (3-5 videos) using existing matched artists/playlist tracks, framed explicitly as ritual/intention-setting content for moving into a new home, and track engagement and follower growth before investing in a dedicated page asset.",
+    "justification": "Multi-platform competitor signals (YouTube, Spotify) and existing catalog matches (playlists/artists) justify a low-cost pilot, but the lack of audience-size, momentum, and page-asset data means a full committed launch (EXPLORE-to-scale) is premature.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-08-31_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-08-31T18:30:08Z",
+    "signal_ids": [
+      "sig_run_2026-08-31_01_0014",
+      "sig_run_2026-08-31_01_0015",
+      "sig_run_2026-08-31_01_0016"
+    ],
+    "sources": [
+      {
+        "source": "Limpieza Energética Casa Nueva | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-05-11",
+        "collected_at": "2026-08-31T18:30:08Z",
+        "query_or_reference": "limpieza energética música tendencia TikTok",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/limpieza-energ%C3%A9tica-casa-nueva"
+      },
+      {
+        "source": "LIMPIEZA ENERGÉTICA • Música para PURIFICAR tu HOGAR y Eliminar Energías Negativas - YouTube",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-08-31T18:30:08Z",
+        "query_or_reference": "limpieza energética música tendencia TikTok",
+        "capture_method": "claude_web_search",
+        "url": "https://www.youtube.com/playlist?list=PLWY6--ME2e5T1hOxfn1Fh1lGj0ykmljqM"
+      },
+      {
+        "source": "Música para Limpiar la Energía Negativa y Espacios de ...",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-08-31T18:30:08Z",
+        "query_or_reference": "limpieza energética música tendencia TikTok",
+        "capture_method": "claude_web_search",
+        "url": "https://open.spotify.com/intl-es/album/4Q59WwWhGCNJX5CtUYlvcf"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-08-31T18:30:08Z",
+      "by": "system",
+      "note": "created by run run_2026-08-31_01"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "limpeza-energetica",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Música ritual para limpiar energéticamente casas nuevas",
+    "potential_page": "Página TikTok/YouTube es 'limpieza energética hogar'",
+    "first_content_direction": "Video corto mostrando ritual de mudanza con música de limpieza energética de fondo",
+    "format": "video corto vertical + playlist larga en YouTube/Spotify",
+    "hook": "Haz esto al mudarte a tu casa nueva"
+  },
+  "rank": 5,
+  "report_ref": "reports/run_2026-08-31_01/opp_2026-08-31_1bca4af972.md"
+}

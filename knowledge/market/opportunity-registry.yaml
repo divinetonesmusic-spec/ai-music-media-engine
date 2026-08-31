@@ -1,0 +1,116 @@
+schema_version: 1.0.0
+opportunities:
+- opportunity_id: opp_2026-08-31_3c6c875d54
+  status: EXPLORE
+  created_at: '2026-08-31T00:00:00Z'
+  first_run_id: run_2026-08-31_01
+  last_run_id: run_2026-08-31_01
+  report_ref: reports/run_2026-08-31_01/opp_2026-08-31_3c6c875d54.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-08-31T18:30:08Z'
+    by: system
+    note: 'run run_2026-08-31_01: presented'
+- opportunity_id: opp_2026-08-31_8150d850ed
+  status: EXPLORE
+  created_at: '2026-08-31T00:00:00Z'
+  first_run_id: run_2026-08-31_01
+  last_run_id: run_2026-08-31_01
+  report_ref: reports/run_2026-08-31_01/opp_2026-08-31_8150d850ed.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-08-31T18:30:08Z'
+    by: system
+    note: 'run run_2026-08-31_01: presented'
+- opportunity_id: opp_2026-08-31_6ab2bc7937
+  status: EXPLORE
+  created_at: '2026-08-31T00:00:00Z'
+  first_run_id: run_2026-08-31_01
+  last_run_id: run_2026-08-31_01
+  report_ref: reports/run_2026-08-31_01/opp_2026-08-31_6ab2bc7937.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-08-31T18:30:08Z'
+    by: system
+    note: 'run run_2026-08-31_01: presented'
+- opportunity_id: opp_2026-08-31_96b1fb16fa
+  status: EXPLORE
+  created_at: '2026-08-31T00:00:00Z'
+  first_run_id: run_2026-08-31_01
+  last_run_id: run_2026-08-31_01
+  report_ref: reports/run_2026-08-31_01/opp_2026-08-31_96b1fb16fa.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-08-31T18:30:08Z'
+    by: system
+    note: 'run run_2026-08-31_01: presented'
+- opportunity_id: opp_2026-08-31_1bca4af972
+  status: EXPLORE
+  created_at: '2026-08-31T00:00:00Z'
+  first_run_id: run_2026-08-31_01
+  last_run_id: run_2026-08-31_01
+  report_ref: reports/run_2026-08-31_01/opp_2026-08-31_1bca4af972.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-08-31T18:30:08Z'
+    by: system
+    note: 'run run_2026-08-31_01: presented'
+- opportunity_id: opp_2026-08-31_fa76ab96e5
+  status: EXPLORE
+  created_at: '2026-08-31T00:00:00Z'
+  first_run_id: run_2026-08-31_01
+  last_run_id: run_2026-08-31_01
+  report_ref: reports/run_2026-08-31_01/opp_2026-08-31_fa76ab96e5.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-08-31T18:30:08Z'
+    by: system
+    note: 'run run_2026-08-31_01: presented'
+- opportunity_id: opp_2026-08-31_5c5bd96e59
+  status: PARK
+  created_at: '2026-08-31T00:00:00Z'
+  first_run_id: run_2026-08-31_01
+  last_run_id: run_2026-08-31_01
+  report_ref: null
+  state_history:
+  - to: PARK
+    at: '2026-08-31T18:30:08Z'
+    by: system
+    note: 'run run_2026-08-31_01: excluded — HIGH-severity compliance red flag (spec
+      §11.1)'
+- opportunity_id: opp_2026-08-31_86df487210
+  status: PARK
+  created_at: '2026-08-31T00:00:00Z'
+  first_run_id: run_2026-08-31_01
+  last_run_id: run_2026-08-31_01
+  report_ref: null
+  state_history:
+  - to: PARK
+    at: '2026-08-31T18:30:08Z'
+    by: system
+    note: 'run run_2026-08-31_01: excluded — HIGH-severity compliance red flag (spec
+      §11.1)'
+- opportunity_id: opp_2026-08-31_a535b67932
+  status: PARK
+  created_at: '2026-08-31T00:00:00Z'
+  first_run_id: run_2026-08-31_01
+  last_run_id: run_2026-08-31_01
+  report_ref: null
+  state_history:
+  - to: PARK
+    at: '2026-08-31T18:30:08Z'
+    by: system
+    note: 'run run_2026-08-31_01: excluded — HIGH-severity compliance red flag (spec
+      §11.1)'
+- opportunity_id: opp_2026-08-31_d393a1d119
+  status: PARK
+  created_at: '2026-08-31T00:00:00Z'
+  first_run_id: run_2026-08-31_01
+  last_run_id: run_2026-08-31_01
+  report_ref: null
+  state_history:
+  - to: PARK
+    at: '2026-08-31T18:30:08Z'
+    by: system
+    note: 'run run_2026-08-31_01: excluded — HIGH-severity compliance red flag (spec
+      §11.1)'

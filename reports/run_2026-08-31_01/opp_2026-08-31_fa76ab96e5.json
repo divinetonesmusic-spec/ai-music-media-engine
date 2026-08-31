@@ -1,0 +1,566 @@
+{
+  "opportunity_id": "opp_2026-08-31_fa76ab96e5",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-08-31_01",
+  "created_at": "2026-08-31T00:00:00Z",
+  "title": "Broader dream-content wave (DreamTok) beyond lucid dreaming for EN TikTok",
+  "need": "Content and audio companions for exploring dreams, astral projection and dream interpretation broadly, not just lucid dreaming",
+  "audience": {
+    "description": "English-speaking TikTok users interested in dream culture broadly, including lucid dreaming, astral projection, and dream interpretation"
+  },
+  "market": "English-speaking markets",
+  "language": "en",
+  "platform": "tiktok",
+  "consumption_context": "Evening/night scrolling, before sleep or upon waking, engaging with dream-related content",
+  "durability": "EMERGING",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "A 'DreamTok' discovery hub exists on TikTok covering dream-related content including lucid dreaming, astral projection, and dream interpretation as a broader umbrella than lucid dreaming alone.",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-08-31_01_0018"
+      ]
+    },
+    {
+      "type": "HYPOTHESIS",
+      "statement": "A broader 'DreamTok' content wave could expand engagement beyond the existing lucid-dreaming cluster into related dream/astral-projection interests.",
+      "confidence": "LOW",
+      "rationale": "The discovery hub bundles multiple dream-adjacent themes together, suggesting audience appetite spans beyond lucid dreaming specifically.",
+      "test_idea": "Publish instrumental tracks framed for 'dream journaling' or 'astral projection' alongside existing lucid-dream content and compare engagement."
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [],
+    "matching_pages": [],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster hero artist, sleep-focused not dream-content specific.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+        "name": "Cortiq",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no cluster data to confirm dream relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+        "name": "Templo Theta",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests Theta/meditation, loosely dream-adjacent but no data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity cluster with a lucid dream secondary tag, weak match.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono hero artist with theta/delta frequencies used in dream/sleep content, closest thematic overlap available.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Arcturian healing name suggests astral/spiritual content, but unclassified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster, sleep restoration focus, not dream interpretation specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+        "name": "Synaptica",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+        "name": "Salmo Sonoro",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+        "name": "David’s Harp Meditation",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+        "name": "Meditara",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no cluster data to confirm relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, tangential to dream/astral themes.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+        "name": "Opulentia Divina",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Thetara' suggests theta brainwave/dream state content, but unclassified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+        "name": "Vibração Consciente",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+        "name": "Divine Tones by Nikolai",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+        "name": "Nathaniel Lior Grace",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster with anti-insomnia focus, not dream-interpretation specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+        "name": "Hipnocortex",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests hypnosis/brain content, no formal classification.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/religious spirituality cluster, tangential fit only.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+        "name": "Silenciium",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+        "name": "Raphael’s Healing Choir",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests brainwave/frequency content, hero but unclassified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Aura de los Sueños' (Aura of Dreams) directly references dreams, sono cluster.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+        "name": "Brainora",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster with anxiety/relaxation focus, not dream-specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+        "name": "Hypnozzert",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests hypnosis content, unclassified.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, tangential fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity/abundance cluster, weak dream relevance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono hero artist with theta/delta content overlapping dream-state audio needs.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+        "name": "Psalms Frequencies",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Abundance cluster with 'Sono/Sonhos' secondary tag, weak relevance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, tangential to dream themes.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "UNKNOWN",
+    "best_page": "NEW_ASSET",
+    "best_artist": "art_1rGWl45kQm6h9PQEOOWGfZ",
+    "new_asset_recommendation": {
+      "asset_type": "playlist",
+      "rationale": "No existing playlist or page targets the broader DreamTok theme (astral projection, dream interpretation) beyond sleep/lucid dreaming; a dedicated dream-exploration playlist could capture this expanding TikTok trend and differentiate from generic sleep/sono content.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No playlist or page candidates were provided in inventory, and no existing asset carries the dreamtok-exploracao-dos-sonhos canonical cluster classification; sono-cluster artists are only tangentially adjacent."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Only one OBSERVED signal (medium confidence) confirms a 'DreamTok' discovery hub exists bundling lucid dreaming, astral projection and dream interpretation; no view counts, hashtag volumes or growth metrics are provided to size the signal.",
+        "blocked_by": [
+          "quantified TikTok engagement/hashtag metrics for DreamTok content"
+        ]
+      },
+      "audience_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The audience is described broadly as English-speaking TikTok users interested in dream culture, which plausibly extends reach beyond the narrower lucid-dreaming niche, but no audience-size or demographic data supports the magnitude.",
+        "blocked_by": [
+          "audience size/demographic estimates for dream-culture TikTok segment"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Only a HYPOTHESIS-level statement (low confidence) speculates that the hub could expand engagement; there is no time-series or trend data showing actual growth in DreamTok content or interactions.",
+        "blocked_by": [
+          "trend/growth data (views, posts, follower growth over time)"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The opportunity is explicitly tagged durability=EMERGING with MEDIUM urgency, suggesting an early but not yet proven window; this classification is asserted rather than backed by longitudinal signal data."
+      },
+      "music_fit": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "The business's musical DNA is marked NEEDS_INPUT, so fit with dream/astral-projection audio content cannot be assessed; matched artists (37) are only 'tangentially adjacent' per the asset-fit note, not a confirmed catalog match.",
+        "blocked_by": [
+          "business musical DNA / catalog affinity details"
+        ]
+      },
+      "content_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The broader dream theme (interpretation, astral projection, lucid dreaming) offers a wider content palette than lucid dreaming alone, per the hypothesis that the hub 'bundles multiple dream-adjacent themes,' but this is speculative and untested with actual content performance data.",
+        "blocked_by": [
+          "sample content performance data for astral-projection/dream-interpretation posts"
+        ]
+      },
+      "competitive_position": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "No playlist or page candidates exist in inventory (matching_counts playlists=0, pages=0) and no asset carries the DreamTok cluster classification, indicating the business currently has no established footprint in this space."
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Positioning across the broader dream-culture umbrella (vs. lucid dreaming only) could differentiate from narrower competitors, per the hypothesis, but this is unvalidated and based on a single low-confidence rationale.",
+        "blocked_by": [
+          "competitor content mapping for dream-culture niche"
+        ]
+      },
+      "asset_fit": {
+        "rating": "LOW",
+        "confidence": "HIGH",
+        "justification": "Explicit data shows zero matching playlists and pages, best_playlist UNKNOWN, best_page NEW_ASSET, and sono-cluster artists only tangentially adjacent; new_asset_recommended=true confirms no existing asset fits this opportunity."
+      },
+      "business_outcome_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Combining thin signal strength, hypothesis-only growth momentum, and a confirmed lack of matching assets (0 playlists/pages), the overall business outcome potential is currently low and largely unproven pending further evidence.",
+        "blocked_by": [
+          "validated engagement and conversion data for DreamTok content"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "Evidence base is extremely thin: one OBSERVED signal (medium confidence) about hub existence and one HYPOTHESIS (low confidence) about expansion, with no quantitative TikTok metrics to validate scale or momentum.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "No matching playlists or pages exist in inventory (0/0), and matched artists are only tangentially adjacent, requiring a brand-new asset to pursue this opportunity.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      },
+      {
+        "description": "Dream interpretation and astral projection content sits near topics of sleep/mental wellness; per G09/G10, any future claims about benefits (e.g., 'dream companions help you sleep better') must be flagged for validation and framed as subjective experience rather than medical or scientific claims (G01, G03).",
+        "severity": "MEDIUM",
+        "kind": "compliance"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "A broader 'DreamTok' wave spanning lucid dreaming, astral projection, and dream interpretation is observed to exist as a discovery hub on TikTok, but supporting evidence is limited to one medium-confidence observation and one low-confidence hypothesis about expansion. No playlists or pages currently match this cluster, and only tangentially adjacent artists (37) are available, so a new asset would be required. Given the emerging durability, thin evidence, and lack of asset fit, this remains a speculative opportunity worth light exploration rather than immediate investment."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "matching_counts show 0 playlists and best_playlist is UNKNOWN, so there is no current vehicle for playlist growth tied to this opportunity."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The existence of a DreamTok discovery hub bundling multiple dream themes suggests some UGC/trend potential for audio companions, but this rests on a single low-confidence hypothesis with no UGC volume data."
+      },
+      "streaming_royalty_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No streaming or royalty-related evidence is provided; the 37 matched artists are described as only tangentially adjacent, so royalty impact cannot be substantiated."
+      },
+      "page_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "A NEW_ASSET is recommended for this space, implying room to build a dedicated page around broader dream content, but there is no baseline data on expected follower growth."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No YouTube-specific evidence, presence, or performance data is included in the opportunity or evidence set, so media potential there cannot be assessed."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "EXPLORE",
+    "suggested_next_step": "Run a small-scale content/audio pilot under a new dedicated page to test engagement across dream-interpretation and astral-projection themes, while gathering hashtag/view metrics to validate the DreamTok hub hypothesis before committing further assets.",
+    "justification": "The opportunity shows a plausible but unproven broader trend with no existing asset fit; exploratory testing is warranted to generate the missing signal-strength and audience data needed for a stronger investment decision.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-08-31_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-08-31T18:30:08Z",
+    "signal_ids": [
+      "sig_run_2026-08-31_01_0018"
+    ],
+    "sources": [
+      {
+        "source": "Dreamtok | TikTok",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-08-31T18:30:08Z",
+        "query_or_reference": "lucid dreaming music TikTok trend angel numbers spirituality",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/dreamtok?lang=en"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-08-31T18:30:08Z",
+      "by": "system",
+      "note": "created by run run_2026-08-31_01"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "dreamtok-exploracao-dos-sonhos",
+      "canonical": false,
+      "basis": "proposed_new"
+    },
+    "potential_positioning": "Instrumental soundtrack companion for the broader DreamTok dream-exploration wave",
+    "potential_page": "EN TikTok channel for dream/astral content music",
+    "first_content_direction": "Short videos pairing instrumental soundscapes with dream journaling or astral projection prompts",
+    "format": "short-form vertical video with ambient instrumental loop",
+    "hook": "Try this before you go to sleep and journal your dreams"
+  },
+  "rank": 6,
+  "report_ref": "reports/run_2026-08-31_01/opp_2026-08-31_fa76ab96e5.md"
+}
