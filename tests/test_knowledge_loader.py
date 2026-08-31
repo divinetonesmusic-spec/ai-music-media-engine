@@ -30,8 +30,13 @@ def test_loads_the_real_knowledge_tree(project_root):
     assert "pl_5Wz1PL0H0t7f1qCuY989ZE" in kb.inventory.playlist_ids
 
 
-def test_real_registry_is_absent_and_that_is_not_an_error(project_root):
-    kb = load_knowledge(RunPaths(), project_root=project_root)
+def test_an_absent_registry_loads_as_an_empty_list_not_an_error(project_root):
+    # the real knowledge tree, but pointed at a registry path that does not exist
+    # (a first-ever run, or a fresh clone) — must load cleanly as [].
+    kb = load_knowledge(
+        RunPaths(registry_path="knowledge/market/_no_such_registry_.yaml"),
+        project_root=project_root,
+    )
     assert kb.registry == []
 
 

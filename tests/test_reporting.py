@@ -160,6 +160,48 @@ def test_no_report_is_written_under_knowledge(tmp_path):
     assert not (tmp_path / "knowledge").exists()
 
 
+def _clone_pipeline_fixtures(tmp_path):
+    fx = tmp_path / "pipeline"
+    for sub in ("framing", "matching", "evaluation"):
+        (fx / "llm" / sub).mkdir(parents=True, exist_ok=True)
+    (fx / "signals.json").write_text(
+        (_FIXTURE_ROOT / "signals.json").read_text(), encoding="utf-8"
+    )
+    for sub in ("framing", "matching", "evaluation"):
+        for f in (_FIXTURE_ROOT / "llm" / sub).glob("*.json"):
+            (fx / "llm" / sub / f.name).write_text(f.read_text(), encoding="utf-8")
+    return fx
+
+
+def test_a_compliance_hard_exclusion_carries_its_red_flags_into_the_artifacts(tmp_path):
+    # the excluded record + the digest must show WHY an opportunity was hard-excluded
+    # (which guardrail, what text) — not just "HIGH-severity compliance red flag".
+    fx = _clone_pipeline_fixtures(tmp_path)
+    resp = load_fixture("pipeline/llm/evaluation/evaluation__" + _OPP_ID + ".json")
+    resp["red_flags"].append({
+        "description": "G01: frames the routine as clinically proven to cure insomnia.",
+        "severity": "HIGH", "kind": "compliance",
+    })
+    (fx / "llm" / "evaluation" / f"evaluation__{_OPP_ID}.json").write_text(
+        json.dumps(resp), encoding="utf-8"
+    )
+    cfg = _cfg(replay={"enabled": True, "llm": "recorded", "fixture_path": str(fx)})
+    result, _signals, _kn = _pipeline(tmp_path, cfg)
+
+    assert result.opportunities == {}                       # hard-excluded, not presented
+
+    oj = json.loads((tmp_path / "data" / "run_pipe" / "opportunities.json").read_text())
+    ex = next(r for r in oj["excluded"] if r["opportunity_id"] == _OPP_ID)
+    flags = ex["red_flags"]
+    assert any(f["kind"] == "compliance" and f["severity"] == "HIGH"
+               and "G01" in f["description"] for f in flags)
+
+    digest = (tmp_path / "reports" / "run_pipe" / "digest.md").read_text()
+    excluded_section = digest.split("## Excluded opportunities")[1].split("## ")[0]
+    assert "G01" in excluded_section and "compliance" in excluded_section.lower()
+    assert "HIGH" in excluded_section
+
+
 def test_report_time_exclusion_is_itemized_in_the_digest_not_just_counted(tmp_path):
     # Make the evaluation fixture emit a canonical potential_cluster that is NOT in the
     # taxonomy but the framing hypothesis already fixed it — instead, break the report

@@ -83,6 +83,15 @@ def _partial_record(oid, bucket, framed, bundles, asset_matches, reason):
         rec["target_state"] = bundle.recommendation.target_state.value
     if bundle is not None and bundle.technical_failure:
         rec["technical_failure_reason"] = bundle.technical_failure_reason
+    # For a parked / hard-excluded opportunity the evaluation still ran — carry its
+    # red flags so a reader can see WHY it was excluded (which guardrail, what text),
+    # not just the one-line ranking reason (§14).
+    if bundle is not None and bundle.evaluation is not None:
+        rec["red_flags"] = [
+            {"kind": rf.kind.value, "severity": rf.severity.value,
+             "description": rf.description}
+            for rf in bundle.evaluation.red_flags
+        ]
     if am is not None:
         rec["best_assets"] = {
             "playlist": am.best_playlist, "page": am.best_page, "artist": am.best_artist,
@@ -447,6 +456,7 @@ def _digest(
     needs_input_notes: Sequence[str],
     generated_at: str,
     replay: bool,
+    bundles: Optional[Dict[str, EvaluationBundle]] = None,
 ) -> str:
     counts = dict(counts)
     timings = counts.pop("timings_seconds", None)
@@ -522,6 +532,11 @@ def _digest(
             lines.append(
                 f"- `{oid}` — {fo.title if fo else 'UNKNOWN'} — reason: {all_excluded[oid]}"
             )
+            b = (bundles or {}).get(oid)
+            for rf in (b.evaluation.red_flags if b is not None and b.evaluation else []):
+                lines.append(
+                    f"    - red flag [{rf.kind.value}/{rf.severity.value}]: {rf.description}"
+                )
     else:
         lines.append("_None._")
     lines.append("")
@@ -699,7 +714,7 @@ def generate_reports(
         collection_summary=collection_summary or {},
         counts=counts, excluded_reasons=excluded_reasons,
         needs_input_notes=result.needs_input_notes,
-        generated_at=generated_at, replay=replay,
+        generated_at=generated_at, replay=replay, bundles=bundles,
     )
     result.digest_path = write_text(reports_dir / "digest.md", digest)
     result.review_path = write_text(
