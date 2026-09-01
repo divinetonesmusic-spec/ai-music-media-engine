@@ -1,0 +1,353 @@
+{
+  "opportunity_id": "opp_2026-09-01_0b5dbe1e33",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_02",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Recuperación tras crisis emocional/ruptura vía frecuencias y sonido (es)",
+  "need": "Sanar emocionalmente después de una crisis o ruptura usando prácticas de frecuencia, reiki y baño de sonido",
+  "audience": {
+    "description": "Oyentes hispanohablantes atravesando procesos de recuperación emocional post-crisis o ruptura",
+    "attributes": {
+      "life_event": "post-breakup or emotional crisis recovery"
+    }
+  },
+  "market": "Mercados hispanohablantes",
+  "language": "es",
+  "platform": "tiktok",
+  "consumption_context": "Momentos de duelo emocional o recuperación personal, escuchando baños de sonido en casa",
+  "durability": "EMERGING",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "Content ties frequency healing to Reiki, visualization, and sound-bath practices, and specifically to post-emotional-crisis recovery as a listening occasion",
+      "confidence": "LOW",
+      "signal_ids": [
+        "sig_run_2026-09-01_02_0020"
+      ]
+    },
+    {
+      "type": "OBSERVED",
+      "statement": "A wide solfeggio ladder is marketed with distinct specific purposes such as healing relationships and intuition",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-09-01_02_0019"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4oV5F1W2E6azZePnmqBanN",
+        "name": "Limpieza Energética & Protección del Hogar (2026)",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Energetic cleansing playlist aligns loosely with emotional recovery themes but not an exact cluster match.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+        "name": "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-focused 528Hz playlist, tangential to emotional recovery.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep restoration playlist, not focused on breakup recovery.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+        "name": "Frecuencia divina 963 Hz - Activación del tercer ojo",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Third-eye activation frequency playlist, spiritual but not emotional recovery specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_0fzUPuhRHjqMyfOgNx0d4S",
+        "name": "Sueño Lúcido – Ondas Theta 8 Hz para Activar la Intuición y Controlar tus Sueños (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Lucid dreaming theta playlist, unrelated to breakup healing.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist with frequency-based name suggesting relevance to sound healing themes.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist 'Hertzia' implies frequency-based sound work relevant to the opportunity.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist 'Brainhertz' suggests binaural/frequency content applicable to emotional healing.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist 'Arcturian Healing Codes' name implies healing focus that could fit emotional recovery.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist with no classification data to confirm relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster hero, primarily sleep-focused rather than emotional crisis recovery.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep sanctuary hero, tangential to emotional healing need.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-focused hero, not aligned with breakup recovery theme.",
+        "role": "hero"
+      }
+    ],
+    "best_playlist": "pl_4oV5F1W2E6azZePnmqBanN",
+    "best_page": "NEW_ASSET",
+    "best_artist": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+    "new_asset_recommendation": {
+      "asset_type": "page",
+      "rationale": "No existing page asset targets Spanish-speaking emotional/breakup recovery via sound healing; a dedicated page could capture this niche need with differentiated framing around frequencies, reiki and sound baths for heartbreak recovery.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    }
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Only two OBSERVED signals exist: one (LOW confidence) directly ties frequency healing to Reiki, visualization and sound-bath practice as a post-crisis recovery occasion; another (MEDIUM confidence) shows a solfeggio ladder marketed for relationship healing and intuition, which is adjacent but not fully specific to breakup recovery. The thematic link exists but the evidentiary base is very small."
+      },
+      "audience_potential": {
+        "rating": "HIGH",
+        "confidence": "LOW",
+        "justification": "Spanish-speaking markets are large and breakup/emotional-crisis recovery is a broadly recurring life event; TikTok is a high-reach platform for this content type. However, no audience-size, view, or engagement metrics specific to this niche were provided, so the rating rests on general market reasoning rather than direct evidence.",
+        "blocked_by": [
+          "audience size / engagement metrics for this specific niche"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The opportunity is tagged EMERGING durability with MEDIUM urgency, suggesting rising but unconfirmed momentum. No quantitative trend data (view growth, mention volume, hashtag trajectory) is present in the evidence set to substantiate the trajectory.",
+        "blocked_by": [
+          "time-series growth metrics (views, mentions, hashtag volume)"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "The opportunity is explicitly labeled 'EMERGING' with MEDIUM urgency, indicating a plausible but not-yet-mature window; the broader wellness/sound-healing content wave on TikTok supports some durability, but only two signals back this specific breakup-recovery angle."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "5 matching playlists and 8 matching artists in the catalog suggest existing solfeggio/sound-bath/frequency content could serve this need, but the business's detailed musical DNA/catalog-affinity profile is not available (NEEDS_INPUT), so fit cannot be confirmed beyond surface matching counts.",
+        "blocked_by": [
+          "business musical DNA / catalog affinity detail"
+        ]
+      },
+      "content_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Breakup/crisis-recovery sound-bath and Reiki content is highly visual and ritualistic, fitting well within permissible wellness framing (relaxation, ritual, intention per G02) and suited to TikTok short-form formats; however, the evidence base for this exact angle is limited to two signals, one of LOW confidence."
+      },
+      "competitive_position": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No data on competing creators, pages, or existing market share within the reiki/sound-bath/breakup-recovery TikTok niche was supplied, so competitive standing cannot be assessed.",
+        "blocked_by": [
+          "competitor landscape / share-of-voice data for this niche"
+        ]
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The specific combination of Reiki + sound bath + breakup/crisis recovery framing in Spanish (per sig_run_2026-09-01_02_0020) is a fairly narrow niche intersection that could offer some differentiation versus generic solfeggio content, but with only one supporting low-confidence signal this cannot be confirmed strongly."
+      },
+      "asset_fit": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "5 matching playlists (best: pl_4oV5F1W2E6azZePnmqBanN) and 8 matching artists (best: art_1JEzsQ5PpE0mEzj1o3lvD1) give reasonable existing catalog coverage, but 0 matching pages and new_asset_recommended:true mean a new page/channel would need to be built from scratch to properly serve this audience."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Aggregating across playlist, UGC, royalty, page, and YouTube potential (each rated MEDIUM/LOW with LOW-MEDIUM confidence below), the overall commercial upside is moderate but unproven given the thin signal set and lack of a dedicated page asset.",
+        "blocked_by": [
+          "broader validation across business outcome axes"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "Only two OBSERVED signals underpin this opportunity, one at LOW confidence and one at MEDIUM confidence, which is insufficient to confirm real trend momentum, audience size, or UGC uptake for this specific Spanish-language breakup-recovery sound-bath niche.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "matching_counts.pages = 0 with new_asset_recommended:true indicates no existing page audience for this niche; launching would require building a new asset from scratch, adding execution risk before ROI is proven.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "This opportunity targets Spanish-speaking TikTok audiences seeking emotional healing after a breakup or crisis through Reiki, sound baths and frequency-based content, an area with plausible audience relevance but a very thin evidentiary base (only two low/medium-confidence signals). Asset readiness is mixed: 5 matching playlists and 8 matching artists exist, but no matching page, requiring new asset creation. Content framing can stay compliant by presenting frequency/sound practices as ritual, comfort and subjective experience (G02) rather than medical claims (G01/G03), and any efficacy statements about relationship or emotional 'healing' from the source content should be treated as unverified marketing claims requiring validation (G09) rather than adopted as fact."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "5 existing matching playlists provide a placement runway for new frequency/sound-bath tracks tied to breakup recovery, giving a plausible but not proven path to playlist growth."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Sound-bath, Reiki and solfeggio content generally trends well on TikTok, but no UGC volume or trend-participation evidence specific to the breakup-recovery framing was provided in the signal set."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Long-duration sound-bath/frequency tracks can accumulate significant streaming minutes among ritual listeners, but audience size and repeat-listen behavior for this specific niche are not evidenced."
+      },
+      "page_growth_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "0 matching pages exist (matching_counts.pages=0) and a NEW_ASSET is recommended, meaning any page growth would start from zero audience with no existing base to leverage."
+      },
+      "youtube_media_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Long-form meditation/sound-bath videos are a well-known YouTube content format broadly, but no evidence in this signal set speaks to YouTube performance specifically for the breakup-recovery angle."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Run a small-scale pilot of 3-5 TikTok pieces using the existing best-matching playlist (pl_4oV5F1W2E6azZePnmqBanN) and artist catalog, framing content strictly around ritual/comfort/relaxation language (no efficacy or medical claims), and measure engagement/UGC response before committing to building the recommended NEW_ASSET page.",
+    "justification": "Audience potential is plausible and existing playlist/artist assets offer a low-cost testing path, but the signal base is too thin (2 signals, LOW/MEDIUM confidence) and page infrastructure absent (0 matching pages) to justify a full EXPLORE or immediate scaled investment; a bounded pilot balances the opportunity's emerging status against evidence gaps.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_02",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T14:33:17Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_02_0019",
+      "sig_run_2026-09-01_02_0020"
+    ],
+    "sources": [
+      {
+        "source": "Frecuencia Recuperación Energética | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-06-08",
+        "collected_at": "2026-09-01T14:33:17Z",
+        "query_or_reference": "limpieza energética abundancia frecuencia música TikTok tendencia",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/frecuencia-recuperaci%C3%B3n-energ%C3%A9tica"
+      },
+      {
+        "source": "Relax Energia | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-06-01",
+        "collected_at": "2026-09-01T14:33:17Z",
+        "query_or_reference": "limpieza energética abundancia frecuencia música TikTok tendencia",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/relax-energia"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T14:33:17Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_02"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "recuperacion-emocional-frecuencias",
+      "canonical": false,
+      "basis": "proposed_new"
+    },
+    "potential_positioning": "Sound-bath/frequency tracks specifically framed for emotional recovery after breakups/crises",
+    "potential_page": "Sanación Emocional y Frecuencias",
+    "first_content_direction": "Crear serie de baños de sonido con frecuencias solfeggio etiquetadas para sanación de relaciones/ruptura",
+    "format": "Audio largo tipo baño de sonido con cuencos",
+    "hook": "Sana tu corazón después de una ruptura con este sonido"
+  },
+  "rank": 6,
+  "report_ref": "reports/run_2026-09-01_02/opp_2026-09-01_0b5dbe1e33.md"
+}

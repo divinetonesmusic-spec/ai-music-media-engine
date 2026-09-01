@@ -1,0 +1,371 @@
+{
+  "opportunity_id": "opp_2026-09-01_4e5f3a677c",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_02",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Escala solfeggio ampliada con propósitos narrativos específicos (es)",
+  "need": "Elegir frecuencias específicas (639Hz, 852Hz, 963Hz, 285Hz) según un propósito concreto: sanar relaciones, intuición, conexión divina o desintoxicación celular",
+  "audience": {
+    "description": "Oyentes hispanohablantes que buscan frecuencias específicas para objetivos espirituales/personales concretos"
+  },
+  "market": "Mercados hispanohablantes",
+  "language": "es",
+  "platform": "tiktok",
+  "consumption_context": "Búsqueda dirigida de frecuencia específica según necesidad puntual del momento",
+  "durability": "STRUCTURAL",
+  "urgency": "LOW",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "A wide solfeggio ladder (639Hz, 852Hz, 963Hz, 285Hz) is marketed with distinct specific purposes such as healing relationships, intuition, connection to the divine, and cellular detox",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-09-01_02_0019"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+        "name": "Frecuencia divina 963 Hz - Activación del tercer ojo",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Spanish-language playlist directly on 963Hz divine frequency cluster matching opportunity's canonical cluster and language/market.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+        "name": "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Spanish sleep-focused 528Hz playlist, cluster is Sono not the divine frequency cluster.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep 528Hz playlist, cluster mismatch with divine frequency purpose.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4oV5F1W2E6azZePnmqBanN",
+        "name": "Limpieza Energética & Protección del Hogar (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Energy cleansing cluster, adjacent but not matching divine frequency/spirituality cluster.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_0fzUPuhRHjqMyfOgNx0d4S",
+        "name": "Sueño Lúcido – Ondas Theta 8 Hz para Activar la Intuición y Controlar tus Sueños (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Lucid dream theta cluster, not aligned with divine frequency purpose-driven need.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_frequenciasdivinas",
+        "name": "Frequências Divinas",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Page explicitly classified under Frequência Divina/Espiritualidade cluster matching opportunity exactly, though market/language is pt-BR vs es target.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_energiaeterna888hz",
+        "name": "Energia Eterna",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Same canonical cluster match but pt-BR language/market differs from es target audience.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_abundancia.divinaaofc",
+        "name": "Abundância Divina",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Abundance/prosperity cluster, not the divine frequency/spirituality cluster needed.",
+        "role": "candidate"
+      }
+    ],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist named Frequenzia suggests frequency-focused catalog; no consolidated cluster data to confirm.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist Hertzia name implies Hz/frequency focus, plausible fit though unconfirmed.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist 'Divine Tones' name suggests spiritual/divine frequency alignment.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist 'Arcturian Healing Codes' name implies healing/spiritual frequency content.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist Thetara name suggests theta/sleep focus rather than divine frequency purpose.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist Brainhertz suggests binaural/brainwave focus, tangential to divine purpose framing.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-cluster hero artist, not aligned with divine frequency purpose cluster.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-cluster hero artist, not aligned with divine frequency purpose.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-cluster hero artist with some cleansing overlap, not core divine frequency purpose match.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist name generic meditation, no strong signal for divine frequency purpose cluster.",
+        "role": "hero"
+      }
+    ],
+    "best_playlist": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+    "best_page": "page_tiktok_frequenciasdivinas",
+    "best_artist": "art_1JEzsQ5PpE0mEzj1o3lvD1"
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Only one OBSERVED evidence item (signal_ids: sig_run_2026-09-01_02_0019) with MEDIUM confidence supports this opportunity; there is no corroborating data point, volume metric, or secondary signal to confirm the pattern is widespread."
+      },
+      "audience_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Spanish-speaking listeners searching for purpose-specific solfeggio frequencies (relationships, intuition, divine connection, cellular detox) represent a plausible niche within the broader wellness/frequency audience already served by 3 matching pages and 10 matching artists, but no audience size or search-volume data is provided.",
+        "blocked_by": [
+          "audience size/search volume data"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Urgency is explicitly labeled LOW and no trend trajectory, growth rate, or timeline evidence is present in the dataset; momentum cannot be substantiated beyond the single static observation.",
+        "blocked_by": [
+          "trend/time-series signal data"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The opportunity is tagged STRUCTURAL durability, consistent with 'directed search for a specific frequency per momentary need' being an evergreen search behavior rather than a fad, but this label is asserted metadata rather than independently verified."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The business's musical DNA is not specified (NEEDS_INPUT), so fit cannot be confirmed directly; however, existing matched assets (best_artist, 10 matching artists, 5 matching playlists) in the frequency/wellness space suggest plausible catalog alignment.",
+        "blocked_by": [
+          "business musical DNA / catalog specification"
+        ]
+      },
+      "content_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Mapping distinct frequencies (639Hz, 852Hz, 963Hz, 285Hz) to distinct narrative purposes (relationships, intuition, divine connection, detox theme) provides a natural structured content series format well suited to short-form TikTok videos, each with a clear hook and CTA."
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "An existing matched page (page_tiktok_frequenciasdivinas) and 10 matching artists indicate some established presence, but solfeggio/frequency content is a common, likely saturated TikTok wellness niche, and no competitor benchmarking data is provided.",
+        "blocked_by": [
+          "competitor benchmarking data"
+        ]
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Expanding the solfeggio ladder with explicit purpose-per-frequency narratives (vs. generic 'healing frequencies' content) could differentiate the offering, but this is inferred from a single observation rather than confirmed against what competitors already do.",
+        "blocked_by": [
+          "competitor content sample"
+        ]
+      },
+      "asset_fit": {
+        "rating": "HIGH",
+        "confidence": "HIGH",
+        "justification": "Strong existing asset alignment is documented: best_playlist and best_page identified, 5 matching playlists, 3 matching pages, and 10 matching artists, with new_asset_recommended:false indicating the opportunity can be executed with current catalog/assets."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Combining strong asset fit and structural durability with thin, single-source evidence and no growth/audience-size data yields a moderate but uncertain overall business outcome expectation.",
+        "blocked_by": [
+          "quantitative performance/audience data"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "The opportunity rests on a single OBSERVED evidence item with only MEDIUM confidence and one signal_id; there is no secondary corroboration, audience size, or trend data.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "Solfeggio/frequency-purpose content is a common wellness niche on TikTok; no competitive saturation or differentiation benchmarking data is provided, creating market risk of low visibility despite content production.",
+        "severity": "LOW",
+        "kind": "market"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "This opportunity proposes purpose-specific solfeggio content (relationships, intuition, divine connection, cellular-detox theme) for Spanish-speaking TikTok audiences, backed by strong existing asset alignment (matched playlists, pages, and artists) and a structural, evergreen durability profile. However, the underlying evidence is thin — a single MEDIUM-confidence observation with no growth, audience-size, or competitive data — making outcome expectations plausible but unverified. Content and asset fit are the strongest signals; audience scale and momentum remain unproven."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "5 matching playlists and a specific best_playlist already exist, giving a ready distribution path for purpose-tagged solfeggio tracks, though no stream/follower growth data confirms uplift potential."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Consumption context is described as 'directed search for a specific frequency per momentary need,' which is intent-driven rather than trend/challenge-driven, limiting organic UGC virality potential typical of TikTok trends."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Repeat, purpose-driven search behavior (e.g., returning to '852Hz for intuition') could support recurring streams within an evergreen niche, but no play-count or royalty data exists to substantiate volume."
+      },
+      "page_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "An existing matched page (page_tiktok_frequenciasdivinas) and 3 matching pages suggest an established base to grow through structured purpose-based content, though no follower/engagement metrics are provided."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No YouTube-specific evidence, asset match, or platform behavior data is included in this opportunity (platform is specified as tiktok only), so YouTube potential cannot be assessed."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Produce a small batch (3-5) of short-form videos mapping each frequency to its stated purpose using the already-matched page/playlist/artist assets, framed as subjective/experiential content (avoiding efficacy claims), and measure search-intent engagement and completion rate before scaling.",
+    "justification": "Good existing asset fit and structural durability justify a low-cost test, but the single-source, unquantified evidence base means broader investment (EXPLORE) is premature and PARK would waste a readily actionable asset match.",
+    "confidence": "MEDIUM",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_02",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T14:33:17Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_02_0019"
+    ],
+    "sources": [
+      {
+        "source": "Frecuencia Recuperación Energética | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-06-08",
+        "collected_at": "2026-09-01T14:33:17Z",
+        "query_or_reference": "limpieza energética abundancia frecuencia música TikTok tendencia",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/frecuencia-recuperaci%C3%B3n-energ%C3%A9tica"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T14:33:17Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_02"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "frequencia-divina-espiritualidade",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Catálogo estructurado de frecuencias solfeggio, cada una con propósito narrativo claro y diferenciado",
+    "potential_page": "Escala Solfeggio Completa",
+    "first_content_direction": "Producir serie de tracks, uno por frecuencia solfeggio, cada uno con narrativa de propósito específico",
+    "format": "Serie de audios cortos etiquetados por frecuencia y propósito",
+    "hook": "Elige tu frecuencia según lo que necesitas sanar"
+  },
+  "rank": 4,
+  "report_ref": "reports/run_2026-09-01_02/opp_2026-09-01_4e5f3a677c.md"
+}

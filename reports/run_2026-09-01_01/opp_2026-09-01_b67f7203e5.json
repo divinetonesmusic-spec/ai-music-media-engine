@@ -1,0 +1,479 @@
+{
+  "opportunity_id": "opp_2026-09-01_b67f7203e5",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_01",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Money-manifestation music sub-niche (es)",
+  "need": "Manifesting money/financial abundance specifically, distinct from general prosperity themes",
+  "audience": {
+    "description": "Spanish-speaking TikTok users seeking money-specific manifestation audio"
+  },
+  "market": "Mercados hispanohablantes",
+  "language": "es",
+  "platform": "tiktok",
+  "consumption_context": "Searching TikTok for songs specifically framed around manifesting money",
+  "durability": "EMERGING",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "A Discover topic specifically for songs to manifest money and abundance confirms money-manifestation as a distinct named sub-category.",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-09-01_01_0020"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_2vZzaPRyZrrWqpt8zZ5wDs",
+        "name": "Abundância 888 Hz • Ativação da Prosperidade (2026)",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Matches abundancia-prosperidade cluster but is pt/Brasil, not es/hispanohablante market required by opportunity.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_0fzUPuhRHjqMyfOgNx0d4S",
+        "name": "Sueño Lúcido – Ondas Theta 8 Hz para Activar la Intuición y Controlar tus Sueños (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Es-language and correct market but cluster is sonho-lucido, not money manifestation.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+        "name": "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Es-language sleep-focused playlist, cluster sono not abundancia-prosperidade.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Es-language sleep playlist, cluster sono, unrelated to money manifestation.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4oV5F1W2E6azZePnmqBanN",
+        "name": "Limpieza Energética & Protección del Hogar (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Es-language but cluster limpeza-energetica, unrelated to money manifestation.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+        "name": "Frecuencia divina 963 Hz - Activación del tercer ojo",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Es-language spiritual playlist but cluster frequencia-divina-espiritualidade, not money-specific abundance.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_abundancia.divinaaofc",
+        "name": "Abundância Divina",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster matches abundancia-prosperidade but page is pt/Brasil, not aligned with es-language TikTok audience needed.",
+        "role": "candidate"
+      }
+    ],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster canonical match to abundancia-prosperidade with catalog affinity confirmed.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster match abundancia-prosperidade, includes Manifestação secondary cluster relevant to money manifestation.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster match abundancia-prosperidade with Manifestação secondary tag, name evokes abundance/money directly.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist but catalog is sleep-focused, no affinity to money manifestation cluster.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist but sleep cluster, not abundance related.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist but sleep cluster, not abundance related.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data to assess relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data to assess relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data to assess relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data to assess relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data to assess relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data to assess relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data to assess relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+        "name": "Opulentia Divina",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Opulentia Divina' suggests abundance theme but no classification data confirms it.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Cluster anjos-espiritualidade-religiosa, distinct from money-manifestation focus.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Cluster anjos-espiritualidade-religiosa, not abundance-focused.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Cluster anjos-espiritualidade-religiosa with Prosperidade tag secondary but not primary money-manifestation fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Cluster anjos-espiritualidade-religiosa, unrelated to money manifestation.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Cluster sono, secondary Manifestação tag but primary theme sleep not money.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Cluster sono, unrelated to money manifestation.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Cluster sono, unrelated to money manifestation.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Cluster sono, unrelated to money manifestation.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "UNKNOWN",
+    "best_page": "NEW_ASSET",
+    "best_artist": "art_7uDfdvq7PZmSkTdXHoJMMa",
+    "new_asset_recommendation": {
+      "asset_type": "playlist",
+      "rationale": "A dedicated es-language TikTok playlist explicitly framed around manifesting money (not general prosperity) would fill a gap: existing abundancia-prosperidade playlist is pt/Brasil, and no es asset targets the money-specific manifestation sub-niche despite strong artist catalog affinity (Abundor, Prospperus, Sinta-se Próspero) that could power it.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No existing es-language playlist targets the abundancia-prosperidade cluster; existing playlists in that cluster are pt/Brasil-market only, and no page exists in the correct language/market for this niche."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Only one OBSERVED signal (sig_run_2026-09-01_01_0020) confirms a Discover topic specifically for money-manifestation songs, and that signal itself carries MEDIUM confidence. A single data point is suggestive of a distinct sub-niche but not strong corroborated evidence."
+      },
+      "audience_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The opportunity targets Spanish-speaking TikTok users searching for money-manifestation audio, a plausibly large pan-regional audience (Latin America + Spain), but no volume, search-frequency, or view-count data is provided to size the audience.",
+        "blocked_by": [
+          "audience size / search-volume data for es-market manifestation content"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Durability is labeled EMERGING and urgency MEDIUM in the opportunity brief, implying early-stage traction, but no time-series or trend-growth data accompanies the single observed signal to confirm acceleration.",
+        "blocked_by": [
+          "historical trend/velocity data for the sub-niche"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Labeled EMERGING with MEDIUM urgency, suggesting a live but not yet saturated window; however, without longitudinal data it's unclear whether this is a short-lived trend spike or a sustainable niche.",
+        "blocked_by": [
+          "trend lifecycle data / repeat observation over time"
+        ]
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The business's musical DNA/catalog detail is not provided (NEEDS_INPUT), so fit cannot be assessed beyond the fact that 22 matching artists exist in the system, which suggests some catalog overlap in the general manifestation/prosperity space.",
+        "blocked_by": [
+          "business musical DNA / catalog genre and style profile"
+        ]
+      },
+      "content_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "TikTok users specifically searching for money-manifestation-framed audio (per the Discover topic signal) indicates a ready-made content angle (title/thumbnail/hook framing around 'manifest money') that lends itself well to short-form video and audio-led content formats."
+      },
+      "competitive_position": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Asset-fit evidence states no existing es-language playlist targets the abundancia/prosperidade cluster and existing playlists there are pt/Brazil-market only, implying open competitive space for a Spanish-language entrant."
+      },
+      "differentiation_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The opportunity is explicitly framed as distinct from general prosperity/abundance content — a money-specific manifestation angle — which the Discover topic signal corroborates as a separately named sub-category, giving room for a differentiated positioning versus broader wellness/manifestation content."
+      },
+      "asset_fit": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "22 matching artists and 6 matching playlists exist in the system, but the unmatched_reason clarifies these playlists are pt/Brazil-market and no es-language playlist or correctly localized page exists; a NEW_ASSET (page) is recommended, meaning execution requires fresh asset creation rather than leveraging existing inventory directly."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Combines an emerging, differentiated, low-competition niche with genuine asset gaps (no es playlist/page) and thin signal evidence (single observed data point); potential is plausible but unproven pending validation and asset build-out.",
+        "blocked_by": [
+          "additional signal validation",
+          "audience sizing data"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "The opportunity rests on a single OBSERVED signal (sig_run_2026-09-01_01_0020) with only MEDIUM confidence; no secondary corroboration, volume, or trend data exists to validate the sub-niche's actual size or trajectory.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "No existing es-language playlist or correctly localized page targets this cluster (per asset_fit unmatched_reason); a brand-new asset must be built, adding execution risk and lead time before any content can go live.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "A single Discover-topic signal indicates money-manifestation is emerging as a distinct, named sub-niche separate from general prosperity content among Spanish-speaking TikTok users, and no es-language playlist or page currently serves this cluster, leaving open competitive white space. However, the evidence base is thin (one MEDIUM-confidence signal, no audience-size or trend-velocity data), and execution would require building a new playlist and page from scratch. The opportunity is plausible and differentiated but unproven, warranting cautious exploration rather than immediate investment."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "No es-language playlist currently exists in the abundancia/prosperidade cluster, so a new playlist would start from zero; the existence of an analogous pt-market cluster with 6 playlists suggests the format can work, but transferability to es-market is unverified."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "TikTok manifestation content generally drives UGC (search-and-use behavior), and the Discover topic signal confirms users actively search this specific framing; however only one signal supports this and no UGC volume/engagement data is available."
+      },
+      "streaming_royalty_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No streaming consumption, DSP, or royalty-relevant data is included in the evidence; potential cannot be assessed beyond speculation."
+      },
+      "page_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "asset_fit recommends a NEW_ASSET page since no page exists in the correct language/market for this niche; an emerging, low-competition sub-niche could support page growth, but there is no baseline data on comparable page performance in this space."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No evidence relates to YouTube consumption, search behavior, or media performance for this niche; rating reflects absence of any supporting signal."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Run a small-scale es-language TikTok content test (a few tracks/clips framed explicitly around 'manifestar dinero') using an existing or lightly adapted artist asset to gauge search/discovery traction before committing to a dedicated new playlist and page.",
+    "justification": "The single observed signal and clear asset gap (no es playlist/page in this cluster) justify a low-cost validation step rather than full build-out (EXPLORE/scale) or dismissal (PARK), given the differentiated positioning and low competition identified.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T12:18:24Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_01_0020"
+    ],
+    "sources": [
+      {
+        "source": "Canciones Para Manifestar Dinero Y Abundancia",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "manifestación abundancia música TikTok tendencia",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/canciones-para-manifestar-dinero-y-abundancia?lang=es"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T12:18:24Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_01"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "abundancia-prosperidade",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Money-specific manifestation instrumental sub-series within abundance cluster",
+    "potential_page": "es money-manifestation TikTok content",
+    "first_content_direction": "Create instrumental tracks captioned specifically around manifesting money/financial abundance",
+    "format": "short-form instrumental clip",
+    "hook": "Música para manifestar dinero"
+  },
+  "rank": 6,
+  "report_ref": "reports/run_2026-09-01_01/opp_2026-09-01_b67f7203e5.md"
+}

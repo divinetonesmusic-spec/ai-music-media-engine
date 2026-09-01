@@ -1,0 +1,377 @@
+{
+  "opportunity_id": "opp_2026-09-01_640ed9519d",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_02",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Alivio de ansiedad basado en tendencia de búsqueda sostenida (en)",
+  "need": "Encontrar productos/contenido de alivio de ansiedad de manera sostenida a lo largo del año, con picos estacionales",
+  "audience": {
+    "description": "English-speaking audience actively searching for anxiety relief solutions online, showing seasonal peaks",
+    "attributes": {
+      "search_behavior": "seasonal peak around Q1/March"
+    }
+  },
+  "market": "English-speaking markets",
+  "language": "en",
+  "platform": "youtube",
+  "consumption_context": "Web search leading to content discovery, likely followed by YouTube/Spotify listening for relief",
+  "durability": "STRUCTURAL",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "Search analytics show sustained upward search interest for 'anxiety relief products' peaking March 2026",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-09-01_02_0005"
+      ]
+    },
+    {
+      "type": "OBSERVED",
+      "statement": "The #anxiety hashtag on TikTok is dominated by viral pop/meme content, not instrumental wellness music, so TikTok hashtag volume is a poor proxy for this demand",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-09-01_02_0006"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4oV5F1W2E6azZePnmqBanN",
+        "name": "Limpieza Energética & Protección del Hogar (2026)",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Cluster is Limpeza Energética in Spanish market, unrelated to anxiety-relaxation cluster and mismatched language (es vs en).",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+        "name": "Frecuencia divina 963 Hz - Activación del tercer ojo",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Cluster is Frequência Divina / Espiritualidade in Spanish market, unrelated to anxiety-relaxation cluster and mismatched language.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Consolidated classification includes 'Ansiedade / Relaxamento' as secondary cluster and catalog_affinity_relates is true, directly matching the ansiedade-relaxamento opportunity cluster.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist but primary cluster is Sono, only tangentially related to anxiety relief.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist in Sono cluster, not specifically anxiety-focused.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist, Sono cluster, no direct anxiety alignment.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster artist without anxiety-specific tagging.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster with anti-insônia focus, adjacent but not anxiety-specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster, 'Descanso mental' secondary tag loosely related to relaxation.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but cluster data unresolved (NEEDS_INPUT), no basis to assess anxiety fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but cluster data unresolved, no basis to assess fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but cluster data unresolved.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but cluster data unresolved.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but cluster data unresolved.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but cluster data unresolved.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but cluster data unresolved.",
+        "role": "hero"
+      }
+    ],
+    "best_playlist": "UNKNOWN",
+    "best_page": "UNKNOWN",
+    "best_artist": "art_5rW5NStZS26JvQ8Sa0csKX",
+    "new_asset_recommendation": {
+      "asset_type": "playlist",
+      "rationale": "A dedicated English-language 'Anxiety Relief / Relaxation' playlist targeting sustained search-driven demand with seasonal peaks would fill a clear gap, since existing playlists are Spanish-market and off-cluster (Limpeza Energética, Frequência Divina). The identified hero-fit artist (Diviniia) already has relevant catalog tagged Ansiedade/Relaxamento to seed such a playlist, and sustained year-round demand plus seasonal peaks gives a durable window for promotion.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No playlist candidate maps to the ansiedade-relaxamento cluster or English-language YouTube search-driven context; both available playlists are Spanish-market and off-cluster. No page-type assets exist in the candidate inventory at all, so best_page cannot be matched to an existing asset."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "A single OBSERVED signal (sig_run_2026-09-01_02_0005) reports sustained upward search interest for 'anxiety relief products' peaking March 2026, but it is MEDIUM confidence itself and there is no corroborating second data source, so the underlying signal is real but thin."
+      },
+      "audience_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Anxiety relief is a broad, evergreen search category across English-speaking markets; the sustained (not one-off) search interest signal suggests a large addressable audience, though no absolute volume or demographic breakdown is provided."
+      },
+      "growth_momentum": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Search interest is described as sustained and upward with a seasonal peak in March 2026, indicating momentum, but this rests on one MEDIUM-confidence signal with no trend magnitude (e.g., % growth) or independent confirmation."
+      },
+      "durability_opportunity_window": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Opportunity is labeled STRUCTURAL durability with recurring seasonal peaks (e.g., March), suggesting a year-round baseline demand with predictable spikes rather than a fleeting fad; urgency is only MEDIUM, allowing time to build assets before peak season."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "14 matching artists exist in the candidate inventory suggesting some catalog affinity for anxiety/relaxation-style music, but the business's detailed musical DNA is marked NEEDS_INPUT, so genre/style alignment with 'anxiety relief' listening (e.g., ambient, instrumental, binaural) cannot be verified.",
+        "blocked_by": [
+          "business musical DNA / catalog genre profile"
+        ]
+      },
+      "content_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The consumption context (web search leading to YouTube/Spotify listening for relief) maps cleanly onto easily producible long-form/ambient wellness video content, and durability being STRUCTURAL supports a repeatable content pipeline, though no existing content performance data is cited."
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Evidence shows the #anxiety hashtag on TikTok is dominated by viral pop/meme content rather than instrumental wellness music (sig_run_2026-09-01_02_0006), implying low direct competition in the wellness-music niche there, but this says nothing about competition on YouTube search/discovery, the actual target platform.",
+        "blocked_by": [
+          "YouTube-specific competitive landscape data"
+        ]
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Because TikTok's anxiety-related content is meme/pop-dominated and a poor proxy for wellness-music demand, a focused instrumental/relief-music offering could stand out from generic viral content, but this inference is indirect (TikTok evidence, not YouTube) and unconfirmed for the actual target platform."
+      },
+      "asset_fit": {
+        "rating": "LOW",
+        "confidence": "HIGH",
+        "justification": "Both matching playlists are Spanish-market and off-cluster, zero pages exist in inventory, and unmatched_reason explicitly states no playlist or page maps to this English-language, ansiedade-relaxamento, YouTube-search-driven use case; new_asset_recommended is true, confirming a genuine asset gap."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Structural, sustained demand and clean platform-context fit (search→YouTube/Spotify) support moderate business potential, but the lack of any matching playlist/page asset and thin single-signal evidence base cap confidence in translating this into near-term measurable outcomes."
+      }
+    },
+    "red_flags": [
+      {
+        "description": "The opportunity's growth and demand claims rest on a single OBSERVED signal (sig_run_2026-09-01_02_0005) with only MEDIUM confidence and no secondary corroborating source, limiting evidentiary strength.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "No playlist, page, or clearly matched artist asset exists for this English-language, anxiety-relief, YouTube-search-driven cluster; both candidate playlists are Spanish-market and off-cluster, and zero pages exist in inventory (asset_fit.unmatched_reason).",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      },
+      {
+        "description": "The TikTok hashtag evidence used to infer differentiation potential (sig_run_2026-09-01_02_0006) is drawn from a different platform than the target platform (YouTube), so competitive positioning conclusions for YouTube remain unverified.",
+        "severity": "LOW",
+        "kind": "market"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "There is a structurally durable, seasonally-peaking English-language search demand for anxiety relief content (single MEDIUM-confidence signal), with consumption context aligning well to YouTube/Spotify listening. However, no existing playlist or page asset matches this cluster, TikTok evidence suggests the wellness-music niche is under-served relative to generic viral anxiety content, and the overall evidence base is thin (two signals, one platform mismatch). Music catalog fit cannot be firmly assessed given missing musical DNA detail."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "No existing playlist matches the English-language anxiety-relief cluster (matching_counts.playlists=2, both Spanish/off-cluster), so growth would require building a new playlist from scratch; potential exists given sustained search demand but is unproven."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "Evidence indicates the #anxiety hashtag ecosystem on TikTok is saturated with viral pop/meme content, not instrumental wellness music, suggesting weak native UGC trend potential for this specific music-relief angle."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Sustained, structurally durable search demand for anxiety relief content implies recurring listening behavior that could translate into streaming plays, but no streaming performance or royalty data is present to substantiate magnitude."
+      },
+      "page_growth_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Zero matching pages exist in the candidate inventory (matching_counts.pages=0) and unmatched_reason confirms no page-type asset can be matched, meaning any page growth would start from zero with no baseline evidence of audience conversion."
+      },
+      "youtube_media_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Platform is YouTube and the stated consumption_context ('web search leading to content discovery, likely followed by YouTube/Spotify listening for relief') directly aligns search intent with YouTube media consumption, supporting solid potential for search-driven video discovery."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "EXPLORE",
+    "suggested_next_step": "Commission a new English-language anxiety-relief playlist/channel asset and validate demand with a small-scale YouTube content test (2-3 videos) while gathering additional search-volume and competitor data before committing further resources.",
+    "justification": "The structural durability and platform-context alignment justify further exploration, but the single-signal evidence base, absent matching assets, and unverified YouTube competitive landscape mean a full TEST commitment is premature without additional validation.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_02",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T14:33:17Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_02_0005",
+      "sig_run_2026-09-01_02_0006"
+    ],
+    "sources": [
+      {
+        "source": "TikTok Mental Health Trends 2026: What You Need to Know",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T14:33:17Z",
+        "query_or_reference": "anxiety stress relief music TikTok trend statistics 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.accio.com/t-v1/business/tiktok_mental_health_trends"
+      },
+      {
+        "source": "Anxiety TikTok Sound | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-06-08",
+        "collected_at": "2026-09-01T14:33:17Z",
+        "query_or_reference": "anxiety stress relief music TikTok trend statistics 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/anxiety-tiktok-sound"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T14:33:17Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_02"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "ansiedade-relaxamento",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Anxiety-relief instrumental playlists timed to seasonal demand spikes (Q1)",
+    "potential_page": "Calm Anxiety Relief Sounds",
+    "first_content_direction": "Launch seasonal anxiety-relief playlist campaign targeting Q1 search peak on YouTube/Spotify",
+    "format": "Long-form ambient tracks + YouTube SEO-optimized titles",
+    "hook": "Feel your anxiety melt away, anytime you need it"
+  },
+  "rank": 2,
+  "report_ref": "reports/run_2026-09-01_02/opp_2026-09-01_640ed9519d.md"
+}

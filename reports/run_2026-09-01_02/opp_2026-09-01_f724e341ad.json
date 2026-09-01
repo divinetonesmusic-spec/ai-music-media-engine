@@ -1,0 +1,429 @@
+{
+  "opportunity_id": "opp_2026-09-01_f724e341ad",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_02",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Fusión de frecuencias (432Hz+528Hz) con abundancia/prosperidade en pt",
+  "need": "Atrair dinheiro, beleza e amor através de música com frequências específicas combinadas",
+  "audience": {
+    "description": "Ouvintes brasileiros de TikTok interessados em manifestação de prosperidade, beleza e amor via frequências"
+  },
+  "market": "Brasil",
+  "language": "pt",
+  "platform": "tiktok",
+  "consumption_context": "Consumo de vídeos curtos no TikTok buscando manifestação/prosperidade diária",
+  "durability": "EMERGING",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "Um criador de conteúdo pt combina 432Hz e 528Hz para dinheiro, beleza e amor/prosperidade, com a hashtag combinada mostrando 181.7K posts",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-09-01_02_0014"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_2vZzaPRyZrrWqpt8zZ5wDs",
+        "name": "Abundância 888 Hz • Ativação da Prosperidade (2026)",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "PT-BR playlist directly in abundancia-prosperidade cluster with 888Hz frequency focus, matches opportunity closely.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_2wQ3zDAXPdF9cLtR9OppyZ",
+        "name": "Limpeza da Glandula Pineal Frequências 963 Hz (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Glândula pineal cluster, frequency-based but not abundance/prosperity themed.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+        "name": "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster, Spanish-language market, wrong language and theme.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4jmuWvaWI6BvsjhxmJBUao",
+        "name": "Sono Restaurador 432 Hz - Frequências Hertz para dormir e curar (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "PT-BR sono cluster with 432Hz but not abundance/prosperity focused.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster, Spanish market, mismatched language and theme.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_abundancia.divinaaofc",
+        "name": "Abundância Divina",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "PT-BR TikTok page directly in abundancia-prosperidade cluster, matches audience and platform exactly.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_energiaeterna888hz",
+        "name": "Energia Eterna",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Frequência divina/espiritualidade cluster overlaps with frequency angle but not specifically abundance/prosperity.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_frequenciasdivinas",
+        "name": "Frequências Divinas",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Frequência divina cluster relates to frequency theme but not abundance/prosperity specifically.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_mandalameditationss",
+        "name": "Frequências de Sono Profundo",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster page, unrelated to prosperity/abundance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_meditacao.sonora",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Meditação/relaxamento cluster, tangential but not focused on abundance.",
+        "role": "candidate"
+      }
+    ],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Catalog affinity aligns with abundancia-prosperidade cluster with 777/888 Hz frequencies.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Abundância/Prosperidade catalog affinity with manifestação and 963 Hz frequencies, strong fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Abundância/Prosperidade cluster with manifestação and 528 Hz, catalog affinity relates directly.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Anjos/Espiritualidade cluster but includes Prosperidade secondary tag and 528Hz.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist but catalog is Sono, not directly aligned though includes 432/528 Hz.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist in Sono cluster with 528Hz, tangential frequency overlap only.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist, Sono cluster with 528Hz and limpeza energética, partial thematic overlap.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available to assess cluster fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available to assess cluster fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available to assess cluster fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available to assess cluster fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available to assess cluster fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available to assess cluster fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available to assess cluster fit.",
+        "role": "hero"
+      }
+    ],
+    "best_playlist": "pl_2vZzaPRyZrrWqpt8zZ5wDs",
+    "best_page": "page_tiktok_abundancia.divinaaofc",
+    "best_artist": "art_7uDfdvq7PZmSkTdXHoJMMa"
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Only one OBSERVED signal (sig_run_2026-09-01_02_0014) supports this opportunity, showing a single creator combining 432Hz+528Hz for money/beauty/love with a combined hashtag reaching 181.7K posts. No time-series or multi-source corroboration exists."
+      },
+      "audience_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Brazil is one of TikTok's largest markets and esoteric/manifestation content (frequencies, abundance) has a large established following there; the 181.7K post hashtag volume is a proxy for a sizeable interested audience, though no direct audience-size metrics were provided."
+      },
+      "growth_momentum": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The hashtag volume (181.7K posts) suggests active usage, but there is no trend line or historical growth data to confirm the trajectory is accelerating rather than plateauing or declining.",
+        "blocked_by": [
+          "time-series hashtag/view data",
+          "engagement rate metrics"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Marked as EMERGING with MEDIUM urgency in the opportunity metadata; frequency/manifestation trends on TikTok have historically shown moderate longevity but no lifecycle data is available for this specific combined-frequency angle.",
+        "blocked_by": [
+          "lifecycle/trend duration data"
+        ]
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Catalog affinity signals exist (5 matching playlists, 14 matching artists) suggesting some existing repertoire overlap, but the business's detailed musical DNA is not specified (NEEDS_INPUT), so fit cannot be confidently assessed beyond catalog counts.",
+        "blocked_by": [
+          "business musical DNA profile"
+        ]
+      },
+      "content_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Short-form frequency/manifestation content (money, beauty, love hooks) is well-suited to TikTok's format and aligns with an existing niche page ('abundancia.divinaaofc'), enabling multiple content angles (individual frequencies, combined tracks, ritual framing) without needing new production infrastructure."
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "A creator is already active in this exact combined-frequency niche and the hashtag shows meaningful volume (181.7K posts), indicating a moderately crowded space; existing matched assets (page, playlist, artist) give a foothold but not clear differentiation yet."
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Combining 432Hz+528Hz specifically for a money+beauty+love triad is a somewhat specific angle, but the sizeable existing hashtag volume suggests the core concept is not novel; true differentiation would depend on execution/branding not evidenced here.",
+        "blocked_by": [
+          "competitor content-style breakdown"
+        ]
+      },
+      "asset_fit": {
+        "rating": "HIGH",
+        "confidence": "HIGH",
+        "justification": "Strong existing catalog match: best_playlist, best_page ('page_tiktok_abundancia.divinaaofc'), and best_artist identified, with 5 matching playlists, 5 matching pages and 14 matching artists; new_asset_recommended is false, indicating the business can activate this opportunity with current assets."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Good asset fit and plausible audience size support upside, but thin, single-source evidence and lack of growth/engagement metrics limit confidence in translating this into measurable business outcomes.",
+        "blocked_by": [
+          "engagement/conversion data",
+          "revenue or stream data"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "Only one OBSERVED evidence signal (MEDIUM confidence, single snapshot) underlies this entire opportunity; no time-series, competitor breakdown, or engagement metrics are available to validate sustained momentum.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "The combined hashtag already shows 181.7K posts, indicating the space may already be moderately saturated with similar frequency-abundance content, raising market crowding risk for a differentiated entry.",
+        "severity": "LOW",
+        "kind": "market"
+      },
+      {
+        "description": "Any future content claiming that specific frequencies (432Hz/528Hz) 'attract' money, beauty or love as a factual/causal outcome (rather than a subjective or ritual framing) would violate G04/G05 (inventing unproven efficacy/evidence); content must frame this as audience belief/intention-setting, not a proven effect. This is a preventive flag for content production, not a violation found in the current evidence text.",
+        "severity": "MEDIUM",
+        "kind": "compliance"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "This opportunity is grounded in a single MEDIUM-confidence signal showing a Brazilian TikTok creator combining 432Hz+528Hz frequencies for money, beauty and love content, with the associated hashtag reaching 181.7K posts. Asset fit is strong, with matched playlist, page and multiple artists already in the catalog and no new asset required. However, the evidence base is thin (one snapshot, no trend history), competitive saturation is plausible given hashtag volume, and music-DNA fit cannot be fully assessed due to missing catalog detail."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "A matching playlist asset already exists (pl_2vZzaPRyZrrWqpt8zZ5wDs); frequency/manifestation playlists typically support long looped listening sessions on TikTok-driven traffic, which can aid playlist follower growth, though no direct playlist performance data is given."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The combined hashtag already shows 181.7K posts, indicating an active UGC pattern around this frequency-combination concept that could be extended with branded sounds or challenges."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Frequency-based background tracks can generate repeat/looped streams, but no streaming volume, watch-time, or royalty data was provided to substantiate the magnitude of this effect."
+      },
+      "page_growth_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "An existing niche page ('page_tiktok_abundancia.divinaaofc') is already matched to this theme, and the topic's apparent popularity (181.7K hashtag posts) suggests room for follower growth if content cadence increases."
+      },
+      "youtube_media_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "No YouTube-specific signals, view counts, or channel data were provided; cross-platform extension (e.g., long-form frequency loops) is plausible given the TikTok trend but unverified for YouTube specifically."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Run a small batch (3-5) of TikTok videos on the matched page/playlist combining 432Hz+528Hz framed around abundance/beauty/love intention-setting (not causal health/financial claims), and track hashtag engagement and follower/stream lift over 2-3 weeks before deciding to scale.",
+    "justification": "Strong existing asset fit and plausible audience size justify a low-cost test, but the single-source evidence and lack of growth trend data mean broader investment should wait for validated performance signals.",
+    "confidence": "MEDIUM",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_02",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T14:33:17Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_02_0014"
+    ],
+    "sources": [
+      {
+        "source": "Combination 8uz 432 Hz and 528hz | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-07-06",
+        "collected_at": "2026-09-01T14:33:17Z",
+        "query_or_reference": "432Hz 528Hz frequency music trend YouTube TikTok",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/combination-8uz-432-hz-and-528hz"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T14:33:17Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_02"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "abundancia-prosperidade",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Frequências combinadas como fórmula de manifestação multifacetada (dinheiro+beleza+amor)",
+    "potential_page": "Frequências da Prosperidade",
+    "first_content_direction": "Criar faixas combinando 432Hz+528Hz com narrativa de dinheiro, beleza e amor simultaneamente",
+    "format": "Áudio longo com visual de moedas/luz dorada",
+    "hook": "A frequência que atrai dinheiro, beleza e amor"
+  },
+  "rank": 1,
+  "report_ref": "reports/run_2026-09-01_02/opp_2026-09-01_f724e341ad.md"
+}

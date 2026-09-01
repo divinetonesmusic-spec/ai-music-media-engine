@@ -1,0 +1,556 @@
+{
+  "opportunity_id": "opp_2026-09-01_c6249fcde5",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_02",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Resistencia 'No AI' en comunidades de música de estudio (en)",
+  "need": "Escuchar/preferir música curada humanamente en lugar de generada por IA para estudio/foco",
+  "audience": {
+    "description": "Miembros de comunidades online (ej. Reddit) de música de estudio con sentimiento anti-IA creciente"
+  },
+  "market": "English-speaking markets",
+  "language": "en",
+  "platform": "other",
+  "consumption_context": "Discusión en foros/comunidades online sobre preferencias musicales para estudio",
+  "durability": "EMERGING",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "A growing 'No AI' sentiment trend is emerging in study-music communities pushing back against automated/AI-generated audio",
+      "confidence": "LOW",
+      "signal_ids": [
+        "sig_run_2026-09-01_02_0010"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [],
+    "matching_pages": [],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-focused artist, cluster 'sono' unrelated to study focus/anti-AI community need.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hero artist with no consolidated cluster data tying it to study/focus or anti-AI sentiment; hero status alone doesn't establish fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-restorative cluster, not study/focus oriented.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Healing codes hero artist with no cluster data linking to study focus community.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Hertz-frequency hero artist with unknown cluster; name suggests binaural/frequency content plausible for focus but unconfirmed.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Theta-wave hero artist name suggests meditation/sleep, not study focus specifically.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Meditative hero artist with no cluster confirmation of study-focus relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Brainhertz' suggests binaural/brainwave content plausibly relevant to focus/study use case, though unconfirmed by classification.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Divine/spiritual hero artist, no link to secular study-focus anti-AI community.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep cluster hero artist, not aligned with study/focus anti-AI need.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+        "name": "Cortiq",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available; cannot determine relevance to study-focus opportunity.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+        "name": "Templo Theta",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified; name suggests meditation not study-focus.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity cluster, unrelated to study focus/anti-AI theme.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep cluster, not study-focus.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+        "name": "Synaptica",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified artist, no basis for study-focus fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+        "name": "Salmo Sonoro",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified, name suggests devotional/psalm content unrelated to focus study.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+        "name": "David’s Harp Meditation",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified, religious harp meditation theme unrelated to opportunity.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+        "name": "Meditara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified; no evidence of study-focus alignment.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/religious spirituality cluster, unrelated to secular study-focus anti-AI need.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+        "name": "Opulentia Divina",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified, prosperity-themed name unrelated to opportunity.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+        "name": "Vibração Consciente",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified; no basis for fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+        "name": "Divine Tones by Nikolai",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified, spiritual tones name unrelated to study focus.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+        "name": "Nathaniel Lior Grace",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified, no relevance basis.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep cluster with binaural elements, closer but still not study-focus specific classification.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+        "name": "Hipnocortex",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified hypnosis-themed artist, uncertain relevance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Religious spirituality cluster unrelated to secular study focus.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+        "name": "Silenciium",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified; silence-themed name plausible for focus but unconfirmed.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+        "name": "Raphael’s Healing Choir",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified religious healing choir, unrelated to study focus.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep cluster, not study-focus specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+        "name": "Brainora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified brain-themed name plausible for focus but unconfirmed.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep/relaxation cluster, unrelated to study focus.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+        "name": "Hypnozzert",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified hypnosis-themed name, uncertain relevance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Religious angels cluster unrelated to secular study focus.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity cluster, unrelated to study focus need.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+        "name": "Psalms Frequencies",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Unclassified psalms-themed artist unrelated to opportunity.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity/abundance cluster, unrelated to study focus.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Religious angels cluster, unrelated to secular study-focus anti-AI need.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "UNKNOWN",
+    "best_page": "NEW_ASSET",
+    "best_artist": "art_5SQX7a6G5C9Dz2SobHcdRI",
+    "new_asset_recommendation": {
+      "asset_type": "page",
+      "rationale": "A dedicated page/content addressing 'human-curated, no-AI' focus music could resonate with the growing anti-AI sentiment in study communities; no existing playlist or page asset targets this narrative, and the topic has clear differentiation potential from generic focus/sleep content, with a timely cultural window around AI-generated music backlash.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No playlist or page assets exist in the candidate inventory at all; only artist assets were provided, and none show observed or strong inferred alignment to the 'foco-estudo' cluster or the anti-AI community context."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Only a single OBSERVED evidence item ('A growing No AI sentiment trend is emerging in study-music communities') exists, and it is itself tagged confidence LOW with a single signal_id and no rationale provided."
+      },
+      "audience_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Audience is described only qualitatively ('members of online communities... with growing anti-AI sentiment') with no size, engagement, or reach metrics for Reddit or other communities.",
+        "blocked_by": [
+          "audience size / reach / engagement metrics for the referenced communities"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "The opportunity is labeled 'EMERGING' and evidence uses the word 'growing', but there is no time-series or repeated-signal data to substantiate a momentum trajectory beyond a single low-confidence observation.",
+        "blocked_by": [
+          "longitudinal signal/trend data across multiple time points"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Opportunity metadata explicitly sets durability to EMERGING and urgency to MEDIUM, suggesting a live but still-forming window; however this is a categorical tag, not corroborated by additional evidence."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The need (human-curated vs AI-generated study/focus music) aligns conceptually with a study-music catalog niche, but the business's musical DNA/catalog detail is NEEDS_INPUT, so fit cannot be assessed with more than directional confidence.",
+        "blocked_by": [
+          "catalog musical DNA / genre detail"
+        ]
+      },
+      "content_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "An anti-AI, 'human-curated' positioning could support content angles (e.g., 'made by real musicians') for study/focus audiences, but no content performance evidence exists yet to confirm audience appetite.",
+        "blocked_by": [
+          "content performance data or comparable case studies"
+        ]
+      },
+      "competitive_position": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No data is provided on existing brands, channels, or playlists already serving this anti-AI/human-curated study-music niche, making relative competitive position unassessable beyond speculation.",
+        "blocked_by": [
+          "competitor landscape / existing player data"
+        ]
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "A 'human-curated, not AI-generated' brand narrative is a plausible differentiator against generic AI study-music content, but this is inferred from the need statement rather than evidence of market gap or unmet demand.",
+        "blocked_by": [
+          "evidence of competitor AI-vs-human positioning gaps"
+        ]
+      },
+      "asset_fit": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "Matching counts show 0 playlists and 0 pages, and although 37 artists were checked, the unmatched_reason states none show observed or strong inferred alignment to the study-focus/anti-AI cluster; a new asset is recommended, indicating a current asset gap."
+      },
+      "business_outcome_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "With only one low-confidence signal, no matching playlist/page assets, and no audience or competitive data, the overall business outcome potential cannot currently be rated above LOW with any confidence.",
+        "blocked_by": [
+          "stronger corroborating signals",
+          "asset alignment data",
+          "audience sizing"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "The entire opportunity rests on a single OBSERVED evidence item tagged confidence LOW with no rationale text, making the core premise ('growing No AI sentiment') largely unvalidated.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "No playlist or page assets match this opportunity (matching_counts.playlists=0, pages=0) and unmatched_reason confirms no artist shows strong alignment, meaning execution would require building assets from scratch.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "This opportunity is built on a single low-confidence signal describing emerging anti-AI sentiment in study-music communities, with no supporting audience size, momentum, or competitive data. No existing playlist or page assets align with the niche, and only artist candidates (37, none strongly matched) are available. The concept is directionally interesting (human-curated vs AI-generated positioning) but currently under-evidenced for confident investment."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No matching playlists exist (matching_counts.playlists = 0) and best_playlist is UNKNOWN, so there is no current vehicle for playlist growth tied to this need."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "An anti-AI sentiment framed around authenticity/curation could plausibly spark discussion-style UGC in forums like Reddit, but this is inferred from a single low-confidence signal, not observed UGC activity."
+      },
+      "streaming_royalty_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No streaming volume, playlist placement, or catalog performance data is available to support a royalty potential estimate for this niche."
+      },
+      "page_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "new_asset_recommended is true and best_page is NEW_ASSET, suggesting room to build a page around a 'human-curated study music' identity, but no existing traction data supports growth expectations."
+      },
+      "youtube_media_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Study/focus music is a well-established YouTube content category generally, and a human-curated angle could differentiate content there, but no platform-specific evidence (views, channel data) is provided for this specific opportunity."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "EXPLORE",
+    "suggested_next_step": "Monitor and collect additional signals from Reddit/study-music forums over several weeks to validate whether anti-AI sentiment is a durable, sizeable trend before committing to new asset creation.",
+    "justification": "The single LOW-confidence signal and complete absence of matching playlist/page assets make it premature to test or invest; further signal validation is needed to justify resource allocation.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_02",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T14:33:17Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_02_0010"
+    ],
+    "sources": [
+      {
+        "source": "Best Study Music on YouTube (2026)",
+        "source_type": "web_search",
+        "observed_at": "2026-07-31",
+        "collected_at": "2026-09-01T14:33:17Z",
+        "query_or_reference": "lofi focus study music YouTube channel growth 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.browwwser.com/resources/best-study-music-youtube-lofi-focus-playlists-2026/"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T14:33:17Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_02"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "foco-estudo",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Transparency/human-touch framing as differentiation against 'No AI' backlash risk",
+    "potential_page": "Focus Flow Instrumentals",
+    "first_content_direction": "Test messaging that emphasizes human curation/selection process rather than raw AI generation",
+    "format": "Behind-the-scenes short video explaining curation process",
+    "hook": "Real curation, real focus - not just AI noise"
+  },
+  "rank": 8,
+  "report_ref": "reports/run_2026-09-01_02/opp_2026-09-01_c6249fcde5.md"
+}

@@ -347,15 +347,43 @@ def _prompt(opp: FramedOpportunity, am: AssetMatch, knowledge: KnowledgeBundle) 
         "- red_flags: compliance / feasibility / evidence_gap / asset_gap / market / other.\n"
         "- recommendation.target_state: EXPLORE, TEST or PARK only. suggested_next_step is a "
         "concrete action — still a recommendation, never executed in V1.\n\n"
-        "COMPLIANCE SELF-CHECK (decision C4). Review every piece of text you write — "
-        "evidence, justifications, summary, recommendation, and the opportunity's "
-        "hypotheses — against these guardrails:\n"
-        f"{guardrail_lines}\n"
-        "For each guardrail your text would violate, add a red_flag with kind:'compliance', "
-        "the guardrail's severity, and a description naming the guardrail id and what is "
-        "wrong. Then FIX your own text so it no longer violates it (state the uncertainty "
-        "instead of inventing; drop the claim; reframe as subjective experience). Do not "
-        "leave a violating sentence in place.\n\n"
+        "COMPLIANCE SELF-CHECK (decision C4). This check is about the CLAIMS your "
+        "text makes — not the TOPICS it mentions. A sensitive subject discussed on "
+        "its own is never a guardrail violation; a prohibited claim about it is.\n"
+        "NOT a violation by itself — never add a compliance red_flag for these:\n"
+        '  - naming a topic or theme: "sleep music", "music to relax", "meditation", '
+        '"432 Hz", "angel numbers", "energetic cleansing"\n'
+        '  - stating an audience need or behaviour: "listeners look for music to '
+        'fall asleep faster", "people play focus music while studying"\n'
+        "  - describing a subjective experience or an editorial framing: "
+        '"helps set a calm mood", "many find it relaxing", "positioned in the '
+        'Healing / Well-being cluster"\n'
+        "IS a violation — flag the exact sentence, name the guardrail id, say why:\n"
+        '  - a factual efficacy claim about health: "432 Hz treats insomnia", '
+        '"this music cures anxiety", "reduces your depression" (G01, G03)\n'
+        "  - presenting music / frequencies / meditation as a medical treatment or "
+        "as a substitute for care (G03)\n"
+        '  - a scientific or medical claim stated as proven with no cited source: '
+        '"scientifically proven to lower cortisol", "studies show it heals" (G04)\n'
+        '  - an invented or unsupported number, statistic or trend figure: '
+        '"streams grew 300%", "the #1 wellness trend of the year" with no source '
+        "(G05)\n"
+        "  - copying a third party's identity, wording or assets (G06)\n"
+        'Borderline: "432 Hz" as a subject is fine; "432 Hz treats insomnia" is '
+        'not. "sleep music" is fine; "sleep music proven to cure your insomnia" is '
+        "not. Apply the SAME standard regardless of which topic, market or language "
+        "the sentence uses — do not flag one market's sleep opportunity while "
+        "clearing another's.\n"
+        "For every sentence in YOUR text (evidence, justifications, summary, "
+        "recommendation, hypotheses) that actually makes one of the violating "
+        "claims above, add a red_flag with kind:'compliance', the offending "
+        "guardrail's severity, and a description that QUOTES the exact sentence, "
+        "names the guardrail id, and explains why. Then FIX your own text — drop "
+        "the claim, state the uncertainty, or reframe it as a subjective "
+        "experience — so no violating sentence remains. A topic, an audience need "
+        "or a subjective experience that makes no prohibited claim is NOT a "
+        "compliance red_flag.\n"
+        f"The guardrails in full:\n{guardrail_lines}\n\n"
         f"OPPORTUNITY:\n{opp_json}\n\n"
         f"EVIDENCE:\n{json.dumps(evidence, ensure_ascii=False, indent=1)}\n\n"
         f"ASSET FIT:\n{json.dumps(asset, ensure_ascii=False, indent=1)}\n\n"

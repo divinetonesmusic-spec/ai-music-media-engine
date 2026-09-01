@@ -1,0 +1,492 @@
+{
+  "opportunity_id": "opp_2026-09-01_cb76cacc52",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_02",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Sueño combinado con meditación y ansiedad en un solo contenido (es)",
+  "need": "Escuchar música instrumental que ayude a dormir profundamente mientras también calma la ansiedad y facilita la meditación, sin necesidad de buscar contenidos separados para cada necesidad",
+  "audience": {
+    "description": "Oyentes hispanohablantes de TikTok que buscan alivio simultáneo de insomnio, ansiedad y estrés mediante un solo track"
+  },
+  "market": "Mercados hispanohablantes",
+  "language": "es",
+  "platform": "tiktok",
+  "consumption_context": "Noche, antes de dormir, o en momentos de ansiedad durante el día, escuchando en el móvil vía TikTok",
+  "durability": "EMERGING",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "Contenido de sueño en español se comercializa simultáneamente contra sueño, meditación, mindfulness y reducción de ansiedad",
+      "confidence": "LOW",
+      "signal_ids": [
+        "sig_run_2026-09-01_02_0002"
+      ]
+    },
+    {
+      "type": "OBSERVED",
+      "statement": "Un track de 528Hz se posiciona para sueño profundo, relajación, meditación y reducción de ansiedad simultáneamente",
+      "confidence": "LOW",
+      "signal_ids": [
+        "sig_run_2026-09-01_02_0003"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+        "name": "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Spanish-language sleep playlist targeting deep sleep/healing, matches sono cluster and language/market exactly.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Spanish sono playlist focused on restorative sleep, strong match to need and market.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_0fzUPuhRHjqMyfOgNx0d4S",
+        "name": "Sueño Lúcido – Ondas Theta 8 Hz para Activar la Intuición y Controlar tus Sueños (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Lucid dream cluster, Spanish, related but not focused on anxiety/sleep combo.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4jmuWvaWI6BvsjhxmJBUao",
+        "name": "Sono Restaurador 432 Hz - Frequências Hertz para dormir e curar (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster fits but is in Portuguese/Brazil market, mismatched language.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4oV5F1W2E6azZePnmqBanN",
+        "name": "Limpieza Energética & Protección del Hogar (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Energy cleansing cluster, not directly aligned to sleep/anxiety need despite Spanish market.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+        "name": "Frecuencia divina 963 Hz - Activación del tercer ojo",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Spiritual frequency cluster, tangential to sleep/anxiety need.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_mandalameditationss",
+        "name": "Frequências de Sono Profundo",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster page but Portuguese/Brazil market, not exact language match though same platform and purpose.",
+        "role": "candidate"
+      }
+    ],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist in sono cluster with catalog affinity, strong fit for sleep-focused content.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist in sono cluster with catalog affinity, includes Delta/Theta for deep sleep.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist in sono cluster with catalog affinity, strong sleep/restoration alignment.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster with explicit anxiety/relaxation secondary cluster, directly matches combined sleep+anxiety need.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster with catalog affinity but no explicit anxiety focus.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster with mental rest secondary, relevant but less explicit on anxiety.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster with anti-insomnia focus, catalog affinity, relevant to sleep need.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity cluster, tangential sleep secondary, weak alignment to anxiety/sleep need.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, sleep secondary only, weak fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Religious spirituality cluster, sleep secondary, weak match.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels cluster, sleep secondary, weak match to combined need.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity cluster, sleep secondary, weak alignment.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity cluster, dreams secondary, weak alignment.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, sleep secondary, weak match.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "MEDIUM",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available; potential fit unverified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "MEDIUM",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available; potential fit unverified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "MEDIUM",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available; potential fit unverified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "MEDIUM",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available; potential fit unverified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests sonic meditation, hero status, plausible fit though unclassified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "MEDIUM",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available; potential fit unverified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "MEDIUM",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no classification data available; potential fit unverified.",
+        "role": "hero"
+      }
+    ],
+    "best_playlist": "pl_4H6G5U09JST3szo4TSvetl",
+    "best_page": "NEW_ASSET",
+    "best_artist": "art_5rW5NStZS26JvQ8Sa0csKX",
+    "new_asset_recommendation": {
+      "asset_type": "page",
+      "rationale": "A dedicated Spanish-language TikTok page combining sleep, anxiety relief, and meditation content would fill a gap not served by the Portuguese-market page, capturing hispanophone audience seeking an all-in-one solution.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No existing Spanish-language TikTok page specifically targets the combined sleep+anxiety+meditation niche; best available page (page_tiktok_mandalameditationss) is Portuguese/Brazil market, so a new asset is recommended for the Spanish TikTok audience."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Only two OBSERVED signals support this opportunity (sig_run_2026-09-01_02_0002, sig_run_2026-09-01_02_0003), and both are explicitly tagged LOW confidence with no rationale or quantitative backing (no view counts, engagement rates, or growth curves cited)."
+      },
+      "audience_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Spanish-speaking TikTok users represent a very large addressable population and sleep/anxiety/meditation are broadly known content categories, but no audience-size, search-volume or hashtag-reach data specific to the combined niche is provided, so the estimate rests on general market reasoning rather than evidence.",
+        "blocked_by": [
+          "audience size/reach data for the specific combined-need niche"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Durability is labeled EMERGING and urgency MEDIUM, but there is no trend, view-growth, or timeline data in the evidence to confirm actual momentum — the observed signals simply describe existing market positioning, not growth trajectory.",
+        "blocked_by": [
+          "time-series growth metrics for combined sleep+anxiety+meditation content"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Labeled EMERGING with MEDIUM urgency in the opportunity metadata, suggesting an open but unproven window; no data indicates how long this combined-need framing will remain distinctive before becoming commoditized like standard sleep content.",
+        "blocked_by": [
+          "competitive saturation timeline data"
+        ]
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "21 matching artists and 6 matching playlists suggest existing catalog material plausibly aligns with instrumental sleep/relaxation music, but the business's detailed musical DNA is not specified (NEEDS_INPUT), so fit to exact style/tempo/instrumentation required for a combined sleep+anxiety+meditation track cannot be confirmed.",
+        "blocked_by": [
+          "business musical DNA / catalog style specification"
+        ]
+      },
+      "content_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Evidence shows a pattern of Spanish-language sleep content being marketed simultaneously against sleep, meditation, mindfulness and anxiety reduction (sig_0002), and a 528Hz track example positioned similarly (sig_0003), indicating the multi-need format is a recognized content pattern, though performance evidence for this exact combination is absent."
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "No existing Spanish-language TikTok page specifically targets the combined sleep+anxiety+meditation niche (unmatched_reason notes the closest match is a Portuguese/Brazil page), suggesting low direct competition for this specific asset positioning, but the underlying content pattern (sig_0002) is already common in the broader Spanish sleep-content market."
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Bundling three needs (sleep, anxiety relief, meditation) into a single track could differentiate from single-purpose content, mirroring the 528Hz example (sig_0003) that already combines multiple positioning angles, but no evidence confirms audiences respond better to combined vs. separate content.",
+        "blocked_by": [
+          "comparative performance data: combined vs single-need content"
+        ]
+      },
+      "asset_fit": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Concrete asset data shows 6 matching playlists, 21 matching artists, and 1 loosely matching page (Portuguese/Brazil, wrong market), with new_asset_recommended:true — indicating strong catalog/playlist readiness but a genuine gap in a dedicated Spanish-market TikTok page."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Combining playlist/artist readiness (6 playlists, 21 artists) with an emerging but weakly-evidenced content trend suggests moderate potential, but the overall evidence base (2 LOW-confidence signals, no engagement metrics) is too thin to project outcomes with confidence."
+      }
+    },
+    "red_flags": [
+      {
+        "description": "The opportunity rests on only two signals, both explicitly marked LOW confidence with no rationale or quantitative support (view counts, engagement, growth rate) — a significant evidence gap for sizing the combined sleep+anxiety+meditation niche.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "No existing Spanish-language TikTok page matches this niche; the closest asset (page_tiktok_mandalameditationss) serves the Portuguese/Brazil market, requiring a full new-asset build with unproven cold-start risk.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      },
+      {
+        "description": "Evidence indicates the broader Spanish sleep-content market already commonly combines sleep, meditation, mindfulness and anxiety messaging (sig_0002), suggesting this may be a saturated framing rather than a novel one, reducing differentiation confidence.",
+        "severity": "LOW",
+        "kind": "market"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "This opportunity targets Spanish-speaking TikTok listeners seeking a single track that addresses sleep, anxiety and meditation simultaneously, supported by only two LOW-confidence observations describing an existing market pattern of multi-need positioning (including a 528Hz example). Asset data shows reasonable catalog readiness (6 playlists, 21 artists) but no matching Spanish-market page, requiring a new asset build. Given the thin, low-confidence evidence base and lack of quantitative performance data, this should be treated as an early-stage hypothesis rather than a validated opportunity."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "6 existing matching playlists (per asset fit data) provide a concrete distribution channel for combined sleep/anxiety/meditation tracks, though no data shows how these playlists have historically performed with similar content."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No hashtag, sound-usage, or UGC volume data is provided for this specific combined-need framing on TikTok; the only evidence is generic market-positioning observations (sig_0002, sig_0003), not user-generated content signals."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Long-form sleep/relaxation instrumental content typically supports extended listening sessions favorable to streaming royalties, but no stream-count or session-length data specific to this niche or market is available."
+      },
+      "page_growth_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "A new page must be built from scratch since no existing Spanish-market TikTok page targets this niche (best available match is Portuguese/Brazil), so growth potential depends entirely on unproven cold-start performance."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "The opportunity and evidence are scoped entirely to TikTok; no YouTube-specific data, channel assets, or cross-platform repurposing evidence is provided."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Produce a small pilot batch (2-3 tracks) combining sleep, anxiety-relief and meditation framing for the Spanish TikTok audience using existing matched artists/playlists, publish under a lightweight new page, and monitor engagement, saves, and completion rate for 2-4 weeks before committing further investment.",
+    "justification": "Evidence is currently limited to two LOW-confidence observational signals with no performance metrics, and no dedicated Spanish-market page exists, so a controlled, low-cost test is warranted before scaling a new asset or content line.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_02",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T14:33:17Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_02_0002",
+      "sig_run_2026-09-01_02_0003"
+    ],
+    "sources": [
+      {
+        "source": "Musica Relajante Pa Dormir | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-07-27",
+        "collected_at": "2026-09-01T14:33:17Z",
+        "query_or_reference": "música para dormir TikTok tendencia 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/musica-relajante-pa-dormir"
+      },
+      {
+        "source": "Video De Musica Para Dormir | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-06-15",
+        "collected_at": "2026-09-01T14:33:17Z",
+        "query_or_reference": "música para dormir TikTok tendencia 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/video-de-musica-para-dormir"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T14:33:17Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_02"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "sono",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Track híbrido 'todo en uno' que combina sueño+meditación+ansiedad+frecuencia para maximizar alcance de búsqueda",
+    "potential_page": "Sueño Profundo y Calma Total",
+    "first_content_direction": "Publicar tracks de 30-45min etiquetados simultáneamente como sueño, meditación y anti-ansiedad con 528Hz",
+    "format": "Audio largo con visual estático/loop suave",
+    "hook": "Duerme, medita y calma tu ansiedad con un solo sonido"
+  },
+  "rank": 9,
+  "report_ref": "reports/run_2026-09-01_02/opp_2026-09-01_cb76cacc52.md"
+}

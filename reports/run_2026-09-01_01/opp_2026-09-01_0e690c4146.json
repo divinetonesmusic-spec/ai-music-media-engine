@@ -1,0 +1,614 @@
+{
+  "opportunity_id": "opp_2026-09-01_0e690c4146",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_01",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Sleep-focused ambient/soundscape content on TikTok (EN)",
+  "need": "Falling asleep faster and staying asleep via ambient/soundscape audio consumed on TikTok",
+  "audience": {
+    "description": "English-speaking TikTok users searching for sleep sounds and sleep music trends to help them fall asleep",
+    "attributes": {
+      "habit": "night-time / bedtime scrolling"
+    }
+  },
+  "market": "English-speaking markets",
+  "language": "en",
+  "platform": "tiktok",
+  "consumption_context": "Late-night phone use before/during falling asleep",
+  "durability": "EVERGREEN",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "TikTok Discover has active topics for 'Sleep Trend Song', 'Sleeping Sound Trend', and generic 'Sleep Songs', showing sustained engagement with sleep audio.",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-09-01_01_0001",
+        "sig_run_2026-09-01_01_0002",
+        "sig_run_2026-09-01_01_0004"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+        "name": "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster match but Spanish-language, Hispanic market mismatch with EN audience.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4jmuWvaWI6BvsjhxmJBUao",
+        "name": "Sono Restaurador 432 Hz - Frequências Hertz para dormir e curar (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster match but Portuguese/Brazil market mismatch with EN audience.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster match but Spanish-language, Hispanic market mismatch with EN audience.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_mandalameditationss",
+        "name": "Frequências de Sono Profundo",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster page but Brazil/Portuguese market, mismatched with EN-speaking TikTok audience.",
+        "role": "candidate"
+      }
+    ],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist with primary cluster Sono matching canonical cluster; strong catalog affinity.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist, Sono cluster match with strong secondary sleep-related tags.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist, Sono cluster match, sleep-restorative secondary clusters.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster match but not a hero artist.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster match, anti-insomnia tag relevant but not hero.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster match, mental rest tag relevant but not hero.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster match, relaxation/anxiety tags relevant but not hero.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+        "name": "Cortiq",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available to assess fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero flag present but no cluster data to confirm sleep relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+        "name": "Templo Theta",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster is prosperity, not sleep-focused; secondary sleep tag only.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero but no cluster data to confirm relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+        "name": "Synaptica",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+        "name": "Salmo Sonoro",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+        "name": "David’s Harp Meditation",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+        "name": "Meditara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero but no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster is angels/spirituality, secondary sleep tag only.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+        "name": "Opulentia Divina",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero but no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+        "name": "Vibração Consciente",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+        "name": "Divine Tones by Nikolai",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+        "name": "Nathaniel Lior Grace",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+        "name": "Hipnocortex",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster is religious/angels, secondary sleep tag only.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+        "name": "Silenciium",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero but no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+        "name": "Raphael’s Healing Choir",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero but no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+        "name": "Brainora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero but no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+        "name": "Hypnozzert",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster is religious/angels, secondary sleep tag only.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster is prosperity, secondary sleep tag only.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+        "name": "Psalms Frequencies",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster is prosperity, secondary sleep/dream tag only.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster is religious/angels, secondary sleep tag only.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "UNKNOWN",
+    "best_page": "NEW_ASSET",
+    "best_artist": "art_0po1ZsFAwFIgNJDrksslV5",
+    "new_asset_recommendation": {
+      "asset_type": "page",
+      "rationale": "An EN-language TikTok page/playlist dedicated to sleep soundscapes would fill a clear gap: existing Sono-cluster assets are all in ES/PT for non-English markets, while there's clear organic demand for EN sleep-sound content on TikTok. Hero artists like Nimbus Sleep Sanctuary and Dormesia could anchor this new EN asset.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No existing playlist or page targets English-speaking TikTok audiences; all Sono-cluster playlists/pages are in Spanish or Portuguese for LatAm/Brazil markets."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "A single OBSERVED evidence item (signal_ids sig_run_2026-09-01_01_0001/0002/0004) shows active TikTok Discover topics for 'Sleep Trend Song', 'Sleeping Sound Trend' and 'Sleep Songs', indicating real but thinly-documented engagement. No volume, velocity or historical trend data accompanies these topic labels."
+      },
+      "audience_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Sleep/relaxation content is a broad, evergreen need and TikTok's English-speaking user base is very large; multiple active Discover topics around sleep sounds suggest a sizeable interested audience. No concrete audience-size or demographic metrics are provided, so confidence is capped at MEDIUM."
+      },
+      "growth_momentum": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The presence of three distinct active sleep-related Discover topics suggests some current traction, but the evidence is a single-run snapshot with no time-series or growth-rate data to confirm an upward trend.",
+        "blocked_by": [
+          "historical trend/velocity data for the Discover topics"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The opportunity is labeled EVERGREEN and sleep/relaxation is a persistent, non-seasonal audience need; sustained presence of sleep-sound Discover topics supports durability, though no long-run data confirms consistency over multiple periods."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "37 matching artists in the catalog suggests some ambient/soundscape capability, but the business's detailed musical DNA is marked NEEDS_INPUT, and asset_fit notes existing Sono-cluster playlists/pages are all Spanish/Portuguese for LatAm/Brazil — a catalog-affinity mismatch for an English-language TikTok audience. Confidence held LOW per rule since musical DNA is undefined.",
+        "blocked_by": [
+          "business musical DNA / genre-catalog detail"
+        ]
+      },
+      "content_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Sleep/ambient soundscape content maps well to TikTok formats (looped audio, ASMR-style clips, 'sleep trend' sounds) and the observed active Discover topics indicate multiple content angles (trend songs, generic sleep sounds) are already viable on-platform."
+      },
+      "competitive_position": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "asset_fit confirms no existing playlist or page targets English-speaking TikTok audiences (all Sono-cluster assets are Spanish/Portuguese for LatAm/Brazil), meaning entry would start from zero in an already crowded, well-established sleep-content niche on TikTok with many incumbent creators."
+      },
+      "differentiation_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No evidence describes a unique creative angle, sound signature, or format differentiator versus the many existing sleep-sound accounts already active on TikTok Discover; differentiation strategy is undefined.",
+        "blocked_by": [
+          "defined creative/differentiation strategy for the content"
+        ]
+      },
+      "asset_fit": {
+        "rating": "LOW",
+        "confidence": "HIGH",
+        "justification": "asset_fit data explicitly states best_playlist is UNKNOWN, best_page is NEW_ASSET, and unmatched_reason confirms no existing playlist or page serves English-speaking TikTok audiences; a new asset is recommended, meaning current asset alignment is minimal despite 37 matching artists."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Evergreen need plus active Discover topics point to plausible upside in UGC/trend participation and page-building, but the near-total absence of existing matched assets, single-source evidence, and undefined musical DNA limit confidence in a strong overall outcome.",
+        "blocked_by": [
+          "audience size / streaming data",
+          "musical DNA detail"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "Only one OBSERVED evidence item (covering three Discover topic labels) supports the entire opportunity; there is no trend-over-time, audience-size, or engagement-volume data.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "asset_fit confirms no existing playlist or page targets English-speaking TikTok audiences (all Sono-cluster assets are Spanish/Portuguese for LatAm/Brazil), requiring a brand-new asset build with no track record.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      },
+      {
+        "description": "Sleep/ambient sound content is a well-established, highly saturated category on TikTok with many incumbent creators, posing competitive entry risk.",
+        "severity": "LOW",
+        "kind": "market"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "TikTok Discover shows active engagement with sleep-sound trend topics (Sleep Trend Song, Sleeping Sound Trend, Sleep Songs), pointing to a durable, evergreen audience need for sleep-focused ambient content in English-speaking markets. However, no existing playlist or page currently serves this English-speaking TikTok audience — all matching Sono-cluster assets are in Spanish/Portuguese for LatAm/Brazil — and the evidence base is limited to a single observation without volume or trend-velocity data. The opportunity is promising directionally but under-evidenced and would require building new assets from scratch in a competitive niche."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "3 matching playlists exist in the catalog but none are confirmed to target English-speaking TikTok sleep audiences (best_playlist UNKNOWN); a new/adapted playlist could capture the trend but no performance data supports a stronger rating."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "TikTok Discover shows active 'Sleep Trend Song' and 'Sleeping Sound Trend' topics (sig_run_2026-09-01_01_0001/0002), indicating real UGC/trend participation potential around sleep audio on the platform."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Ambient/sleep audio is typically consumed in long, repeat nightly sessions which can drive streaming volume, but no streaming/royalty figures are provided to confirm magnitude."
+      },
+      "page_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "asset_fit recommends a NEW_ASSET page since none currently targets English-speaking TikTok users; an evergreen, broad-appeal niche like sleep sounds offers plausible growth for a newly built page, but there is no baseline data to size this."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No evidence in this opportunity addresses YouTube distribution, cross-platform repurposing, or media performance; the opportunity is scoped entirely to TikTok."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Run a small-scale content test: create a new EN-language TikTok page/artist presence publishing ambient sleep-soundscape clips aligned to the observed 'Sleep Trend Song'/'Sleeping Sound Trend' Discover topics, and measure engagement, follower growth and UGC participation over 2-4 weeks before committing further investment.",
+    "justification": "The evergreen need and observed active trend topics justify a low-risk test, but the lack of existing matched assets, single-source evidence, and undefined musical DNA mean a full EXPLORE or resource commitment is premature.",
+    "confidence": "MEDIUM",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T12:18:24Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_01_0001",
+      "sig_run_2026-09-01_01_0002",
+      "sig_run_2026-09-01_01_0004"
+    ],
+    "sources": [
+      {
+        "source": "Sleep Trend Song | TikTok",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "sleep music TikTok trend 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/sleep-trend-song"
+      },
+      {
+        "source": "Sleeping Sound Trend | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-07-26",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "sleep music TikTok trend 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/sleeping-sound-trend"
+      },
+      {
+        "source": "Sleep Songs | TikTok",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "sleep music TikTok trend 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/sleep-songs"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T12:18:24Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_01"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "sono",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Calming ambient soundscapes designed for TikTok's late-night sleep-content audience",
+    "potential_page": "EN sleep-sounds TikTok content page",
+    "first_content_direction": "Short ambient soundscape loops framed as 'sleep sound' for autoplay/night scrolling",
+    "format": "short-form looped ambient audio video",
+    "hook": "Fall asleep in minutes with this sound"
+  },
+  "rank": 5,
+  "report_ref": "reports/run_2026-09-01_01/opp_2026-09-01_0e690c4146.md"
+}

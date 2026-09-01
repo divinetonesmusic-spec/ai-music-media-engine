@@ -114,3 +114,267 @@ opportunities:
     by: system
     note: 'run run_2026-08-31_01: excluded — HIGH-severity compliance red flag (spec
       §11.1)'
+- opportunity_id: opp_2026-09-01_90564db671
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: reports/run_2026-09-01_01/opp_2026-09-01_90564db671.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: presented'
+- opportunity_id: opp_2026-09-01_fdd2c627bf
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: reports/run_2026-09-01_01/opp_2026-09-01_fdd2c627bf.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: presented'
+- opportunity_id: opp_2026-09-01_23411c6e75
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: reports/run_2026-09-01_01/opp_2026-09-01_23411c6e75.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: presented'
+- opportunity_id: opp_2026-09-01_a37e889d95
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: reports/run_2026-09-01_01/opp_2026-09-01_a37e889d95.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: presented'
+- opportunity_id: opp_2026-09-01_0e690c4146
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: reports/run_2026-09-01_01/opp_2026-09-01_0e690c4146.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: presented'
+- opportunity_id: opp_2026-09-01_b67f7203e5
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: reports/run_2026-09-01_01/opp_2026-09-01_b67f7203e5.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: presented'
+- opportunity_id: opp_2026-09-01_f7ae38f1f8
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: reports/run_2026-09-01_01/opp_2026-09-01_f7ae38f1f8.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: presented'
+- opportunity_id: opp_2026-09-01_5de4e4fed5
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: reports/run_2026-09-01_01/opp_2026-09-01_5de4e4fed5.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: presented'
+- opportunity_id: opp_2026-09-01_545d32ee8e
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: reports/run_2026-09-01_01/opp_2026-09-01_545d32ee8e.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: presented'
+- opportunity_id: opp_2026-09-01_239ea979d0
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: reports/run_2026-09-01_01/opp_2026-09-01_239ea979d0.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: presented'
+- opportunity_id: opp_2026-09-01_0e239497f3
+  status: PARK
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: null
+  state_history:
+  - to: PARK
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: parked'
+- opportunity_id: opp_2026-09-01_5eceaac165
+  status: PARK
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: null
+  state_history:
+  - to: PARK
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: parked'
+- opportunity_id: opp_2026-09-01_5d57163416
+  status: PARK
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_01
+  last_run_id: run_2026-09-01_01
+  report_ref: null
+  state_history:
+  - to: PARK
+    at: '2026-09-01T12:18:24Z'
+    by: system
+    note: 'run run_2026-09-01_01: parked'
+- opportunity_id: opp_2026-09-01_f724e341ad
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_02
+  last_run_id: run_2026-09-01_02
+  report_ref: reports/run_2026-09-01_02/opp_2026-09-01_f724e341ad.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T14:33:17Z'
+    by: system
+    note: 'run run_2026-09-01_02: presented'
+- opportunity_id: opp_2026-09-01_640ed9519d
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_02
+  last_run_id: run_2026-09-01_02
+  report_ref: reports/run_2026-09-01_02/opp_2026-09-01_640ed9519d.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T14:33:17Z'
+    by: system
+    note: 'run run_2026-09-01_02: presented'
+- opportunity_id: opp_2026-09-01_3fc0e61565
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_02
+  last_run_id: run_2026-09-01_02
+  report_ref: reports/run_2026-09-01_02/opp_2026-09-01_3fc0e61565.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T14:33:17Z'
+    by: system
+    note: 'run run_2026-09-01_02: presented'
+- opportunity_id: opp_2026-09-01_4e5f3a677c
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_02
+  last_run_id: run_2026-09-01_02
+  report_ref: reports/run_2026-09-01_02/opp_2026-09-01_4e5f3a677c.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T14:33:17Z'
+    by: system
+    note: 'run run_2026-09-01_02: presented'
+- opportunity_id: opp_2026-09-01_97c0d0ee30
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_02
+  last_run_id: run_2026-09-01_02
+  report_ref: reports/run_2026-09-01_02/opp_2026-09-01_97c0d0ee30.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T14:33:17Z'
+    by: system
+    note: 'run run_2026-09-01_02: presented'
+- opportunity_id: opp_2026-09-01_0b5dbe1e33
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_02
+  last_run_id: run_2026-09-01_02
+  report_ref: reports/run_2026-09-01_02/opp_2026-09-01_0b5dbe1e33.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T14:33:17Z'
+    by: system
+    note: 'run run_2026-09-01_02: presented'
+- opportunity_id: opp_2026-09-01_084609db5a
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_02
+  last_run_id: run_2026-09-01_02
+  report_ref: reports/run_2026-09-01_02/opp_2026-09-01_084609db5a.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T14:33:17Z'
+    by: system
+    note: 'run run_2026-09-01_02: presented'
+- opportunity_id: opp_2026-09-01_c6249fcde5
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_02
+  last_run_id: run_2026-09-01_02
+  report_ref: reports/run_2026-09-01_02/opp_2026-09-01_c6249fcde5.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T14:33:17Z'
+    by: system
+    note: 'run run_2026-09-01_02: presented'
+- opportunity_id: opp_2026-09-01_cb76cacc52
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_02
+  last_run_id: run_2026-09-01_02
+  report_ref: reports/run_2026-09-01_02/opp_2026-09-01_cb76cacc52.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T14:33:17Z'
+    by: system
+    note: 'run run_2026-09-01_02: presented'
+- opportunity_id: opp_2026-09-01_92016b7992
+  status: EXPLORE
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_02
+  last_run_id: run_2026-09-01_02
+  report_ref: reports/run_2026-09-01_02/opp_2026-09-01_92016b7992.md
+  state_history:
+  - to: EXPLORE
+    at: '2026-09-01T14:33:17Z'
+    by: system
+    note: 'run run_2026-09-01_02: presented'
+- opportunity_id: opp_2026-09-01_2a789f4101
+  status: PARK
+  created_at: '2026-09-01T00:00:00Z'
+  first_run_id: run_2026-09-01_02
+  last_run_id: run_2026-09-01_02
+  report_ref: null
+  state_history:
+  - to: PARK
+    at: '2026-09-01T14:33:17Z'
+    by: system
+    note: 'run run_2026-09-01_02: parked'

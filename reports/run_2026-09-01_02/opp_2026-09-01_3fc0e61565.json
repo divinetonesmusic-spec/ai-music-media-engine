@@ -1,0 +1,594 @@
+{
+  "opportunity_id": "opp_2026-09-01_3fc0e61565",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_02",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Frecuencia 432Hz como categoría masiva cross-cutting en TikTok",
+  "need": "Descubrir contenido de bienestar a través de la puerta de entrada de 'frecuencias' (432Hz) que conecta con múltiples necesidades (sueño, relajación, sanación)",
+  "audience": {
+    "description": "Oyentes globales de TikTok que descubren contenido de bienestar instrumental a través de hashtags de frecuencia"
+  },
+  "market": "English-speaking markets",
+  "language": "en",
+  "platform": "tiktok",
+  "consumption_context": "Descubrimiento pasivo vía hashtags/FYP de TikTok",
+  "durability": "STRUCTURAL",
+  "urgency": "LOW",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "The general 432Hz binaural discovery tag shows a volume of 4.9M posts, indicating a large-scale TikTok content category",
+      "confidence": "MEDIUM",
+      "signal_ids": [
+        "sig_run_2026-09-01_02_0013"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_0fzUPuhRHjqMyfOgNx0d4S",
+        "name": "Sueño Lúcido – Ondas Theta 8 Hz para Activar la Intuición y Controlar tus Sueños (2026)",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Lucid dream theta cluster, Spanish market, not the pineal/frequency cluster nor English audience.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_2wQ3zDAXPdF9cLtR9OppyZ",
+        "name": "Limpeza da Glandula Pineal Frequências 963 Hz (2026)",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Exact canonical cluster match (glandula-pineal-frequencias) with 963Hz frequency focus, though market is Brazil/Portuguese not English.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+        "name": "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster in Spanish market, not matching canonical frequency cluster.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster in Spanish market, not matching canonical frequency cluster.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+        "name": "Frecuencia divina 963 Hz - Activación del tercer ojo",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Divine frequency/spirituality cluster related to third eye/pineal theme but distinct canonical cluster and Spanish market.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-focused hero artist with 432Hz secondary cluster tag, tangential to frequency discovery theme.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+        "name": "Cortiq",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available to assess fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Frequenzia' directly evokes frequency-based content, strong hero fit for a frequency gateway opportunity.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+        "name": "Templo Theta",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity/abundance cluster, not aligned with frequency wellness discovery gateway.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep hero artist with 528Hz tags, tangential frequency alignment.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Healing codes hero name suggests wellness/frequency adjacency though unclassified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster with 528/963Hz tags, tangential to frequency category.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+        "name": "Synaptica",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+        "name": "Salmo Sonoro",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+        "name": "David’s Harp Meditation",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+        "name": "Meditara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Hertzia' strongly implies frequency-based content, strong hero fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, tangential 528Hz but different core theme.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+        "name": "Opulentia Divina",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Theta-related hero name suggests brainwave/frequency adjacency, unclassified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+        "name": "Vibração Consciente",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+        "name": "Divine Tones by Nikolai",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+        "name": "Nathaniel Lior Grace",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster with 528Hz tag, tangential fit for frequency gateway.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+        "name": "Hipnocortex",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, not frequency-focused.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+        "name": "Silenciium",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sound meditation hero name loosely aligned with frequency wellness theme.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+        "name": "Raphael’s Healing Choir",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Brainhertz' strongly implies frequency/hertz content, strong hero fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster, no frequency-specific tags relevant.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+        "name": "Brainora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Divine Tones hero name suggests spiritual/frequency adjacency, unclassified.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster with 528/963Hz tags, tangential fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+        "name": "Hypnozzert",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, tangential 528Hz but not core frequency focus.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity cluster, not aligned with frequency gateway theme.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep hero artist with 528Hz tag, tangential frequency alignment.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+        "name": "Psalms Frequencies",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available, though name suggests frequency/psalm content.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Abundance/prosperity cluster with 528Hz tag, tangential fit only.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster with 528Hz, tangential to frequency gateway.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "pl_2wQ3zDAXPdF9cLtR9OppyZ",
+    "best_page": "UNKNOWN",
+    "best_artist": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+    "new_asset_recommendation": {
+      "asset_type": "page",
+      "rationale": "Existing pineal/frequency playlist is in Portuguese for Brazil market only; an English-language TikTok-oriented page/playlist targeting the 432Hz frequency discovery gateway could capture global English-speaking TikTok wellness audience with clear differentiation from the PT asset.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No page-type candidates exist in inventory to evaluate for this opportunity; best_playlist matches cluster but is Portuguese/Brazil market rather than English TikTok audience, indicating a localization gap."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "A single OBSERVED signal reports the general 432Hz binaural discovery tag at 4.9M posts, indicating meaningful category volume, but this rests on one signal_id with no corroborating data points, no time-series, and no breakdown by market/language."
+      },
+      "audience_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "4.9M posts on the 432Hz binaural tag suggests a sizeable global TikTok audience already discovering this content, and the opportunity targets English-speaking markets broadly. However the raw volume figure is not segmented by language/market, so exact English-speaking audience size is inferred, not directly measured."
+      },
+      "growth_momentum": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No trend, velocity, or historical comparison data is provided for the 4.9M post volume; a single snapshot metric cannot establish momentum direction.",
+        "blocked_by": [
+          "time-series hashtag volume/growth data",
+          "week-over-week or month-over-month trend comparison"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Opportunity is labeled durability=STRUCTURAL and urgency=LOW, and 432Hz/frequency content functions as an evergreen wellness discovery gateway (sleep, relaxation) rather than a fad, consistent with large stable hashtag volume (4.9M posts). The STRUCTURAL tag itself is an input assumption not independently verified with longitudinal data."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "37 matching artists in inventory suggest some existing catalog affinity for frequency/instrumental wellness content, but the business's musical DNA profile is marked NEEDS_INPUT, so true fit to core catalog identity cannot be confirmed.",
+        "blocked_by": [
+          "business musical DNA / catalog affinity profile"
+        ]
+      },
+      "content_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Passive discovery via hashtags/FYP with instrumental frequency content is well suited to TikTok's short-form, loopable audio format, and the cross-cutting nature (sleep, relaxation, healing) allows multiple content angles from a single catalog theme, as implied by the broad 4.9M-post category."
+      },
+      "competitive_position": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "A 4.9M-post volume on the general 432Hz binaural tag indicates a highly saturated, already-crowded content category on TikTok, making it harder for a new entrant to stand out without a differentiated angle."
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The main available playlist asset serves the Portuguese/Brazil market rather than English TikTok audiences, revealing a localization gap that could be exploited to differentiate with an English-specific 432Hz offering, but no competitive content analysis exists to confirm this angle is defensible.",
+        "blocked_by": [
+          "competitor/creator content analysis for English-market 432Hz content"
+        ]
+      },
+      "asset_fit": {
+        "rating": "LOW",
+        "confidence": "HIGH",
+        "justification": "best_page is UNKNOWN with 0 matching pages, and the best_playlist match (pl_2wQ3zDAXPdF9cLtR9OppyZ) is Portuguese/Brazil-oriented, not aligned to the English-speaking TikTok target; new_asset_recommended is explicitly true, confirming a clear localization/asset gap despite 37 matching artists."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Large potential audience and evergreen structural durability are offset by weak current asset fit (no English playlist/page match) and high category saturation, yielding a mixed near-term outlook that requires new asset creation before outcomes can be realized."
+      }
+    },
+    "red_flags": [
+      {
+        "description": "No page-type assets exist in inventory (matching_counts.pages = 0, best_page = UNKNOWN) to support the page_growth_potential or asset_fit dimensions for this opportunity.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      },
+      {
+        "description": "The best-matching playlist (pl_2wQ3zDAXPdF9cLtR9OppyZ) serves a Portuguese/Brazil audience while the opportunity targets English-speaking TikTok markets, creating a localization/market mismatch flagged directly in unmatched_reason.",
+        "severity": "MEDIUM",
+        "kind": "market"
+      },
+      {
+        "description": "Only a single OBSERVED signal (4.9M-post volume) supports the entire opportunity, with no trend, demographic, or market-segmented data — growth_momentum and audience_potential ratings rely on limited evidence.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "The 432Hz frequency category shows a large TikTok discovery volume (4.9M posts on the general binaural tag), suggesting strong audience potential and structural/evergreen durability for wellness-themed instrumental content. However, asset fit is weak: the only matching playlist targets a Portuguese/Brazil audience rather than English speakers, no pages exist in inventory, and growth trend data is absent, so momentum and long-term outcomes cannot yet be confirmed. The category also appears highly saturated, requiring a differentiated, newly built English-market asset to compete."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "5 playlists match the cluster but the best match is localized to Portuguese/Brazil, meaning an English-market playlist would need to be newly built (new_asset_recommended: true) to capture the observed 4.9M-post discovery volume."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The 4.9M-post volume on the 432Hz binaural tag shows this is already an active, large-scale UGC discovery mechanic on TikTok, well suited to hashtag-driven trend participation."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "High content/UGC volume could translate into streaming plays for instrumental frequency tracks, but no streaming or royalty-specific data is provided to quantify this, so the estimate is inferred rather than evidenced."
+      },
+      "page_growth_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "0 matching pages exist in inventory and best_page is UNKNOWN, indicating no current page asset foundation from which to project growth."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No YouTube-related signals, channel data, or cross-platform evidence were provided in the opportunity or evidence set, so any YouTube potential is unassessed."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Build and pilot a small English-language 432Hz-themed playlist and 3-5 short-form TikTok clips using existing catalog artists (from the 37 matched) to measure engagement and discovery lift before committing to a full page/playlist build-out.",
+    "justification": "Signal volume (4.9M posts) and structural durability justify testing, but the confirmed asset/localization gap and lack of trend or catalog-DNA data mean a low-cost pilot is warranted rather than immediate full investment.",
+    "confidence": "MEDIUM",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_02",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T14:33:17Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_02_0013"
+    ],
+    "sources": [
+      {
+        "source": "#432hz | TikTok",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T14:33:17Z",
+        "query_or_reference": "432Hz 528Hz frequency music trend YouTube TikTok",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/tag/432hz"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T14:33:17Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_02"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "glandula-pineal-frequencias",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Use 432Hz as a discovery gateway framing device layered onto multiple cluster tracks",
+    "potential_page": "Frequency Sounds Collection",
+    "first_content_direction": "Tag core wellness tracks with 432Hz hashtag framing regardless of underlying cluster to increase discoverability",
+    "format": "Short looped visualizer video with frequency number overlay",
+    "hook": "The frequency that changes everything - 432Hz"
+  },
+  "rank": 3,
+  "report_ref": "reports/run_2026-09-01_02/opp_2026-09-01_3fc0e61565.md"
+}

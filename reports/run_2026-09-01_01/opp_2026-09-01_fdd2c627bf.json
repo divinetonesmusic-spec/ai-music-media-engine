@@ -1,0 +1,618 @@
+{
+  "opportunity_id": "opp_2026-09-01_fdd2c627bf",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_01",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Abundance/manifestation TikTok sound template (es)",
+  "need": "Using repeatable manifestation-audio templates to express abundance/prosperity intentions",
+  "audience": {
+    "description": "Spanish-speaking TikTok users and creators engaging with abundance/manifestation audio trends"
+  },
+  "market": "Mercados hispanohablantes",
+  "language": "es",
+  "platform": "tiktok",
+  "consumption_context": "Creating or watching short videos set to abundance-manifestation sound templates",
+  "durability": "STRUCTURAL",
+  "urgency": "HIGH",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "A dedicated TikTok sound page for 'La Abundancia Me Rodea' with its own music tag shows high creator adoption of a repeatable abundance template, plus a broader Discover page for Spanish manifestation songs.",
+      "confidence": "HIGH",
+      "signal_ids": [
+        "sig_run_2026-09-01_01_0017",
+        "sig_run_2026-09-01_01_0019"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_0fzUPuhRHjqMyfOgNx0d4S",
+        "name": "Sueño Lúcido – Ondas Theta 8 Hz para Activar la Intuición y Controlar tus Sueños (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Es-language but cluster is sonho-lucido, not abundancia-prosperidade.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_2vZzaPRyZrrWqpt8zZ5wDs",
+        "name": "Abundância 888 Hz • Ativação da Prosperidade (2026)",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster matches abundancia-prosperidade exactly but market/language is pt-BR not es.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+        "name": "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Es-language but sono cluster, not abundance-aligned.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4oV5F1W2E6azZePnmqBanN",
+        "name": "Limpieza Energética & Protección del Hogar (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Es-language but limpeza energética cluster, not abundance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Es-language but sono cluster, not abundance-aligned.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+        "name": "Frecuencia divina 963 Hz - Activación del tercer ojo",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Es-language but frequência divina/espiritualidade cluster, only tangential to abundance.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_abundancia.divinaaofc",
+        "name": "Abundância Divina",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster matches abundancia-prosperidade exactly but market/language is pt-BR not es, only page available.",
+        "role": "candidate"
+      }
+    ],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep-focused hero artist; no abundance alignment but heroes can serve any opportunity.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+        "name": "Cortiq",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but cluster unknown.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+        "name": "Templo Theta",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Directly in abundancia-prosperidade cluster with catalog affinity.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep cluster hero, no abundance link but hero eligible.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, cluster unknown.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep cluster with 'Manifestação' secondary tag, tangential relation.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+        "name": "Synaptica",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+        "name": "Salmo Sonoro",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+        "name": "David’s Harp Meditation",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+        "name": "Meditara",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, cluster unknown.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, adjacent but not abundance-focused.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+        "name": "Opulentia Divina",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Opulentia Divina' suggests abundance theme though unclassified.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, cluster unknown.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+        "name": "Vibração Consciente",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Vibração Consciente' suggests manifestation-adjacent theme.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+        "name": "Divine Tones by Nikolai",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+        "name": "Nathaniel Lior Grace",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep cluster, no direct abundance link.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+        "name": "Hipnocortex",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Religious/angel cluster, tangential.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+        "name": "Silenciium",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, cluster unknown.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+        "name": "Raphael’s Healing Choir",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, cluster unknown.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep cluster, no abundance link.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+        "name": "Brainora",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, cluster unknown.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sleep/relaxation cluster, no abundance link.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+        "name": "Hypnozzert",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels cluster with 'Prosperidade' secondary tag, adjacent relevance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Abundancia-prosperidade cluster with manifestação tag and catalog affinity.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sleep cluster hero, no abundance link.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+        "name": "Psalms Frequencies",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Directly named for abundance, cluster matches with manifestação tag and catalog affinity.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, tangential to abundance.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "UNKNOWN",
+    "best_page": "page_tiktok_abundancia.divinaaofc",
+    "best_artist": "art_7uDfdvq7PZmSkTdXHoJMMa",
+    "new_asset_recommendation": {
+      "asset_type": "playlist",
+      "rationale": "An es-language abundancia-prosperidade playlist tailored to TikTok manifestation sound trends would fill a gap not covered by existing pt-BR or off-cluster es playlists, leveraging proven cluster demand.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No existing playlist combines the abundancia-prosperidade cluster with the required es/TikTok market alignment; the closest cluster match (pl_2vZzaPRyZrrWqpt8zZ5wDs) is pt-BR only."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "OBSERVED evidence (sig_run_2026-09-01_01_0017, sig_run_2026-09-01_01_0019) shows a dedicated TikTok sound page for 'La Abundancia Me Rodea' with its own music tag plus a broader Discover page for Spanish manifestation songs, indicating real creator adoption of a repeatable template. However this rests on a single evidence entry with no view/usage counts, so confidence is capped at MEDIUM."
+      },
+      "audience_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The opportunity targets Spanish-speaking TikTok users across 'Mercados hispanohablantes', a large and active TikTok demographic, and the manifestation/abundance niche has a dedicated Discover page suggesting cross-market reach. No audience-size or engagement-rate figures are given, limiting confidence."
+      },
+      "growth_momentum": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Opportunity metadata flags urgency as HIGH and evidence shows an existing dedicated sound tag with creator adoption, but there is no time-series data (growth rate, week-over-week usage) to confirm accelerating momentum versus a stable, mature trend.",
+        "blocked_by": [
+          "historical usage/growth trend data for the sound tag"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Durability is labeled STRUCTURAL and urgency HIGH in the opportunity input, and manifestation/abundance content has shown sustained TikTok presence (dedicated sound page + Discover page), suggesting the format is not a fleeting micro-trend. This rating leans on the input's own classification rather than independent longitudinal evidence."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The business's musical DNA is not specified (NEEDS_INPUT), so fit cannot be firmly assessed. The closest existing catalog cluster (pl_2vZzaPRyZrrWqpt8zZ5wDs) is pt-BR only, showing a market/language mismatch with this es-targeted opportunity, which tempers the rating without being treated as a hard blocker.",
+        "blocked_by": [
+          "business musical DNA / genre profile"
+        ]
+      },
+      "content_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "A repeatable, templated sound format ('La Abundancia Me Rodea') with an established music tag is inherently well-suited to scalable UGC content creation, as evidenced by the dedicated sound page and broader manifestation-song Discover page."
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "There is an existing matched page (page_tiktok_abundancia.divinaaofc) and a sizeable artist pool (37 matching artists), giving some foothold, but the asset data explicitly states no existing playlist combines the abundancia-prosperidade cluster with the required es/TikTok alignment, indicating competitors or the market itself is not yet well served by current assets."
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Abundance/manifestation audio is a broadly used TikTok trend template rather than a niche invention, so differentiation would depend on execution (page voice, artist catalog) rather than the format itself; no evidence distinguishes this opportunity's assets from other manifestation-sound pages.",
+        "blocked_by": [
+          "comparative data on competing manifestation sound pages/creators"
+        ]
+      },
+      "asset_fit": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "One matching page and 37 matching artists exist, but of 6 matching playlists none combine the abundancia-prosperidade cluster with es/TikTok alignment (closest is pt-BR only), and new_asset_recommended is true, meaning a new playlist asset would need to be built to fully capture this opportunity."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Combining strong signal of creator adoption and content scalability with gaps in playlist assets and lack of quantitative trend metrics yields a moderately promising but not fully proven outcome potential; upside is plausible but under-evidenced for a stronger rating."
+      }
+    },
+    "red_flags": [
+      {
+        "description": "Asset gap: no existing playlist combines the abundancia-prosperidade cluster with the required es/TikTok market alignment; the closest match (pl_2vZzaPRyZrrWqpt8zZ5wDs) is pt-BR only, per the asset_fit unmatched_reason, meaning a new playlist asset must be built.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      },
+      {
+        "description": "Evidence gap: the opportunity relies on a single OBSERVED evidence entry (signal_ids sig_run_2026-09-01_01_0017, sig_run_2026-09-01_01_0019) with no quantitative usage, growth-rate, or view-count data to confirm scale or trajectory of the trend.",
+        "severity": "LOW",
+        "kind": "evidence_gap"
+      }
+    ],
+    "overall_confidence": "MEDIUM",
+    "summary": "There is credible OBSERVED evidence of a dedicated TikTok sound page and tag for a Spanish abundance/manifestation template ('La Abundancia Me Rodea'), plus a broader Discover page for the niche, indicating genuine creator adoption and strong UGC/content potential. However, asset fit is only partial: a matched page and 37 candidate artists exist, but no es/TikTok-aligned playlist currently covers this cluster (the closest is pt-BR only), and music DNA affinity remains unspecified. Growth momentum and streaming/royalty impact lack quantitative backing, keeping confidence at MEDIUM overall."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "No es/TikTok-aligned playlist currently exists in the abundancia-prosperidade cluster (closest match is pt-BR only), so playlist growth would require building a new asset from scratch; potential exists given the trend's popularity but is unproven for a new playlist."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The dedicated TikTok sound page and tag for 'La Abundancia Me Rodea', plus a broader Discover page for Spanish manifestation songs, directly indicate strong UGC/trend format potential (sig_run_2026-09-01_01_0017, sig_run_2026-09-01_01_0019)."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "TikTok sound adoption can drive streaming discovery, but no data links this specific sound's usage to streaming conversions or royalty uplift, so the connection is plausible but unverified."
+      },
+      "page_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "An existing matched page (page_tiktok_abundancia.divinaaofc) could benefit from riding this trend's creator adoption, though no follower/engagement growth figures are provided to confirm scale of impact."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No evidence in the provided signals addresses YouTube distribution, cross-posting, or media potential for this TikTok-native sound trend."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Run a small-scale test: publish 2-3 short-form videos using the existing 'La Abundancia Me Rodea'-style sound/template via the matched page (page_tiktok_abundancia.divinaaofc) and track engagement, and scope requirements for building a dedicated es-market playlist to fill the identified asset gap.",
+    "justification": "Signal strength and content potential are promising (dedicated sound page, Discover page adoption), but playlist asset gaps, unspecified music DNA fit, and thin quantitative evidence mean the opportunity should be validated at small scale before committing further resources.",
+    "confidence": "MEDIUM",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T12:18:24Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_01_0017",
+      "sig_run_2026-09-01_01_0019"
+    ],
+    "sources": [
+      {
+        "source": "Canciones Para Manifestar 🎶 - La Abundancia Me Rodea | TikTok",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "manifestación abundancia música TikTok tendencia",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/music/La-Abundancia-Me-Rodea-7385333381249108741"
+      },
+      {
+        "source": "Canciones Para Manifestar En Español | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-02-09",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "manifestación abundancia música TikTok tendencia",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/canciones-para-manifestar-en-espa%C3%B1ol"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T12:18:24Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_01"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "abundancia-prosperidade",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Flagship es-market abundance-manifestation instrumental sound template",
+    "potential_page": "es abundance-manifestation TikTok page",
+    "first_content_direction": "Create an original manifestation-affirmation instrumental sound designed for creator reuse",
+    "format": "short-form sound template with affirmation overlay",
+    "hook": "La abundancia me rodea - repite conmigo"
+  },
+  "rank": 2,
+  "report_ref": "reports/run_2026-09-01_01/opp_2026-09-01_fdd2c627bf.md"
+}

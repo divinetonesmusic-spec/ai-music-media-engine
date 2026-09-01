@@ -1,0 +1,573 @@
+{
+  "opportunity_id": "opp_2026-09-01_f7ae38f1f8",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_01",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "528Hz / solfeggio frequency content (EN)",
+  "need": "Engaging with frequency-based audio believed to support wellbeing, calm, or energetic effects",
+  "audience": {
+    "description": "English-speaking TikTok users following trending frequency-based audio like 528Hz solfeggio tracks"
+  },
+  "market": "English-speaking markets",
+  "language": "en",
+  "platform": "tiktok",
+  "consumption_context": "Discovery and engagement with trending frequency audio via TikTok hashtags and Creative Center",
+  "durability": "STRUCTURAL",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "TikTok Creative Center lists a 528Hz Healing Solfeggio Frequency track as trending with tracked analytics, and a dedicated #528hz hashtag page exists.",
+      "confidence": "HIGH",
+      "signal_ids": [
+        "sig_run_2026-09-01_01_0011",
+        "sig_run_2026-09-01_01_0012"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_2wQ3zDAXPdF9cLtR9OppyZ",
+        "name": "Limpeza da Glandula Pineal Frequências 963 Hz (2026)",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Matches canonical cluster glandula-pineal-frequencias exactly, but is Portuguese/Brazil market vs opportunity's English-speaking TikTok audience, limiting direct reuse.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist with Sono cluster, 528Hz secondary tag aligns partially with solfeggio theme.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+        "name": "Cortiq",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests frequency focus but no cluster data confirms alignment.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+        "name": "Templo Theta",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity cluster, not frequency/pineal focused.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist, Sono cluster with 528Hz secondary tag, partial alignment.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests healing frequencies, hero status, but no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster with 528Hz secondary tag, not pineal-specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+        "name": "Synaptica",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+        "name": "Salmo Sonoro",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+        "name": "David’s Harp Meditation",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+        "name": "Meditara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name Hertzia suggests frequency-based content, hero status, but no cluster confirmation.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Secondary cluster includes Glândula Pineal and 528Hz, close to opportunity theme.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+        "name": "Opulentia Divina",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests theta/frequency focus, hero status, but no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+        "name": "Vibração Consciente",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+        "name": "Divine Tones by Nikolai",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+        "name": "Nathaniel Lior Grace",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster with 528Hz secondary tag, partial alignment.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+        "name": "Hipnocortex",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/religious cluster, not frequency-focused.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+        "name": "Silenciium",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests sonic meditation, hero status, but no cluster confirmation.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+        "name": "Raphael’s Healing Choir",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name Brainhertz suggests frequency/brainwave focus, hero status, but no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster without frequency-specific tags.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+        "name": "Brainora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name Divine Tones suggests frequency/spiritual content, hero status, but no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster with 528Hz secondary tag, partial alignment.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+        "name": "Hypnozzert",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/religious cluster with 528Hz secondary tag, tangential.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Abundance/prosperity cluster, not frequency-focused primarily.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist with Sono cluster and 528Hz secondary tag, strong alignment with solfeggio frequency theme.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+        "name": "Psalms Frequencies",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Abundance cluster with 528Hz secondary tag, tangential.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/religious cluster with 528Hz secondary tag, tangential.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "pl_2wQ3zDAXPdF9cLtR9OppyZ",
+    "best_page": "NEW_ASSET",
+    "best_artist": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+    "new_asset_recommendation": {
+      "asset_type": "page",
+      "rationale": "An English-language page targeting TikTok's 528Hz/solfeggio frequency trend would capture a distinct audience not served by the existing Portuguese/Brazil-market pineal gland playlist, leveraging trending hashtag discovery behavior.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No page-type asset exists in inventory candidates to evaluate for this opportunity."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "A single OBSERVED signal confirms TikTok Creative Center tracks a '528Hz Healing Solfeggio Frequency' track as trending and that a dedicated #528hz hashtag page exists. This confirms the trend is real and platform-recognized, but no magnitude data (view counts, growth rate, post volume) is provided, limiting strength assessment."
+      },
+      "audience_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "English-speaking TikTok is a very large audience pool, and the existence of a dedicated #528hz hashtag suggests an established niche following. However, no follower counts, hashtag view totals, or demographic breakdowns are in evidence, so audience size cannot be precisely gauged.",
+        "blocked_by": [
+          "hashtag view/follower counts",
+          "demographic breakdown of #528hz audience"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Creative Center currently flags the track as 'trending,' which is a positive momentum signal, but the evidence contains no time-series or percentage growth data, so trajectory (accelerating, plateauing, declining) cannot be determined.",
+        "blocked_by": [
+          "historical trend/growth chart data for #528hz or the specific track"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The opportunity is tagged 'STRUCTURAL' durability with MEDIUM urgency, and solfeggio/frequency wellness content has a recurring, non-seasonal presence on TikTok evidenced by a persistent dedicated hashtag rather than a single viral spike, suggesting an ongoing rather than fleeting niche."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Catalog affinity data (musical DNA) is marked NEEDS_INPUT, so fit cannot be firmly established. Asset-fit data shows 37 matching artists and 1 matching playlist in inventory, indicating some existing catalog overlap with frequency/wellness content, but this is not a substitute for a detailed musical DNA comparison.",
+        "blocked_by": [
+          "business musical DNA / catalog affinity detail"
+        ]
+      },
+      "content_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The presence of a trending track in Creative Center plus an active #528hz hashtag indicates a ready-made content format (looped ambient/frequency audio, calm visuals, wellness framing) that is easy to replicate and adapt for TikTok discovery mechanics."
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "An established #528hz hashtag implies existing creators already occupy this space, suggesting moderate-to-high competition, but no data on number of competing accounts, view share, or market leaders is available to assess relative positioning.",
+        "blocked_by": [
+          "competitor volume/share data for #528hz content"
+        ]
+      },
+      "differentiation_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "528Hz/solfeggio content is a well-worn, generic wellness trope on TikTok (evidenced by an existing dedicated hashtag), making it harder to differentiate without a unique creative or catalog angle; no evidence of a distinct hook or asset advantage is provided.",
+        "blocked_by": [
+          "unique creative/brand angle data"
+        ]
+      },
+      "asset_fit": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Asset fit shows 1 matching playlist and 37 matching artists, indicating some existing catalog and playlist infrastructure to build on, but 0 matching pages and a 'NEW_ASSET' recommendation for best_page mean a new page/channel would need to be created from scratch."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Combining a real but undersized/unquantified trend signal, moderate asset overlap (37 artists, 1 playlist), and a currently absent page asset, the aggregate business outcome potential appears moderate but is constrained by thin evidence on scale and durability of downstream monetization.",
+        "blocked_by": [
+          "quantitative performance data (streams, views, engagement) tied to the trend"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "Only a single OBSERVED evidence item (Creative Center trending flag + hashtag existence) supports this entire opportunity; no quantitative metrics (views, growth rate, follower counts) are available, creating a broad evidence gap across most dimensions.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "matching_counts.pages = 0 with unmatched_reason 'No page-type asset exists in inventory candidates to evaluate for this opportunity' means no owned page asset currently exists to activate this opportunity, requiring new asset creation.",
+        "severity": "LOW",
+        "kind": "asset_gap"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "TikTok Creative Center confirms a trending 528Hz solfeggio track and an active #528hz hashtag, indicating a real, structurally durable niche audio trend on TikTok, but the evidence base is limited to a single qualitative observation with no quantitative scale, growth, or competitive data. Asset fit shows moderate catalog overlap (37 matching artists, 1 matching playlist) but no existing page asset, requiring new asset creation to pursue this opportunity. Given the thin evidence, this opportunity warrants low-cost exploratory testing rather than committed investment."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "One matching playlist already exists in inventory (pl_2wQ3zDAXPdF9cLtR9OppyZ), and frequency/wellness playlists are a common streaming category, but no playlist follower or stream data is provided to confirm growth capacity."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "TikTok Creative Center actively tracks the 528Hz track as trending and a dedicated #528hz hashtag exists, both strong indicators that this audio format is well-suited to UGC creation and discovery mechanics on the platform."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Frequency/ambient tracks are often used as long-play or looped background audio (sleep, focus, relaxation contexts) which can support passive streaming volume, but no actual stream counts or royalty-relevant metrics are present in the evidence."
+      },
+      "page_growth_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No existing page-type asset matches this opportunity (matching_counts.pages = 0) and a NEW_ASSET is recommended, meaning page growth would start from zero with no prior audience base to leverage."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No evidence was provided regarding YouTube presence, search volume, or long-form frequency content performance, so this axis cannot be assessed beyond a cautious low-confidence estimate based on typical crossover of TikTok wellness trends to YouTube ambient/sleep content."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Run a small-scale content test (2-3 short-form videos using 528Hz-style audio under the #528hz hashtag) tied to the matched playlist and a subset of the 37 matching artists, tracking view/engagement metrics before committing to a new dedicated page asset.",
+    "justification": "The single trending signal and existing hashtag justify a low-risk test to gather real performance data, but the lack of quantitative trend, competitive, and audience data means broader investment (e.g., building a new page from scratch) is premature.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T12:18:24Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_01_0011",
+      "sig_run_2026-09-01_01_0012"
+    ],
+    "sources": [
+      {
+        "source": "Healing Solfeggio Frequency 528Hz(817269) created by Ikumi Tanuma | Trending songs on TikTok | See analytics here",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "solfeggio frequency 528hz TikTok trend",
+        "capture_method": "claude_web_search",
+        "url": "https://ads.tiktok.com/business/creativecenter/song/Healing-Solfeggio-Frequency-528Hz-817269-6904652369384966146/pc/en"
+      },
+      {
+        "source": "#528hz | TikTok",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "solfeggio frequency 528hz TikTok trend",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/tag/528hz?lang=en"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T12:18:24Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_01"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "glandula-pineal-frequencias",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Structural frequency-content presence anchored on established 528Hz demand",
+    "potential_page": "EN 528Hz frequency TikTok page",
+    "first_content_direction": "Produce 528Hz-framed instrumental tracks tagged with #528hz",
+    "format": "short-form frequency audio clip",
+    "hook": "The 528Hz frequency everyone's listening to"
+  },
+  "rank": 7,
+  "report_ref": "reports/run_2026-09-01_01/opp_2026-09-01_f7ae38f1f8.md"
+}

@@ -1,0 +1,597 @@
+{
+  "opportunity_id": "opp_2026-09-01_084609db5a",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_02",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Alivio de ansiedad ligado a limpieza energética/frecuencias en es",
+  "need": "Reducir la ansiedad a través de prácticas de limpieza energética y frecuencias específicas en vez de música de relajación genérica",
+  "audience": {
+    "description": "Oyentes hispanohablantes interesados en prácticas esotéricas/espirituales como vía de manejo de ansiedad"
+  },
+  "market": "Mercados hispanohablantes",
+  "language": "es",
+  "platform": "tiktok",
+  "consumption_context": "Rituales personales de limpieza energética en casa, escuchando mientras se realiza el ritual",
+  "durability": "EMERGING",
+  "urgency": "MEDIUM",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "Contenido en español vincula el alivio de ansiedad directamente con limpieza energética/framing de frecuencias en vez de relajación musical separada",
+      "confidence": "LOW",
+      "signal_ids": [
+        "sig_run_2026-09-01_02_0007"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_0fzUPuhRHjqMyfOgNx0d4S",
+        "name": "Sueño Lúcido – Ondas Theta 8 Hz para Activar la Intuición y Controlar tus Sueños (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster is Sonho Lúcido, different focus from limpieza energética though same market/language.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+        "name": "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster Sono, general sleep/relaxation not energy cleansing specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4oV5F1W2E6azZePnmqBanN",
+        "name": "Limpieza Energética & Protección del Hogar (2026)",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Canonical cluster limpeza-energetica matches opportunity cluster limpieza-energetica exactly; same market and language, directly serves the ritual/energy cleansing anxiety relief need.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster Sono, generic relaxation/sleep focus rather than energy cleansing.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5xDpa0ntzgXuCGFEJ64QWS",
+        "name": "Frecuencia divina 963 Hz - Activación del tercer ojo",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster is Frequência Divina/Espiritualidade, adjacent esoteric frequency theme but not specifically limpieza energética.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster is Sono, not limpieza-energética; hero status noted but weak topical match.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+        "name": "Cortiq",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available to assess fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no cluster data to confirm topical alignment.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+        "name": "Templo Theta",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Secondary cluster includes Limpeza Energética, aligning with opportunity theme though primary is abundância.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Primary cluster Sono, secondary includes Purificação but not core limpieza energética focus.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, name suggests healing codes but no cluster confirmation.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster Sono; not directly limpieza energética focused.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+        "name": "Synaptica",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+        "name": "Salmo Sonoro",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+        "name": "David’s Harp Meditation",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+        "name": "Meditara",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no cluster confirmation for topical alignment.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster is Anjos/Espiritualidade Religiosa, tangential to limpieza energética.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+        "name": "Opulentia Divina",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, no cluster confirmation.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+        "name": "Vibração Consciente",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+        "name": "Divine Tones by Nikolai",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+        "name": "Nathaniel Lior Grace",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Secondary clusters include Purificação and Chakras/Espiritualidade, moderately aligned with esoteric anxiety relief theme.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+        "name": "Hipnocortex",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster Anjos/Espiritualidade Religiosa, tangential fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+        "name": "Silenciium",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, no cluster confirmation.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+        "name": "Raphael’s Healing Choir",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, no cluster confirmation.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Secondary cluster Purificação aligns with energy cleansing theme though primary is Sono.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+        "name": "Brainora",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, no cluster confirmation.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Secondary cluster Ansiedade/Relaxamento aligns with anxiety-relief need though not specifically limpieza energética.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+        "name": "Hypnozzert",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Secondary cluster includes Purificação, tangential alignment with cleansing theme.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster Abundância/Prosperidade, not directly aligned with anxiety/energy cleansing.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "HIGH",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist with secondary cluster Limpeza Energética directly matching opportunity theme, strong candidate for best_artist.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+        "name": "Psalms Frequencies",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster Abundância/Prosperidade, not aligned with anxiety/cleansing theme.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Primary cluster Anjos/Espiritualidade Religiosa, tangential fit to esoteric anxiety relief.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "pl_4oV5F1W2E6azZePnmqBanN",
+    "best_page": "NEW_ASSET",
+    "best_artist": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+    "new_asset_recommendation": {
+      "asset_type": "page",
+      "rationale": "A dedicated landing/content page framing energy-cleansing rituals and frequency-based anxiety relief for Spanish-speaking TikTok audiences would differentiate from generic relaxation content and capture the specific esoteric practice angle not covered by existing playlists or artist pages.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No existing page asset targets the limpieza-energetica cluster or esoteric anxiety-relief framing for TikTok; none of the candidate pages exist in inventory."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Only one supporting evidence item exists (sig_run_2026-09-01_02_0007), itself tagged LOW confidence and OBSERVED without rationale. No corroborating signals, volumes, or independent sources are provided."
+      },
+      "audience_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The Spanish-speaking market is large overall, but the specific sub-audience interested in esoteric/spiritual anxiety-management framing is a niche within it. No audience-size, demographic, or engagement data is provided to size this niche precisely.",
+        "blocked_by": [
+          "audience size/demographic data for esoteric-spiritual anxiety-relief segment"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Opportunity is tagged 'EMERGING' with MEDIUM urgency, suggesting some early momentum, but no time-series, hashtag growth, or search-volume data is supplied to substantiate trend trajectory.",
+        "blocked_by": [
+          "trend/time-series or hashtag growth data"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Labeled EMERGING which implies a limited window before saturation or normalization, but no data indicates how long this framing has been active or how fast it may fade.",
+        "blocked_by": [
+          "historical trend duration data"
+        ]
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "37 matching artists and 5 matching playlists in inventory suggest some existing catalog affinity for energetic-cleansing/frequency-themed content, but the business's detailed musical DNA is not specified (NEEDS_INPUT), so fit cannot be confirmed beyond catalog-count proxy.",
+        "blocked_by": [
+          "business musical DNA / catalog detail"
+        ]
+      },
+      "content_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The stated consumption context (listening while performing a personal cleansing ritual at home) offers a distinctive, ritual-based content angle for TikTok beyond generic relaxation music, but this rests on a single low-confidence observation with no creator or format examples.",
+        "blocked_by": [
+          "examples of existing ritual-based content performance on TikTok"
+        ]
+      },
+      "competitive_position": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No data on competing creators, pages, or catalogs already serving this esoteric-anxiety cluster is provided, so relative competitive standing cannot be assessed.",
+        "blocked_by": [
+          "competitor content/page analysis for este framing"
+        ]
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The evidence statement notes content links anxiety relief directly to energetic cleansing/frequency framing rather than generic relaxation music, which is a plausible differentiator from standard sleep/relax content, but this is based on one low-confidence observation."
+      },
+      "asset_fit": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "37 matching artists and 5 matching playlists indicate reasonable existing catalog/playlist alignment, but 0 matching pages and an explicit new_asset_recommended:true with unmatched_reason confirming no page in inventory targets this cluster mean page-level assets must be built from scratch."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Composite outlook is moderate given some catalog/playlist affinity and a plausible differentiated content angle, offset by single-source weak evidence, absent competitive data, and the need for a brand-new page asset."
+      }
+    },
+    "red_flags": [
+      {
+        "description": "The entire opportunity rests on a single OBSERVED evidence item (sig_run_2026-09-01_02_0007) explicitly tagged LOW confidence with no rationale text, leaving the core premise largely unvalidated.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "matching_counts show 0 matching pages and unmatched_reason states no existing page targets the limpieza-energetica/esoteric anxiety-relief cluster on TikTok, requiring a brand-new page asset with no historical performance data.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "This opportunity targets Spanish-speaking TikTok audiences who frame anxiety relief through energetic-cleansing rituals and frequency-based content rather than generic relaxation music, per one low-confidence observed signal. There is some existing catalog affinity (37 matching artists, 5 matching playlists) but no matching page asset, no competitive or trend-volume data, and the sole evidence point lacks corroboration. The ritual-based consumption context (listening during at-home cleansing rituals) offers a plausible differentiation angle for TikTok content, but the overall evidence base is thin."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "5 existing matching playlists provide a base to extend or feature energetic-cleansing/frequency content, though no streaming/follower performance data on these playlists is given."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The described ritual consumption context (listening while performing a cleansing ritual) fits TikTok's ritual/routine content formats well, but no UGC volume, hashtag, or completion-rate data is available to confirm actual uptake."
+      },
+      "streaming_royalty_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No streaming volume, listener count, or monetization data exists for this niche framing; potential royalty impact cannot be estimated beyond the general catalog affinity signal."
+      },
+      "page_growth_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "matching_counts show 0 existing pages and unmatched_reason confirms no inventory page targets this cluster, meaning growth would depend entirely on building a new page (new_asset_recommended:true) with no track record."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No evidence, assets, or signals reference YouTube performance or crossover potential for this esoteric-anxiety framing; rating reflects absence of data rather than confirmed weakness."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "EXPLORE",
+    "suggested_next_step": "Run a targeted TikTok hashtag/search-volume and competitor-content scan for 'limpieza energética' + anxiety/frequency framing in Spanish to validate demand and momentum before committing to a new page asset.",
+    "justification": "Given the single low-confidence evidence point, absent competitive and audience-size data, and the need to build a new page asset from scratch, further low-cost validation is warranted before moving to a full test or production commitment.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_02",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T14:33:17Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_02_0007"
+    ],
+    "sources": [
+      {
+        "source": "Sonido Para Eliminar Las Malas Energías | TikTok",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T14:33:17Z",
+        "query_or_reference": "limpieza energética abundancia frecuencia música TikTok tendencia",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/sonido-para-eliminar-las-malas-energ%C3%ADas"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T14:33:17Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_02"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "limpieza-energetica",
+      "canonical": false,
+      "basis": "proposed_new"
+    },
+    "potential_positioning": "Música de limpieza energética que también promete calmar la ansiedad",
+    "potential_page": "Limpieza Energética y Calma",
+    "first_content_direction": "Tracks de cuencos/tambores con narrativa de liberar energía estancada y ansiedad",
+    "format": "Video corto con cuencos tibetanos/tambores + texto explicativo",
+    "hook": "Limpia tu energía y calma tu ansiedad en minutos"
+  },
+  "rank": 7,
+  "report_ref": "reports/run_2026-09-01_02/opp_2026-09-01_084609db5a.md"
+}

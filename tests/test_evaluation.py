@@ -343,3 +343,83 @@ def _framed_only():
     return frame_signals(
         signals, knowledge=kn, config=_cfg(), project_root=PROJECT_ROOT
     ).opportunities
+
+
+# --- compliance self-check prompt: flag CLAIMS, not TOPICS (C4, §14, §19) -----
+#
+# Run 1 of the C10 gate hard-excluded 4/10 opportunities on HIGH-severity
+# compliance red flags, several of them false positives: the Evaluation
+# self-check fired on the mere *topic* (sleep, relaxation, frequencies) instead
+# of an actual prohibited *claim*, and did so inconsistently (a pt/es sleep
+# opportunity presented while an en one with the same framing was excluded).
+# The self-check lives only in the Evaluation prompt, so these lock the prompt
+# to the topic-vs-claim distinction the owner specified.
+
+
+def _compliance_self_check() -> str:
+    """The COMPLIANCE SELF-CHECK block of the real Evaluation prompt, lower-cased."""
+    from market_intelligence.evaluation import _prompt
+
+    framed, matches, kn, _ = _pipeline_to_matches()
+    opp = next(o for o in framed if o.opportunity_id == _OPP_ID)
+    prompt = _prompt(opp, matches[_OPP_ID], kn)
+    start = prompt.index("COMPLIANCE SELF-CHECK")
+    end = prompt.index("OPPORTUNITY:", start)
+    return prompt[start:end].lower()
+
+
+def test_compliance_prompt_frames_the_check_as_claims_not_topics():
+    sec = _compliance_self_check()
+    assert "claim" in sec and "topic" in sec
+    # a sensitive subject, on its own, is explicitly not a violation
+    assert "not" in sec and ("by itself" in sec or "on its own" in sec)
+
+
+def test_compliance_prompt_says_a_benign_sleep_topic_is_not_a_violation():
+    sec = _compliance_self_check()
+    assert "sleep music" in sec
+    # it appears in the "not a violation" guidance, not the violating list
+    not_a_violation = sec.split("is a violation")[0]
+    assert "sleep music" in not_a_violation
+
+
+def test_compliance_prompt_says_a_relaxation_topic_is_not_a_violation():
+    sec = _compliance_self_check()
+    not_a_violation = sec.split("is a violation")[0]
+    assert "music to relax" in not_a_violation
+    assert "subjective experience" in not_a_violation
+
+
+def test_compliance_prompt_says_a_frequency_topic_without_an_efficacy_claim_is_not_a_violation():
+    sec = _compliance_self_check()
+    assert "432 hz" in sec
+    before_violation = sec.split("is a violation")[0]
+    assert "432 hz" in before_violation  # named as an allowed subject
+
+
+def test_compliance_prompt_flags_an_explicit_cure_or_treatment_claim_as_a_violation():
+    sec = _compliance_self_check()
+    assert "432 hz treats insomnia" in sec or "cures" in sec
+    assert "g01" in sec and "g03" in sec
+
+
+def test_compliance_prompt_flags_an_unsupported_scientific_claim_as_a_violation():
+    sec = _compliance_self_check()
+    assert "scientifically proven" in sec or "studies show" in sec
+    assert "g04" in sec
+
+
+def test_compliance_prompt_flags_a_fabricated_statistic_as_a_violation():
+    sec = _compliance_self_check()
+    violating = sec.split("is a violation", 1)[1] if "is a violation" in sec else ""
+    assert "g05" in violating
+    assert "fabricat" in violating or "invented" in violating or "unsupported" in violating
+    assert "statistic" in violating or "number" in violating or "%" in violating
+
+
+def test_compliance_prompt_requires_quoting_the_claim_and_is_topic_independent():
+    sec = _compliance_self_check()
+    assert "quote" in sec                       # name the actual offending sentence
+    assert "guardrail id" in sec or "guardrail's id" in sec or "names the guardrail" in sec
+    # the same standard regardless of which topic the sentence is about
+    assert "regardless of" in sec or "no matter which topic" in sec or "same standard" in sec

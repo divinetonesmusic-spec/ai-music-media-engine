@@ -1,0 +1,601 @@
+{
+  "opportunity_id": "opp_2026-09-01_239ea979d0",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_01",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Sleep-phonk genre-blend content (EN, emerging)",
+  "need": "Discovering novel genre-blended sleep music that merges phonk aesthetics with sleep framing",
+  "audience": {
+    "description": "Younger English-speaking TikTok users interested in genre-crossover sleep content beyond traditional ambient"
+  },
+  "market": "English-speaking markets",
+  "language": "en",
+  "platform": "tiktok",
+  "consumption_context": "Discovering new music trends via TikTok Discover while browsing",
+  "durability": "EMERGING",
+  "urgency": "LOW",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "A dedicated 'Sleep Phonk' Discover topic indicates genre-blended content merging phonk with sleep framing.",
+      "confidence": "LOW",
+      "signal_ids": [
+        "sig_run_2026-09-01_01_0003"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4H6G5U09JST3szo4TSvetl",
+        "name": "Sueño Curativo 528 Hz   - Frecuencias Hertz para Sanar y Dormir Profundo (2026)🌙",
+        "fit": "NONE",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Spanish-language sleep playlist, wrong market/language, no phonk blend.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4jmuWvaWI6BvsjhxmJBUao",
+        "name": "Sono Restaurador 432 Hz - Frequências Hertz para dormir e curar (2026)",
+        "fit": "NONE",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Portuguese sleep playlist, wrong market/language, no phonk blend.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_5Wz1PL0H0t7f1qCuY989ZE",
+        "name": "Sueño Reparador – Frecuencias 528 Hz para Sanar y Dormir Profundo (2026)",
+        "fit": "NONE",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Spanish sleep playlist, wrong market/language, no phonk blend.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_mandalameditationss",
+        "name": "Frequências de Sono Profundo",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster page but Portuguese/Brasil market, not English-speaking TikTok audience; no phonk crossover content.",
+        "role": "candidate"
+      }
+    ],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono hero artist aligns with sleep framing but no phonk/genre-blend signal.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono hero artist, sleep-focused catalog, no phonk crossover evidence.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono hero artist matches sleep cluster; no genre-blend/phonk data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster candidate, not hero, no phonk indication.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster candidate, generic sleep frequencies, no genre-blend signal.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster candidate; no phonk or crossover element.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster candidate; generic relaxation frequencies, no genre blend.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity cluster, unrelated to sleep-phonk niche.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angel/spirituality cluster, unrelated to phonk-sleep blend.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angel/spirituality cluster, no phonk relevance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angel cluster, no genre-blend fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity cluster, unrelated.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Prosperity/manifestation cluster, not sleep-phonk aligned.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angel/spirituality cluster, unrelated.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+        "name": "Cortiq",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available; cannot assess genre-blend fit.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero flag present but cluster unclassified; no phonk evidence.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+        "name": "Templo Theta",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero flag present but unclassified cluster.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+        "name": "Synaptica",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+        "name": "Salmo Sonoro",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+        "name": "David’s Harp Meditation",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+        "name": "Meditara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero flag but unclassified; no evidence of phonk relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+        "name": "Opulentia Divina",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero flag but unclassified cluster.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+        "name": "Vibração Consciente",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+        "name": "Divine Tones by Nikolai",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+        "name": "Nathaniel Lior Grace",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+        "name": "Hipnocortex",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+        "name": "Silenciium",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero flag but unclassified cluster.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+        "name": "Raphael’s Healing Choir",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero flag but unclassified cluster; name suggests brainwave/hertz alignment but no phonk evidence.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+        "name": "Brainora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero flag but unclassified cluster.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+        "name": "Hypnozzert",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+        "name": "Psalms Frequencies",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "UNKNOWN",
+    "best_page": "NEW_ASSET",
+    "best_artist": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+    "new_asset_recommendation": {
+      "asset_type": "page",
+      "rationale": "An English-language TikTok page/playlist targeting genre-crossover sleep content (phonk x sleep) would fill a clear gap, since all current sleep-cluster assets are PT/ES and none address the emerging phonk-blend trend. This could differentiate from existing ambient-only sleep content and capture younger EN-speaking Discover audiences before the trend matures.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No existing playlist or page targets English-speaking TikTok audiences with sleep-phonk genre-blend content; all sleep playlists/pages are PT/ES market. No artist has demonstrated phonk-blend catalog, though sono hero artists can be leveraged as a starting point."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Only one OBSERVED evidence item (sig_run_2026-09-01_01_0003) supports this opportunity, and that signal itself is tagged LOW confidence. No corroborating signals, volume metrics, or trend trajectory data are present.",
+        "blocked_by": [
+          "additional corroborating signals",
+          "volume/engagement metrics for the 'Sleep Phonk' Discover topic"
+        ]
+      },
+      "audience_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "TikTok's younger EN-speaking base browsing Discover is large in principle, and genre-crossover sleep content is described as appealing to users seeking novelty beyond ambient, but no audience sizing, follower, or engagement data exists to confirm actual reach.",
+        "blocked_by": [
+          "audience size/demographic data",
+          "engagement or completion-rate metrics"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Durability is labeled EMERGING and urgency LOW; the single signal notes a 'dedicated Discover topic' exists but gives no growth curve, view counts, or period-over-period change to establish momentum.",
+        "blocked_by": [
+          "time-series trend data for the Discover topic",
+          "view/share growth metrics"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Classified EMERGING with LOW urgency, suggesting an early-stage window that could widen or fade quickly; without historical trend data it's unclear whether this is a fleeting Discover spike or a sustainable niche.",
+        "blocked_by": [
+          "historical lifecycle data on similar genre-blend Discover topics"
+        ]
+      },
+      "music_fit": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No artist in the catalog has a demonstrated phonk-blend sonic profile; 'sono hero artists can be leveraged as a starting point' per the unmatched_reason, but this is speculative. Musical DNA detail is NEEDS_INPUT, keeping confidence capped at LOW.",
+        "blocked_by": [
+          "catalog musical-DNA/genre tagging data",
+          "phonk-blend production capability assessment"
+        ]
+      },
+      "content_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The consumption context (Discover browsing) and novelty framing ('genre-blended sleep music merging phonk aesthetics') suggest short-form content hooks, but this rests on a single low-confidence signal with no examples of top-performing content formats.",
+        "blocked_by": [
+          "examples of high-performing sleep-phonk TikTok videos",
+          "creative format benchmarks"
+        ]
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "unmatched_reason states no existing playlist or page targets EN-speaking TikTok sleep-phonk audiences (all sleep assets are PT/ES market), implying limited direct competition, but this also signals unproven market rather than validated open space.",
+        "blocked_by": [
+          "competitor content audit for EN sleep-phonk niche"
+        ]
+      },
+      "differentiation_potential": {
+        "rating": "HIGH",
+        "confidence": "LOW",
+        "justification": "The concept explicitly targets audiences seeking genre-crossover sleep content 'beyond traditional ambient,' and no matching assets exist in the current portfolio for this blend, indicating a distinct positioning opportunity relative to standard sleep/ambient offerings."
+      },
+      "asset_fit": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "matching_counts show only 3 playlists, 1 page (all PT/ES per unmatched_reason), and no artist with a phonk-blend catalog among 37 candidates; new_asset_recommended is true, confirming a real gap rather than uncertainty about fit."
+      },
+      "business_outcome_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Given the single low-confidence signal, EMERGING/LOW-urgency status, and total absence of EN-targeted assets, near-term business impact is speculative; upside exists only if the Discover topic proves durable and a new asset is built and validated.",
+        "blocked_by": [
+          "validated trend performance data",
+          "pilot content performance results"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "The entire opportunity rests on a single OBSERVED signal (sig_run_2026-09-01_01_0003) that is itself rated LOW confidence, with no supporting volume, growth, or engagement data.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "unmatched_reason confirms no playlist, page, or artist in the current catalog serves EN-market sleep-phonk content; all comparable sleep assets are PT/ES, and no artist has a demonstrated phonk-blend catalog.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "This opportunity is based on a single, low-confidence signal indicating a 'Sleep Phonk' TikTok Discover topic blending phonk aesthetics with sleep framing for younger EN-speaking audiences. There is genuine differentiation potential since no existing playlist, page, or artist catalog serves this EN niche (current sleep assets are PT/ES market), but the trend's durability, audience size, and content performance are entirely unvalidated. Given EMERGING durability and LOW urgency plus the need for a new artist/page asset, this is a low-cost exploratory bet rather than a confirmed opportunity."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No existing EN-market sleep-phonk playlist exists (best_playlist: UNKNOWN, all matches PT/ES); growth would require building from zero with no audience validation yet."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Phonk-based aesthetics have historically driven remix/UGC waves on TikTok, and the existence of a dedicated Discover topic hints at organic interest, but this single low-confidence signal doesn't confirm actual UGC creation volume."
+      },
+      "streaming_royalty_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No catalog tracks currently fit the sleep-phonk blend and no streaming performance data is available, making royalty upside unquantifiable at this stage."
+      },
+      "page_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "new_asset_recommended is true with a NEW_ASSET page suggested; a first-mover EN sleep-phonk page could grow via TikTok Discover exposure, but this is untested and rests on a single weak signal."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No evidence of any YouTube-specific interest, search volume, or crossover content for sleep-phonk is provided in the available signals."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "EXPLORE",
+    "suggested_next_step": "Monitor the 'Sleep Phonk' TikTok Discover topic over the next 4-6 weeks for growth in views/engagement and identify a small set of candidate creators or sono hero artists to test a low-cost pilot video before committing to new playlist/page asset creation.",
+    "justification": "Evidence is limited to one LOW-confidence signal and no matching assets exist, so validating trend durability and audience response cheaply is warranted before investing in a new EN sleep-phonk asset.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T12:18:24Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_01_0003"
+    ],
+    "sources": [
+      {
+        "source": "Sleep Phonk | TikTok",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "sleep music TikTok trend 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/sleep-phonk"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T12:18:24Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_01"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "sono",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Experimental sleep-phonk instrumental tracks as a differentiated sub-format within the sleep cluster",
+    "potential_page": "EN sleep-phonk experimental content",
+    "first_content_direction": "Test a phonk-influenced ambient sleep track and gauge engagement vs standard ambient",
+    "format": "short-form music clip",
+    "hook": "Sleep phonk you didn't know you needed"
+  },
+  "rank": 10,
+  "report_ref": "reports/run_2026-09-01_01/opp_2026-09-01_239ea979d0.md"
+}

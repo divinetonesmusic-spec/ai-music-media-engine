@@ -1,0 +1,576 @@
+{
+  "opportunity_id": "opp_2026-09-01_545d32ee8e",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_01",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "Lucid dreaming paired with binaural-beat framing (EN)",
+  "need": "Using audio combining lucid dreaming intent with binaural-beat/frequency framing",
+  "audience": {
+    "description": "English-speaking YouTube listeners interested in lucid dreaming who also engage with binaural beat content"
+  },
+  "market": "English-speaking markets",
+  "language": "en",
+  "platform": "youtube",
+  "consumption_context": "Overnight or pre-sleep listening intended to induce lucid dreaming",
+  "durability": "EVERGREEN",
+  "urgency": "LOW",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "A dedicated 'Lucid Dreaming Music' YouTube channel exists, and a curated playlist combines lucid dreaming framing with binaural beats.",
+      "confidence": "LOW",
+      "signal_ids": [
+        "sig_run_2026-09-01_01_0021",
+        "sig_run_2026-09-01_01_0022"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_0fzUPuhRHjqMyfOgNx0d4S",
+        "name": "Sueño Lúcido – Ondas Theta 8 Hz para Activar la Intuición y Controlar tus Sueños (2026)",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Canonical cluster matches exactly (sonho-lucido) and theta-wave framing aligns with binaural intent, but playlist is in Spanish for Hispanic markets, not English-speaking YouTube audience, limiting fit.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster, no lucid dream or binaural framing observed.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_123ak1WL7sEcaPTsWdy15I",
+        "name": "Cortiq",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data available.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "name": "Frequenzia",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist but no cluster data to confirm lucid dreaming/binaural fit.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1QO83ZoG47WT3SV5958lhD",
+        "name": "Templo Theta",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No classification data; name suggests theta/meditation but unconfirmed.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "name": "Prospperus",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Secondary cluster includes 'Sonho Lúcido' plus frequency tags (777/888 Hz), relevant to lucid dreaming + frequency framing though primary cluster is prosperity.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono/Theta cluster relevant to sleep but not lucid dreaming or binaural beats specifically.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_23C4aGKQlxYACGS9daOxJL",
+        "name": "Arcturian Healing Codes",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, no cluster data confirming relevance.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "name": "Sonoriium",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono/Theta/Manifestação cluster, adjacent but not lucid dream specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3K6lhRvWlcu4SpsAmHMfK5",
+        "name": "Synaptica",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3PwVtfCKvqMkafasmo6raa",
+        "name": "Salmo Sonoro",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3RTxCJPJeU2EeuwmLRCA4A",
+        "name": "David’s Harp Meditation",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_3kKSVQVVHN96oRBC5vdJOz",
+        "name": "Meditara",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_49fktK7xQ9xlGYA8hOShx3",
+        "name": "Hertzia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests frequency/hertz theme, could relate to binaural framing but unconfirmed.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "name": "Coro dos Anjos",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/religious spirituality cluster, unrelated to lucid dreaming/binaural.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4Is01TkyMdfYekLdFJ0MqV",
+        "name": "Opulentia Divina",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "name": "Thetara",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Thetara' suggests theta wave content, loosely relevant to binaural framing.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4W9EedUUZ7XBaQVK8ltOzq",
+        "name": "Vibração Consciente",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4bBM9F42jCH36cLgZWB29P",
+        "name": "Divine Tones by Nikolai",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4cmQKKLa01EKspZrAfGArk",
+        "name": "Nathaniel Lior Grace",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "name": "Binauric",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Binauric' strongly implies binaural beat content; Sono cluster observed but binaural angle inferred from name.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_4kvUKYYbJpugMmVOMJS6fv",
+        "name": "Hipnocortex",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_52SR4w9A8EKMeAE1R566AV",
+        "name": "Proverbia",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Religious/angels cluster, unrelated.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5FChe5Ft6PrY6EDD9icf4M",
+        "name": "Silenciium",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "name": "Meditação Sonora",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5R1ud4VWcDeMAodhF1EeWD",
+        "name": "Raphael’s Healing Choir",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "name": "Brainhertz",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Brainhertz' suggests binaural/frequency content, hero status.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster, dream-adjacent name but not lucid dream/binaural specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5hex8ZvC3cbCr9xCM1H99n",
+        "name": "Brainora",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name suggests brain/frequency theme, unconfirmed.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5opHERa1SgwiRaozP8wqjj",
+        "name": "Divine Tones",
+        "fit": "LOW",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "Hero artist, no cluster data.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono/relaxation cluster with frequency tags, not lucid-dream specific.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_64QX86LV0w94ZsCCNqfxmO",
+        "name": "Hypnozzert",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Name 'Hypnozzert' suggests hypnosis/sleep induction, loosely relevant.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "name": "The Seven Archangels",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/religious cluster, unrelated.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_6xdN570lrguPNEnPhANMmA",
+        "name": "Sinta-se Próspero",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Abundance/prosperity cluster, unrelated.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Sono cluster with Delta/Theta tags, sleep-adjacent but not lucid dream/binaural specific.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7jgZvPmtbRQgE5u9Ot8OKh",
+        "name": "Psalms Frequencies",
+        "fit": "NONE",
+        "fit_basis": "UNKNOWN",
+        "fit_rationale": "No data.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "name": "Abundor",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Abundance cluster with 'Sono/Sonhos' secondary, tangential relevance.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7yodVHRyk6pHTTzpp8XNRH",
+        "name": "Seraphim Frequencies",
+        "fit": "NONE",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Angels/spirituality cluster, unrelated.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "pl_0fzUPuhRHjqMyfOgNx0d4S",
+    "best_page": "NEW_ASSET",
+    "best_artist": "art_1ZtIHebQHlyC9S7ipjyVGj",
+    "new_asset_recommendation": {
+      "asset_type": "page",
+      "rationale": "No English-language lucid dreaming + binaural beat page or playlist exists; the opportunity has clear audience overlap (lucid dreaming + binaural beat interest) not served by existing Spanish playlist or unrelated sleep/spirituality artists, suggesting room for a differentiated English-market asset.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No page asset exists in inventory for this opportunity; only a Spanish-language lucid dream playlist and no English-language equivalent found."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Only one OBSERVED evidence item exists, itself rated LOW confidence, noting a dedicated 'Lucid Dreaming Music' channel and one curated binaural-beat playlist. No view counts, subscriber figures, or engagement metrics accompany it.",
+        "blocked_by": [
+          "view/engagement metrics for cited channel and playlist",
+          "additional independent signals"
+        ]
+      },
+      "audience_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Lucid dreaming and binaural beats are established, recurring wellness/sleep-content interests on YouTube, and a dedicated channel exists per evidence, suggesting a real but unquantified niche audience.",
+        "blocked_by": [
+          "audience size or search-volume data"
+        ]
+      },
+      "growth_momentum": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Opportunity metadata explicitly marks urgency as LOW and no trend or growth figures are supplied in evidence; nothing indicates rising or accelerating interest.",
+        "blocked_by": [
+          "trend/growth metrics (view velocity, search trend data)"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The opportunity is tagged EVERGREEN and sleep/dream-focused audio is a well-known persistent YouTube content category, supporting a long window even without momentum data."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "37 matching artists in inventory suggest some catalog affinity to binaural/ambient styles, but the business's detailed musical DNA is not specified (NEEDS_INPUT per instructions), so fit cannot be firmly assessed.",
+        "blocked_by": [
+          "business musical DNA / genre profile detail"
+        ]
+      },
+      "content_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Existing precedent (a dedicated channel plus a curated playlist combining lucid dreaming intent with binaural framing) demonstrates a workable content format that could be replicated in English overnight listening formats."
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "A dedicated competitor channel and playlist already occupy this space per evidence, indicating established competition; no data shows how a new entrant would perform against it.",
+        "blocked_by": [
+          "competitor channel size/engagement benchmarks"
+        ]
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Asset fit notes only a Spanish-language lucid dream playlist exists with no English-language equivalent in inventory, meaning an English asset could fill a language gap, though this is inferred rather than evidenced by audience demand data.",
+        "blocked_by": [
+          "confirmation of unmet English-language demand"
+        ]
+      },
+      "asset_fit": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "Matching counts show only 1 playlist (non-English) and 0 pages; new_asset_recommended is true and unmatched_reason explicitly states no English page/playlist equivalent exists, indicating weak current asset alignment."
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Evergreen durability and a plausible niche audience support moderate potential, but the single low-confidence evidence item and lack of any performance metrics prevent a higher rating.",
+        "blocked_by": [
+          "performance/engagement data across streaming and YouTube channels"
+        ]
+      }
+    },
+    "red_flags": [
+      {
+        "description": "The only supporting evidence is a single OBSERVED item rated LOW confidence, with no view counts, subscriber numbers, or trend data to substantiate audience size or momentum claims.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "No English-language playlist or page asset exists in inventory (only a Spanish-language lucid dream playlist), and 0 pages match, requiring a wholly new asset to pursue this opportunity.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "This opportunity targets English-speaking YouTube listeners interested in lucid dreaming framed with binaural-beat audio for overnight/pre-sleep use, an evergreen niche supported by only one low-confidence observation of a dedicated channel and playlist. Asset inventory currently lacks any English-language playlist or page match, with only a Spanish equivalent and broad artist catalog overlap (37 artists) available. Given the thin evidence base and absence of growth or engagement metrics, potential is plausible but unproven."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Only one relevant playlist exists in inventory and it is Spanish-language; building a new English playlist could capture the gap noted in asset fit, but no data confirms uptake potential."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No evidence points to UGC or short-form trend activity (e.g., TikTok challenges) tied to lucid dreaming/binaural content; the only signal is a static YouTube channel/playlist."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Overnight/pre-sleep listening formats typically generate long, repeat play sessions common to ambient/sleep genres, which can support streaming royalty accrual, though no royalty or stream-count data is provided here."
+      },
+      "page_growth_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "Asset fit shows zero matching pages and recommends creating a NEW_ASSET from scratch, meaning there is no existing base or track record to project page growth from."
+      },
+      "youtube_media_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "The opportunity is platform-native to YouTube and evidence directly cites an existing dedicated 'Lucid Dreaming Music' YouTube channel and playlist, showing the format already has a home on this platform."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "EXPLORE",
+    "suggested_next_step": "Research view counts, subscriber trends, and engagement metrics on existing lucid dreaming + binaural beat YouTube channels/playlists (including the cited 'Lucid Dreaming Music' channel) to validate audience size and demand before committing to building a new English-language asset.",
+    "justification": "Evidence is limited to a single low-confidence observation with no quantitative backing, and asset fit shows a clear English-language gap; further validation is needed before moving to active testing or asset creation.",
+    "confidence": "LOW",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T12:18:24Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_01_0021",
+      "sig_run_2026-09-01_01_0022"
+    ],
+    "sources": [
+      {
+        "source": "Lucid Dreaming Music",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "lucid dreaming music YouTube trend 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.youtube.com/@luciddreamingmusic"
+      },
+      {
+        "source": "The Best Lucid Dreaming MUSIC: Binaural Beats And ...",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "lucid dreaming music YouTube trend 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.youtube.com/playlist?list=PLPyna2ZXQyQgJpsEyZbSuc-FmEZ5KorN4"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T12:18:24Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_01"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "sonho-lucido",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Lucid dreaming instrumental content packaged with binaural-beat framing as combined offering",
+    "potential_page": "EN lucid dreaming + binaural YouTube channel",
+    "first_content_direction": "Produce a long-form lucid dreaming mix incorporating binaural beat framing",
+    "format": "long-form YouTube ambient/binaural mix",
+    "hook": "Lucid dreaming music with binaural beats"
+  },
+  "rank": 9,
+  "report_ref": "reports/run_2026-09-01_01/opp_2026-09-01_545d32ee8e.md"
+}

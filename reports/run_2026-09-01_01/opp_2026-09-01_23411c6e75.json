@@ -1,0 +1,316 @@
+{
+  "opportunity_id": "opp_2026-09-01_23411c6e75",
+  "schema_version": "1.0.0",
+  "run_id": "run_2026-09-01_01",
+  "created_at": "2026-09-01T00:00:00Z",
+  "title": "General relaxing music baseline demand (pt-BR, TikTok)",
+  "need": "Everyday stress relief and relaxation via short-form relaxing music content",
+  "audience": {
+    "description": "Brazilian TikTok users searching broadly for relaxing music"
+  },
+  "market": "Brasil",
+  "language": "pt",
+  "platform": "tiktok",
+  "consumption_context": "Daily short-form scrolling seeking calming background music",
+  "durability": "EVERGREEN",
+  "urgency": "HIGH",
+  "evidence": [
+    {
+      "type": "OBSERVED",
+      "statement": "A broad, recently updated Discover page for 'Músicas Relaxantes' confirms continued strong pt-language search demand for general relaxing music.",
+      "confidence": "HIGH",
+      "signal_ids": [
+        "sig_run_2026-09-01_01_0026"
+      ]
+    }
+  ],
+  "asset_fit": {
+    "schema_version": "1.0.0",
+    "matching_playlists": [
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_4jmuWvaWI6BvsjhxmJBUao",
+        "name": "Sono Restaurador 432 Hz - Frequências Hertz para dormir e curar (2026)",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster 'Sono' with restorative/frequency framing overlaps with relaxation use-case, but not the canonical 'ansiedade-relaxamento' cluster.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_2vZzaPRyZrrWqpt8zZ5wDs",
+        "name": "Abundância 888 Hz • Ativação da Prosperidade (2026)",
+        "fit": "NONE",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster is Abundância/Prosperidade, unrelated to relaxation/anxiety need.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "playlist",
+        "asset_id": "pl_2wQ3zDAXPdF9cLtR9OppyZ",
+        "name": "Limpeza da Glandula Pineal Frequências 963 Hz (2026)",
+        "fit": "NONE",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster is Glândula Pineal/Frequências, unrelated niche to general relaxation demand.",
+        "role": "candidate"
+      }
+    ],
+    "matching_pages": [
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_meditacao.sonora",
+        "name": "Meditação Sonora",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Classified cluster is 'Meditação / Relaxamento', closely adjacent to 'ansiedade-relaxamento' and matches market/language/platform, best available page match though not exact canonical id.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_mandalameditationss",
+        "name": "Frequências de Sono Profundo",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster is 'Sono', adjacent wellness content but not focused on general anxiety/relaxation demand.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "page",
+        "asset_id": "page_tiktok_energiaeterna888hz",
+        "name": "Energia Eterna",
+        "fit": "LOW",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Cluster is Frequência Divina/Espiritualidade, tangential to general relaxation need.",
+        "role": "candidate"
+      }
+    ],
+    "matching_artists": [
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5rW5NStZS26JvQ8Sa0csKX",
+        "name": "Diviniia",
+        "fit": "MEDIUM",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Secondary cluster explicitly includes 'Ansiedade / Relaxamento' and catalog_affinity_relates is true, closest match to the opportunity's canonical cluster despite primary classification being 'Sono'.",
+        "role": "candidate"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_0po1ZsFAwFIgNJDrksslV5",
+        "name": "Nimbus Sleep Sanctuary",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist with strong Sono/relaxation catalog affinity; adjacent cluster to anxiety-relaxation but not exact match.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "name": "Dormesia",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist in Sono cluster, relaxation-adjacent content, could serve general relaxing music demand.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "name": "Sonia Amor Divino",
+        "fit": "MEDIUM",
+        "fit_basis": "OBSERVED",
+        "fit_rationale": "Hero artist, Sono cluster with cleansing/relaxation themes, adjacent fit to general relaxation demand.",
+        "role": "hero"
+      },
+      {
+        "asset_type": "artist",
+        "asset_id": "art_5bbVuL2WwR4t2394pvuPNE",
+        "name": "Aura de los Sueños",
+        "fit": "LOW",
+        "fit_basis": "INFERRED",
+        "fit_rationale": "Sono cluster artist with 'Descanso mental' secondary theme, loosely relevant to relaxation but not the target cluster.",
+        "role": "candidate"
+      }
+    ],
+    "best_playlist": "UNKNOWN",
+    "best_page": "page_tiktok_meditacao.sonora",
+    "best_artist": "art_5rW5NStZS26JvQ8Sa0csKX",
+    "new_asset_recommendation": {
+      "asset_type": "playlist",
+      "rationale": "A dedicated 'ansiedade-relaxamento' playlist in pt-BR could capture the broad, high-volume TikTok relaxation search demand that is currently only indirectly served by Sono- and Meditação-focused playlists, differentiating via explicit anxiety/stress-relief framing and everyday scrolling context.",
+      "i5_conditions_met": {
+        "no_adequate_fit": true,
+        "relevant_potential": true,
+        "differentiation_potential": true,
+        "sufficient_window": true
+      }
+    },
+    "unmatched_reason": "No existing playlist is classified under the canonical 'ansiedade-relaxamento' cluster; the closest option (Sono-focused restorative playlist) targets sleep rather than general daily anxiety relief, so no adequate playlist match exists."
+  },
+  "evaluation": {
+    "schema_version": "1.0.0",
+    "dimensions": {
+      "signal_strength": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Only one OBSERVED signal (sig_run_2026-09-01_01_0026) supports this opportunity — a recently updated Discover page for 'Músicas Relaxantes' indicating sustained pt-language search interest. It is high-confidence individually but is a single data point with no corroborating trend or volume metrics."
+      },
+      "audience_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Brazil is one of TikTok's largest markets globally and 'relaxing music' is a broad, evergreen search category per the Discover page evidence. No exact audience size/volume figures are provided, so the rating is directional rather than quantified."
+      },
+      "growth_momentum": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The Discover page being 'recently updated' suggests continued activity, but there is no time-series or growth-rate data (e.g., week-over-week search/view trends) to confirm accelerating momentum versus flat, mature demand.",
+        "blocked_by": [
+          "trend/time-series search or view data"
+        ]
+      },
+      "durability_opportunity_window": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Opportunity is explicitly labeled EVERGREEN with HIGH urgency, and general relaxation content is a stable, non-seasonal need consistent with the observed sustained Discover page demand."
+      },
+      "music_fit": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The business's musical DNA/catalog detail is NEEDS_INPUT, so fit cannot be firmly assessed. Generic relaxing/ambient music is a plausible stylistic fit for a wellness-oriented catalog, but no confirmed genre/style alignment data exists.",
+        "blocked_by": [
+          "catalog musical DNA / style profile"
+        ]
+      },
+      "content_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Daily short-form scrolling for calming background music (per consumption_context) fits TikTok's native loop/ambient-audio formats well, and the broad, evergreen nature of the need supports a steady content pipeline."
+      },
+      "competitive_position": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "General 'relaxing music' is a broad, likely crowded keyword space on TikTok; no competitor density, share-of-voice, or ranking data is available to assess how defensible a position could be beyond the existing 3 matching pages/5 matching artists.",
+        "blocked_by": [
+          "competitor landscape / share-of-voice data"
+        ]
+      },
+      "differentiation_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The asset_fit gap analysis notes no existing playlist covers the specific 'ansiedade-relaxamento' (daily anxiety relief) cluster versus sleep-focused content, suggesting room to differentiate with a dedicated angle, but no creative concept or execution plan is evidenced yet.",
+        "blocked_by": [
+          "defined creative/content angle"
+        ]
+      },
+      "asset_fit": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "best_playlist is UNKNOWN and unmatched_reason explicitly states no existing playlist is classified under the relevant cluster (closest option is sleep-focused, not daily anxiety relief); new_asset_recommended is true. A page (page_tiktok_meditacao.sonora) and artist (art_5rW5NStZS26JvQ8Sa0csKX) do exist as partial matches.",
+        "blocked_by": [
+          "dedicated playlist for 'ansiedade-relaxamento' cluster"
+        ]
+      },
+      "business_outcome_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Evergreen, high-urgency demand (per opportunity metadata) and one supporting Discover-page signal point to plausible upside, but thin evidence base and confirmed asset gap (no matching playlist) temper confidence in realized business outcomes."
+      }
+    },
+    "red_flags": [
+      {
+        "description": "Only a single OBSERVED signal (sig_run_2026-09-01_01_0026) underlies this entire opportunity assessment, with no supplementary volume, trend, or competitor data.",
+        "severity": "MEDIUM",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "asset_fit explicitly states no existing playlist matches the 'ansiedade-relaxamento' cluster ('No existing playlist is classified under the canonical ansiedade-relaxamento cluster'), requiring a net-new playlist asset before this opportunity can be operationalized.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      }
+    ],
+    "overall_confidence": "LOW",
+    "summary": "A single high-confidence signal shows sustained pt-BR TikTok search demand for general relaxing music via an updated Discover page, aligning with an evergreen, high-urgency need. However, the evidence base is thin (one signal), the musical catalog fit is unconfirmed, and asset_fit analysis reveals no existing playlist covers the daily-anxiety-relief niche, requiring new asset creation. Existing page and artist matches offer a partial foothold for testing."
+  },
+  "business_outcome_profile": {
+    "schema_version": "1.0.0",
+    "axes": {
+      "playlist_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "No existing playlist matches the 'ansiedade-relaxamento' cluster (asset_fit unmatched_reason), so growth would depend entirely on building a new asset from scratch; the general demand signal supports feasibility but not guaranteed traction."
+      },
+      "music_trend_ugc_potential": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "Broad relaxing-music search behavior on TikTok pt-BR (Discover page evidence) combined with daily short-form scrolling context is well-suited to UGC/trend formats like ambient loops or 'relax with me' clips."
+      },
+      "streaming_royalty_potential": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "Relaxation/ambient music categories generally sustain long-tail streaming, but no streaming or royalty performance data is provided for this specific pt-BR TikTok-driven segment, making this an inference rather than an evidenced estimate."
+      },
+      "page_growth_potential": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "An existing matching page (page_tiktok_meditacao.sonora) provides a channel to capture the observed sustained Discover-page demand for relaxing music, though no follower/engagement growth data for that page is given."
+      },
+      "youtube_media_potential": {
+        "rating": "LOW",
+        "confidence": "LOW",
+        "justification": "No evidence, asset, or signal data addresses YouTube presence or cross-platform repurposing for this opportunity; rating reflects absence of information rather than a negative assessment."
+      }
+    }
+  },
+  "recommendation": {
+    "schema_version": "1.0.0",
+    "target_state": "TEST",
+    "suggested_next_step": "Run a small-scale content test using the existing page (page_tiktok_meditacao.sonora) and artist (art_5rW5NStZS26JvQ8Sa0csKX) with 3-5 short-form relaxing music clips targeted at daily anxiety relief (not sleep), while scoping requirements for a dedicated 'ansiedade-relaxamento' playlist; monitor engagement before further investment.",
+    "justification": "Demand signal is credible but singular, and the identified asset gap (no matching playlist) means a full launch is premature; a low-cost test validates audience response and informs whether to build the recommended new playlist asset.",
+    "confidence": "MEDIUM",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "run_2026-09-01_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "mi-v1-live-01",
+    "generated_at": "2026-09-01T12:18:24Z",
+    "signal_ids": [
+      "sig_run_2026-09-01_01_0026"
+    ],
+    "sources": [
+      {
+        "source": "Músicas Relaxantes | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-07-20",
+        "collected_at": "2026-09-01T12:18:24Z",
+        "query_or_reference": "ansiedad música relajante TikTok tendencia 2026",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/m%C3%BAsicas-relaxantes"
+      }
+    ],
+    "replay": false
+  },
+  "status": "EXPLORE",
+  "state_history": [
+    {
+      "to": "EXPLORE",
+      "at": "2026-09-01T12:18:24Z",
+      "by": "system",
+      "note": "created by run run_2026-09-01_01"
+    }
+  ],
+  "hypotheses": {
+    "potential_cluster": {
+      "value": "ansiedade-relaxamento",
+      "canonical": true,
+      "basis": "existing"
+    },
+    "potential_positioning": "Flagship pt-BR relaxing-music TikTok presence anchored on high-baseline search term",
+    "potential_page": "pt-BR relaxing music TikTok page",
+    "first_content_direction": "Series of short relaxing instrumental clips tagged to 'Músicas Relaxantes'",
+    "format": "short-form instrumental clip",
+    "hook": "A música relaxante que você estava procurando"
+  },
+  "rank": 3,
+  "report_ref": "reports/run_2026-09-01_01/opp_2026-09-01_23411c6e75.md"
+}
