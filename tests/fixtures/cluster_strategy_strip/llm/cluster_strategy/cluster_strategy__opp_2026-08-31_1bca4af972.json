@@ -1,0 +1,84 @@
+{
+  "cluster_decision": {
+    "decision": "MAP_TO_EXISTING",
+    "cluster_id": "limpeza-energetica",
+    "subcluster_or_angle": "energetic cleansing tied to the moving-in / new-home occasion",
+    "is_new_subcluster": true,
+    "framing_hypothesis_comparison": "Confirmed. The Opportunity Report's potential_cluster hypothesis (limpeza-energetica, canonical, existing) holds: cluster-taxonomy.md defines Limpeza Energetica as music for the 'limpeza / purificacao energetica de pessoas, ambientes e do lar, protecao espiritual', with 'protecao do lar' as a named subcluster. The moving-into-a-new-home occasion sits inside that stated scope. Boundary check passed vs adjacent clusters: not Cura / Bem-estar (recuperacao/restauracao), not Frequencia Divina / Espiritualidade (ativacao), not Abundancia (financial field).",
+    "justification": "Three independent OBSERVED signals across TikTok, YouTube and Spotify (sig_run_2026-08-31_01_0014/0015/0016) are all cluster-consistent, and the taxonomy boundary for Limpeza Energetica explicitly covers home purification. The 'casa nueva' framing is a specific occasion/angle, not a new category.",
+    "new_cluster_proposal": null,
+    "deferral_reason": null,
+    "rejection_reason": null
+  },
+  "strategic_definition": {
+    "central_concept": "Instrumental music that accompanies the ritual of energetically settling a home you have just moved into.",
+    "audience_description": "Spanish-speaking people in the weeks around a house move who practice, or are curious about, home-cleansing rituals.",
+    "intent": "Soundtrack or accompany a moving-in ritual performed at home.",
+    "emotional_state": "A fresh start; a felt sense of order, welcome and calm in the new space. Framed as subjective experience, not an effect the music produces.",
+    "editorial_promise": "A calming ritual to welcome and settle into your new home.",
+    "positioning_statement": "For Spanish-speaking people settling into a new home who want a calming moving-in ritual, this is instrumental music for the ritual of welcoming a new space, an occasion angle within our Limpeza Energetica cluster, anchored on an existing ES playlist and hero artist.",
+    "localization_notes": "The concept is es-native; the moving-house ritual is culturally salient across hispanohablante markets. The anchor playlist and hero artist are already es / Mercados hispanohablantes, so no cross-market borrowing. Target countries within es remain NEEDS_INPUT (business-dna 8).",
+    "durability_read": "EMERGING per the opportunity, but a house move is a recurring life event, so the underlying demand is closer to STRUCTURAL once the trend evidence deepens.",
+    "strategic_coherence_note": "A core canonical cluster the business already serves (existing es playlist + hero artist), with a differentiated occasion angle. Serves the funnel per business-dna 4: content to playlist traffic to consumption."
+  },
+  "content_direction": {
+    "first_content_direction": "A short vertical video positioning this music as a treatment for depression during the first week in the new home.",
+    "editorial_angles": [
+      "the first night in the new home",
+      "room-by-room settling",
+      "before the furniture arrives"
+    ],
+    "music_relationship": "The track is an ambient bed under a slow ritual gesture; specific sonic criteria (instrumentation, BPM, texture, use of frequencies) are NEEDS_INPUT (business-dna 9)."
+  },
+  "dimensions": {
+    "cluster_fit": {
+      "rating": "HIGH",
+      "confidence": "HIGH",
+      "justification": "The opportunity's need and consumption_context map directly onto the Limpeza Energetica boundary ('protecao do lar', 'purificacao do campo aurico'); the cross-platform OBSERVED evidence is cluster-consistent.",
+      "blocked_by": []
+    },
+    "differentiation_within_cluster": {
+      "rating": "MEDIUM",
+      "confidence": "LOW",
+      "justification": "The moving-in occasion is a distinct angle, but competitor content already exists on YouTube and Spotify (sig_run_2026-08-31_01_0015/0016); no competitor content audit was done.",
+      "blocked_by": [
+        "competitor content audit for the es limpieza-energetica moving-in niche"
+      ]
+    },
+    "asset_readiness": {
+      "rating": "MEDIUM",
+      "confidence": "MEDIUM",
+      "justification": "An exact-match es playlist (pl_4oV5F1W2E6azZePnmqBanN) and an es-market hero artist (art_7bnKOg3GDWAbLFtNhyn8Gw) already exist; no own page targets this cluster/market, so a new page is recommended.",
+      "blocked_by": []
+    },
+    "strategic_coherence": {
+      "rating": "HIGH",
+      "confidence": "MEDIUM",
+      "justification": "Core canonical cluster; a recurring life-event occasion; consistent with the portfolio's simultaneous fast-trend + evergreen horizon (business-dna 14).",
+      "blocked_by": []
+    }
+  },
+  "overall_confidence": "LOW",
+  "red_flags": [
+    {
+      "description": "Compliance (carried from the Opportunity Report, G03/G01): framing the music as 'removes negative energy' as a fact reads as a therapeutic claim. All content copy must stay on ritual / intention / welcome; the phrase 'limpia la energia negativa' as fact is disallowed.",
+      "severity": "MEDIUM",
+      "kind": "compliance"
+    },
+    {
+      "description": "Evidence gap (carried): the demand rests on three signals, one LOW confidence, with no volume or growth-rate data.",
+      "severity": "MEDIUM",
+      "kind": "evidence_gap"
+    }
+  ],
+  "open_questions": [
+    "Platform: the opportunity's platform is tiktok, but the demand evidence spans YouTube and Spotify. Page Blueprint / owner to decide the page's platform(s).",
+    "Does the moving-in occasion warrant a dedicated page, or a content pillar inside a broader es Limpeza Energetica page? (Page Blueprint / owner.)",
+    "The phrase 'limpia la energia negativa' as fact is disallowed (compliance/MEDIUM); Content Strategy must frame all cleansing language as ritual / intention."
+  ],
+  "recommendation": {
+    "target_next_stage": "PAGE_BLUEPRINT",
+    "recommended_next_step": "Proceed to Page Blueprint for a Spanish-language Limpeza Energetica page focused on the moving-in occasion, anchored on pl_4oV5F1W2E6azZePnmqBanN and art_7bnKOg3GDWAbLFtNhyn8Gw; keep all copy on ritual / intention / welcome.",
+    "justification": "The cluster is confirmed and the anchor assets exist; the only missing asset is the page, whose I5 conditions were met upstream. Evidence is still thin, so the pilot stays bounded (the opportunity remains TEST)."
+  }
+}

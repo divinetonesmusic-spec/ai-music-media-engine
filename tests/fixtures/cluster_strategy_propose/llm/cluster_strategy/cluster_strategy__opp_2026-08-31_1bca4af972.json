@@ -1,0 +1,56 @@
+{
+  "cluster_decision": {
+    "decision": "PROPOSE_NEW_CLUSTER",
+    "cluster_id": null,
+    "subcluster_or_angle": null,
+    "is_new_subcluster": null,
+    "framing_hypothesis_comparison": "Overrode limpeza-energetica: the opportunity is specifically about the life-event of moving house, an occasion cluster distinct from the general home-purification theme.",
+    "justification": "Three cross-platform OBSERVED signals all frame the music around the moving-in occasion, not general cleansing; the occasion has its own audience, timing and content shape.",
+    "new_cluster_proposal": {
+      "proposed_id": "mudanza-hogar-ritual",
+      "proposed_name": "Ritual de Mudanza / New-Home",
+      "concept": "Music for the specific life-event of moving into a new home: the first days, settling rituals, welcoming a space.",
+      "boundary_vs_adjacent": {
+        "limpeza-energetica": "General home purification is ongoing and not tied to an event; this cluster is bounded by the move itself.",
+        "cura-bem-estar": "Not about recovery or restoration of a person; about a place and an occasion.",
+        "meditacao-relaxamento": "Not a daily practice; a one-off occasion ritual."
+      },
+      "why_not_subcluster": "The moving-in occasion cuts across cleansing, welcome, organization and superstition; it is an occasion, not a purification sub-theme, so it does not sit cleanly under Limpeza Energetica.",
+      "supporting_evidence": ["sig_run_2026-08-31_01_0014", "sig_run_2026-08-31_01_0015", "sig_run_2026-08-31_01_0016"]
+    },
+    "deferral_reason": null,
+    "rejection_reason": null
+  },
+  "strategic_definition": {
+    "central_concept": "Music that accompanies the move into a new home.",
+    "audience_description": "es-speaking people in the weeks around a house move.",
+    "intent": "Soundtrack the settling-in period.",
+    "emotional_state": "A fresh start and a sense of welcome in a new space.",
+    "editorial_promise": "A calm soundtrack for settling into your new home.",
+    "positioning_statement": "For es movers who want a calm settling-in soundtrack, this is occasion music for the move itself.",
+    "localization_notes": "es-native; the moving ritual is culturally salient across hispanohablante markets.",
+    "durability_read": "STRUCTURAL — moving house is a recurring life event.",
+    "strategic_coherence_note": "Extends the portfolio into occasion-based demand, adjacent to Limpeza Energetica."
+  },
+  "content_direction": {
+    "first_content_direction": "A short video of a settling-in moment with the music underneath.",
+    "editorial_angles": ["the first night", "unpacking the kitchen"],
+    "music_relationship": "Ambient bed under a domestic moment; sonic criteria are NEEDS_INPUT."
+  },
+  "dimensions": {
+    "cluster_fit": {"rating": "MEDIUM", "confidence": "LOW", "justification": "the proposed cluster fits the evidence but is not yet canonical", "blocked_by": ["owner formalization (P6)"]},
+    "differentiation_within_cluster": {"rating": "HIGH", "confidence": "LOW", "justification": "an occasion cluster is distinct from anything in the current taxonomy", "blocked_by": []},
+    "asset_readiness": {"rating": "MEDIUM", "confidence": "MEDIUM", "justification": "existing es cleansing playlist + hero artist can seed it; no dedicated page", "blocked_by": []},
+    "strategic_coherence": {"rating": "MEDIUM", "confidence": "MEDIUM", "justification": "occasion-based demand is a coherent portfolio extension", "blocked_by": []}
+  },
+  "overall_confidence": "LOW",
+  "red_flags": [
+    {"description": "Compliance (carried, G03): keep all cleansing language on ritual/intention, never 'removes negative energy' as fact.", "severity": "MEDIUM", "kind": "compliance"}
+  ],
+  "open_questions": ["Does the owner want to formalize this as a canonical cluster (P6), or run it as a Limpeza Energetica angle?"],
+  "recommendation": {
+    "target_next_stage": "FORMALIZE_CLUSTER",
+    "recommended_next_step": "Owner to review the new-cluster proposal and either formalize 'mudanza-hogar-ritual' in cluster-taxonomy.md or re-scope the opportunity as a Limpeza Energetica angle.",
+    "justification": "The evidence supports a distinct occasion cluster, but formalization is an owner decision (P6, deferred)."
+  }
+}

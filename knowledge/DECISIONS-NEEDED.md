@@ -67,13 +67,25 @@ Os IDs mantêm rastreabilidade com a revisão crítica do `CLAUDE.md`.
 | P1 | Loop de calibração do score com dados reais | POSTERGÁVEL | DEFERRED (2026-08-27) | Proprietário + Arquitetura |
 | P2 | Transições automáticas / autonomia L2–L3 | POSTERGÁVEL | DEFERRED (2026-08-27) | Proprietário |
 | P3 | Integrações de dados em tempo real / APIs pagas | POSTERGÁVEL | DEFERRED (2026-08-27) | Proprietário + Arquitetura |
-| P4 | Estágios seguintes do pipeline | POSTERGÁVEL | DEFERRED (2026-08-27) | Proprietário |
+| P4 | Estágios seguintes do pipeline | POSTERGÁVEL | DEFERRED (2026-08-27) — estágio 3 (Cluster Strategy) aberto 2026-09-01 (ver D-CS-1); estágios 4–13 seguem DEFERRED | Proprietário |
 | P5 | Orquestração multi-agente | POSTERGÁVEL | DEFERRED (2026-08-27) | Arquitetura |
 | P6 | Governança de criação de cluster novo | POSTERGÁVEL | DEFERRED (2026-08-27) | Proprietário + Arquitetura |
 | P7 | Dashboards / tracking entre runs | POSTERGÁVEL | DEFERRED (2026-08-27) | Arquitetura |
 | P8 | Versionamento de prompts / reprodutibilidade | POSTERGÁVEL | DEFERRED (2026-08-27) | Arquitetura |
 | P9 | Conjunto de referência de concorrentes por cluster | POSTERGÁVEL | DEFERRED (2026-08-27) | Arquitetura |
 | P10 | Reconciliação textual completa do pipeline no CLAUDE.md | POSTERGÁVEL | DECIDED (2026-08-27) | Proprietário + Arquitetura |
+| D-CS-1 | Abertura do estágio 3 (Cluster Strategy) | ESTÁGIO 3 | DECIDED (2026-09-01) | Proprietário |
+| D-CS-2 | Governança de cluster novo no estágio 3 (× P6) | ESTÁGIO 3 | DECIDED (2026-09-01) | Proprietário + Arquitetura |
+| D-CS-3 | Gatilho de entrada no Cluster Strategy | ESTÁGIO 3 | DECIDED (2026-09-01) | Proprietário + Arquitetura |
+| D-CS-4 | Dimensões do Cluster Strategy / sem status persistente | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura + Proprietário |
+| D-CS-5 | Profundidade da direção de conteúdo | ESTÁGIO 3 | DECIDED (2026-09-01) | Proprietário + Arquitetura |
+| D-CS-6 | Local de saída / digest do estágio 3 | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura |
+| D-CS-7 | Vínculo com `opportunity-registry.yaml` | ESTÁGIO 3 | DECIDED (2026-09-01) | Proprietário + Arquitetura |
+| D-CS-8 | Fronteira do estágio 3 × Business DNA V1 §11 | ESTÁGIO 3 | DECIDED (2026-09-01) | Proprietário + Arquitetura |
+| D-CS-9 | Rodar com DNA musical NEEDS_INPUT | ESTÁGIO 3 | DECIDED (2026-09-01) | Proprietário + Arquitetura |
+| D-CS-10 | Ponderação de value engine no estágio 3 | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura + Proprietário |
+| D-CS-11 | Tratamento de schema_version | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura |
+| D-CS-12 | Reconciliação de nomes do pipeline (C8) | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura |
 
 ---
 
@@ -1298,13 +1310,22 @@ agora.
 - **Opções possíveis:** definir na revisão pós-V1.
 - **Recomendação:** não abrir antes de C10 ser atendido.
 - **Quem precisa decidir:** Proprietário.
-- **Status:** DEFERRED (2026-08-27)
+- **Status:** DEFERRED (2026-08-27) — estágio 3 (Cluster Strategy) aberto 2026-09-01 (ver D-CS-1); estágios 4–13 seguem DEFERRED
 - **Resultado:**
 
   Formalizada como DEFERRED pelo proprietário do negócio (Nicolas Alves) em 2026-08-27, com
   a aprovação do conjunto de decisões. Não bloqueia o V1; conteúdo, recomendação e
   justificativa acima permanecem válidos como registro. Será revisitada após a validação do
   V1 (ver C10), quando aplicável.
+
+  **Atualização (2026-09-01):** o gate C10 foi atendido e registrado (ver C10; 3 runs
+  consecutivos com `review.md` do proprietário; commit `39fe464`). O proprietário do
+  negócio (Nicolas Alves) autorizou a abertura do **estágio 3 — Cluster Strategy** do
+  pipeline canônico (C8), e somente dele. Ver a seção "# 4. ESTÁGIO 3 — CLUSTER STRATEGY"
+  (D-CS-1 … D-CS-12) e o contrato `docs/CLUSTER-STRATEGY-V1.md`. Os estágios 4–13 (Page
+  Blueprint, Content Strategy, Content Production, Video Engine, Audio Engine, Quality
+  Control, Publishing, Analytics, Optimization, Learning) permanecem DEFERRED sob esta P4 e
+  serão revisitados na revisão pós-V1, quando aplicável.
 
 ---
 
@@ -1437,6 +1458,294 @@ agora.
 
   As decisões detalhadas e seu histórico permanecem registradas em
   `knowledge/DECISIONS-NEEDED.md`.
+
+---
+
+# 4. ESTÁGIO 3 — CLUSTER STRATEGY
+
+As decisões **D-CS-1 a D-CS-12** foram tomadas pelo proprietário do negócio (Nicolas
+Alves) em **2026-09-01**, depois que o gate C10 foi atendido e registrado (ver C10; 3 runs
+consecutivos com `review.md` do proprietário; commit `39fe464`). Elas abrem e delimitam o
+**estágio 3 do pipeline canônico (C8) — Cluster Strategy** — e somente ele; os estágios
+4–13 permanecem DEFERRED sob a P4.
+
+O contrato completo do estágio está em `docs/CLUSTER-STRATEGY-V1.md`. Onde este arquivo e
+uma decisão DECIDED (C1–C10 / I1–I12) divergirem, a decisão prevalece.
+
+## D-CS-1 — Abertura do estágio 3 (Cluster Strategy)
+
+- **Problema:** a P4 mantém os estágios 3–13 como DEFERRED; construir o Cluster Strategy
+  depende de uma decisão explícita do proprietário para abrir o estágio.
+- **Por que isso importa:** abrir um estágio postergável sem autorização registrada quebra
+  a ordem de autoridade (`DECISIONS-NEEDED.md` > spec > `CLAUDE.md`).
+- **Decisão necessária:** autorizar a abertura do estágio 3 — e somente dele — agora que o
+  gate C10 foi atendido.
+- **Opções possíveis:**
+  - (a) abrir apenas o estágio 3;
+  - (b) abrir os estágios 3–5 em conjunto;
+  - (c) manter tudo DEFERRED até uma revisão pós-V1 mais ampla.
+- **Recomendação:** (a). Escopo restrito ao Cluster Strategy; os estágios 4–13 seguem
+  DEFERRED sob a P4.
+- **Quem precisa decidir:** Proprietário.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  O gate C10 foi atendido e registrado (ver C10; commit `39fe464`). O **estágio 3 (Cluster
+  Strategy)** do pipeline canônico (C8) está aberto para implementação. Somente o estágio 3
+  é aberto; os estágios 4–13 (Page Blueprint, Content Strategy, Content Production, Video
+  Engine, Audio Engine, Quality Control, Publishing, Analytics, Optimization, Learning)
+  permanecem DEFERRED sob a P4. A implementação segue o contrato `docs/CLUSTER-STRATEGY-V1.md`
+  e as decisões D-CS-2 … D-CS-12 abaixo. A autonomia permanece no Nível 1 (o sistema
+  recomenda; o humano aprova e executa).
+
+## D-CS-2 — Governança de cluster novo no estágio 3 (relação com P6)
+
+- **Problema:** o Cluster Strategy pode concluir que uma oportunidade não cabe em nenhum
+  cluster canônico; a formalização de um cluster novo é decisão estratégica (P6), ainda
+  DEFERRED.
+- **Por que isso importa:** uma oportunidade `proposed_new` não pode avançar plenamente se
+  o estágio só propuser e nunca formalizar.
+- **Decisão necessária:** o estágio 3 abre a governança formal de cluster novo (P6) ou
+  permanece "apenas proposta"?
+- **Opções possíveis:**
+  - (a) manter P6 DEFERRED; o estágio 3 apenas propõe;
+  - (b) abrir P6 junto com o estágio 3.
+- **Recomendação:** (a).
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  A P6 permanece DEFERRED. O Cluster Strategy apenas **propõe** um cluster novo — hipótese +
+  fronteira conceitual vs. clusters adjacentes + evidência + nota fixa de governança — e
+  nunca edita `knowledge/clusters/cluster-taxonomy.md`. A formalização de um cluster
+  canônico continua sendo edição manual do proprietário. Oportunidades nessa situação
+  recebem `cluster_decision = DEFER` e `target_next_stage = FORMALIZE_CLUSTER` até que o
+  proprietário formalize.
+
+## D-CS-3 — Gatilho de entrada no Cluster Strategy
+
+- **Problema:** nem o spec nem o Business DNA V1 definem como uma oportunidade é encaminhada
+  ao estágio 3.
+- **Por que isso importa:** a autonomia L1 e o controle de volume (I12) implicam seleção
+  humana; sem um gatilho explícito o estágio pode rodar em lote.
+- **Decisão necessária:** quais oportunidades entram no Cluster Strategy e como o estágio é
+  invocado.
+- **Opções possíveis:**
+  - (a) CLI explícita, por oportunidade, invocada pelo proprietário;
+  - (b) execução automática sobre todo o Top-10 de um run;
+  - (c) execução em lote sob regras.
+- **Recomendação:** (a).
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  Gatilho explícito, por oportunidade, invocado pelo proprietário via CLI
+  (`python -m cluster_strategy reports/<run_id>/<opportunity_id>.json`). O estágio recusa a
+  execução se a oportunidade não for a `advanced_opportunity_id` do `review.md` daquele run.
+  Não há execução automática nem em lote (autonomia L1; I12).
+
+## D-CS-4 — Dimensões do Cluster Strategy e ausência de `status` persistente
+
+- **Problema:** o C9 fixa as 10 dimensões de avaliação *da oportunidade*; não há lista
+  decidida para uma estratégia de cluster.
+- **Por que isso importa:** sem um conjunto fixo, cada run pode inventar dimensões
+  diferentes.
+- **Decisão necessária:** o conjunto exato de dimensões do Cluster Strategy e se o estágio
+  tem um `status` persistente por estratégia.
+- **Opções possíveis:** conjunto ad hoc por run; conjunto fixo de 3–4 dimensões; reaproveitar
+  as 10 do C9.
+- **Recomendação:** conjunto fixo de 4 dimensões qualitativas; sem `status` persistente.
+- **Quem precisa decidir:** Arquitetura + Proprietário.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  As 4 dimensões do Cluster Strategy são: `cluster_fit`, `differentiation_within_cluster`,
+  `asset_readiness`, `strategic_coherence`. Cada uma tem um rating qualitativo
+  (`LOW`/`MEDIUM`/`HIGH`/`VERY_HIGH`) e uma **confiança separada** (`LOW`/`MEDIUM`/`HIGH`) —
+  sem score 0–100 (C6). O estágio **não** tem campo `status` persistente: uma reexecução
+  sobrescreve `reports/cluster-strategy/<opportunity_id>.*` (idempotente; ver I9).
+
+## D-CS-5 — Profundidade da direção de conteúdo no estágio 3
+
+- **Problema:** o Business DNA V1 §11 lista pilares, estética e CTA como saídas de "Cluster
+  Strategy"; o C8 e o `cluster-taxonomy.md` colocam isso nos estágios 4–5.
+- **Por que isso importa:** divergência direta de documento; sem fronteira, o estágio 3
+  invade os estágios 4 e 5.
+- **Decisão necessária:** o quanto de direção de conteúdo o estágio 3 produz.
+- **Opções possíveis:** rasa (uma direção + ângulos + papel da música); média (+ pilares);
+  ampla (tudo do §11 literal).
+- **Recomendação:** rasa.
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  O Cluster Strategy produz apenas: uma `first_content_direction` não vinculante (hipótese),
+  uma lista curta de `editorial_angles` (hipóteses, táticas) e um enunciado de papel em
+  `music_relationship`. Pilares, formatos, hooks, estruturas, CTAs, regras
+  linguísticas/visuais, cadência, lotes e templates são Content Strategy (estágio 5) / Page
+  Blueprint (estágio 4). Consistente com o C7 e com o I11.
+
+## D-CS-6 — Local de saída e digest do estágio 3
+
+- **Problema:** o I7 diz que `reports/` é durável; o caminho exato do estágio 3 e a
+  existência de um digest por run não estavam definidos.
+- **Por que isso importa:** afeta a reprodutibilidade e a organização de `reports/`.
+- **Decisão necessária:** onde o Cluster Strategy escreve e se emite um digest.
+- **Opções possíveis:** `reports/cluster-strategy/<opportunity_id>.*`;
+  `reports/<opportunity_run_id>/cluster-strategy/`; com ou sem digest.
+- **Recomendação:** `reports/cluster-strategy/<opportunity_id>.{md,json}`; sem digest no V1
+  do estágio 3.
+- **Quem precisa decidir:** Arquitetura.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  O estágio 3 escreve `reports/cluster-strategy/<opportunity_id>.md` e `.json` (I7). Sem
+  digest por run no V1 do estágio 3 (uma oportunidade por vez); o relatório é a entrega. O
+  sidecar `.json` é o contrato de entrada do futuro Page Blueprint (estágio 4).
+
+## D-CS-7 — Vínculo com `opportunity-registry.yaml`
+
+- **Problema:** o registro é uma exceção de governança (spec §17), append-only e revisado
+  por humanos; acrescentar um `cluster_strategy_ref` é uma extensão de schema.
+- **Por que isso importa:** a exceção do §17 foi escrita para o pipeline do Market
+  Intelligence, não para um pacote novo do estágio 3.
+- **Decisão necessária:** o Cluster Strategy toca `knowledge/market/opportunity-registry.yaml`?
+- **Opções possíveis:**
+  - (a) opcional, desligado por padrão: quando habilitado, acrescenta `cluster_strategy_ref`
+    + uma nota em `state_history`;
+  - (b) sempre acrescenta;
+  - (c) nunca toca o registro — tudo fica em `reports/`.
+- **Recomendação:** (a).
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  Opcional e **desligado por padrão** (`write_registry_link: false` em `ClusterStrategyConfig`
+  e na config de exemplo). Um run normal ou offline **não** toca `knowledge/`. Quando
+  `write_registry_link: true` for explicitamente habilitado, o estágio 3 acrescenta à
+  entrada da oportunidade: o campo `cluster_strategy_ref` e uma nota em `state_history`
+  (`by: system`, `status` inalterado — o ciclo de vida é carregado, nunca transicionado). A
+  operação usa o mesmo mecanismo append-only de `market_intelligence.registry`: entradas
+  existentes mantêm a ordem, cada mudança aparece no `git diff`, a reexecução é idempotente.
+  O Technical Spec V1 §17 foi reconciliado em 2026-09-01 para permitir explicitamente este
+  append de estágio 3 quando o vínculo com o registro estiver habilitado.
+
+## D-CS-8 — Fronteira do estágio 3 vs Business DNA V1 §11
+
+- **Problema:** o Business DNA V1 §11 coloca *linguagem, estética, conteúdo e CTA* em
+  "Cluster Strategy"; a arquitetura V1 estabelecida coloca isso nos estágios 4–5.
+  Divergência direta de documento, não uma lacuna.
+- **Por que isso importa:** determina o que o estágio 3 entrega e o que ele deixa para os
+  estágios seguintes.
+- **Decisão necessária:** confirmar a fronteira do estágio 3.
+- **Opções possíveis:** seguir o Business DNA V1 §11 literal; confirmar a fronteira V1
+  estabelecida.
+- **Recomendação:** confirmar a fronteira V1 estabelecida.
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  Cluster Strategy = conceito do cluster + audiência + intenção + estado emocional +
+  posicionamento + relação com música/playlist + **uma** direção de conteúdo não vinculante.
+  Tudo o que o Business DNA V1 §11 lista além disso (identidade visual, tom de voz, pilares,
+  formatos, hooks, CTAs, cadência) é estágio 4 (Page Blueprint) ou estágio 5 (Content
+  Strategy). O `AI Music Media Engine — Business DNA V1.md` é documento de visão estratégica
+  e não supersede as decisões DECIDED (C6, I2, C7–C8, I4).
+
+## D-CS-9 — Rodar o estágio 3 com DNA musical `NEEDS_INPUT`
+
+- **Problema:** o detalhe do DNA musical (`business-dna.md` §9) está `NEEDS_INPUT`; isso
+  limita estruturalmente a confiança de `music_relationship` e `market_language_fit`.
+- **Por que isso importa:** o estágio 3 precisa rodar mesmo sem esse detalhe.
+- **Decisão necessária:** `NEEDS_INPUT` no DNA musical é estado aceitável para o Cluster
+  Strategy rodar?
+- **Opções possíveis:** rodar com teto de confiança; bloquear até o DNA musical ser
+  fornecido.
+- **Recomendação:** rodar com teto de confiança.
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  Aceitável. O estágio roda com a confiança de `music_relationship` e `market_language_fit`
+  limitada a ≤ MEDIUM e uma nota `blocked_by`, do mesmo modo que o pipeline limita
+  `music_fit`. O Cluster Strategy nomeia *o que* precisaria de detalhe de DNA musical, sem
+  inventá-lo (G10; spec §15).
+
+## D-CS-10 — Ponderação de "value engine" no estágio 3
+
+- **Problema:** a ponderação entre motores de valor segue `NEEDS_INPUT` (`business-dna.md`
+  §4; `config/ranking.yaml: value_engine_weighting: NEEDS_INPUT`).
+- **Por que isso importa:** se o Cluster Strategy priorizasse vários ângulos, precisaria de
+  uma regra.
+- **Decisão necessária:** o estágio 3 prioriza múltiplos ângulos/estratégias?
+- **Opções possíveis:** não priorizar; priorizar ordinalmente; priorizar com pesos.
+- **Recomendação:** não priorizar no V1 do estágio 3.
+- **Quem precisa decidir:** Arquitetura + Proprietário.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  O V1 do estágio 3 não prioriza: uma oportunidade entra, uma estratégia sai. Se priorização
+  multi-ângulo for adicionada depois, permanece ordinal (C6) até o proprietário fornecer a
+  ponderação. Sem dependência da P1.
+
+## D-CS-11 — Tratamento de `schema_version` do contrato
+
+- **Problema:** o `schema_version` do Opportunity Report é `1.0.0`; o comportamento diante
+  de um valor futuro diferente não estava definido.
+- **Por que isso importa:** adivinhar um schema desconhecido corrompe a entrada
+  silenciosamente.
+- **Decisão necessária:** o que o estágio 3 faz diante de um `schema_version` diferente de
+  `1.0.0`.
+- **Opções possíveis:** tentar decodificar mesmo assim; falhar imediatamente.
+- **Recomendação:** falhar imediatamente (hard-fail).
+- **Quem precisa decidir:** Arquitetura.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  O Cluster Strategy fixa `schema_version == 1.0.0` e faz **hard-fail** diante de qualquer
+  outro valor — no Opportunity Report de entrada e no `ClusterStrategy` montado — surfando a
+  divergência (Regra de Engenharia 9) em vez de adivinhar.
+
+## D-CS-12 — Reconciliação de nomes do pipeline
+
+- **Problema:** o Business DNA V1 (§5/§28) usa "Opportunity Discovery" / "Cluster Strategist"
+  / "Distribution"; o C8 usa "Opportunity Analysis" / "Cluster Strategy" / "Publishing".
+- **Por que isso importa:** afeta a nomeação de componentes e a comunicação; é divergência
+  menor, não bloqueante.
+- **Decisão necessária:** qual conjunto de nomes usar no estágio 3.
+- **Opções possíveis:** nomes do Business DNA V1; nomes canônicos do C8.
+- **Recomendação:** nomes canônicos do C8.
+- **Quem precisa decidir:** Arquitetura.
+- **Status:** DECIDED (2026-09-01)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-01.
+
+  Usar os nomes canônicos do C8 (`Cluster Strategy`, estágio 3). As divergências de nome do
+  Business DNA V1 ficam anotadas, sem edição de documento — mesmo tratamento dado ao C8 (ver
+  P10).
 
 ---
 

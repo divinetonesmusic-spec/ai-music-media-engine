@@ -891,6 +891,14 @@ any other file under `knowledge/`, and `MUST NOT` touch strategic source knowled
 (`business-dna.md`, `content-methodology.md`, `cluster-taxonomy.md`, `guardrails.yaml`, the
 inventories, `classification-input.yaml`, `DECISIONS-NEEDED.md`).
 
+One further append is sanctioned under this same exception: canonical pipeline **stage 3
+(Cluster Strategy)** may add a `cluster_strategy_ref` field and one `state_history` note to
+an existing opportunity's registry entry — append-only, the opportunity's `status`
+unchanged, via the same mechanism and the same `git diff` visibility — **and only when
+registry linking is explicitly enabled** (`write_registry_link: true`; default off — D-CS-7
+in `DECISIONS-NEEDED.md`). A normal or offline stage-3 run leaves `knowledge/` untouched.
+All other constraints above apply unchanged.
+
 ---
 
 ## 18. Component Responsibilities
