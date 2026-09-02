@@ -1,0 +1,31 @@
+{
+  "cluster_decision": {
+    "decision": "DEFER",
+    "cluster_id": null,
+    "subcluster_or_angle": null,
+    "is_new_subcluster": null,
+    "framing_hypothesis_comparison": "Overrode the hypothesis: on a close reading the opportunity blends limpieza energetica with a non-canonical 'moving-house folklore' theme that fits no single canonical cluster and is not clearly a subcluster of one.",
+    "justification": "The theme sits between Limpeza Energetica and a possible new folklore/occasion cluster; formalizing that is an owner decision.",
+    "new_cluster_proposal": null,
+    "deferral_reason": "The opportunity may warrant a new canonical cluster; formal cluster governance is deferred (P6). Defer until the owner formalizes a cluster or Market Intelligence sharpens the theme.",
+    "rejection_reason": null
+  },
+  "strategic_definition": null,
+  "content_direction": null,
+  "dimensions": {
+    "cluster_fit": {"rating": "LOW", "confidence": "MEDIUM", "justification": "no single canonical cluster covers the blended theme", "blocked_by": ["a formal cluster decision (P6)"]},
+    "differentiation_within_cluster": {"rating": "LOW", "confidence": "LOW", "justification": "cannot assess without a cluster", "blocked_by": ["cluster decision"]},
+    "asset_readiness": {"rating": "MEDIUM", "confidence": "MEDIUM", "justification": "an es cleansing playlist and a hero artist exist regardless of the final cluster", "blocked_by": []},
+    "strategic_coherence": {"rating": "MEDIUM", "confidence": "LOW", "justification": "adjacent to a core cluster but the theme is not yet crisp", "blocked_by": []}
+  },
+  "overall_confidence": "LOW",
+  "red_flags": [
+    {"description": "Taxonomy: the theme does not map cleanly to one of the 11 canonical clusters and may need P6 governance.", "severity": "MEDIUM", "kind": "taxonomy"}
+  ],
+  "open_questions": ["Does the owner want to formalize a moving-house / folklore cluster, or fold this into Limpeza Energetica?"],
+  "recommendation": {
+    "target_next_stage": "FORMALIZE_CLUSTER",
+    "recommended_next_step": "Owner to decide whether to formalize a new canonical cluster in cluster-taxonomy.md, or to instruct that this opportunity is a Limpeza Energetica angle.",
+    "justification": "A cluster strategy cannot be finalized for an undecided cluster; P6 governance is deferred."
+  }
+}

@@ -1,0 +1,44 @@
+# cluster-strategy.example.yaml — Cluster Strategy V1 run config (contract §14).
+#
+# Canonical pipeline stage 3 (C8). Consumes ONE owner-advanced Opportunity Report
+# and produces ONE Cluster Strategy under `reports/cluster-strategy/`. Autonomy
+# Level 1 — the stage recommends; the owner decides.
+#
+# Run it:
+#   ./.venv/bin/python -m cluster_strategy \
+#       reports/<run_id>/<opportunity_id>.json \
+#       --config config/cluster-strategy.example.yaml
+#
+# The opportunity MUST be marked `advance` in that run's review.md.
+
+run_id: "cs_run_2026-09-01_01"        # this Cluster Strategy run's id (auto-filled if omitted)
+run_date: "2026-09-01"                 # defaults to today
+model: "claude-sonnet-5"
+prompt_version: "cs-v1"
+schema_version: "1.0.0"
+
+reports_subdir: "reports/cluster-strategy"
+
+# D-CS-7 — OPT-IN. When true, the run appends a `cluster_strategy_ref` (and one
+# `state_history` note, status unchanged) to the opportunity's entry in the
+# human-owned knowledge/market/opportunity-registry.yaml. Left false here: a
+# normal or offline run must not mutate knowledge/. Set true only for a real
+# run whose registry link the owner wants recorded.
+write_registry_link: false
+
+# Knowledge-file locations (same tree as Market Intelligence). Defaults match the
+# repo layout; override only if your checkout differs.
+paths:
+  knowledge_dir: "knowledge"
+  inventories_dir: "knowledge/inventories"
+  guardrails_path: "knowledge/rules/guardrails.yaml"
+  taxonomy_path: "knowledge/clusters/cluster-taxonomy.md"
+  registry_path: "knowledge/market/opportunity-registry.yaml"
+  reports_dir: "reports"
+  data_dir: "data"
+
+# Offline / deterministic testing (spec §22). For a normal live run, leave this off.
+replay:
+  enabled: false
+  fixture_path: null
+  llm: null                           # "recorded" | "live"
