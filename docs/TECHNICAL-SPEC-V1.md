@@ -454,7 +454,7 @@ Opportunity 1─1 registry entry
 - Confidence `MUST` be preserved: `overall_confidence = LOW` `MUST NOT` be overridden by high dimension ratings (C6).
 - No weights, no formula, no numeric aggregation (C6).
 - A dimension that cannot be rated from available evidence `MUST` be `rating: LOW`, `confidence: LOW`, with `blocked_by` populated — not omitted, not guessed.
-- Rating anchors (`LOW`…`VERY_HIGH`) are described qualitatively per dimension in an appendix to be written with the first run; calibration is deferred (P1). `TECHNICAL DEFAULT` until then: Claude applies consistent qualitative judgement and records its reasoning.
+- **Rating anchors** — qualitative descriptions of `LOW` / `MEDIUM` / `HIGH` / `VERY_HIGH` per dimension (and for `overall_confidence`) are defined in **Appendix B**, grounded in the three C10 validation runs and `knowledge/business-dna/*`. They are **qualitative, not empirically calibrated** — statistical calibration against real performance data is **P1 (deferred)** and would replace them (§23). A condensed form of Appendix B is injected into the Evaluation prompt (`market_intelligence.evaluation._prompt`); the appendix is authoritative where the two diverge.
 
 ---
 
@@ -975,7 +975,7 @@ Principle: **Claude decides *what is true and how strong it is*; deterministic c
 - `config/ranking.yaml` — the comparator key order and the exclusion rule of §11 as data, not code.
 - `config/dedup.yaml` — the dedup key definition of §6.6 as data.
 - **Model API credentials** (Claude API key; YouTube Data API key) via **environment variables** (`TECHNICAL DEFAULT`); never in `RunConfig` or the repo.
-- Rating anchors appendix (per §8.3) — added alongside the first real run.
+- Rating anchors — **Appendix B** (qualitative, per §8.3); a condensed form is embedded in the Evaluation prompt. Not a config file.
 - **`replay` mode** — see §22. When `replay.enabled: true`: Web Search, the YouTube Data API and TikTok capture are **not** invoked; Signal Collection reads recorded fixtures from `replay.fixture_path` instead; the run's `OpportunityProvenance.replay` is `true`. Replay exists to test the **deterministic** stages end-to-end without network; it is **not** a validation of current trends (the fixtures are historical).
 
 ---
@@ -1109,7 +1109,7 @@ Each maps to a `DEFERRED` decision or an open item; none is built in V1.
 | Quantitative scoring model, weights, calibrated anchors | replace §11 comparator; add `score` fields | C6, P1 |
 | Analytics ingestion → evaluation calibration loop | new input + a calibration component | P1 |
 | Measurable `LAUNCH` / `SCALE` / `KILL` criteria + lifecycle automation | registry state machine; `target_state` already models the states | I2, P2 |
-| Owner value-engine weighting in ranking | `config/ranking.yaml` keys 3–4; business-dna §4 `NEEDS_INPUT` | business-dna |
+| Owner value-engine weighting in ranking | `config/ranking.yaml` keys 3–4; business-dna §4 `NEEDS_INPUT` | business-dna — **DEFERRED (2026-09-03)** pending anchored evaluation runs, concrete evidence of value-engine mis-ranking, or P1 performance data |
 | Strategic classification of the inventory (fill `NEEDS_INPUT`) → sharper, `OBSERVED`-basis asset matching | inventory fields already exist | I1 |
 | Cluster Strategy stage consuming Opportunity Reports | `OpportunityReport` schema is the contract | C8 (stage 3), P4 |
 | Curated competitor base | `knowledge/market/` | P9 |
@@ -1150,3 +1150,171 @@ Each maps to a `DEFERRED` decision or an open item; none is built in V1.
 | I12 ≤ 10 presented per run; PARK for the rest | §11, §5, `RunConfig` |
 
 **Scope check:** every component's output feeds only Opportunity Analysis and the Opportunity Report. No component produces content, schedules posts, defines a Page Blueprint, or creates an asset. `Recommendation` cannot execute. ✅ within V1.
+
+---
+
+## Appendix B — Rating Anchors (qualitative, V1)
+
+**Status:** active (added 2026-09-03, quality phase). Operationalizes §8.1 + §8.3.
+**Scope:** Market Intelligence Evaluation only. Cluster Strategy V1 keeps its own 4-dimension
+rubric (`docs/CLUSTER-STRATEGY-V1.md` §8, D-CS-4) and is not changed by this appendix.
+
+### B.0 What these anchors are — and are not
+
+- They are **qualitative descriptions** of what each rating level *looks like* against the
+  evidence a V1 run actually has (1–3 web-search / YouTube / TikTok signals, typed
+  `OBSERVED` / `INFERRED` / `HYPOTHESIS`, plus the `AssetMatch`). They are **not** thresholds,
+  scores, weights, or numeric bands. No `LOW…VERY_HIGH` level maps to a number, a percentage
+  or a count range (C6).
+- They are **not empirically calibrated.** Calibration against real post-publication
+  performance (streams, saves, follower growth, skip rate) is **P1 — deferred**, and would
+  *replace* this appendix with evidence-based criteria (§23). Until then, `rating` and
+  `confidence` remain Claude's qualitative judgement, recorded per-dimension in the
+  `justification` (§8.3).
+- Grounded in: the three C10 validation runs — `run_2026-08-31_01`, `run_2026-09-01_01`,
+  `run_2026-09-01_02` (26 evaluated opportunities) — and `knowledge/business-dna/business-dna.md`
+  + `knowledge/business-dna/content-methodology.md`.
+
+### B.1 How to apply them
+
+- **`rating` and `confidence` are independent (§8.2).** These anchors describe the **rating**.
+  Set `confidence` separately: `HIGH` = the evidence directly supports this rating level;
+  `MEDIUM` = partial or indirect support; `LOW` = the level rests largely on inference. A
+  dimension that cannot be rated from the evidence is `rating: LOW, confidence: LOW,
+  blocked_by: [...]` (§8.3) — that is a real, correct outcome, not a failure.
+- **Anti-compression rule.** Rate each dimension on its own merits. `VERY_HIGH` and `HIGH`
+  are reachable and **must** be used when the evidence matches the anchor. Across the three
+  C10 runs, 24 of 26 opportunities landed `overall_confidence: LOW` and 23 of 26 landed
+  `music_fit: MEDIUM/LOW` — a spread that narrow is a sign the rubric is being *under-applied*,
+  not that every opportunity is weak.
+- **`overall_confidence` is not raised by high dimension ratings (§8.3, C6).** It tracks how
+  much the run *knows*, not how good the opportunity is. See B.13.
+- **"Observed scale figure"** below always means a number quoted from a source (a hashtag
+  post count, a view/subscriber count, a stated search-interest trend) — never the model's
+  own estimate (G05, spec §15).
+
+### B.2 `signal_strength` — strength / clarity of the demand signals
+
+| Level | Anchor |
+|---|---|
+| `LOW` | A single signal; or only `INFERRED` / `HYPOTHESIS` evidence; or signals that are about an adjacent theme rather than the stated need. |
+| `MEDIUM` | One–two `OBSERVED` signals on the exact stated need, at least one at `MEDIUM` confidence; or one strong `OBSERVED` signal with a clear demand mechanism. |
+| `HIGH` | Two or more **independent** `OBSERVED` signals on the need, across at least two distinct sources or platforms, cluster-consistent, at least one at `MEDIUM`+ confidence. |
+| `VERY_HIGH` | `HIGH`, **and** at least one signal reports an **observed scale figure** (hashtag post count, view/subscriber count, sustained search interest) taken from a source. |
+
+### B.3 `audience_potential` — size and reachability of the audience
+
+| Level | Anchor |
+|---|---|
+| `LOW` | No size / reachability evidence and a narrow dead-end niche; or `blocked_by` audience data with nothing to infer breadth from. |
+| `MEDIUM` | The need is plausibly broad (a common life situation, a recognised wellness need, a multi-country language market) but there is no size or behaviour data in the evidence. |
+| `HIGH` | The evidence itself points to a large or clearly growing addressable audience (a source names a large community, a broad platform surface, or cross-market demand) **and** it is reachable on the target platform + language. |
+| `VERY_HIGH` | The evidence shows a **mass** audience (an observed large-scale figure) that is directly reachable on the target platform + language, with a natural content entry point. |
+
+### B.4 `growth_momentum` — current growth / trajectory of the demand
+
+| Level | Anchor |
+|---|---|
+| `LOW` | Existence only, no trajectory. **Often the correct rating** — V1 has no time-series source, so absence of trend data is normal, not a penalty to hide. |
+| `MEDIUM` | Qualitative directional evidence — a source calls the theme "emerging" / "rising" / "trending", or a recently created discovery hub, or `durability: EMERGING` corroborated by fresh dated signals. |
+| `HIGH` | A source **reports an observed increase** (a stated growth, a rising trend line, a recent uptick in posts or searches). |
+| `VERY_HIGH` | Multiple sources independently report rapid, current growth, with observed figures. |
+
+### B.5 `durability_opportunity_window` — how favorable the timing window is
+
+Informed by, **not equal to**, `Opportunity.durability` (§8.1).
+
+| Level | Anchor |
+|---|---|
+| `LOW` | `EPHEMERAL` demand with no urgency lever; or a window that has likely already closed (dated signals, a spent trend). |
+| `MEDIUM` | `EMERGING` demand whose persistence is unproven; or a `STRUCTURAL` need in a crowded window where timing gives no advantage. |
+| `HIGH` | `STRUCTURAL` / `EVERGREEN` demand (a recurring life event, a persistent wellness need) with room to enter now; or `EMERGING` demand with clear runway **and** an urgency lever. |
+| `VERY_HIGH` | `EVERGREEN` demand the business is under-serving, with a durable content format and nothing about the timing working against entry. |
+
+### B.6 `music_fit` — fit with the catalog / wellness positioning
+
+**Confidence is capped at `LOW` / `MEDIUM` while musical-DNA detail is `NEEDS_INPUT`**
+(§8.1, business-dna §9) — the *rating* below is still assessed; only its `confidence` is
+capped. A catalog-affinity mismatch with the opportunity's cluster is **not** a blocker (§10.2a).
+
+| Level | Anchor |
+|---|---|
+| `LOW` | The need sits outside instrumental relaxing / wellness music (needs vocals, a non-wellness genre, spoken content). |
+| `MEDIUM` | Within the wellness / relaxing-instrumental space and a cluster relation is plausible, but nothing in the evidence speaks to the specific sound. |
+| `HIGH` | The need maps cleanly onto a canonical cluster the business already serves, with an `OBSERVED`-basis asset match on cluster + market + language. |
+| `VERY_HIGH` | `HIGH`, **and** the evidence shows the exact editorial framing already performing under this cluster (a competitor album / playlist on the precise theme). *(Confidence still capped ≤ `MEDIUM` until musical DNA is defined.)* |
+
+### B.7 `content_potential` — how well it can be turned into content
+
+Reference: `content-methodology.md` (historical heuristics, not rigid rules).
+
+| Level | Anchor |
+|---|---|
+| `LOW` | No natural short-form hook; the need is abstract, private, or hard to depict; or showing it would collide with a guardrail. |
+| `MEDIUM` | A plausible angle exists but is generic — relabelling existing tracks, a hashtag-discovery tactic, a broad "relax with this" framing. |
+| `HIGH` | A concrete, specific angle tied to an occasion, ritual, place or moment (a "do this when…" format), depictable on the target platform, guardrail-safe. |
+| `VERY_HIGH` | A specific angle with an obvious visual / ritual entry point, several distinct treatments, **and** an existing creator behaviour on the platform to build on — all visible in the evidence. |
+
+### B.8 `competitive_position` — our ability to compete for this demand
+
+Higher rating = **more favorable** position.
+
+| Level | Anchor |
+|---|---|
+| `LOW` | An entrenched incumbent dominates and the evidence describes *their* traction; no differentiation angle identified; no relevant assets. |
+| `MEDIUM` | Competitors exist and the space is contested, but our cluster / asset base gives a credible entry. |
+| `HIGH` | Competitors validate the demand but none owns the specific angle / occasion / market, and the business has an asset or cluster advantage the evidence supports. |
+| `VERY_HIGH` | The business is already positioned in exactly this cluster + market + language with hero assets, and no competitor holds the specific angle. |
+
+### B.9 `differentiation_potential` — room to differentiate
+
+| Level | Anchor |
+|---|---|
+| `LOW` | The plan is to relabel or reframe existing tracks with no distinct audience, occasion or angle; a saturated generic category. |
+| `MEDIUM` | A plausible narrower angle within a busy theme, not yet validated as distinct. |
+| `HIGH` | A specific, defensible angle (a life-event trigger, an occasion, a market / language gap, a ritual context) that competitors are not serving. |
+| `VERY_HIGH` | A specific angle that is both unserved **and** hard to copy — folk / cultural specificity, a proprietary asset combination, or a first-mover position in a market / language. |
+
+### B.10 `asset_fit` — summary of `AssetMatch` (§10)
+
+Reads `best_playlist` / `best_page` / `best_artist`, each entry's `fit_basis`, and
+`new_asset_recommendation`. I5 reuse default: existing-asset opportunities are preferred (§11 key 8).
+
+| Level | Anchor |
+|---|---|
+| `LOW` | No matching playlist, page or classified artist; `best_*` all `UNKNOWN` or `INFERRED`; build-from-scratch. |
+| `MEDIUM` | A partial base — an existing playlist **or** a hero / classified artist on the theme — but a new page is needed and one or more `best_*` rests on an `INFERRED` basis. |
+| `HIGH` | An `OBSERVED`-basis playlist match **and** at least one `OBSERVED`-basis artist (hero or classified) on the cluster + market + language; only the page is missing. |
+| `VERY_HIGH` | `OBSERVED`-basis playlist, page **and** artist already in the exact cluster + market + language — no new asset needed. |
+
+### B.11 `business_outcome_potential` — summary; detailed by the Business Outcome Profile (§9)
+
+A **summary** dimension. It does **not** aggregate the 5 BOP axes into a value (C6). It
+reflects the strongest realistic path to a business outcome, across the two value paths —
+Playlist Growth and Music Trend / UGC (business-dna §5–§6), which are kept distinct (§9.2).
+
+| Level | Anchor |
+|---|---|
+| `LOW` | No credible path to playlist consumption or track reuse; a monitoring / risk signal rather than a growth opportunity. |
+| `MEDIUM` | A plausible path on at least one value engine (usually playlist growth via an existing playlist), but scale is unproven. |
+| `HIGH` | A clear path on at least one primary engine (playlist growth or streaming royalty) with existing assets to capture it; **or** a strong Music Trend / UGC path — a reusable-audio format with observed creator uptake. |
+| `VERY_HIGH` | Clear, asset-backed paths on more than one engine at once (e.g. playlist growth + streaming royalty + a UGC-able format), all supported by the evidence. |
+
+### B.12 `overall_confidence` — `LOW` / `MEDIUM` / `HIGH` only (no `VERY_HIGH`, §8.2)
+
+Measures **how much the run actually knows** about the opportunity's core claim — that this
+demand exists, is characterised correctly, and can be connected to the business. It is
+**not** a quality score and is **not** raised by high dimension ratings (§8.3, C6).
+
+| Level | Anchor |
+|---|---|
+| `LOW` | The opportunity rests on a single signal, or on mostly `INFERRED` / `HYPOTHESIS` evidence; key facts (market, audience, mechanism) are uncertain; or the asset path is unknown. |
+| `MEDIUM` | Two or more corroborating `OBSERVED` signals establish the demand **and** its market / language, **and** there is a known asset path (an existing playlist and/or a classified artist) — even if secondary dimensions (audience size, growth rate, musical-DNA detail) stay `blocked_by`. **This is the expected level for a well-evidenced V1 opportunity; do not dilute it to `LOW` merely because volume or growth data is absent.** |
+| `HIGH` | Strong, multi-source `OBSERVED` evidence including at least one **observed scale or growth figure**, an unambiguous market / language, and an `OBSERVED`-basis asset match — little material uncertainty about whether the opportunity is real and reachable. |
+
+### B.13 Relationship to ranking
+
+The ranking comparator (§11.1) already reads `overall_confidence` (key 2) and the count of
+dimensions / axes rated `HIGH`+ (keys 3–4). Applying B.1's anti-compression rule makes those
+keys discriminate as intended. This appendix changes **no** comparator key, weight or order,
+and introduces **no** value-engine weighting (that stays `NEEDS_INPUT` / deferred — §23).

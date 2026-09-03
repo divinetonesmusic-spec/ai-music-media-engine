@@ -46,7 +46,13 @@ deleted locally and remotely. The stage was then **validated live against the re
 Anthropic API** (2026-09-03) — one call on Run 1's advanced opportunity returned
 `MAP_TO_EXISTING → limpeza-energetica`, lifecycle `EXPLORE` preserved, deterministic
 validation clean, 617 tests + ruff green (details in **Cluster Strategy (stage 3)** and
-**Last Completed Step** below). **Canonical stages 4–13 remain DEFERRED (P4).**
+**Last Completed Step** below). Stage 3 is now **frozen / closed**. **Canonical stages
+4–13 remain DEFERRED (P4).**
+
+**Current work: the quality phase (started 2026-09-03)** — Rating Anchors (active,
+MI-only, implemented), Musical DNA (owner-authoring preparation), value-engine weighting
+(deferred). See the **Quality phase** section below. Stage 4 does not begin until
+`business-dna.md` §9 (Musical DNA) is filled far enough to design a page from the sound.
 
 `python -m market_intelligence run <config>` executes
 `preflight → Signal Collection → Signal Normalization → Analysis/Framing → Asset Matching
@@ -262,6 +268,24 @@ live runs.
 
 **Future cleanup (flagged, not done):** extract the modules both stages share into a
 `src/engine_core/` package.
+
+## Quality phase (started 2026-09-03)
+
+Between Cluster Strategy V1 (stage 3, **frozen / closed**) and Stage 4 (**still deferred**),
+a quality phase addresses the three improvements identified in the 2026-09-03 analysis-only
+audit. Strategy: **Rating Anchors first, Musical DNA owner-authoring in parallel,
+value-engine weighting deferred.**
+
+| Item | Status | Where |
+|---|---|---|
+| **Rating Anchors** | **ACTIVE — implemented (MI-only)** | `docs/TECHNICAL-SPEC-V1.md` **Appendix B** (full, authoritative) + a condensed block injected into `market_intelligence.evaluation._prompt` (`_RATING_ANCHORS`). Qualitative `LOW`/`MEDIUM`/`HIGH`/`VERY_HIGH` per the 10 dimensions + `overall_confidence`; no numbers, no weights (C6); explicitly **not** empirically calibrated (calibration = P1, deferred). Grounded in the 3 C10 runs + `knowledge/business-dna/*`. Adds an **anti-compression rule** (24/26 opportunities were `overall_confidence: LOW`, 23/26 `music_fit: MEDIUM/LOW`). Prompt-only — no schema change, no comparator change. Cluster Strategy V1 **not** touched (keeps its own 4-dimension rubric, D-CS-4). Tests: `tests/test_evaluation.py` (`_rating_anchor_block`, +9). |
+| **Musical DNA** | **owner-authoring preparation** | `docs/MUSICAL-DNA-INPUT.md` — a structured worksheet auditing exactly what `business-dna.md` §9 requires (the 8 sonic dimensions) with, per dimension: the decision the owner must make, information/examples that help, downstream consumers, and what must **not** be inferred. **No wiring changed** — the existing `music_fit` / `market_language_fit` / `music_relationship` confidence caps already handle the `NEEDS_INPUT` state (evaluation.py `_apply_music_fit_cap`, asset_strategy.py, D-CS-9). §9 stays `NEEDS_INPUT` until the owner fills it; the answers then go into `knowledge/business-dna/` as a manual owner edit. |
+| **Value-engine weighting** | **DEFERRED** | Unchanged. `config/ranking.yaml` still `value_engine_weighting: NEEDS_INPUT` (comment expanded to record the deferral). Revisit only when: anchored evaluation runs exist **and** a run shows the equal-weighted axis count mis-ranking on value-engine grounds; or P1 performance data exists. No such evidence in the 3 C10 runs (owner notes cite asset fit / evidence / differentiation / compliance, never value-engine mix). Recorded in `docs/TECHNICAL-SPEC-V1.md` §23. |
+
+**Stage 4 (Page Blueprint) remains deferred (P4)** and should not begin until `business-dna.md`
+§9 is filled far enough to design a page's visual identity and tone from the house sound
+(see `docs/MUSICAL-DNA-INPUT.md`). Rating Anchors and value-engine weighting do **not** gate
+Stage 4.
 
 ## Completed
 
@@ -776,29 +800,35 @@ not a committed stage-3 deliverable).
 ## Next Action
 
 **Stages 1–2 are done and C10-validated (`39fe464`, pushed). Stage 3 (Cluster Strategy) is
-COMPLETE, MERGED (`3084f50`, PR #1) and now validated live against the real Anthropic API
-(2026-09-03). Canonical stages 4–13 remain DEFERRED (P4) — do not build them.** No pending
-build work; one uncommitted doc-hygiene change (see **Last Commit**). The real strategic
-choices are the three **owner quality decisions** (none blocking anything):
+COMPLETE, MERGED (`3084f50`, PR #1), live-validated (2026-09-03) and now frozen / closed.
+Canonical stages 4–13 remain DEFERRED (P4) — do not build them.**
 
-1. **value-engine weighting for ranking** — `NEEDS_INPUT` → spec §11 comparator keys 3–4;
-   V1 uses the ordinal `TECHNICAL DEFAULT` comparator until the owner provides it.
-2. **musical DNA detail** — instrumentation, energy, duration, texture, BPM, use of
-   frequencies, vocal/instrumental. While `NEEDS_INPUT` it structurally caps `music_fit`
-   (MI) and `market_language_fit` / `music_relationship` (Cluster Strategy) confidence at
-   `MEDIUM`.
-3. **the rating-anchors appendix** (spec §8.3) — to be written alongside the first real
-   run; calibration is deferred (P1).
+**The quality phase is in progress (see the Quality phase section above).**
 
-The optional live Cluster Strategy run is **done** (2026-09-03) — `MAP_TO_EXISTING →
+1. **Rating Anchors — DONE (2026-09-03), uncommitted.** `docs/TECHNICAL-SPEC-V1.md`
+   Appendix B + a condensed block in `evaluation._prompt` + `docs/MUSICAL-DNA-INPUT.md` +
+   this file + a `config/ranking.yaml` comment. Next: owner review; then a fresh live MI
+   run (or a 4th C10-style run) to confirm the anchors spread the ratings and hold
+   `relevant_ratio`. This is a **confirmatory** run — C10 already passed; the anchors
+   operationalize the "consistent qualitative judgement" C10 assumed.
+2. **Musical DNA — owner action.** Fill `docs/MUSICAL-DNA-INPUT.md` (the 8 §9 sonic
+   dimensions), then transfer the answers into `knowledge/business-dna/business-dna.md` §9
+   as a manual owner edit. Only after that: loosen the `music_fit` confidence cap (the
+   detector is already conditional) and sharpen Appendix B.6. **No system wiring is owed
+   until §9 is filled.**
+3. **Value-engine weighting — deferred.** Do not implement. Revisit per the criteria in
+   `config/ranking.yaml` and spec §23.
+4. **Stage 4 (Page Blueprint)** begins only once §9 is filled far enough to design a
+   page's visual identity + tone from the house sound.
+
+The optional live Cluster Strategy run was **done** (2026-09-03) — `MAP_TO_EXISTING →
 limpeza-energetica`, lifecycle `EXPLORE` preserved, `write_registry_link: false` so
-`knowledge/` untouched, deterministic validation clean, 617 tests + ruff green; the two
-output files under `reports/cluster-strategy/` are left untracked. To re-run:
+`knowledge/` untouched, deterministic validation clean. Output under
+`reports/cluster-strategy/` is left untracked. To re-run:
 `./.venv/bin/python -m cluster_strategy reports/run_2026-08-31_01/opp_2026-08-31_1bca4af972.json
 --config config/cluster-strategy.example.yaml --project-root .` with `ANTHROPIC_API_KEY`
 in the environment (Keychain-sourced; `run-live.sh` itself is hardcoded to
-`-m market_intelligence`). Keep `write_registry_link: false` unless the registry link
-should be recorded.
+`-m market_intelligence`).
 
 **How to run stages 1–2:** `./.venv/bin/python -m market_intelligence run <config>` — or
 `config/run.pipeline.replay.example.yaml` for a fully offline demo.
@@ -831,6 +861,13 @@ Surfaced by the spec-consistency + code reviews; each is a documented gap, not a
   `AssetMatch` (spec §10.3 permits it for competitive context) — the implementation is
   stricter (own pages only). Safe; competitive context lives in the `competitive_position`
   dimension instead.
+- **Digest `NEEDS_INPUT encountered` misses musical DNA** (found in the 2026-09-03 audit).
+  `reporting.py` `_collect_needs_input` aggregates a dimension's `blocked_by` only when the
+  string literally contains `NEEDS_INPUT` / `UNKNOWN`; the model writes the `music_fit`
+  block as prose ("business musical DNA / catalog detail"), so all 3 C10 digests read
+  "None recorded this run" despite `music_fit` being capped every time. Small wiring fix
+  (match "musical dna" too, or have the cap append a canonical token) — do alongside the
+  Musical DNA wiring once §9 is filled. Not blocking.
 ### Evaluation — structured outputs removed (owner-approved fallback C, 2026-08-31)
 
 **Resolved in code; one sub-question open.** The `5d9781f` flatten did not clear the
@@ -950,13 +987,17 @@ renders exactly the 9 I4 sections in order.
   artists; `priority` for 7 of 8 playlists; the 44 reference/competitor pages. Owner form:
   `knowledge/inventories/classification-input.yaml`.
 - **Business DNA `NEEDS_INPUT`** — musical DNA detail (instrumentation, energy, duration,
-  texture, BPM, use of frequencies, vocal/instrumental); target countries per language and
-  priority among `pt`/`es`/`en`; royalty-ecosystem weighting, expected YouTube Video revenue
-  share, other revenue sources (sync, Content ID, brand deals).
-- **Value-engine weighting for ranking** is `NEEDS_INPUT` — affects spec §11 comparator
-  keys 3–4; V1 uses the `TECHNICAL DEFAULT` ordinal comparator until the owner provides it.
-- **Rating anchors appendix** (spec §8.3) — to be written alongside the first real run;
-  calibration is deferred (P1).
+  texture, BPM, use of frequencies, vocal/instrumental) — **owner-input worksheet now at
+  `docs/MUSICAL-DNA-INPUT.md`** (quality phase, 2026-09-03); §9 stays `NEEDS_INPUT` until
+  the owner fills it. Also `NEEDS_INPUT`: target countries per language and priority among
+  `pt`/`es`/`en`; royalty-ecosystem weighting, expected YouTube Video revenue share, other
+  revenue sources (sync, Content ID, brand deals).
+- **Value-engine weighting for ranking** is `NEEDS_INPUT` and **DEFERRED (2026-09-03)** —
+  affects spec §11 keys 3–4; V1 keeps the ordinal `TECHNICAL DEFAULT` comparator. Revisit
+  criteria in `config/ranking.yaml` + spec §23. No mis-ranking evidence in the 3 C10 runs.
+- **Rating anchors** — **DONE (2026-09-03, quality phase):** `docs/TECHNICAL-SPEC-V1.md`
+  Appendix B (qualitative, MI-only, not calibrated) + a condensed block in
+  `evaluation._prompt`. Empirical calibration remains P1 (deferred).
 - **Instagram / Facebook pages** are referenced historically but not inventoried (`UNKNOWN`).
 - **Historical performance data** is not yet available in structured form (`UNKNOWN`).
 - **Minor documentation drift** (not blocking, do not fix without an explicit task):
@@ -971,7 +1012,9 @@ renders exactly the 9 I4 sections in order.
 
 Explicitly deferred — a new session must **not** implement these prematurely:
 
-- **P1** — score calibration loop with real performance data.
+- **P1** — score calibration loop with real performance data. (The 2026-09-03 **qualitative**
+  rating anchors — spec Appendix B — are explicitly *not* this; they carry no numbers and
+  are not calibrated. Empirical calibration that would replace them is still P1.)
 - **P2** — automated lifecycle transitions / autonomy Levels 2–3.
 - **P3** — real-time data integrations / paid APIs beyond the four V1 sources.
 - **P4** — pipeline stages 3–13 (Cluster Strategy → Learning). **Stage 3 (Cluster Strategy)
@@ -1015,11 +1058,13 @@ Explicitly deferred — a new session must **not** implement these prematurely:
    directory). This does **not** apply to the pipeline package itself (`src/market_intelligence/`),
    which is the V1 deliverable and is tracked.
 7. **V1 stages 1–2 are complete, C10-validated, committed and pushed (`39fe464`). Stage 3
-   (Cluster Strategy) is complete, merged (`3084f50`, PR #1) and live-validated
-   (2026-09-03).** Stages 4–13 stay deferred (P4) — the next step is **not** more building
-   (see **Next Action**: the three owner quality decisions). Set up the environment first:
-   `python3.12 -m venv .venv && ./.venv/bin/python -m pip install -e ".[dev]"`, then
-   `./.venv/bin/python -m pytest` and `./.venv/bin/ruff check src tests` should be green
-   (**617 tests**), and
+   (Cluster Strategy) is complete, merged (`3084f50`, PR #1), live-validated (2026-09-03)
+   and frozen / closed.** Stages 4–13 stay deferred (P4). The current work is the **quality
+   phase** (see the **Quality phase** section and **Next Action**): Rating Anchors
+   (implemented, MI-only), Musical DNA (owner fills `docs/MUSICAL-DNA-INPUT.md`),
+   value-engine weighting (deferred). Do **not** modify `src/cluster_strategy/`. Set up the
+   environment first: `python3.12 -m venv .venv && ./.venv/bin/python -m pip install -e
+   ".[dev]"`, then `./.venv/bin/python -m pytest` and `./.venv/bin/ruff check src tests`
+   should be green, and
    `./.venv/bin/python -m market_intelligence run config/run.pipeline.replay.example.yaml`
    should print `RUN OK`.

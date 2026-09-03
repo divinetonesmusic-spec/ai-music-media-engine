@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 
 from tests.conftest import FIXTURES, PROJECT_ROOT, load_fixture
 
@@ -423,3 +424,104 @@ def test_compliance_prompt_requires_quoting_the_claim_and_is_topic_independent()
     assert "guardrail id" in sec or "guardrail's id" in sec or "names the guardrail" in sec
     # the same standard regardless of which topic the sentence is about
     assert "regardless of" in sec or "no matter which topic" in sec or "same standard" in sec
+
+
+# --- rating anchors: qualitative, MI-only, not calibrated (spec Appendix B, §8.3) -----
+#
+# Across the three C10 runs, 24/26 opportunities landed overall_confidence:LOW and
+# 23/26 landed music_fit:MEDIUM/LOW — the evaluation barely differentiated
+# opportunities. Appendix B adds qualitative LOW..VERY_HIGH anchors per dimension and
+# an anti-compression rule. It is prompt-only (no schema, no comparator change) and
+# MI-only. These tests lock the anchor block into the Evaluation prompt and pin the
+# properties that keep it C6-safe and honest about calibration. There are deliberately
+# NO numeric golden tests — the anchors carry no numbers.
+
+
+def _rating_anchor_block() -> str:
+    """The RATING ANCHORS block of the real Evaluation prompt, lower-cased and with
+    whitespace collapsed (the block is assembled from wrapped string literals)."""
+    from market_intelligence.evaluation import _prompt
+
+    framed, matches, kn, _ = _pipeline_to_matches()
+    opp = next(o for o in framed if o.opportunity_id == _OPP_ID)
+    prompt = _prompt(opp, matches[_OPP_ID], kn)
+    start = prompt.index("RATING ANCHORS")
+    end = prompt.index("COMPLIANCE SELF-CHECK", start)
+    return " ".join(prompt[start:end].lower().split())
+
+
+def test_rating_anchor_block_is_present_in_the_evaluation_prompt():
+    block = _rating_anchor_block()
+    assert "rating anchors" in block
+    # it sits before the compliance self-check and after the rating rules
+    assert len(block) > 800
+
+
+def test_rating_anchors_cover_all_ten_dimensions_plus_overall_confidence():
+    block = _rating_anchor_block()
+    for dim in DIMENSION_KEYS:
+        assert dim in block, f"anchor missing for dimension {dim}"
+    assert "overall_confidence" in block
+
+
+def test_rating_anchors_use_only_qualitative_levels_no_numbers():
+    block = _rating_anchor_block()
+    for level in ("low", "medium", "high", "very_high"):
+        assert level in block
+    # C6: no numeric score, percentage, or 0-100 band anywhere in the anchors
+    assert "%" not in block
+    assert "/100" not in block
+    assert "0-100" not in block and "0–100" not in block
+    assert not re.search(r"\d{1,3}\s*(?:/\s*100|percent|pts?|points?)\b", block)
+    assert "numeric score" not in block
+
+
+def test_rating_anchors_are_explicitly_not_statistically_calibrated():
+    block = _rating_anchor_block()
+    assert "qualitative" in block
+    assert "not statistically calibrated" in block or "not empirically calibrated" in block
+    # calibration is named as a later / deferred step (P1), not something claimed here
+    assert "calibration" in block and ("later" in block or "deferred" in block)
+
+
+def test_rating_anchors_carry_the_anti_compression_rule():
+    block = _rating_anchor_block()
+    assert "anti-compression" in block
+    assert "very_high and high are reachable" in block
+    assert "do not default everything to low/medium" in block
+
+
+def test_rating_anchors_keep_overall_confidence_c6_safe():
+    block = _rating_anchor_block()
+    # overall_confidence is not a quality score and is not raised by high dim ratings
+    assert "not a quality score" in block
+    assert "not raised by high dimension ratings" in block
+    # the MEDIUM anchor explicitly counters dilution-to-LOW (the observed compression)
+    assert "do not dilute it to low" in block
+
+
+def test_rating_anchors_preserve_the_music_fit_confidence_cap_language():
+    block = _rating_anchor_block()
+    assert "music_fit" in block
+    assert "capped" in block
+    assert "musical dna is needs_input" in block
+
+
+def test_rating_anchors_do_not_introduce_value_engine_weighting():
+    block = _rating_anchor_block()
+    # business_outcome_potential stays a summary, never an average/weighting of axes
+    assert "never an average of the 5 axes" in block
+    assert "no numbers, thresholds or weights anywhere (c6)" in block
+
+
+def test_evaluation_replay_still_produces_valid_qualitative_levels_after_the_prompt_change():
+    # regression: the prompt change is text-only; the recorded fixture still replays,
+    # every dimension carries one of the 4 qualitative levels, overall_confidence one
+    # of the 3, and no numeric score appears.
+    bundle = _evaluate().bundles[_OPP_ID]
+    assert blocking(validate_evaluation(bundle.evaluation)) == []
+    levels = {"LOW", "MEDIUM", "HIGH", "VERY_HIGH"}
+    for k, d in bundle.evaluation.dimensions.items():
+        assert d.rating.value in levels, f"{k} rating {d.rating.value!r} not qualitative"
+        assert d.confidence.value in {"LOW", "MEDIUM", "HIGH"}
+    assert bundle.evaluation.overall_confidence.value in {"LOW", "MEDIUM", "HIGH"}

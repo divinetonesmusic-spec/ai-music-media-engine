@@ -52,5 +52,16 @@ comparator_keys:
     direction: asc                           # stable final tie-break
 
 # business-dna §4 — the relative weighting of the value engines is NEEDS_INPUT.
-# When the owner provides it, it replaces / extends comparator keys 2–3 above.
+# When the owner provides it, it replaces / extends the two count keys above
+# (count_dimensions_high_or_very_high / count_axes_high_or_very_high; spec §11.1
+# keys 3–4).
+#
+# DEFERRED (2026-09-03, quality phase). Not implemented. Revisit only when one of:
+#   - anchored evaluation runs exist (spec Appendix B is now live);
+#   - a run shows the equal-weighted axis count mis-ranking against owner
+#     judgement on value-engine grounds (no such evidence in the 3 C10 runs — the
+#     owner review notes cite asset fit / evidence / differentiation / compliance);
+#   - real post-publication performance data exists (P1).
+# Any weighting must stay ORDINAL (C6): no numeric weights, no score. See
+# docs/TECHNICAL-SPEC-V1.md §23 and docs/SESSION-STATE.md "Quality phase".
 value_engine_weighting: NEEDS_INPUT
