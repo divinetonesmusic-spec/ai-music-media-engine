@@ -42,9 +42,11 @@ applied); the D-CS decisions are recorded authoritatively in
 one sentence for the opt-in registry append. **PR #1
 (`feat: Cluster Strategy — canonical pipeline stage 3`) was MERGED to `main` on
 2026-09-03** (rebase merge, fast-forward); the `feat/cluster-strategy-stage-3` branch was
-deleted locally and remotely. `main` is synchronized with `origin/main` at **`3084f50`
-— `feat: implement Cluster Strategy (canonical pipeline stage 3)`**. See **Cluster
-Strategy (stage 3)** below. **Canonical stages 4–13 remain DEFERRED (P4).**
+deleted locally and remotely. The stage was then **validated live against the real
+Anthropic API** (2026-09-03) — one call on Run 1's advanced opportunity returned
+`MAP_TO_EXISTING → limpeza-energetica`, lifecycle `EXPLORE` preserved, deterministic
+validation clean, 617 tests + ruff green (details in **Cluster Strategy (stage 3)** and
+**Last Completed Step** below). **Canonical stages 4–13 remain DEFERRED (P4).**
 
 `python -m market_intelligence run <config>` executes
 `preflight → Signal Collection → Signal Normalization → Analysis/Framing → Asset Matching
@@ -235,6 +237,29 @@ all owner-authorised. `CLAUDE.md`, `knowledge/business-dna/*`, the cluster taxon
 guardrails file and the inventories are untouched. Offline recorded-replay passes; a live
 run needs `ANTHROPIC_API_KEY` (same Keychain convention as the pipeline).
 
+**Live validation — DONE (2026-09-03).** One real Anthropic API call, on Run 1's
+owner-advanced opportunity `opp_2026-08-31_1bca4af972`, key sourced from the macOS
+Keychain and scoped to the child process only (never in Claude Code's environment).
+Result: **`MAP_TO_EXISTING → limpeza-energetica`** (core decision identical to contract
+§12, the offline replay fixture and every Cluster Strategy test); `overall_confidence
+LOW` (capped at the opportunity's LOW, C6); **`opportunity_lifecycle_state = EXPLORE`
+preserved** (== the opportunity's registry `status`, not the MI `target_state: TEST`);
+`target_next_stage = PAGE_BLUEPRINT`; playlist `pl_4oV5F1W2E6azZePnmqBanN` reused + a
+new-page recommendation carried (no asset invented); no 0–100 score; 4 red flags
+(compliance/MEDIUM carried) + 4 open questions. **`write_registry_link: false` →
+`knowledge/` untouched** (git-verified). Deterministic re-validation of the live output
+against the real knowledge base: **`validate_cluster_strategy` → 0 findings**,
+`scan_for_scope_leakage` → none, numeric-score scan → none, JSON round-trips exactly.
+Post-run: **617 pytest tests green, `ruff check src tests` clean** (no regression — the
+run wrote only report files). Output: `reports/cluster-strategy/opp_2026-08-31_1bca4af972.{md,json}`
+— left **untracked and uncommitted** (a validation run using the example config, not a
+committed stage-3 deliverable; the owner decides whether any real run's output is
+versioned). Live vs recorded-fixture judgement variance (expected, non-blocking): live
+set `is_new_subcluster=false` + angle "Proteção do lar / ritual de mudança para casa
+nova" (an existing named sub-angle) where the fixture frames it as a new angle
+(`is_new_subcluster=true`); both are valid `MAP_TO_EXISTING` and neither is pinned for
+live runs.
+
 **Future cleanup (flagged, not done):** extract the modules both stages share into a
 `src/engine_core/` package.
 
@@ -326,9 +351,9 @@ Per `docs/TECHNICAL-SPEC-V1.md` (the authoritative implementation spec):
   3 Analysis/Framing → 4 Asset Matching → 5 Evaluation → 6 Ranking/Prioritization →
   7 Report Generation → Registry Updater. No monolithic prompt, no multi-agent orchestration.
 - **Implementation status:** the **whole stage-1–2 pipeline is implemented, committed and
-  pushed** (`origin/main` at `3084f50`); the C10 gate passed (`39fe464`). Canonical stage 3
-  (`src/cluster_strategy/`) is merged on top (PR #1, `3084f50`). See **Current Phase** for
-  the per-component picture.
+  pushed**; the C10 gate passed (`39fe464`). Canonical stage 3 (`src/cluster_strategy/`)
+  is merged on top (PR #1, `3084f50`) and validated live (2026-09-03). See **Current
+  Phase** for the per-component picture.
   `market_intelligence.{collect.*, normalize.*, llm_stage, framing, matching, guardrails,
   evaluation, ranking, reporting, registry, orchestrator, cli}`.
 - **Orchestrator** — `orchestrator.run_pipeline(config | RunConfig, *, project_root, now=,
@@ -432,15 +457,26 @@ Not yet inventoried: Instagram and Facebook pages (`UNKNOWN`). Historical perfor
 
 ## Last Completed Step
 
-**Cluster Strategy V1 (canonical stage 3) merged to `main` (2026-09-03).** PR #1 was
-merged (rebase merge, fast-forward), `main` fast-forwarded to `3084f50`
+**Cluster Strategy V1 live validation + doc hygiene (2026-09-03).** After the PR #1 merge
+(below), the stage was run once against the real Anthropic API on Run 1's advanced
+opportunity `opp_2026-08-31_1bca4af972` — see **Cluster Strategy (stage 3) → Live
+validation** above for the full result. Headline: `MAP_TO_EXISTING → limpeza-energetica`,
+`opportunity_lifecycle_state = EXPLORE` preserved, `write_registry_link: false` so
+`knowledge/` was untouched, deterministic re-validation of the output returned 0 findings,
+**617 pytest tests green, `ruff check src tests` clean**. The two generated files under
+`reports/cluster-strategy/` are left untracked/uncommitted. Two documentation-hygiene
+edits followed (this change): the contract §12 worked example now shows
+`opportunity_lifecycle_state = EXPLORE` (was `TEST`, a lag behind the authoritative
+sections), and this file records the live run.
+
+**Prior step — Cluster Strategy V1 (canonical stage 3) merged to `main` (2026-09-03).**
+PR #1 was merged (rebase merge, fast-forward), `main` fast-forwarded to `3084f50`
 (`feat: implement Cluster Strategy (canonical pipeline stage 3)`), and the
-`feat/cluster-strategy-stage-3` branch was deleted locally and remotely. Post-merge on
-`main`: **617 pytest tests green** (`./.venv/bin/python -m pytest -q`), `ruff check src
-tests` clean, `main` synchronized with `origin/main`. The four intentionally-untracked
+`feat/cluster-strategy-stage-3` branch was deleted locally and remotely. `docs/SESSION-STATE.md`
+was then refreshed post-merge and pushed (`8b711bd`). The four intentionally-untracked
 owner files (`config/run.live-01.yaml`, `scripts/run-live.sh`,
 `tests/test_run_live_script.py`, `AI Music Media Engine — Business DNA V1.md`) remain
-untracked and were not part of the commit.
+untracked and were not part of any commit.
 
 ### Earlier history
 
@@ -671,27 +707,25 @@ migration.
 ## Last Commit
 
 ```
-3084f50  feat: implement Cluster Strategy (canonical pipeline stage 3)   (origin/main)
+8b711bd  docs: refresh session state after cluster strategy merge   (origin/main)
 ```
 
-The Cluster Strategy V1 build, **merged to `main` on 2026-09-03** via PR #1
-(`feat: Cluster Strategy — canonical pipeline stage 3`; rebase merge, fast-forward). Same
-content that was committed 2026-09-01 on branch `feat/cluster-strategy-stage-3` as
-`8ac61b9`; the rebase merge re-hashed it to `3084f50`. Staged in that commit:
-
-- New: `src/cluster_strategy/` (whole package), `config/cluster-strategy.example.yaml`,
-  `docs/CLUSTER-STRATEGY-V1.md`, `tests/test_cluster_strategy_*.py` (11 files),
-  `tests/fixtures/cluster_strategy{,_defer,_propose,_reject,_strip,_dupflag}/`.
-- Modified: `knowledge/DECISIONS-NEEDED.md` (D-CS-1 … D-CS-12 recorded in new §4; P4 entry
-  updated — owner-authorised), `docs/TECHNICAL-SPEC-V1.md` (§17 one-sentence registry-append
-  reconciliation), `docs/SESSION-STATE.md`.
-- **Not** staged (excluded deliberately): `config/run.live-01.yaml`, `scripts/run-live.sh`,
-  `tests/test_run_live_script.py`, `AI Music Media Engine — Business DNA V1.md`.
+Refreshed this file after the PR #1 merge; single-file commit, pushed to `origin/main`.
+The Cluster Strategy V1 build itself is the prior commit `3084f50`
+(`feat: implement Cluster Strategy (canonical pipeline stage 3)`) — **merged to `main` on
+2026-09-03** via PR #1 (rebase merge, fast-forward; same content committed 2026-09-01 on
+branch `feat/cluster-strategy-stage-3` as `8ac61b9`, re-hashed by the rebase). That merge
+commit staged: `src/cluster_strategy/` (whole package),
+`config/cluster-strategy.example.yaml`, `docs/CLUSTER-STRATEGY-V1.md`,
+`tests/test_cluster_strategy_*.py` (11), `tests/fixtures/cluster_strategy*/` (6 dirs); and
+modified `knowledge/DECISIONS-NEEDED.md` (D-CS-1 … D-CS-12 in new §4; P4 entry —
+owner-authorised), `docs/TECHNICAL-SPEC-V1.md` (§17 one sentence), `docs/SESSION-STATE.md`.
 
 Recent history:
 
 ```
-3084f50  feat: implement Cluster Strategy (canonical pipeline stage 3)   (origin/main)
+8b711bd  docs: refresh session state after cluster strategy merge      (origin/main)
+3084f50  feat: implement Cluster Strategy (canonical pipeline stage 3)
 39fe464  chore: validate V1 through C10 gate
 ac117d6  chore: record C10 validation Run 1 (run_2026-08-31_01)
 1c6a0ca  feat: carry evaluation red flags into the excluded/parked artifacts
@@ -700,11 +734,13 @@ ac117d6  chore: record C10 validation Run 1 (run_2026-08-31_01)
 f1e0100  test: preserve live framing replay fixture
 f57d4c7  fix: harden framing and preserve live run replay fixture
 9b06f77  fix: run Web Search structuring at effort=low
-a983c5c  fix: harden Anthropic client timeouts and retries
 ```
 
-**Working tree** — only the four intentionally-untracked owner files remain, none ever to
-be committed:
+**Uncommitted (this doc-hygiene change, 2026-09-03):** `docs/CLUSTER-STRATEGY-V1.md` (§12
+worked example: `opportunity_lifecycle_state` `TEST` → `EXPLORE`) and `docs/SESSION-STATE.md`
+(this refresh). Nothing else tracked is modified.
+
+**Untracked — the four intentionally-excluded owner files, none ever to be committed:**
 
 - `config/run.live-01.yaml`, `scripts/run-live.sh`, `tests/test_run_live_script.py` — the
   Keychain live-run wrapper and its config/tests; kept out of the repo per the owner's
@@ -714,42 +750,55 @@ be committed:
   does **not** supersede the DECIDED decisions governing the current V1 (see
   **Open Issues → D1**). Whether/where it is committed is an owner call.
 
+**Untracked — live validation output:** `reports/cluster-strategy/opp_2026-08-31_1bca4af972.{md,json}`
+from the 2026-09-03 live run. Left uncommitted (a validation run on the example config,
+not a committed stage-3 deliverable).
+
 **`CLAUDE.md`, `knowledge/business-dna/*`, `knowledge/clusters/cluster-taxonomy.md`,
-`knowledge/rules/guardrails.yaml`, the inventories, and all stage-1–2 code are untouched.**
+`knowledge/rules/guardrails.yaml`, the inventories, and all stage-1–2 and
+`src/cluster_strategy/` code are untouched.**
 
 ## Current Repository State
 
 - **Branch:** `main`
 - **Remote:** `origin` → `https://github.com/divinetonesmusic-spec/ai-music-media-engine.git` (PRIVATE)
-- **Relation to `origin/main`:** local `HEAD` = `origin/main` = **`3084f50`**. In sync —
-  nothing to push, nothing to pull.
+- **Relation to `origin/main`:** local `HEAD` = `origin/main` = **`8b711bd`**. Two tracked
+  doc files are modified locally and **not yet committed** (the doc-hygiene change above).
 - **PR #1** (`feat: Cluster Strategy — canonical pipeline stage 3`): **MERGED** (2026-09-03).
   The `feat/cluster-strategy-stage-3` branch was deleted locally and remotely.
-- **Working tree:** the four intentionally-untracked owner files above; nothing else.
-  `.venv/`, `/data/` and Python artifacts are git-ignored; tests write only under pytest
-  `tmp_path`; no test touches the network.
+- **Working tree:** `docs/CLUSTER-STRATEGY-V1.md` + `docs/SESSION-STATE.md` modified
+  (uncommitted); the four intentionally-untracked owner files; the untracked
+  `reports/cluster-strategy/` live output. `.venv/`, `/data/` and Python artifacts are
+  git-ignored; tests write only under pytest `tmp_path`; no test touches the network.
 - **Local runtime:** Python 3.12.14 in `.venv/`; `pip install -e ".[dev]"` (PyYAML,
   anthropic, pytest, ruff). **617 tests green**, `ruff check src tests` clean.
 
 ## Next Action
 
 **Stages 1–2 are done and C10-validated (`39fe464`, pushed). Stage 3 (Cluster Strategy) is
-COMPLETE and MERGED (`3084f50`, PR #1). Canonical stages 4–13 remain DEFERRED (P4) — do not
-build them.** No pending build or doc work. The real current choices:
+COMPLETE, MERGED (`3084f50`, PR #1) and now validated live against the real Anthropic API
+(2026-09-03). Canonical stages 4–13 remain DEFERRED (P4) — do not build them.** No pending
+build work; one uncommitted doc-hygiene change (see **Last Commit**). The real strategic
+choices are the three **owner quality decisions** (none blocking anything):
 
-1. **Optional — a live Cluster Strategy run** on Run 1's advanced opportunity via the
-   Keychain wrapper:
-   `./scripts/run-live.sh` mechanism, or with `ANTHROPIC_API_KEY` set directly:
-   `./.venv/bin/python -m cluster_strategy
-   reports/run_2026-08-31_01/opp_2026-08-31_1bca4af972.json --project-root .`
-   Keep **`write_registry_link: false`** unless you deliberately want the
-   `cluster_strategy_ref` recorded on that opportunity's registry entry. The offline
-   recorded-replay path already passes in CI.
-2. **Owner quality decisions (not blocking anything):**
-   - value-engine weighting for ranking (`NEEDS_INPUT` → spec §11 comparator keys 3–4);
-   - musical DNA detail (currently caps `music_fit` / `music_relationship` confidence at
-     `MEDIUM` while `NEEDS_INPUT`);
-   - the rating-anchors appendix (spec §8.3), to be written alongside the first real run.
+1. **value-engine weighting for ranking** — `NEEDS_INPUT` → spec §11 comparator keys 3–4;
+   V1 uses the ordinal `TECHNICAL DEFAULT` comparator until the owner provides it.
+2. **musical DNA detail** — instrumentation, energy, duration, texture, BPM, use of
+   frequencies, vocal/instrumental. While `NEEDS_INPUT` it structurally caps `music_fit`
+   (MI) and `market_language_fit` / `music_relationship` (Cluster Strategy) confidence at
+   `MEDIUM`.
+3. **the rating-anchors appendix** (spec §8.3) — to be written alongside the first real
+   run; calibration is deferred (P1).
+
+The optional live Cluster Strategy run is **done** (2026-09-03) — `MAP_TO_EXISTING →
+limpeza-energetica`, lifecycle `EXPLORE` preserved, `write_registry_link: false` so
+`knowledge/` untouched, deterministic validation clean, 617 tests + ruff green; the two
+output files under `reports/cluster-strategy/` are left untracked. To re-run:
+`./.venv/bin/python -m cluster_strategy reports/run_2026-08-31_01/opp_2026-08-31_1bca4af972.json
+--config config/cluster-strategy.example.yaml --project-root .` with `ANTHROPIC_API_KEY`
+in the environment (Keychain-sourced; `run-live.sh` itself is hardcoded to
+`-m market_intelligence`). Keep `write_registry_link: false` unless the registry link
+should be recorded.
 
 **How to run stages 1–2:** `./.venv/bin/python -m market_intelligence run <config>` — or
 `config/run.pipeline.replay.example.yaml` for a fully offline demo.
@@ -926,10 +975,12 @@ Explicitly deferred — a new session must **not** implement these prematurely:
 - **P2** — automated lifecycle transitions / autonomy Levels 2–3.
 - **P3** — real-time data integrations / paid APIs beyond the four V1 sources.
 - **P4** — pipeline stages 3–13 (Cluster Strategy → Learning). **Stage 3 (Cluster Strategy)
-  is DONE and MERGED** (2026-09-03, PR #1, `3084f50`): C10 passed and is recorded
-  (`39fe464`); the owner opened stage 3 via **D-CS-1** and decided **D-CS-1 … D-CS-12**, all
-  recorded in `knowledge/DECISIONS-NEEDED.md` §4 ("# 4. ESTÁGIO 3 — CLUSTER STRATEGY") with
-  the P4 entry updated. **Stages 4–13 stay DEFERRED under P4 — a new session must not build
+  is DONE, MERGED and LIVE-VALIDATED** (merged 2026-09-03, PR #1, `3084f50`; one real
+  Anthropic run 2026-09-03 → `MAP_TO_EXISTING → limpeza-energetica`, lifecycle `EXPLORE`
+  preserved, deterministic validation clean): C10 passed and is recorded (`39fe464`); the
+  owner opened stage 3 via **D-CS-1** and decided **D-CS-1 … D-CS-12**, all recorded in
+  `knowledge/DECISIONS-NEEDED.md` §4 ("# 4. ESTÁGIO 3 — CLUSTER STRATEGY") with the P4
+  entry updated. **Stages 4–13 stay DEFERRED under P4 — a new session must not build
   them.**
 - **P5** — multi-agent orchestration.
 - **P6** — formal new-cluster governance (V1 only proposes a cluster as a hypothesis).
@@ -964,10 +1015,11 @@ Explicitly deferred — a new session must **not** implement these prematurely:
    directory). This does **not** apply to the pipeline package itself (`src/market_intelligence/`),
    which is the V1 deliverable and is tracked.
 7. **V1 stages 1–2 are complete, C10-validated, committed and pushed (`39fe464`). Stage 3
-   (Cluster Strategy) is complete and merged (`3084f50`, PR #1).** Stages 4–13 stay
-   deferred (P4) — the next step is **not** more building (see **Next Action**). Set up the
-   environment first: `python3.12 -m venv .venv && ./.venv/bin/python -m pip install -e
-   ".[dev]"`, then `./.venv/bin/python -m pytest` and `./.venv/bin/ruff check src tests`
-   should be green (**617 tests**), and
+   (Cluster Strategy) is complete, merged (`3084f50`, PR #1) and live-validated
+   (2026-09-03).** Stages 4–13 stay deferred (P4) — the next step is **not** more building
+   (see **Next Action**: the three owner quality decisions). Set up the environment first:
+   `python3.12 -m venv .venv && ./.venv/bin/python -m pip install -e ".[dev]"`, then
+   `./.venv/bin/python -m pytest` and `./.venv/bin/ruff check src tests` should be green
+   (**617 tests**), and
    `./.venv/bin/python -m market_intelligence run config/run.pipeline.replay.example.yaml`
    should print `RUN OK`.

@@ -591,7 +591,9 @@ owner-advanced opportunity** (`review.md`: `advance`).
 
 - Market `Mercados hispanohablantes` / `es` / platform `tiktok`;
   `durability: EMERGING`; `urgency: MEDIUM`; `overall_confidence: LOW`;
-  `target_state: TEST`.
+  `status: EXPLORE` (the opportunity's actual registry lifecycle state);
+  `target_state: TEST` (the Market Intelligence *recommendation* — context
+  only, not the lifecycle state).
 - `need`: *"Música para limpiar energéticamente una casa nueva o espacio"*;
   `consumption_context`: *"Durante o después de mudarse a un nuevo hogar, como
   parte de un ritual de limpieza"*.
@@ -724,8 +726,11 @@ owner-advanced opportunity** (`review.md`: `advance`).
   Spanish-language Limpeza Energética page focused on the moving-in occasion;
   keep all copy on ritual / intention / welcome, never on 'removing negative
   energy' as fact."*
-- `opportunity_lifecycle_state = TEST` — **unchanged** (owner already advanced
-  it).
+- `opportunity_lifecycle_state = EXPLORE` — carries the opportunity's real
+  registry `status` **unchanged** (never the Market Intelligence `target_state`
+  recommendation; the owner marking the opportunity `advance` in `review.md`
+  authorises stage 3, it does not transition the lifecycle). Cluster Strategy
+  never transitions the lifecycle (I2, autonomy L1).
 - `execution_note`: *"V1 does not execute this action; it requires human
   approval."*
 - `open_questions` (**D**): (1) *"platform: the opportunity's `platform` is
