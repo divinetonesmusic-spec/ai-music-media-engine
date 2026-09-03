@@ -1,7 +1,7 @@
 ---
 title: Session State — AI Music Media Engine
 status: current
-updated: "2026-09-01"
+updated: "2026-09-03"
 owner: Nicolas Alves (divinetonesmusic@gmail.com)
 purpose: >
   Snapshot of the current project state so a new Claude Code session can resume
@@ -24,8 +24,7 @@ sources_of_truth:
 
 **V1 — Market Intelligence + Opportunity Analysis: COMPLETE and C10-validated.** The
 knowledge base and technical specification are complete and reconciled. The full V1
-pipeline (canonical stages 1–2) is **implemented, tested, committed and pushed**
-(`origin/main` at `39fe464`).
+pipeline (canonical stages 1–2) is **implemented, tested, committed and pushed**.
 
 **The C10 Definition-of-Done gate PASSED on 2026-09-01** (commit `39fe464`,
 `chore: validate V1 through C10 gate`, pushed by the owner). Three consecutive live
@@ -34,13 +33,18 @@ runs — `run_2026-08-31_01` (6 presented), `run_2026-09-01_01` (10), `run_2026-
 each, 100% traceable evidence, observed vs hypothesis distinguished, no invented assets.
 `python -m market_intelligence gate --reports-dir reports/` reports **GATE PASS**.
 
-**Phase 3 — Cluster Strategy (canonical stage 3) — is BUILT and CLOSED OUT (2026-09-01,
-UNCOMMITTED, commit-ready).** New sibling package `src/cluster_strategy/`; contract at
+**Phase 3 — Cluster Strategy V1 (canonical stage 3) — is COMPLETE and MERGED.** Built
+2026-09-01 as a new sibling package `src/cluster_strategy/`; contract at
 `docs/CLUSTER-STRATEGY-V1.md`; 75 new tests (617 total, all green, ruff clean); no change
 to any stage-1–2 code file. Two `spec-consistency-reviewer` passes (FAIL → all fixes
-applied); the D-CS decisions are now recorded authoritatively in
+applied); the D-CS decisions are recorded authoritatively in
 `knowledge/DECISIONS-NEEDED.md` §4 (P4 updated) and `docs/TECHNICAL-SPEC-V1.md` §17 gained
-one sentence for the opt-in registry append. See **Cluster Strategy (stage 3)** below.
+one sentence for the opt-in registry append. **PR #1
+(`feat: Cluster Strategy — canonical pipeline stage 3`) was MERGED to `main` on
+2026-09-03** (rebase merge, fast-forward); the `feat/cluster-strategy-stage-3` branch was
+deleted locally and remotely. `main` is synchronized with `origin/main` at **`3084f50`
+— `feat: implement Cluster Strategy (canonical pipeline stage 3)`**. See **Cluster
+Strategy (stage 3)** below. **Canonical stages 4–13 remain DEFERRED (P4).**
 
 `python -m market_intelligence run <config>` executes
 `preflight → Signal Collection → Signal Normalization → Analysis/Framing → Asset Matching
@@ -144,7 +148,7 @@ memory notes and the `fix:` commits `341236b`…`5d9781f`.
 `run config/run.pipeline.replay.example.yaml` OK offline.** Runtime deps: `PyYAML` +
 `anthropic>=1.2.0` (lazily imported — only a live run needs it).
 
-## Cluster Strategy (canonical stage 3) — built + closed out 2026-09-01, UNCOMMITTED
+## Cluster Strategy (canonical stage 3) — COMPLETE and MERGED (PR #1, 2026-09-03)
 
 **Contract:** `docs/CLUSTER-STRATEGY-V1.md`. On 2026-09-01 the owner opened canonical
 pipeline stage 3 (and only stage 3) and decided all twelve open decisions
@@ -221,9 +225,15 @@ worked example → `MAP_TO_EXISTING limpeza-energetica`), the DEFER / PROPOSE / 
 `tests/fixtures/cluster_strategy{,_defer,_propose,_reject,_strip,_dupflag}/` keyed
 `llm/cluster_strategy/cluster_strategy__<opportunity_id>.json`. TDD throughout.
 
-**Status: UNCOMMITTED, commit-ready.** 617 tests green, `ruff check src tests` clean. No change to any stage-1–2 file, any `knowledge/` file, `CLAUDE.md`, or
-`docs/TECHNICAL-SPEC-V1.md`. Offline recorded-replay passes; a live run needs
-`ANTHROPIC_API_KEY` (same Keychain convention as the pipeline).
+**Status: COMPLETE and MERGED.** Committed 2026-09-01 on branch
+`feat/cluster-strategy-stage-3` (`8ac61b9`), PR #1 opened 2026-09-02, **MERGED to `main`
+2026-09-03** (rebase merge, fast-forward; new SHA `3084f50`; branch deleted locally and
+remotely). 617 tests green, `ruff check src tests` clean. The merge commit touched no
+stage-1–2 code file; it did update `knowledge/DECISIONS-NEEDED.md` §4 (D-CS-1 … D-CS-12,
+P4 entry), `docs/TECHNICAL-SPEC-V1.md` §17 (one sentence) and `docs/SESSION-STATE.md` —
+all owner-authorised. `CLAUDE.md`, `knowledge/business-dna/*`, the cluster taxonomy, the
+guardrails file and the inventories are untouched. Offline recorded-replay passes; a live
+run needs `ANTHROPIC_API_KEY` (same Keychain convention as the pipeline).
 
 **Future cleanup (flagged, not done):** extract the modules both stages share into a
 `src/engine_core/` package.
@@ -305,15 +315,20 @@ worked example → `MAP_TO_EXISTING limpeza-energetica`), the DEFER / PROPOSE / 
 
 Per `docs/TECHNICAL-SPEC-V1.md` (the authoritative implementation spec):
 
-- **Scope:** canonical pipeline stages 1–2 only —
+- **Scope:** `docs/TECHNICAL-SPEC-V1.md` covers canonical pipeline stages 1–2 only —
   `Market Intelligence → Opportunity Analysis → Opportunity Report` — run as one functional
-  workflow. Stages 3–13 are out of scope (C7, C8).
+  workflow. Canonical **stage 3 (Cluster Strategy)** is implemented and merged as a separate
+  sibling package `src/cluster_strategy/` under its own contract
+  `docs/CLUSTER-STRATEGY-V1.md` (see the **Cluster Strategy (canonical stage 3)** section).
+  **Stages 4–13 remain out of scope / DEFERRED (P4)** (C7, C8).
 - **Shape:** a deterministic sequential orchestrator over a **modular pipeline of specialized
   components** (I8) — Knowledge Loader → 1 Signal Collection → 2 Signal Normalization →
   3 Analysis/Framing → 4 Asset Matching → 5 Evaluation → 6 Ranking/Prioritization →
   7 Report Generation → Registry Updater. No monolithic prompt, no multi-agent orchestration.
-- **Implementation status:** **Foundation done + committed**; the **whole stage-1–2 pipeline
-  is implemented and uncommitted** — see **Current Phase** for the per-component picture.
+- **Implementation status:** the **whole stage-1–2 pipeline is implemented, committed and
+  pushed** (`origin/main` at `3084f50`); the C10 gate passed (`39fe464`). Canonical stage 3
+  (`src/cluster_strategy/`) is merged on top (PR #1, `3084f50`). See **Current Phase** for
+  the per-component picture.
   `market_intelligence.{collect.*, normalize.*, llm_stage, framing, matching, guardrails,
   evaluation, ranking, reporting, registry, orchestrator, cli}`.
 - **Orchestrator** — `orchestrator.run_pipeline(config | RunConfig, *, project_root, now=,
@@ -416,6 +431,18 @@ Not yet inventoried: Instagram and Facebook pages (`UNKNOWN`). Historical perfor
 (streams, saves, followers, skip rate) is not available in structured form (`UNKNOWN`).
 
 ## Last Completed Step
+
+**Cluster Strategy V1 (canonical stage 3) merged to `main` (2026-09-03).** PR #1 was
+merged (rebase merge, fast-forward), `main` fast-forwarded to `3084f50`
+(`feat: implement Cluster Strategy (canonical pipeline stage 3)`), and the
+`feat/cluster-strategy-stage-3` branch was deleted locally and remotely. Post-merge on
+`main`: **617 pytest tests green** (`./.venv/bin/python -m pytest -q`), `ruff check src
+tests` clean, `main` synchronized with `origin/main`. The four intentionally-untracked
+owner files (`config/run.live-01.yaml`, `scripts/run-live.sh`,
+`tests/test_run_live_script.py`, `AI Music Media Engine — Business DNA V1.md`) remain
+untracked and were not part of the commit.
+
+### Earlier history
 
 **Targeted live validation of Asset Matching + Evaluation (2026-08-31, working tree).**
 Offline: reconstructed the 13 `live_02` FramedOpportunities, picked the first 3 by
@@ -644,89 +671,85 @@ migration.
 ## Last Commit
 
 ```
-39fe464  chore: validate V1 through C10 gate
+3084f50  feat: implement Cluster Strategy (canonical pipeline stage 3)   (origin/main)
 ```
 
-Pushed to `origin/main` by the owner (`ac117d6..39fe464`). Staged exactly 6 paths:
-`knowledge/market/opportunity-registry.yaml` (10→34 entries), `reports/run_2026-08-31_01/review.md`,
-`reports/run_2026-09-01_01/`, `reports/run_2026-09-01_02/`, `src/market_intelligence/evaluation.py`
-(compliance self-check tightened to flag *claims* not *topics*), `tests/test_evaluation.py`
-(+8). The Keychain wrapper, `config/run.live-01.yaml`, `tests/test_run_live_script.py` and
-the Business DNA V1 doc were deliberately excluded.
+The Cluster Strategy V1 build, **merged to `main` on 2026-09-03** via PR #1
+(`feat: Cluster Strategy — canonical pipeline stage 3`; rebase merge, fast-forward). Same
+content that was committed 2026-09-01 on branch `feat/cluster-strategy-stage-3` as
+`8ac61b9`; the rebase merge re-hashed it to `3084f50`. Staged in that commit:
+
+- New: `src/cluster_strategy/` (whole package), `config/cluster-strategy.example.yaml`,
+  `docs/CLUSTER-STRATEGY-V1.md`, `tests/test_cluster_strategy_*.py` (11 files),
+  `tests/fixtures/cluster_strategy{,_defer,_propose,_reject,_strip,_dupflag}/`.
+- Modified: `knowledge/DECISIONS-NEEDED.md` (D-CS-1 … D-CS-12 recorded in new §4; P4 entry
+  updated — owner-authorised), `docs/TECHNICAL-SPEC-V1.md` (§17 one-sentence registry-append
+  reconciliation), `docs/SESSION-STATE.md`.
+- **Not** staged (excluded deliberately): `config/run.live-01.yaml`, `scripts/run-live.sh`,
+  `tests/test_run_live_script.py`, `AI Music Media Engine — Business DNA V1.md`.
 
 Recent history:
 
 ```
-39fe464  chore: validate V1 through C10 gate                            (origin/main)
+3084f50  feat: implement Cluster Strategy (canonical pipeline stage 3)   (origin/main)
+39fe464  chore: validate V1 through C10 gate
+ac117d6  chore: record C10 validation Run 1 (run_2026-08-31_01)
+1c6a0ca  feat: carry evaluation red flags into the excluded/parked artifacts
+6f9060e  feat: harden V1 for live end-to-end and add the C10 gate checker
 5d9781f  fix: harden evaluation failures and structured output schema
 f1e0100  test: preserve live framing replay fixture
 f57d4c7  fix: harden framing and preserve live run replay fixture
 9b06f77  fix: run Web Search structuring at effort=low
 a983c5c  fix: harden Anthropic client timeouts and retries
-6809a64  fix: harden Anthropic Web Search structuring response handling
-341236b  fix: harden Anthropic structured output schemas
 ```
 
-**Uncommitted working tree** — the Phase 3 Cluster Strategy build + close-out (2026-09-01):
+**Working tree** — only the four intentionally-untracked owner files remain, none ever to
+be committed:
 
-- Untracked: `src/cluster_strategy/` (whole package), `config/cluster-strategy.example.yaml`,
-  `docs/CLUSTER-STRATEGY-V1.md`, `tests/test_cluster_strategy_*.py` (11 files),
-  `tests/fixtures/cluster_strategy{,_defer,_propose,_reject,_strip,_dupflag}/`.
-- Modified (tracked): `knowledge/DECISIONS-NEEDED.md` (D-CS-1 … D-CS-12 recorded in new
-  §4; P4 entry updated — owner-authorised close-out edit); `docs/TECHNICAL-SPEC-V1.md`
-  (§17 one-sentence registry-append reconciliation); `docs/SESSION-STATE.md` (this file).
-- Untracked, intentionally **never committed**: `config/run.live-01.yaml`,
-  `scripts/run-live.sh`, `tests/test_run_live_script.py` (the Keychain live-run wrapper;
-  kept out of the repo per the owner's credential-isolation instruction).
-- Untracked: `AI Music Media Engine — Business DNA V1.md` at the repo root — the business's
+- `config/run.live-01.yaml`, `scripts/run-live.sh`, `tests/test_run_live_script.py` — the
+  Keychain live-run wrapper and its config/tests; kept out of the repo per the owner's
+  credential-isolation instruction.
+- `AI Music Media Engine — Business DNA V1.md` at the repo root — the business's
   **strategic vision / evolution architecture**. Per **owner decision D1 (2026-08-31)** it
   does **not** supersede the DECIDED decisions governing the current V1 (see
   **Open Issues → D1**). Whether/where it is committed is an owner call.
-- **`CLAUDE.md`, `knowledge/business-dna/*`, `knowledge/clusters/cluster-taxonomy.md`,
-  `knowledge/rules/guardrails.yaml`, the inventories, and all stage-1–2 code are
-  untouched.**
+
+**`CLAUDE.md`, `knowledge/business-dna/*`, `knowledge/clusters/cluster-taxonomy.md`,
+`knowledge/rules/guardrails.yaml`, the inventories, and all stage-1–2 code are untouched.**
 
 ## Current Repository State
 
 - **Branch:** `main`
 - **Remote:** `origin` → `https://github.com/divinetonesmusic-spec/ai-music-media-engine.git` (PRIVATE)
-- **Relation to `origin/main`:** local `HEAD` = `origin/main` = `39fe464`. The Cluster
-  Strategy build sits on top as an uncommitted working tree (untracked files only).
-- **Working tree:** not clean — the untracked files above. `.venv/`, `/data/` and Python
-  artifacts are git-ignored; tests write only under pytest `tmp_path`; no test touches the
-  network.
+- **Relation to `origin/main`:** local `HEAD` = `origin/main` = **`3084f50`**. In sync —
+  nothing to push, nothing to pull.
+- **PR #1** (`feat: Cluster Strategy — canonical pipeline stage 3`): **MERGED** (2026-09-03).
+  The `feat/cluster-strategy-stage-3` branch was deleted locally and remotely.
+- **Working tree:** the four intentionally-untracked owner files above; nothing else.
+  `.venv/`, `/data/` and Python artifacts are git-ignored; tests write only under pytest
+  `tmp_path`; no test touches the network.
 - **Local runtime:** Python 3.12.14 in `.venv/`; `pip install -e ".[dev]"` (PyYAML,
   anthropic, pytest, ruff). **617 tests green**, `ruff check src tests` clean.
 
 ## Next Action
 
-**Stages 1–2 are done and C10-validated (`39fe464`, pushed). Stage 3 (Cluster Strategy)
-is built, closed out, and commit-ready — nothing is committed yet.**
+**Stages 1–2 are done and C10-validated (`39fe464`, pushed). Stage 3 (Cluster Strategy) is
+COMPLETE and MERGED (`3084f50`, PR #1). Canonical stages 4–13 remain DEFERRED (P4) — do not
+build them.** No pending build or doc work. The real current choices:
 
-1. **Owner: review + commit the Cluster Strategy build.** Read
-   `docs/CLUSTER-STRATEGY-V1.md`; skim `src/cluster_strategy/`; run
-   `./.venv/bin/python -m pytest -q` (617 green) and `./.venv/bin/python -m cluster_strategy
-   --help`. Then commit, in one commit:
-   - untracked: `src/cluster_strategy/`, `tests/test_cluster_strategy_*.py` (11),
-     `tests/fixtures/cluster_strategy*/` (6 dirs), `config/cluster-strategy.example.yaml`,
-     `docs/CLUSTER-STRATEGY-V1.md`;
-   - modified: `knowledge/DECISIONS-NEEDED.md`, `docs/TECHNICAL-SPEC-V1.md`,
-     `docs/SESSION-STATE.md`.
-
-   Do **not** stage `config/run.live-01.yaml`, `scripts/`, `tests/test_run_live_script.py`,
-   or the Business DNA V1 doc.
-2. Two `spec-consistency-reviewer` passes are done (FAIL → all fixes applied). The D-CS
-   decisions are now authoritative in `DECISIONS-NEEDED.md` §4 and P4 is updated, so the
-   reviewer's one blocker is cleared. No further code or doc work is required before the
-   commit.
-3. Try a live Cluster Strategy run on Run 1's advanced opportunity via the Keychain
-   wrapper: `python -m cluster_strategy
-   reports/run_2026-08-31_01/opp_2026-08-31_1bca4af972.json` with `ANTHROPIC_API_KEY` set
-   (offline recorded-replay already passes). Keep `write_registry_link: false` unless you
-   want the registry link recorded for that run.
-4. Owner decisions that still gate quality (not blocking): value-engine weighting for
-   ranking (`NEEDS_INPUT` → §11 keys 3–4); musical DNA detail (caps `music_fit` /
-   `music_relationship` confidence); the rating-anchors appendix (§8.3).
+1. **Optional — a live Cluster Strategy run** on Run 1's advanced opportunity via the
+   Keychain wrapper:
+   `./scripts/run-live.sh` mechanism, or with `ANTHROPIC_API_KEY` set directly:
+   `./.venv/bin/python -m cluster_strategy
+   reports/run_2026-08-31_01/opp_2026-08-31_1bca4af972.json --project-root .`
+   Keep **`write_registry_link: false`** unless you deliberately want the
+   `cluster_strategy_ref` recorded on that opportunity's registry entry. The offline
+   recorded-replay path already passes in CI.
+2. **Owner quality decisions (not blocking anything):**
+   - value-engine weighting for ranking (`NEEDS_INPUT` → spec §11 comparator keys 3–4);
+   - musical DNA detail (currently caps `music_fit` / `music_relationship` confidence at
+     `MEDIUM` while `NEEDS_INPUT`);
+   - the rating-anchors appendix (spec §8.3), to be written alongside the first real run.
 
 **How to run stages 1–2:** `./.venv/bin/python -m market_intelligence run <config>` — or
 `config/run.pipeline.replay.example.yaml` for a fully offline demo.
@@ -746,9 +769,9 @@ Surfaced by the spec-consistency + code reviews; each is a documented gap, not a
   "reject_and_revise → one revision pass" loop** — Claude revises in-line within its single
   call, and deterministic escalation (strip the offending hypothesis, or exclude on core
   content) handles the rest. `require_uncertainty_statement` (G10) rendering is wired
-  (`ComplianceResult.needs_uncertainty_note`) but dormant (no G10 scanner). **Owner
-  decision needed before the C10 gate:** is this depth acceptable, or must the fuller flow
-  land first?
+  (`ComplianceResult.needs_uncertainty_note`) but dormant (no G10 scanner). The C10 gate
+  passed with this enforcement depth (2026-09-01), so it is accepted for V1; a fuller
+  `reject_and_revise` loop remains a possible later enhancement, not a blocker.
 - **§16.3(c)** — "every justification cites the evidence item(s) it uses" is not
   deterministically verified (too noisy); the Evaluation prompt asks for it. (d) *is* now
   checked.
@@ -902,12 +925,12 @@ Explicitly deferred — a new session must **not** implement these prematurely:
 - **P1** — score calibration loop with real performance data.
 - **P2** — automated lifecycle transitions / autonomy Levels 2–3.
 - **P3** — real-time data integrations / paid APIs beyond the four V1 sources.
-- **P4** — pipeline stages 3–13 (Cluster Strategy → Learning). **Stage 3 (Cluster
-  Strategy) is OPEN** as of 2026-09-01: C10 passed and is recorded (`39fe464`); the owner
-  opened stage 3 via **D-CS-1** and decided **D-CS-1 … D-CS-12**, all recorded in
-  `knowledge/DECISIONS-NEEDED.md` §4 ("# 4. ESTÁGIO 3 — CLUSTER STRATEGY") with the P4
-  entry updated. The build is commit-ready, uncommitted. **Stages 4–13 stay DEFERRED under
-  P4.**
+- **P4** — pipeline stages 3–13 (Cluster Strategy → Learning). **Stage 3 (Cluster Strategy)
+  is DONE and MERGED** (2026-09-03, PR #1, `3084f50`): C10 passed and is recorded
+  (`39fe464`); the owner opened stage 3 via **D-CS-1** and decided **D-CS-1 … D-CS-12**, all
+  recorded in `knowledge/DECISIONS-NEEDED.md` §4 ("# 4. ESTÁGIO 3 — CLUSTER STRATEGY") with
+  the P4 entry updated. **Stages 4–13 stay DEFERRED under P4 — a new session must not build
+  them.**
 - **P5** — multi-agent orchestration.
 - **P6** — formal new-cluster governance (V1 only proposes a cluster as a hypothesis).
 - **P7** — cross-run dashboards / trend-tracking UI.
@@ -940,9 +963,9 @@ Explicitly deferred — a new session must **not** implement these prematurely:
 6. Keep any one-off ETL / data-massaging scripts out of the repo (use a scratch/tmp
    directory). This does **not** apply to the pipeline package itself (`src/market_intelligence/`),
    which is the V1 deliverable and is tracked.
-7. **V1 stages 1–2 are complete, C10-validated, committed and pushed (`39fe464`).** Stage 3
-   (Cluster Strategy) is built and **uncommitted** — the next step is owner review → commit
-   (see **Next Action**), not more building; stages 4–13 stay deferred (P4). Set up the
+7. **V1 stages 1–2 are complete, C10-validated, committed and pushed (`39fe464`). Stage 3
+   (Cluster Strategy) is complete and merged (`3084f50`, PR #1).** Stages 4–13 stay
+   deferred (P4) — the next step is **not** more building (see **Next Action**). Set up the
    environment first: `python3.12 -m venv .venv && ./.venv/bin/python -m pip install -e
    ".[dev]"`, then `./.venv/bin/python -m pytest` and `./.venv/bin/ruff check src tests`
    should be green (**617 tests**), and
