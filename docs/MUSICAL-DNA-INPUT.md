@@ -52,10 +52,10 @@ This worksheet audited exactly what §9 asked for. The owner answered all eight 
 
 | Consumer | Status | How it uses Musical DNA |
 |---|---|---|
-| **MI Evaluation — `music_fit` dimension (spec §8.1 dim 5)** | live | While `business-dna.md` §9 still reads `NEEDS_INPUT` in-repo, `music_fit` **confidence stays capped ≤ `MEDIUM`** (`evaluation.py` `_apply_music_fit_cap`, gated by `orchestrator._musical_dna_needs_input`). Once the owner transfers §9, the detector flips automatically and the cap lifts. |
-| **MI Evaluation — `music_fit` rating anchor (spec Appendix B.6 + `_RATING_ANCHORS`)** | live | HIGH/VERY_HIGH currently lean on cluster + asset match. Follow-up wiring (see `docs/MUSICAL-DNA-V1-FINAL.md`) sharpens the anchor to judge actual sonic fit against §9. |
+| **MI Evaluation — `music_fit` dimension (spec §8.1 dim 5)** | live | §9 is transferred (`2b8df10`), `orchestrator._musical_dna_needs_input()` returns `False`, so the deterministic `music_fit` confidence cap (`evaluation._build_bundle` + `schema.validate`) no longer fires. It re-applies only if §9 returns to `NEEDS_INPUT`. |
+| **MI Evaluation — `music_fit` rating anchor (spec Appendix B.6 + `_rating_anchors()`)** | live | **DONE 2026-09-03 (uncommitted).** `_MUSIC_FIT_ANCHOR_DEFINED` judges instrumentation / energy / texture / vocal rule / sonority rejects / cluster expression against §9; confidence uncapped. `_MUSIC_FIT_ANCHOR_NEEDS_INPUT` kept as the fallback. Appendix B.6 rewritten to match. |
 | **Cluster Strategy V1 — `market_language_fit` confidence + `music_relationship` prose** | live (frozen) | Capped at ≤ `MEDIUM` (decision **D-CS-9**; `src/cluster_strategy/asset_strategy.py`). The cap's justification also cites the strategic-classification backlog, which is **still** `NEEDS_INPUT`, so it does not lift on §9 alone — a D-CS-9 revisit, out of scope for now. |
-| **Run digest — `NEEDS_INPUT encountered`** | live (has a gap) | `reporting.py` `_collect_needs_input` only matches the literal token in `blocked_by`. Separate minor fix. |
+| **Run digest — `NEEDS_INPUT encountered`** | live | **FIXED 2026-09-03 (uncommitted).** `reporting._collect_needs_input` now collects every non-empty `blocked_by` entry (prose or literal token). |
 | **Stage 4 — Page Blueprint** | deferred (P4) | Visual identity and tone of voice derive partly from the sound's character. This is the stage that most needs §9 — and §9 is now defined. |
 | **Stage 5 — Content Strategy** | deferred (P4) | Hook/format choices that pair with the music. |
 | **Stage 8 — Audio Engine** | deferred (P4) | BPM, instrumentation, texture, frequency use, duration become concrete production parameters here. |

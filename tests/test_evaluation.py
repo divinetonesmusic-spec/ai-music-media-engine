@@ -437,14 +437,16 @@ def test_compliance_prompt_requires_quoting_the_claim_and_is_topic_independent()
 # NO numeric golden tests — the anchors carry no numbers.
 
 
-def _rating_anchor_block() -> str:
+def _rating_anchor_block(musical_dna_needs_input: bool = True) -> str:
     """The RATING ANCHORS block of the real Evaluation prompt, lower-cased and with
     whitespace collapsed (the block is assembled from wrapped string literals)."""
     from market_intelligence.evaluation import _prompt
 
     framed, matches, kn, _ = _pipeline_to_matches()
     opp = next(o for o in framed if o.opportunity_id == _OPP_ID)
-    prompt = _prompt(opp, matches[_OPP_ID], kn)
+    prompt = _prompt(
+        opp, matches[_OPP_ID], kn, musical_dna_needs_input=musical_dna_needs_input
+    )
     start = prompt.index("RATING ANCHORS")
     end = prompt.index("COMPLIANCE SELF-CHECK", start)
     return " ".join(prompt[start:end].lower().split())
@@ -500,11 +502,25 @@ def test_rating_anchors_keep_overall_confidence_c6_safe():
     assert "do not dilute it to low" in block
 
 
-def test_rating_anchors_preserve_the_music_fit_confidence_cap_language():
-    block = _rating_anchor_block()
+def test_rating_anchors_cap_music_fit_confidence_when_musical_dna_needs_input():
+    # fallback path: if business-dna §9 ever returns to NEEDS_INPUT the cap re-applies
+    block = _rating_anchor_block(musical_dna_needs_input=True)
     assert "music_fit" in block
     assert "capped" in block
     assert "musical dna is needs_input" in block
+
+
+def test_rating_anchors_judge_music_fit_against_the_musical_dna_when_it_is_defined():
+    # §9 is OWNER-APPROVED (business-dna) — music_fit is judged against the house sound
+    # and its confidence is no longer capped.
+    block = _rating_anchor_block(musical_dna_needs_input=False)
+    assert "music_fit" in block
+    assert "musical dna" in block
+    assert "needs_input" not in block
+    assert "no longer capped" in block or "not capped" in block
+    # the house-sound criteria the model must judge against
+    for cue in ("instrumentation", "energy", "texture", "sonority"):
+        assert cue in block, f"music_fit anchor should reference {cue}"
 
 
 def test_rating_anchors_do_not_introduce_value_engine_weighting():
@@ -512,6 +528,28 @@ def test_rating_anchors_do_not_introduce_value_engine_weighting():
     # business_outcome_potential stays a summary, never an average/weighting of axes
     assert "never an average of the 5 axes" in block
     assert "no numbers, thresholds or weights anywhere (c6)" in block
+
+
+def test_evaluation_prompt_music_fit_rule_reflects_the_musical_dna_state():
+    # item 3: the hardcoded "musical DNA detail is NEEDS_INPUT" rule is now conditional
+    from market_intelligence.evaluation import _prompt
+
+    framed, matches, kn, _ = _pipeline_to_matches()
+    opp = next(o for o in framed if o.opportunity_id == _OPP_ID)
+    am = matches[_OPP_ID]
+
+    rules_capped = _prompt(opp, am, kn, musical_dna_needs_input=True).split(
+        "Rules:\n"
+    )[1].split("RATING ANCHORS")[0]
+    rules_defined = _prompt(opp, am, kn, musical_dna_needs_input=False).split(
+        "Rules:\n"
+    )[1].split("RATING ANCHORS")[0]
+
+    assert "NEEDS_INPUT" in rules_capped
+    assert "NEEDS_INPUT" not in rules_defined
+    assert "Musical DNA" in rules_defined or "musical DNA" in rules_defined
+    # the catalog-affinity carve-out survives in both
+    assert "catalog-affinity" in rules_capped and "catalog-affinity" in rules_defined
 
 
 def test_evaluation_replay_still_produces_valid_qualitative_levels_after_the_prompt_change():

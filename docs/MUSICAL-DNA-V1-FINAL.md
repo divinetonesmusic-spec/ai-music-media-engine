@@ -308,25 +308,24 @@ CLUSTER = a distinct expression inside that universe.
 
 ---
 
-## Downstream wiring — next step (NOT done in this task)
+## Downstream wiring
 
-Once the owner has pasted §9 above into `knowledge/business-dna/business-dna.md`, the
-following minimal, ordered wiring becomes appropriate. **None of it is implemented here.**
-Each item is small; do them as one focused change with tests.
+§9 transfer landed in `knowledge/business-dna/business-dna.md` (commit `2b8df10`).
+Items 3, 4 and 6 below are **DONE** (2026-09-03, uncommitted at time of writing).
+Item 5 stays deferred under D-CS-9. Items 1 and 2 needed no action.
 
-| # | Change | File | Why / risk |
+| # | Change | File | Status |
 |---|---|---|---|
-| 1 | **Nothing** — the detector auto-recognizes the completed state | `market_intelligence/orchestrator.py` `_musical_dna_needs_input()` | It scans the first `"Music DNA"` occurrence (= the §9 heading) for `"NEEDS INPUT"` / `"NEEDS_INPUT"` within 800 chars. The approved §9 content contains no such token, so the detector returns `False` automatically. Optional later hardening (the SESSION-STATE "brittle detector" note) can wait — do it deliberately against the real §9, with a test. |
-| 2 | **Nothing** — the deterministic `music_fit` cap auto-lifts | `market_intelligence/evaluation.py` `_apply_music_fit_cap()` | Already gated: `if musical_dna_needs_input and confidence is HIGH → MEDIUM`. When (1) flips to `False`, this stops firing. No change. |
-| 3 | Update the `music_fit` line in the Evaluation prompt | `market_intelligence/evaluation.py` `_prompt()` (the `"- music_fit: the business's musical DNA detail is NEEDS_INPUT, so music_fit confidence MUST be LOW or MEDIUM."` line) | **Hardcoded, not flag-gated.** After §9 lands it is stale. Replace with a conditional or with text that points the model at the §9 sonic criteria. Small, prompt-only. |
-| 4 | Sharpen Appendix B.6 + the `_RATING_ANCHORS` `music_fit` anchor | `docs/TECHNICAL-SPEC-V1.md` Appendix B.6, `market_intelligence/evaluation.py` `_RATING_ANCHORS` | Both currently say *"(confidence still capped ≤ MEDIUM — musical DNA is NEEDS_INPUT)"* and lean the HIGH/VERY_HIGH levels on cluster + asset match. Rewrite so `music_fit` is judged against the actual §9 house sound (in-bounds instrumentation, energy band, texture, vocal rule, sonority rejects) and the cluster-expression table. Still qualitative (C6). |
-| 5 | Revisit `market_language_fit` (and the `music_relationship` prompt guidance) under **D-CS-9** | `src/cluster_strategy/asset_strategy.py` `_market_language_fit()` (hardcoded `confidence=MEDIUM`), `src/cluster_strategy/strategy.py` prompt | D-CS-9 is the sanctioned decision that owns this. The current cap's justification cites musical DNA **and** the strategic-classification backlog; the backlog (23 unclassified artists, 7 playlists) is **still `NEEDS_INPUT`**, so the cap may legitimately stay at `MEDIUM` for now — this is a D-CS-9 judgement, not an automatic lift. A `src/cluster_strategy/` change here is allowed only because D-CS-9 already sanctions it; it is out of scope for the current phase. |
-| 6 | Fix the digest `NEEDS_INPUT` token-match gap (separate) | `market_intelligence/reporting.py` `_collect_needs_input()` | It only aggregates `blocked_by` strings containing the literal `NEEDS_INPUT` / `UNKNOWN`; the model writes `music_fit` blocks as prose. Independent of §9 — do it whenever convenient. After §9, `music_fit` should stop being `blocked_by` musical DNA anyway. |
+| 1 | **Nothing** — the detector auto-recognizes the completed state | `market_intelligence/orchestrator.py` `_musical_dna_needs_input()` | ✅ verified `False` in production — approved §9 has no `NEEDS INPUT` token in the first 800 chars. |
+| 2 | **Nothing** — the deterministic `music_fit` cap auto-lifts | `market_intelligence/evaluation.py` `_build_bundle()` + `schema/validate.py` | ✅ both are gated `if musical_dna_needs_input and confidence is HIGH` — they stop firing now the detector is `False`. |
+| 3 | `music_fit` line in the Evaluation prompt (`_prompt()`) is conditional on `musical_dna_needs_input` | `market_intelligence/evaluation.py` `_prompt()` | ✅ **DONE.** `_prompt` takes `musical_dna_needs_input: bool = True`; DNA-defined branch points the model at the §9 house-sound criteria in the anchor, drops the `NEEDS_INPUT` / cap language. |
+| 4 | Sharpen Appendix B.6 + the `_RATING_ANCHORS` `music_fit` anchor against the real §9 house sound | `docs/TECHNICAL-SPEC-V1.md` Appendix B.6, `market_intelligence/evaluation.py` | ✅ **DONE.** `_RATING_ANCHORS` → `_rating_anchors(musical_dna_needs_input)`; `_MUSIC_FIT_ANCHOR_DEFINED` judges instrumentation / energy / texture / vocal rule / sonority rejects / cluster expression, confidence uncapped. `_MUSIC_FIT_ANCHOR_NEEDS_INPUT` kept as the fallback. B.6 rewritten with the §9 criteria + a fallback note; §8.1 dim table, §15, B.1 and the test-spec line updated. Still qualitative (C6). |
+| 5 | Revisit `market_language_fit` (and the `music_relationship` prompt guidance) under **D-CS-9** | `src/cluster_strategy/asset_strategy.py` `_market_language_fit()`, `src/cluster_strategy/strategy.py` prompt | ⏸ **DEFERRED — D-CS-9.** The cap's justification also cites the strategic-classification backlog (23 unclassified artists, 7 playlists) which is **still `NEEDS_INPUT`**, so the `MEDIUM` cap may legitimately stay. Out of scope for the quality phase; `src/cluster_strategy/` untouched. |
+| 6 | Fix the digest `NEEDS_INPUT` token-match gap | `market_intelligence/reporting.py` `_collect_needs_input()` | ✅ **DONE.** Now collects every non-empty `blocked_by` entry (prose or literal token) — every one is a real gap. Spec §15 wording updated to match. |
 
-**Order:** §9 transfer → item 3 → item 4 → (optionally item 6) → item 5 under D-CS-9.
-Items 1 and 2 need no action. Run `pytest -q` + `ruff check src tests` after items 3–4;
-verify the `music_fit` cap tests in `tests/test_evaluation.py` still pass both ways
-(DNA present / absent) and that Cluster Strategy is untouched until item 5.
+**Order followed:** §9 transfer → item 3 → item 4 → item 6. Item 5 under D-CS-9 (deferred).
+`pytest -q` 629 green, `ruff check src tests` clean. The `music_fit` cap tests pass both
+ways (DNA defined / `NEEDS_INPUT` fallback); `src/cluster_strategy/` is untouched.
 
 **Stage 4 (Page Blueprint)** may begin once §9 is in place — it does not depend on items
 3–6, only on the house sound being defined.

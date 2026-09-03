@@ -202,6 +202,23 @@ def test_a_compliance_hard_exclusion_carries_its_red_flags_into_the_artifacts(tm
     assert "HIGH" in excluded_section
 
 
+def test_digest_backlog_lists_prose_blocked_by_not_only_literal_tokens(tmp_path):
+    # The model writes blocked_by entries as prose ("business musical DNA / catalog
+    # detail"), not always with a literal NEEDS_INPUT / UNKNOWN token. Every non-empty
+    # blocked_by is a real gap and MUST reach the digest backlog section (spec §15).
+    fx = _clone_pipeline_fixtures(tmp_path)
+    resp = load_fixture("pipeline/llm/evaluation/evaluation__" + _OPP_ID + ".json")
+    resp["dimensions"]["music_fit"]["blocked_by"] = ["business musical DNA / catalog detail"]
+    (fx / "llm" / "evaluation" / f"evaluation__{_OPP_ID}.json").write_text(
+        json.dumps(resp), encoding="utf-8"
+    )
+    cfg = _cfg(replay={"enabled": True, "llm": "recorded", "fixture_path": str(fx)})
+    _pipeline(tmp_path, cfg)
+    digest = (tmp_path / "reports" / "run_pipe" / "digest.md").read_text()
+    section = digest.split("## NEEDS_INPUT encountered")[1]
+    assert "music_fit: business musical DNA / catalog detail" in section
+
+
 def test_report_time_exclusion_is_itemized_in_the_digest_not_just_counted(tmp_path):
     # Make the evaluation fixture emit a canonical potential_cluster that is NOT in the
     # taxonomy but the framing hypothesis already fixed it — instead, break the report

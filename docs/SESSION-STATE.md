@@ -50,11 +50,12 @@ validation clean, 617 tests + ruff green (details in **Cluster Strategy (stage 3
 4–13 remain DEFERRED (P4).**
 
 **Current work: the quality phase (started 2026-09-03)** — Rating Anchors (implemented,
-MI-only, committed `53de7f0`), **Musical DNA V1 OWNER-APPROVED 2026-09-03** (formalized in
-`docs/MUSICAL-DNA-INPUT.md` + paste-ready §9 in `docs/MUSICAL-DNA-V1-FINAL.md`;
-`knowledge/business-dna/business-dna.md` §9 not yet updated — guard hook blocks tooling,
-owner transfers manually), value-engine weighting (deferred). See the **Quality phase**
-section below. Stage 4 may begin once §9 is transferred into `business-dna.md`.
+MI-only, committed `53de7f0`), **Musical DNA V1 OWNER-APPROVED 2026-09-03**, §9 transferred
+into `knowledge/business-dna/business-dna.md` (commit `2b8df10`), and the downstream MI
+wiring (items 3 / 4 / 6 of `docs/MUSICAL-DNA-V1-FINAL.md`) **done 2026-09-03 (uncommitted)** —
+`music_fit` is now judged against the §9 house sound with uncapped confidence, the
+`NEEDS_INPUT` path kept as a fallback. Value-engine weighting (deferred). See the **Quality
+phase** section below. Stage 4's §9 gate is now met; it begins when the owner chooses.
 
 `python -m market_intelligence run <config>` executes
 `preflight → Signal Collection → Signal Normalization → Analysis/Framing → Asset Matching
@@ -277,18 +278,19 @@ Between Cluster Strategy V1 (stage 3, **frozen / closed**) and Stage 4 (**still 
 a quality phase addresses the three improvements identified in the 2026-09-03 analysis-only
 audit. Strategy: **Rating Anchors first, Musical DNA owner-authoring in parallel,
 value-engine weighting deferred.** Rating Anchors is committed (`53de7f0`); Musical DNA V1
-is **owner-approved 2026-09-03** and awaiting a manual §9 transfer (see the row below).
+is **owner-approved 2026-09-03**, §9 transferred (`2b8df10`), and the downstream MI wiring
+(items 3 / 4 / 6 of `docs/MUSICAL-DNA-V1-FINAL.md`) is **done** (2026-09-03, uncommitted).
 
 | Item | Status | Where |
 |---|---|---|
-| **Rating Anchors** | **ACTIVE — implemented (MI-only)** | `docs/TECHNICAL-SPEC-V1.md` **Appendix B** (full, authoritative) + a condensed block injected into `market_intelligence.evaluation._prompt` (`_RATING_ANCHORS`). Qualitative `LOW`/`MEDIUM`/`HIGH`/`VERY_HIGH` per the 10 dimensions + `overall_confidence`; no numbers, no weights (C6); explicitly **not** empirically calibrated (calibration = P1, deferred). Grounded in the 3 C10 runs + `knowledge/business-dna/*`. Adds an **anti-compression rule** (24/26 opportunities were `overall_confidence: LOW`, 23/26 `music_fit: MEDIUM/LOW`). Prompt-only — no schema change, no comparator change. Cluster Strategy V1 **not** touched (keeps its own 4-dimension rubric, D-CS-4). Tests: `tests/test_evaluation.py` (`_rating_anchor_block`, +9). |
-| **Musical DNA** | **OWNER-APPROVED (2026-09-03)** | The owner reviewed Musical DNA V1 in full and explicitly approved it. Formalized as a completed record in `docs/MUSICAL-DNA-INPUT.md` (8 sonic dimensions + core positioning + north-star + house-sound principle, all verbatim owner text) and as paste-ready §9 content in **`docs/MUSICAL-DNA-V1-FINAL.md`**. **`knowledge/business-dna/business-dna.md` §9 was NOT updated by tooling** — the `guard-knowledge` hook fail-closed-blocks `knowledge/` writes and was not bypassed; the owner transfers §9 manually. **No code changed** — the `_musical_dna_needs_input` detector will flip automatically once §9 is transferred (the approved content has no `NEEDS INPUT` token), and `_apply_music_fit_cap` is already flag-gated so it auto-lifts. The follow-up wiring (evaluation prompt line, Appendix B.6 / `_RATING_ANCHORS` sharpening, D-CS-9 revisit for `market_language_fit`, `reporting.py` token gap) is an ordered plan in `docs/MUSICAL-DNA-V1-FINAL.md` — **not done here**. |
+| **Rating Anchors** | **ACTIVE — implemented (MI-only)** | `docs/TECHNICAL-SPEC-V1.md` **Appendix B** (full, authoritative) + a condensed block injected into `market_intelligence.evaluation._prompt` via `_rating_anchors(musical_dna_needs_input)` (was the `_RATING_ANCHORS` const; now `_RATING_ANCHORS_TEMPLATE` + a `<<MUSIC_FIT_ANCHOR>>` slot). Qualitative `LOW`/`MEDIUM`/`HIGH`/`VERY_HIGH` per the 10 dimensions + `overall_confidence`; no numbers, no weights (C6); explicitly **not** empirically calibrated (calibration = P1, deferred). Grounded in the 3 C10 runs + `knowledge/business-dna/*`. Adds an **anti-compression rule** (24/26 opportunities were `overall_confidence: LOW`, 23/26 `music_fit: MEDIUM/LOW`). Prompt-only — no schema change, no comparator change. Cluster Strategy V1 **not** touched (keeps its own 4-dimension rubric, D-CS-4). Tests: `tests/test_evaluation.py` (`_rating_anchor_block`, +11). |
+| **Musical DNA** | **OWNER-APPROVED (2026-09-03) — §9 transferred + MI wiring done** | The owner reviewed Musical DNA V1 in full and explicitly approved it (record: `docs/MUSICAL-DNA-INPUT.md`; paste-ready §9: `docs/MUSICAL-DNA-V1-FINAL.md`). §9 transferred into `knowledge/business-dna/business-dna.md` by the owner via the `!` prefix (commit `2b8df10`); `_musical_dna_needs_input()` now returns `False` in production. **Downstream MI wiring (items 3 / 4 / 6 of `docs/MUSICAL-DNA-V1-FINAL.md`) — DONE 2026-09-03, uncommitted:** (3) `_prompt` takes `musical_dna_needs_input`, DNA-defined branch drops the stale `NEEDS_INPUT` line; (4) `_rating_anchors()` + `_MUSIC_FIT_ANCHOR_DEFINED` judge the §9 house sound (instrumentation / energy / texture / vocal rule / sonority rejects / cluster expression), confidence uncapped; `_MUSIC_FIT_ANCHOR_NEEDS_INPUT` kept as the fallback; spec Appendix B.6 rewritten + §8.1 dim table / §15 / B.1 / test-spec line updated; (6) `reporting._collect_needs_input()` now collects every non-empty `blocked_by` (prose or token). **Item 5 (`_market_language_fit` / D-CS-9) still deferred** — the classification backlog it also cites is still `NEEDS_INPUT`. `src/cluster_strategy/` untouched. 629 tests green, ruff clean. |
 | **Value-engine weighting** | **DEFERRED** | Unchanged. `config/ranking.yaml` still `value_engine_weighting: NEEDS_INPUT` (comment expanded to record the deferral). Revisit only when: anchored evaluation runs exist **and** a run shows the equal-weighted axis count mis-ranking on value-engine grounds; or P1 performance data exists. No such evidence in the 3 C10 runs (owner notes cite asset fit / evidence / differentiation / compliance, never value-engine mix). Recorded in `docs/TECHNICAL-SPEC-V1.md` §23. |
 
-**Stage 4 (Page Blueprint) remains deferred (P4)** and should not begin until the
-owner-approved Musical DNA V1 is transferred into `knowledge/business-dna/business-dna.md`
-§9 (content ready in `docs/MUSICAL-DNA-V1-FINAL.md`). Rating Anchors and value-engine weighting do **not** gate
-Stage 4.
+**Stage 4 (Page Blueprint) remains deferred (P4).** Its only gate — the owner-approved
+Musical DNA V1 in `knowledge/business-dna/business-dna.md` §9 — is now **met** (`2b8df10`).
+Rating Anchors, the Musical DNA MI wiring, and value-engine weighting do **not** gate
+Stage 4; it can begin when the owner chooses.
 
 ## Completed
 
@@ -815,17 +817,18 @@ Canonical stages 4–13 remain DEFERRED (P4) — do not build them.**
    returned HTTP 400 for all 12 opps; the technical-failure mechanism handled it correctly,
    `knowledge/` untouched). Re-run once credits are topped up: check `overall_confidence`
    spreads beyond the 24/26-LOW baseline and `relevant_ratio` holds ≥ 0.70.
-2. **Musical DNA — OWNER-APPROVED 2026-09-03; one manual step remains.** Content is
-   formalized in `docs/MUSICAL-DNA-INPUT.md` and paste-ready in `docs/MUSICAL-DNA-V1-FINAL.md`.
-   **Owner action:** paste `docs/MUSICAL-DNA-V1-FINAL.md` §9 content into
-   `knowledge/business-dna/business-dna.md` §9 (the `guard-knowledge` hook blocks tooling
-   from doing it). Then the ordered wiring in `docs/MUSICAL-DNA-V1-FINAL.md` (evaluation
-   prompt line, Appendix B.6 + `_RATING_ANCHORS` sharpening, D-CS-9 revisit, `reporting.py`
-   token gap). The detector auto-flips and the deterministic `music_fit` cap auto-lifts on
-   transfer — no code change needed for those two.
+2. **Musical DNA — OWNER-APPROVED 2026-09-03; §9 transferred (`2b8df10`); MI wiring DONE
+   (uncommitted).** Items 3 / 4 / 6 of `docs/MUSICAL-DNA-V1-FINAL.md` are done:
+   `_prompt(musical_dna_needs_input)` conditional; `_rating_anchors()` +
+   `_MUSIC_FIT_ANCHOR_DEFINED` judge the §9 house sound (confidence uncapped);
+   `reporting._collect_needs_input()` collects all `blocked_by`; spec Appendix B.6 +
+   §8.1 / §15 / B.1 / test-spec line updated. 629 tests green, ruff clean. **Item 5
+   (`_market_language_fit` / D-CS-9) still deferred** — its classification backlog is
+   still `NEEDS_INPUT`. Next: owner reviews + commits the wiring; the confirmatory live
+   MI run (blocked by Anthropic credits) then also exercises the new `music_fit` anchor.
 3. **Value-engine weighting — deferred.** Do not implement. Revisit per the criteria in
    `config/ranking.yaml` and spec §23.
-4. **Stage 4 (Page Blueprint)** begins only once §9 is transferred into `business-dna.md`.
+4. **Stage 4 (Page Blueprint)** — its §9 gate is now met; begins when the owner chooses.
 
 The optional live Cluster Strategy run was **done** (2026-09-03) — `MAP_TO_EXISTING →
 limpeza-energetica`, lifecycle `EXPLORE` preserved, `write_registry_link: false` so
@@ -867,13 +870,13 @@ Surfaced by the spec-consistency + code reviews; each is a documented gap, not a
   `AssetMatch` (spec §10.3 permits it for competitive context) — the implementation is
   stricter (own pages only). Safe; competitive context lives in the `competitive_position`
   dimension instead.
-- **Digest `NEEDS_INPUT encountered` misses musical DNA** (found in the 2026-09-03 audit).
-  `reporting.py` `_collect_needs_input` aggregates a dimension's `blocked_by` only when the
-  string literally contains `NEEDS_INPUT` / `UNKNOWN`; the model writes the `music_fit`
-  block as prose ("business musical DNA / catalog detail"), so all 3 C10 digests read
-  "None recorded this run" despite `music_fit` being capped every time. Small wiring fix
-  (match "musical dna" too, or have the cap append a canonical token) — do alongside the
-  Musical DNA wiring once §9 is filled. Not blocking.
+- **Digest `NEEDS_INPUT encountered` missed prose `blocked_by`** (found in the 2026-09-03
+  audit) — **FIXED 2026-09-03 (uncommitted).** `reporting._collect_needs_input` used to
+  aggregate a dimension's `blocked_by` only when the string literally contained
+  `NEEDS_INPUT` / `UNKNOWN`; the model writes blocks as prose ("business musical DNA /
+  catalog detail"), so all 3 C10 digests read "None recorded this run" despite `music_fit`
+  being capped every time. It now collects every non-empty `blocked_by` entry (each is a
+  real gap by definition). Spec §15 wording updated to match.
 ### Evaluation — structured outputs removed (owner-approved fallback C, 2026-08-31)
 
 **Resolved in code; one sub-question open.** The `5d9781f` flatten did not clear the
@@ -1070,8 +1073,8 @@ Explicitly deferred — a new session must **not** implement these prematurely:
    (Cluster Strategy) is complete, merged (`3084f50`, PR #1), live-validated (2026-09-03)
    and frozen / closed.** Stages 4–13 stay deferred (P4). The current work is the **quality
    phase** (see the **Quality phase** section and **Next Action**): Rating Anchors
-   (implemented, MI-only, committed `53de7f0`), Musical DNA V1 (owner-approved 2026-09-03 —
-   owner transfers `docs/MUSICAL-DNA-V1-FINAL.md` into `business-dna.md` §9 manually),
+   (implemented, MI-only, committed `53de7f0`), Musical DNA V1 (owner-approved 2026-09-03,
+   §9 transferred `2b8df10`, MI wiring items 3 / 4 / 6 done 2026-09-03 uncommitted),
    value-engine weighting (deferred). Do **not** modify `src/cluster_strategy/`. Set up the
    environment first: `python3.12 -m venv .venv && ./.venv/bin/python -m pip install -e
    ".[dev]"`, then `./.venv/bin/python -m pytest` and `./.venv/bin/ruff check src tests`

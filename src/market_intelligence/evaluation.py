@@ -2,11 +2,14 @@
 
 Claude rates the 10 evaluation dimensions (§8.1), builds the 5-axis Business
 Outcome Profile (§9.1), lists red flags and produces the ``Recommendation``.
-Deterministic code checks completeness, bans any 0–100 score (C6), caps
-``music_fit`` confidence while musical DNA is ``NEEDS_INPUT`` (§8.3), constrains
+Deterministic code checks completeness, bans any 0–100 score (C6), constrains
 ``target_state`` to ``EXPLORE`` / ``TEST`` / ``PARK`` and attaches the fixed
 ``execution_note`` (§12.4), and runs the ``guardrails.yaml`` compliance check
-(§13) over every piece of generated free text.
+(§13) over every piece of generated free text. When the business Musical DNA is
+still ``NEEDS_INPUT`` (business-dna §9) the prompt and a deterministic post-check
+cap ``music_fit`` confidence at ``MEDIUM`` (§8.3); once §9 is defined the
+``music_fit`` anchor judges the opportunity's sound against the §9 house sound
+and the cap lifts.
 """
 
 from __future__ import annotations
@@ -80,7 +83,9 @@ _V1_TARGET_STATES = {LifecycleState.EXPLORE, LifecycleState.TEST, LifecycleState
 # calibration against real performance data is P1 (deferred) and would replace this.
 # The appendix is authoritative where the two diverge. Injected into the Evaluation
 # prompt to reduce rating compression and improve consistency across opportunities.
-_RATING_ANCHORS = (
+# The ``music_fit`` line is filled by ``_music_fit_anchor()`` — it depends on whether
+# the business Musical DNA (business-dna §9) is defined or still ``NEEDS_INPUT``.
+_RATING_ANCHORS_TEMPLATE = (
     "RATING ANCHORS (qualitative — LOW/MEDIUM/HIGH/VERY_HIGH; overall_confidence is "
     "LOW/MEDIUM/HIGH only). No numbers, thresholds or weights anywhere (C6). These are "
     "qualitative descriptions, NOT statistically calibrated — empirical calibration is a "
@@ -109,12 +114,7 @@ _RATING_ANCHORS = (
     "persistence unproven; or STRUCTURAL in a crowded window. HIGH = STRUCTURAL/EVERGREEN "
     "with room to enter now, or EMERGING with runway + an urgency lever. VERY_HIGH = "
     "EVERGREEN demand we under-serve, durable format, no timing pressure against entry.\n"
-    "- music_fit: LOW = outside instrumental relaxing/wellness (needs vocals, non-wellness "
-    "genre, spoken word). MEDIUM = within wellness, cluster relation plausible, nothing on "
-    "the specific sound. HIGH = maps onto a canonical cluster we serve with an OBSERVED "
-    "asset match on cluster+market+language. VERY_HIGH = HIGH plus the exact framing "
-    "already performing under this cluster. (confidence still capped <= MEDIUM — musical "
-    "DNA is NEEDS_INPUT.)\n"
+    "<<MUSIC_FIT_ANCHOR>>"
     "- content_potential: LOW = no natural hook / abstract / guardrail-colliding. MEDIUM = "
     "a generic angle (relabel tracks, hashtag tactic, broad 'relax with this'). HIGH = a "
     "concrete occasion/ritual/place 'do-this-when' format, platform-native, guardrail-safe. "
@@ -150,6 +150,49 @@ _RATING_ANCHORS = (
     "missing. HIGH = strong multi-source OBSERVED evidence incl. an observed scale/growth "
     "figure + an unambiguous market + an OBSERVED-basis asset match.\n\n"
 )
+
+# --- music_fit anchor — depends on whether the Musical DNA (business-dna §9) is defined.
+# NEEDS_INPUT variant: rating still assessed, confidence capped <= MEDIUM (§8.3).
+# Defined variant: rating judged against the §9 house sound, confidence NOT capped.
+_MUSIC_FIT_ANCHOR_NEEDS_INPUT = (
+    "- music_fit (musical DNA is NEEDS_INPUT — confidence capped <= MEDIUM): LOW = "
+    "outside instrumental relaxing/wellness (needs vocals, non-wellness genre, spoken "
+    "word). MEDIUM = within wellness, cluster relation plausible, nothing on the "
+    "specific sound. HIGH = maps onto a canonical cluster we serve with an OBSERVED "
+    "asset match on cluster+market+language. VERY_HIGH = HIGH plus the exact framing "
+    "already performing under this cluster.\n"
+)
+_MUSIC_FIT_ANCHOR_DEFINED = (
+    "- music_fit (judged against the business Musical DNA — business-dna §9, "
+    "OWNER-APPROVED, so confidence is NO LONGER capped): the §9 house sound is "
+    "ethereal / deep / contemplative instrumental — instrumentation is soft piano, "
+    "pads, drones, harp, wordless or angelic vocal texture; energy is low-physical + "
+    "high-emotional-depth; texture is very spacious and 'floating'; it is instrumental "
+    "only, voice never as lyrics / rap / spoken word; sonority rejects aggression, "
+    "urgency, sustained tension, drops, obvious pop structure, and distorted / "
+    "aggressive / commercial-pop / cyberpunk timbres. LOW = outside instrumental "
+    "relaxing/wellness, OR the implied sound clashes with that house sound. MEDIUM = "
+    "within wellness / relaxing-instrumental, cluster relation plausible, nothing in "
+    "the evidence on the specific sound. HIGH = maps cleanly onto a canonical cluster "
+    "we serve + an OBSERVED asset match on cluster+market+language + the implied sound "
+    "sits inside the §9 identity with a fitting cluster expression. VERY_HIGH = HIGH "
+    "plus the exact framing already performing under this cluster with a plainly "
+    "in-DNA sound.\n"
+)
+
+
+def _music_fit_anchor(musical_dna_needs_input: bool) -> str:
+    return (
+        _MUSIC_FIT_ANCHOR_NEEDS_INPUT
+        if musical_dna_needs_input
+        else _MUSIC_FIT_ANCHOR_DEFINED
+    )
+
+
+def _rating_anchors(musical_dna_needs_input: bool) -> str:
+    return _RATING_ANCHORS_TEMPLATE.replace(
+        "<<MUSIC_FIT_ANCHOR>>", _music_fit_anchor(musical_dna_needs_input)
+    )
 
 
 @dataclass
@@ -375,7 +418,13 @@ def _reject_malformed_evaluation(raw: object) -> dict:
 
 # --- prompt ---------------------------------------------------
 
-def _prompt(opp: FramedOpportunity, am: AssetMatch, knowledge: KnowledgeBundle) -> str:
+def _prompt(
+    opp: FramedOpportunity,
+    am: AssetMatch,
+    knowledge: KnowledgeBundle,
+    *,
+    musical_dna_needs_input: bool = True,
+) -> str:
     evidence = [
         {"type": e.type.value, "statement": e.statement, "confidence": e.confidence.value,
          "signal_ids": e.signal_ids, "rationale": e.rationale}
@@ -416,14 +465,22 @@ def _prompt(opp: FramedOpportunity, am: AssetMatch, knowledge: KnowledgeBundle) 
         "- Every dimension carries a blocked_by array: [] when you could rate it from the "
         "evidence, otherwise the specific missing inputs. A dimension you cannot rate MUST "
         "be rating:LOW, confidence:LOW with a non-empty blocked_by. Never guess.\n"
-        "- music_fit: the business's musical DNA detail is NEEDS_INPUT, so music_fit "
-        "confidence MUST be LOW or MEDIUM. A catalog-affinity mismatch is NOT a blocker.\n"
-        "- overall_confidence MUST NOT be raised by high dimension ratings — it reflects how "
-        "much you actually know.\n"
+        + (
+            "- music_fit: the business's musical DNA detail is NEEDS_INPUT, so music_fit "
+            "confidence MUST be LOW or MEDIUM. A catalog-affinity mismatch is NOT a "
+            "blocker.\n"
+            if musical_dna_needs_input
+            else "- music_fit: judge the opportunity's implied sound against the "
+            "business's Musical DNA (business-dna §9, OWNER-APPROVED) — see the music_fit "
+            "rating anchor below for the house-sound criteria. A catalog-affinity "
+            "mismatch is NOT a blocker.\n"
+        )
+        + "- overall_confidence MUST NOT be raised by high dimension ratings — it reflects "
+        "how much you actually know.\n"
         "- red_flags: compliance / feasibility / evidence_gap / asset_gap / market / other.\n"
         "- recommendation.target_state: EXPLORE, TEST or PARK only. suggested_next_step is a "
         "concrete action — still a recommendation, never executed in V1.\n\n"
-        + _RATING_ANCHORS
+        + _rating_anchors(musical_dna_needs_input)
         + "COMPLIANCE SELF-CHECK (decision C4). This check is about the CLAIMS your "
         "text makes — not the TOPICS it mentions. A sensitive subject discussed on "
         "its own is never a guardrail violation; a prohibited claim about it is.\n"
@@ -698,7 +755,10 @@ def evaluate_opportunities(
                 active,
                 stage=STAGE,
                 key=stage_key(STAGE, opp.opportunity_id),
-                prompt=_prompt(opp, am, knowledge),
+                prompt=_prompt(
+                    opp, am, knowledge,
+                    musical_dna_needs_input=musical_dna_needs_input,
+                ),
                 schema=_response_schema(),  # reference shape only — not sent (see llm_stage)
                 model=config.model,
                 validate=_reject_malformed_evaluation,

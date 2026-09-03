@@ -601,11 +601,15 @@ def _review(run_config: RunConfig, ranking: RankingResult,
 # --- entry point -------------------------------------------
 
 def _collect_needs_input(opp: Opportunity) -> List[str]:
+    # Every non-empty ``blocked_by`` entry is a real gap the run hit — an owner
+    # decision (``NEEDS_INPUT``) or a data gap (``UNKNOWN``). The model writes them as
+    # prose ("business musical DNA / catalog detail"), not always with a literal token,
+    # so collect them all; the digest de-duplicates (spec §15).
     notes: List[str] = []
     for key, dim in opp.evaluation.dimensions.items():
         for b in dim.blocked_by or []:
-            if "NEEDS_INPUT" in b or "UNKNOWN" in b:
-                notes.append(f"{key}: {b}")
+            if b and b.strip():
+                notes.append(f"{key}: {b.strip()}")
     return notes
 
 

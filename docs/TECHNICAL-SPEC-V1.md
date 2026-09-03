@@ -415,7 +415,7 @@ Opportunity 1─1 registry entry
 | 2 | `audience_potential` | size and reachability of the audience |
 | 3 | `growth_momentum` | current growth / trajectory of the demand |
 | 4 | `durability_opportunity_window` | how favorable the timing window is — **informed by, not equal to,** `Opportunity.durability` (`TECHNICAL DEFAULT`) |
-| 5 | `music_fit` | fit with the catalog / wellness positioning; a catalog-affinity mismatch with the opportunity's cluster is **not** a blocker (§10.2a); **capped at `LOW`/`MEDIUM` confidence** while musical DNA detail is `NEEDS_INPUT` (business-dna §9) |
+| 5 | `music_fit` | fit with the catalog and the business Musical DNA (business-dna §9, `OWNER-APPROVED` — judged against the §9 house sound, Appendix B.6); a catalog-affinity mismatch with the opportunity's cluster is **not** a blocker (§10.2a); confidence re-caps at `LOW`/`MEDIUM` only if §9 returns to `NEEDS_INPUT` |
 | 6 | `content_potential` | how well it can be turned into content |
 | 7 | `competitive_position` | our ability to compete for this demand (higher rating = more favorable position) |
 | 8 | `differentiation_potential` | room to differentiate |
@@ -770,13 +770,13 @@ Two distinct sentinels; **neither is ever replaced by a guess** (C4.5, C4.10, I1
 | Sentinel | Meaning | Used for | Effect |
 |---|---|---|---|
 | `UNKNOWN` | The information does not exist in the sources available to this run. | data fields — playlist followers, `best_page`, a missing metric, `observed_at` of a vague source | The pipeline proceeds using `UNKNOWN`. Dimensions that depend on it get `confidence: LOW` and a `blocked_by` note. Not an error. |
-| `NEEDS_INPUT` | The information is knowable but depends on an owner decision that has not been made. | inventory strategic classification not yet consolidated (`positioning` for all 37 artists; `primary_cluster` / `secondary_clusters` / `language` / `market` for the 23 un-classified artists; `priority` for 7 playlists), musical DNA detail, value-engine weighting | Same handling as `UNKNOWN` for the run, **plus** the affected report section names the specific `NEEDS_INPUT` item so the owner can resolve it. Aggregated into the digest. |
+| `NEEDS_INPUT` | The information is knowable but depends on an owner decision that has not been made. | inventory strategic classification not yet consolidated (`positioning` for all 37 artists; `primary_cluster` / `secondary_clusters` / `language` / `market` for the 23 un-classified artists; `priority` for 7 playlists), value-engine weighting (musical DNA detail **was** `NEEDS_INPUT`; business-dna §9 is now `OWNER-APPROVED`) | Same handling as `UNKNOWN` for the run, **plus** the affected report section names the specific `NEEDS_INPUT` item so the owner can resolve it. Aggregated into the digest. |
 
 Rules:
 
 - A field that is `UNKNOWN`/`NEEDS_INPUT` in a source stays that way in the output; Claude `MUST NOT` fill it.
-- `music_fit` and any regional/market judgement are **structurally capped** in confidence while their inputs are `NEEDS_INPUT` (business-dna §8, §9).
-- The digest lists every distinct `NEEDS_INPUT` encountered, so the backlog of owner decisions is visible each run.
+- Any regional/market judgement is **structurally capped** in confidence while its inputs are `NEEDS_INPUT` (business-dna §8). `music_fit` is capped the same way **only if** business-dna §9 (Musical DNA) returns to `NEEDS_INPUT` — it is currently `OWNER-APPROVED`, so `music_fit` confidence is uncapped and judged against the §9 house sound (Appendix B.6).
+- The digest lists every distinct blocked-input note (`blocked_by`) encountered — owner decisions (`NEEDS_INPUT`) and data gaps (`UNKNOWN`) alike, whether written with a literal token or as prose — so the backlog is visible each run.
 
 ---
 
@@ -1070,7 +1070,7 @@ advanced_opportunity_id: opp_2026-08-28_a1b2c3d4e5   # C10.6; null if none this 
 
 **Claude-in-the-loop tests (structural, not exact — output is non-deterministic)**
 
-- Given a small fixed set of `Signal`s, run Framing + Evaluation and assert: output is schema-valid; all 10 dimensions and 5 axes present; every `OBSERVED` evidence item resolves; no numeric score; `music_fit.confidence ∈ {LOW,MEDIUM}` while musical DNA is `NEEDS_INPUT`; compliance check runs.
+- Given a small fixed set of `Signal`s, run Framing + Evaluation and assert: output is schema-valid; all 10 dimensions and 5 axes present; every `OBSERVED` evidence item resolves; no numeric score; `music_fit.confidence` re-caps to `∈ {LOW,MEDIUM}` when `musical_dna_needs_input` is forced true (the §9-`NEEDS_INPUT` fallback); compliance check runs.
 - Guardrail probe: a signal that invites a medical claim → the resulting positioning hypothesis must not assert cure/treatment (C4); a `compliance` red flag or a sanitized hypothesis is expected.
 
 **Replay mode (`RunConfig.replay.enabled: true`)**
@@ -1186,7 +1186,9 @@ rubric (`docs/CLUSTER-STRATEGY-V1.md` §8, D-CS-4) and is not changed by this ap
   are reachable and **must** be used when the evidence matches the anchor. Across the three
   C10 runs, 24 of 26 opportunities landed `overall_confidence: LOW` and 23 of 26 landed
   `music_fit: MEDIUM/LOW` — a spread that narrow is a sign the rubric is being *under-applied*,
-  not that every opportunity is weak.
+  not that every opportunity is weak. (Those `music_fit` figures also reflect the
+  `NEEDS_INPUT` confidence cap in force during the C10 runs; that cap is now lifted —
+  business-dna §9 is `OWNER-APPROVED` — so `music_fit` in particular should widen.)
 - **`overall_confidence` is not raised by high dimension ratings (§8.3, C6).** It tracks how
   much the run *knows*, not how good the opportunity is. See B.13.
 - **"Observed scale figure"** below always means a number quoted from a source (a hashtag
@@ -1231,18 +1233,43 @@ Informed by, **not equal to**, `Opportunity.durability` (§8.1).
 | `HIGH` | `STRUCTURAL` / `EVERGREEN` demand (a recurring life event, a persistent wellness need) with room to enter now; or `EMERGING` demand with clear runway **and** an urgency lever. |
 | `VERY_HIGH` | `EVERGREEN` demand the business is under-serving, with a durable content format and nothing about the timing working against entry. |
 
-### B.6 `music_fit` — fit with the catalog / wellness positioning
+### B.6 `music_fit` — fit with the catalog and the business Musical DNA
 
-**Confidence is capped at `LOW` / `MEDIUM` while musical-DNA detail is `NEEDS_INPUT`**
-(§8.1, business-dna §9) — the *rating* below is still assessed; only its `confidence` is
-capped. A catalog-affinity mismatch with the opportunity's cluster is **not** a blocker (§10.2a).
+The business **Musical DNA is `OWNER-APPROVED`** (business-dna §9, 2026-09-03), so
+`music_fit` **confidence is no longer capped**. The *rating* is a judgement of how well the
+opportunity's implied sound sits inside the §9 house sound:
+
+- **instrumentation** (§9.1) — in-bounds: soft / felt piano, atmospheric pads, harmonic
+  drones, harp, soft strings, textural guitar, soft winds, wordless ethereal / angelic
+  vocal texture, subtle bells; out-of-bounds as primary identity: aggressive drums or
+  percussion, distorted / aggressive guitars / bass / synths, commercial-pop or
+  cyberpunk / futuristic timbres, anything creating urgency or tension;
+- **energy** (§9.2) — low physical / arousal energy **with** high emotional / spiritual
+  depth (not emotionally dead); slowly evolving, non-urgent, spacious;
+- **texture** (§9.4) — very spacious, "floating", clean / soft / luminous / organic, slow
+  continuous evolution, no abrupt section changes by default;
+- **vocal rule** (§9.7) — instrumental only; voice appears solely as wordless texture
+  (pads, humming, "ahh" / "ooh", angelic choir) — never lyrics, verses, rap or dominant
+  spoken word;
+- **sonority rejects** (§9.8) — aggression, urgency, sustained tension, chaos, drops,
+  obvious pop structure, distortion as a central element, excessively artificial timbres;
+- **cluster expression** (§9.9) — a §9.9 per-cluster expression fits the opportunity's
+  cluster (e.g. Sono = deep / darker / hypnotic; Abundância = luminous / expansive / golden).
+
+A catalog-affinity mismatch with the opportunity's cluster is **not** a blocker (§10.2a).
 
 | Level | Anchor |
 |---|---|
-| `LOW` | The need sits outside instrumental relaxing / wellness music (needs vocals, a non-wellness genre, spoken content). |
+| `LOW` | The need sits outside instrumental relaxing / wellness music (needs vocals / lyrics / rap / spoken word as identity, a non-wellness genre), **or** its implied sound clashes with the §9 house sound (aggressive drums / percussion / guitars / bass / synths, commercial-pop or cyberpunk timbres, urgency / tension / chaos / drops / obvious pop structure). |
 | `MEDIUM` | Within the wellness / relaxing-instrumental space and a cluster relation is plausible, but nothing in the evidence speaks to the specific sound. |
-| `HIGH` | The need maps cleanly onto a canonical cluster the business already serves, with an `OBSERVED`-basis asset match on cluster + market + language. |
-| `VERY_HIGH` | `HIGH`, **and** the evidence shows the exact editorial framing already performing under this cluster (a competitor album / playlist on the precise theme). *(Confidence still capped ≤ `MEDIUM` until musical DNA is defined.)* |
+| `HIGH` | The need maps cleanly onto a canonical cluster the business already serves, with an `OBSERVED`-basis asset match on cluster + market + language, **and** the implied sound sits inside the §9 identity with a §9.9 cluster expression that fits. |
+| `VERY_HIGH` | `HIGH`, **and** the evidence shows the exact editorial framing already performing under this cluster (a competitor album / playlist on the precise theme) with a sound that is plainly in-DNA. |
+
+> **Fallback.** If `knowledge/business-dna/business-dna.md` §9 ever returns to `NEEDS_INPUT`,
+> `market_intelligence.orchestrator._musical_dna_needs_input()` re-applies a `LOW` / `MEDIUM`
+> confidence cap deterministically (`evaluation._build_bundle`, `schema.validate`), the
+> Evaluation prompt swaps back to the pre-§9 `music_fit` anchor, and the *rating* stays as
+> assessed — only its `confidence` is capped.
 
 ### B.7 `content_potential` — how well it can be turned into content
 
