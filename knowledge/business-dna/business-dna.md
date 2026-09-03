@@ -149,18 +149,270 @@ próprio. Está **fora do escopo do V1**.
 
 ## 9. Music DNA
 
-- **Posicionamento musical informado:** WELLNESS.
-- A operação deve contemplar **músicas instrumentais relaxantes** e **experiências
-  positivas**.
-- **`NEEDS INPUT`** (não inventar — especificar posteriormente):
-  - instrumentação;
-  - energia;
-  - duração;
-  - textura;
-  - BPM;
-  - uso de frequências;
-  - vocal / instrumental;
-  - critérios mais detalhados de sonoridade.
+**Status:** OWNER-APPROVED (2026-09-03). Conteúdo revisado e aprovado integralmente
+pelo proprietário do negócio (Nicolas Alves); substitui o placeholder pendente
+anterior. Nada aqui foi inventado pelo sistema. Fonte da transferência:
+`docs/MUSICAL-DNA-V1-FINAL.md`.
+
+### Core positioning
+
+Create instrumental relaxing experiences that feel like opening an inner space — ethereal,
+deep, transcendental and contemplative, with expressions that may become angelic, cosmic,
+luminous or abundant without losing softness, beauty and a sense of peace.
+
+### North-star principle
+
+> **"The music should transport, not pressure."**
+
+---
+
+### 9.1 Instrumentation
+
+**Core in-bounds sound families:**
+
+- soft piano
+- felt piano / ambient piano
+- atmospheric pads
+- soft ambient/analog synths
+- harmonic drones
+- harp
+- soft sustained strings
+- ambient/textural guitar
+- very soft flutes and breath-like wind instruments
+- integrated nature textures when musically appropriate
+- wordless ethereal vocal textures
+- wordless angelic choirs
+- extremely subtle bells/chimes/crystalline elements
+
+**Signature sound families:**
+
+- contemplative piano
+- atmospheric pads/drones
+- wordless angelic vocal layers
+
+These signatures do not need to appear simultaneously in every track.
+
+**Out-of-bounds as primary identity:**
+
+- aggressive drums
+- dominant percussion
+- distorted guitars
+- aggressive bass
+- aggressive synths
+- strongly commercial/pop timbres
+- cyberpunk/futuristic sonic aesthetics
+- elements that create urgency or tension
+
+### 9.2 Energy
+
+**Default energy:**
+
+- low to moderately low
+- calming
+- non-urgent
+- spacious
+- introspective
+- slowly evolving
+
+**Important distinction:** Low physical/arousal energy does NOT mean emotionally dead.
+
+Tracks may gradually expand emotionally and spatially through:
+
+- awakening
+- expansion
+- elevation
+- transcendence
+
+Especially relevant to abundance, spirituality, frequencies and positive-experience clusters.
+
+**Core rule:** LOW PHYSICAL ENERGY + HIGH EMOTIONAL/SPIRITUAL DEPTH.
+
+### 9.3 Duration
+
+**Default Spotify track length:** approximately 2–5 minutes.
+
+**Long-form:** approximately 20–60+ minutes for sleep, ambience, continuous experiences and
+specific YouTube formats.
+
+**Short-form:** tracks should contain moments that can be extracted into short-form content
+without destroying their atmosphere.
+
+Do not create a rigid hard minimum/maximum at this stage.
+
+### 9.4 Texture
+
+**Space:**
+
+- very spacious
+- silence and breathing room are desirable
+- do not fill every frequency continuously
+
+**Surface:**
+
+- clean
+- soft
+- luminous
+- organic
+- digital textures are allowed when they remain ethereal rather than technological
+
+**Ambience:**
+
+- deep and spacious
+- contemplative room
+- celestial space
+- cathedral-like space when appropriate
+- cosmic/infinite space when appropriate
+
+**Movement:**
+
+- slow continuous evolution
+- gradual transformation
+- slowly emerging harmonic layers
+- breathing textures
+- no abrupt section changes as a default
+
+**Core textural concept:** FLOATING. The sound should feel like it floats rather than
+simply plays.
+
+### 9.5 BPM / Pulse
+
+Do not impose one universal BPM.
+
+- **Sleep:** no perceptible pulse or extremely subtle pulse.
+- **Meditation/relaxation:** slow, discreet pulse may be used.
+- **Abundance/expansion/spirituality:** slightly more perceptible movement is allowed; must
+  remain relaxing and never become dance-oriented.
+- **Focus/study:** more consistent pulse may be used while remaining inside the relaxing
+  identity.
+
+**Universal rule:** THE PULSE MUST NEVER DOMINATE THE EXPERIENCE.
+
+Beatless ambient music is fully valid.
+
+### 9.6 Frequency use
+
+Frequencies are part of the creative and commercial identity of the business.
+
+**Potential frequency/tuning systems include:**
+
+- 432 Hz
+- 528 Hz
+- Solfeggio frequencies
+- other frequency concepts used by specific clusters
+- binaural approaches when appropriate for a specific product
+- isochronic approaches when appropriate for a specific product
+
+**Important distinction:**
+
+- frequency as a musical/production element
+- frequency as editorial/positioning language
+
+Not every track must use a frequency.
+
+**Compliance rule:** Frequency positioning may describe experience, intention, atmosphere
+and creative positioning. Never make medical, physiological, therapeutic,
+disease-treatment or guaranteed efficacy claims.
+
+### 9.7 Vocal / Instrumental
+
+**Primary business DNA:** INSTRUMENTAL.
+
+Human voice may appear only as texture:
+
+- ethereal vocal pads
+- humming
+- wordless "ahh"/"ooh"
+- angelic choir
+- subtle breath textures when appropriate
+
+**Not part of the primary house sound:**
+
+- lyrics
+- verses
+- choruses
+- rap
+- pop vocals
+- dominant spoken word
+
+Guided meditation/narration may eventually exist as a separate product line and must not
+redefine the primary house sound.
+
+### 9.8 Sonority criteria
+
+**Reject or strongly question tracks containing:**
+
+*Energy problems:*
+
+- aggression
+- urgency
+- sustained tension
+- chaos
+- excessive physical impact
+
+*Arrangement problems:*
+
+- excessive element density
+- abrupt changes
+- drops
+- obvious pop structures
+- excessively mechanical repetition
+
+*Timbre problems:*
+
+- aggressive sounds
+- distortion as a central element
+- cyberpunk/futuristic aesthetics
+- excessively artificial timbres that break the atmosphere
+- strongly commercial/pop sound when inconsistent with the experience
+
+*Harmonic problems:*
+
+- prolonged aggressive dissonance without purpose
+- strong conflict/tension
+- excessively dramatic resolution
+
+**The music may be:**
+
+- mysterious
+- contemplatively melancholic
+- emotionally deep
+
+**But should not be predominantly:**
+
+- frightening
+- anxious
+- chaotic
+- aggressive
+- desperate
+
+**Production quality requirements:**
+
+- no clipping
+- no audible artifacts
+- no unpleasant transients
+- no abrupt volume jumps
+- no excessively crushed mastering
+- no abrupt opening that destroys the atmosphere
+- use appropriate fades/continuity when the format calls for them
+
+### 9.9 House-sound principle
+
+DNA = one sonic universe.
+CLUSTER = a distinct expression inside that universe.
+
+**Do NOT make every cluster sound identical.**
+
+**Cluster expressions:**
+
+- **Sono:** deep · darker · soft · hypnotic
+- **Meditação:** contemplative · spacious · introspective
+- **Frequências:** vibrational · minimalist · harmonic
+- **Espiritualidade:** angelic · celestial · transcendental
+- **Abundância:** luminous · expansive · golden · elevated
+- **Limpeza energética:** light · crystalline · spacious · cleansing-oriented as an
+  EXPERIENCE, never as a medical claim
+- **Cura / bem-estar:** warm · gentle · comforting
+- **Foco / Estudo:** stable · clean · continuous · discreet
 
 ---
 
@@ -310,7 +562,6 @@ C5, C6 e C9, ainda em aberto.
 
 | Área | O que falta |
 |------|-------------|
-| Music DNA (seção 9) | instrumentação, energia, duração, textura, BPM, uso de frequências, vocal/instrumental, critérios de sonoridade |
 | Mercados (seção 8) | países-alvo por idioma, prioridade entre idiomas, mercados fora de escopo |
 | Receita (seção 4) | pesos entre ecossistemas de royalties, participação esperada do YouTube Video, outras fontes |
 | Artistas (seção 10) | consolidação da afinidade de catálogo dos 37 (em andamento em classification-input.yaml) |
