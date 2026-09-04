@@ -87,6 +87,7 @@ Os IDs mantêm rastreabilidade com a revisão crítica do `CLAUDE.md`.
 | D-CS-11 | Tratamento de schema_version | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura |
 | D-CS-12 | Reconciliação de nomes do pipeline (C8) | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura |
 | OMR-01 | External LLM Gateway — isolated adapter | GATEWAY EXTERNO (OMR) | DECIDED (2026-09-04) — adapter isolado implementado; integração com o pipeline NÃO aprovada | Proprietário + Arquitetura |
+| OMR-02 | External Model Use Cases & Routing Policy | GATEWAY EXTERNO (OMR) | DECIDED (2026-09-04) — política de routing aprovada; nenhuma integração de stage aprovada | Proprietário + Arquitetura |
 
 ---
 
@@ -1841,6 +1842,123 @@ comportamento "Claude only" (I10, CLAUDE.md §12) permanece integralmente em vig
 
   Ligar este adapter a qualquer estágio do pipeline continua exigindo uma nova decisão
   explícita, registrada neste arquivo, antes de qualquer código de integração ser escrito.
+
+---
+
+## OMR-02 — External Model Use Cases & Routing Policy
+
+- **Problema:** OMR-01 provou que o adapter isolado (`external_llm_gateway`) funciona
+  tecnicamente — conectividade real, validada em teste live, contra OmniRoute → Groq →
+  `openai/gpt-oss-120b` (HTTP 200, `dict` válido pelo contrato `StageClient`). Isso não
+  responde a uma pergunta diferente e anterior a qualquer conexão real: em quais tarefas,
+  se alguma, um modelo externo pode gerar vantagem real sem comprometer qualidade,
+  compliance, determinismo ou o comportamento "Claude only" (I10)? Sem uma política
+  explícita, a tentação natural é conectar modelos externos onde estão disponíveis, não
+  onde fazem sentido.
+- **Por que isso importa:** o pipeline mistura tarefas de risco muito diferente — de
+  classificação fechada de baixo risco (Signal Normalization) a decisão de negócio com
+  compliance embutido (Evaluation) e um estágio formalmente congelado (Cluster Strategy,
+  D-CS-1…12). Tratar todas essas tarefas com a mesma régua de "modelo disponível = usar"
+  seria uma mudança de arquitetura silenciosa e desproporcional ao risco de cada uma
+  (Regra de Engenharia #7/#8).
+- **Decisão necessária:** adotar (ou não) uma política de routing entre Claude e modelos
+  externos, definida por tarefa e por risco, antes de qualquer integração real de
+  `external_llm_gateway` a um stage.
+- **Opções possíveis:**
+  - (a) adotar a política restritiva descrita na Recomendação — Claude obrigatório nas
+    tarefas de maior risco/complexidade/capability, benchmark formal obrigatório antes de
+    qualquer uso de produção, Signal Normalization como único candidato primário;
+  - (b) permitir uso mais amplo de modelos externos, sem benchmark formal prévio, guiado
+    só por custo/disponibilidade;
+  - (c) não definir política agora; decidir caso a caso, sem registro.
+- **Recomendação:** (a), com o conteúdo a seguir.
+
+  **Princípio central:**
+  - Claude/Anthropic continua sendo o LLM padrão do AI Music Media Engine.
+  - Nenhum modelo externo pode substituir silenciosamente Claude em qualquer estágio do
+    pipeline.
+
+  **Condições para uso de um modelo externo em produção** — todas obrigatórias:
+  - benchmark formal da tarefa;
+  - critérios de qualidade previamente definidos;
+  - aprovação explícita do proprietário;
+  - decisão registrada;
+  - integração deliberada e opt-in.
+
+  **Tarefas que permanecem Claude-only nesta fase:**
+  - **Web Search** — depende da capacidade nativa `web_search` da Anthropic, não
+    equivalente a uma chamada chat OpenAI-compatible.
+  - **Framing** — alta complexidade, risco de propagação de erro a jusante e necessidade
+    de saída estruturada grande ainda não validada externamente.
+  - **Evaluation** — explicitamente Claude-only nesta fase: papel de decisão central,
+    compliance (G01–G10) e risco máximo.
+  - **Cluster Strategy** — formalmente `frozen/closed` pelas decisões D-CS-1…12
+    existentes; trocar o client desse estágio reabriria uma decisão D-CS, fora de escopo
+    de qualquer OMR.
+
+  **Candidatos a benchmark externo:**
+  - **Signal Normalization** — aprovado como **primeiro** candidato a benchmark externo.
+  - **Asset Matching** — aprovado apenas como candidato **secundário e condicional**, a
+    ser considerado somente depois da validação de Normalization.
+
+  **Estado técnico atual (contexto, não justificativa automática de escolha de provider):**
+  - O único caminho externo atualmente comprovado tecnicamente é OmniRoute → Groq →
+    `openai/gpt-oss-120b`. Isso prova **conectividade**, não qualidade.
+  - Os testes de conectividade do OMR-01 **não** contam como benchmark de qualidade.
+
+  **Segunda opinião externa:** qualquer uso futuro deverá inicialmente ser
+  consultivo/sombra e **nunca decisório** — nunca compõe `Evaluation`/`Recommendation`.
+
+  **Garantias técnicas a preservar em qualquer uso futuro de modelo externo em stage
+  real:**
+  - `StageError` / `ResponseRejected` (o mesmo par de erros que `StageClient` já define);
+  - a distinção entre falha técnica e estado de negócio (spec §14);
+  - replay/determinismo (spec §22);
+  - fixtures gravadas (uma contraparte `RecordedXClient`, hoje inexistente para
+    `OmniRouteStageClient` — ver `docs/EXTERNAL-LLM-GATEWAY.md` §10);
+  - ausência de dependência de rede real no CI.
+
+  **Não-objetivos desta decisão:**
+  - não altera `RunConfig.model`;
+  - não altera `ReplayConfig`;
+  - não altera nenhum stage.
+
+  **Próximo milestone:** **OMR-03 — Normalization Benchmark Harness** (isolado, offline,
+  sem integração com `market_intelligence/normalize/`).
+
+  **Critério para o futuro benchmark (OMR-03) — NÃO decidido agora:** não fica registrado
+  como regra que "concordância com Claude = qualidade". O OMR-03 deverá comparar Claude e
+  o candidato externo usando critérios objetivos da tarefa, incluindo pelo menos:
+  validade estrutural; aderência à taxonomia/enums; preservação dos valores corretos;
+  taxa de divergência; casos em que ambos divergem de uma referência válida, quando essa
+  referência puder ser estabelecida; custo; latência; comportamento de erro. Os critérios
+  e limiares finais de aprovação do benchmark permanecem em aberto — são uma decisão
+  própria, a ser registrada antes da implementação/execução do OMR-03.
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  Aprovada a opção (a) integralmente, exatamente no conteúdo descrito em Recomendação.
+  Claude/Anthropic permanece o LLM padrão; nenhum modelo externo pode substituir Claude
+  silenciosamente em qualquer estágio. Web Search, Framing, Evaluation e Cluster Strategy
+  permanecem Claude-only nesta fase, pelos motivos registrados acima. Signal Normalization
+  é o primeiro candidato a benchmark externo; Asset Matching é candidato secundário e
+  condicional, só após Normalization ser validado.
+
+  Confirmado que o único caminho externo tecnicamente comprovado (OmniRoute → Groq →
+  `openai/gpt-oss-120b`, OMR-01) prova conectividade, não qualidade, e que os testes de
+  conectividade do OMR-01 não substituem um benchmark formal.
+
+  Os critérios e limiares de aprovação de qualidade do benchmark **não** foram decididos
+  nesta decisão — ficam explicitamente para uma decisão própria, antes de qualquer
+  implementação ou execução do OMR-03.
+
+  Nenhum stage, `RunConfig.model`, `ReplayConfig`, arquivo do pipeline canônico,
+  `src/cluster_strategy/`, Musical DNA ou value-engine weighting foi alterado por esta
+  decisão. O próximo milestone é **OMR-03 — Normalization Benchmark Harness**, ainda não
+  implementado.
 
 ---
 
