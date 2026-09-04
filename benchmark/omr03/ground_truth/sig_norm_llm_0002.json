@@ -1,0 +1,21 @@
+{
+  "case_id": "sig_norm_llm_0002",
+  "reviewer_type": "AI_SELF_REVIEW",
+  "reviewer_id": "claude-sonnet-5-session-review-2026-09-04",
+  "independence_note": "NOT an independent human reviewer. Established by the same AI session that built this harness, reading only the signal's evidence/context text, BEFORE any live call to Claude or Groq was made for this benchmark. This protects against anchoring on either model's live output, but does NOT satisfy the full ground-truth protocol's requirement of 2 independent human reviewers. Treat as PRELIMINARY, text-grounded ground truth, not as independently-verified human ground truth.",
+  "reviewed_at": "2026-09-04",
+  "fields": {
+    "language": {
+      "ground_truth_value": "es",
+      "acceptable_alternatives": [],
+      "status": "DETERMINABLE",
+      "rationale": "The hashtag itself, '#sueñoreparador' ('sueño reparador' = restorative sleep), is Spanish orthography (the letter ñ, the specific word choice) — a direct textual fact, not inference."
+    },
+    "market": {
+      "ground_truth_value": "Mercados hispanohablantes",
+      "acceptable_alternatives": [],
+      "status": "DETERMINABLE",
+      "rationale": "Not stated in 'evidence' itself, but the signal's 'context' field (part of the same input the model receives, per _context()) states: 'region filter set to Spanish-speaking'. This is one inferential step removed from the raw evidence text, but still grounded in a fact given to the model, not outside information."
+    }
+  }
+}

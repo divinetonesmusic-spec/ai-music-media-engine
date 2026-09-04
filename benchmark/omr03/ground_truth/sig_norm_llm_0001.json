@@ -1,0 +1,15 @@
+{
+  "case_id": "sig_norm_llm_0001",
+  "reviewer_type": "AI_SELF_REVIEW",
+  "reviewer_id": "claude-sonnet-5-session-review-2026-09-04",
+  "independence_note": "NOT an independent human reviewer. Established by the same AI session that built this harness, reading only the signal's evidence/context text, BEFORE any live call to Claude or Groq was made for this benchmark. This protects against anchoring on either model's live output, but does NOT satisfy the full ground-truth protocol's requirement of 2 independent human reviewers. Treat as PRELIMINARY, text-grounded ground truth, not as independently-verified human ground truth.",
+  "reviewed_at": "2026-09-04",
+  "fields": {
+    "market": {
+      "ground_truth_value": "Mercados hispanohablantes",
+      "acceptable_alternatives": [],
+      "status": "DETERMINABLE",
+      "rationale": "Evidence states verbatim: 'Search interest ... is rising among Spanish-speaking audiences in Latin America.' This maps directly and uniquely onto the single matching V1 market category; no other reading is defensible from the text given."
+    }
+  }
+}

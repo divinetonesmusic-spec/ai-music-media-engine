@@ -1,0 +1,38 @@
+{
+  "signal": {
+    "signal_id": "sig_norm_llm_0004",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm_llm",
+    "source": "Internal business data",
+    "source_type": "internal_data",
+    "observed_at": "2026-08-18",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "English-speaking markets",
+    "language": "en",
+    "platform": "spotify",
+    "signal_type": "audience_behavior",
+    "evidence": "Our focus/study playlist has grown listeners week over week for four straight weeks.",
+    "raw_ref": "data/run_norm_llm/signals/raw/sig_norm_llm_0004.json",
+    "context": "Internal Spotify for Artists export.",
+    "confidence": "MEDIUM",
+    "durability_hint": null,
+    "provenance": {
+      "source": "Internal business data",
+      "source_type": "internal_data",
+      "observed_at": "2026-08-18",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "data/inputs/internal.yaml [record 2]",
+      "capture_method": "internal_data"
+    }
+  },
+  "case_metadata": {
+    "case_id": "sig_norm_llm_0004",
+    "origin": "inherited_test_fixture",
+    "origin_note": "Copied verbatim from tests/fixtures/normalize/llm/ambiguous_signals.json (existing, versioned, real repository fixture). No evidence or field was invented for this benchmark.",
+    "source_type": "internal_data",
+    "ambiguous_fields": ["durability_hint"],
+    "field_count": 1,
+    "intended_difficulty": "genuinely indeterminate",
+    "difficulty_rationale": "Four weeks of week-over-week growth is explicitly the kind of case spec Appendix B documents as insufficient for a durability rating (V1 has no time-series source deep enough). Correct behaviour is abstention (leave durability_hint unresolved), not a forced guess."
+  }
+}

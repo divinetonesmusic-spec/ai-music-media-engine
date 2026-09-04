@@ -1,0 +1,15 @@
+{
+  "case_id": "sig_norm_llm_0004",
+  "reviewer_type": "AI_SELF_REVIEW",
+  "reviewer_id": "claude-sonnet-5-session-review-2026-09-04",
+  "independence_note": "NOT an independent human reviewer. Established by the same AI session that built this harness, reading only the signal's evidence/context text, BEFORE any live call to Claude or Groq was made for this benchmark. This protects against anchoring on either model's live output, but does NOT satisfy the full ground-truth protocol's requirement of 2 independent human reviewers. Treat as PRELIMINARY, text-grounded ground truth, not as independently-verified human ground truth.",
+  "reviewed_at": "2026-09-04",
+  "fields": {
+    "durability_hint": {
+      "ground_truth_value": null,
+      "acceptable_alternatives": [],
+      "status": "INDETERMINATE",
+      "rationale": "Evidence: 'Our focus/study playlist has grown listeners week over week for four straight weeks.' Four weeks of growth, with no information about seasonality, baseline, or what happens afterward, is explicitly the class of case the project's own spec (Appendix B, growth_momentum anchor) already documents as insufficient for a durability rating in V1 (no time-series source). Marked INDETERMINATE at labeling time — a model that also abstains (omits the field) matches this ground truth; a model that forces any of the 4 enum values is scored as incorrect against this ground truth, but the case itself is excluded from the accuracy denominator per the pre-registered OMR-03 policy (item 6) and used only for the separate 'appropriate abstention' measurement."
+    }
+  }
+}

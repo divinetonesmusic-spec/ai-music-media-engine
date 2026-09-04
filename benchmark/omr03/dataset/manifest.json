@@ -1,0 +1,47 @@
+{
+  "dataset_version": "omr03-dataset-v1-preliminary",
+  "created_at": "2026-09-04",
+  "protocol_reference": "OMR-03 Dataset & Ground Truth Protocol Proposal (session analysis, prior to this execution)",
+  "threshold_policy_reference": "knowledge/DECISIONS-NEEDED.md OMR-03 (commit ca95573)",
+  "source_of_cases": "tests/fixtures/normalize/llm/ambiguous_signals.json — the ONLY versioned, real repository fixtures for Normalization classification available at the time of construction. No new evidence or signal was authored or invented for this dataset.",
+  "size_assessment": "PRELIMINARY / BELOW THE MINIMUM PROPOSED SIZE. The prior sizing analysis proposed a minimum of ~40 cases per ambiguous field for the pre-registered thresholds to be discretely interpretable. This dataset has 4 cases producing 5 field-level evaluation points total (market x2, language x1, signal_type x1, durability_hint x1-indeterminate). This is far below that minimum and is not sufficient, by itself, to accept or reject the OMR-03 Threshold Policy V1 with statistical confidence. See REPORT.md sections 'Limitations' and 'Threshold Evaluation'.",
+  "cases": [
+    {
+      "case_id": "sig_norm_llm_0001",
+      "source_type": "web_search",
+      "ambiguous_fields": ["market"],
+      "intended_difficulty": "easy"
+    },
+    {
+      "case_id": "sig_norm_llm_0002",
+      "source_type": "tiktok_creative_center",
+      "ambiguous_fields": ["market", "language"],
+      "intended_difficulty": "mixed"
+    },
+    {
+      "case_id": "sig_norm_llm_0003",
+      "source_type": "youtube",
+      "ambiguous_fields": ["signal_type"],
+      "intended_difficulty": "hard / dual-defensible"
+    },
+    {
+      "case_id": "sig_norm_llm_0004",
+      "source_type": "internal_data",
+      "ambiguous_fields": ["durability_hint"],
+      "intended_difficulty": "genuinely indeterminate"
+    }
+  ],
+  "field_level_evaluation_points": {
+    "market": 2,
+    "language": 1,
+    "signal_type": 1,
+    "durability_hint": 0
+  },
+  "note_on_durability_hint_n": "durability_hint has 1 ambiguous-field instance in the dataset, but its ground truth is INDETERMINATE, so per the pre-registered OMR-03 policy (item 6, indeterminate cases excluded from the accuracy denominator) it contributes 0 evaluable data points to the durability_hint accuracy metric. Only the abstention-appropriateness measurement applies to it.",
+  "explicitly_not_covered": [
+    "no multi-field case with 3+ ambiguous fields simultaneously",
+    "no case exercising 11 of the 12 signal_type taxonomy values",
+    "no case with evidence in Portuguese where language itself (not signal_type) is the ambiguous field",
+    "no source_type over-represented or under-represented deliberately — each of the 4 source_types appears exactly once, by coincidence of the inherited fixtures, not by designed stratification"
+  ]
+}

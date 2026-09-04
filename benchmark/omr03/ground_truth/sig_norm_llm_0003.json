@@ -1,0 +1,15 @@
+{
+  "case_id": "sig_norm_llm_0003",
+  "reviewer_type": "AI_SELF_REVIEW",
+  "reviewer_id": "claude-sonnet-5-session-review-2026-09-04",
+  "independence_note": "NOT an independent human reviewer. Established by the same AI session that built this harness, reading only the signal's evidence/context text, BEFORE any live call to Claude or Groq was made for this benchmark. This protects against anchoring on either model's live output, but does NOT satisfy the full ground-truth protocol's requirement of 2 independent human reviewers. Treat as PRELIMINARY, text-grounded ground truth, not as independently-verified human ground truth.",
+  "reviewed_at": "2026-09-04",
+  "fields": {
+    "signal_type": {
+      "ground_truth_value": "search_trend",
+      "acceptable_alternatives": ["content_format"],
+      "status": "DETERMINABLE_WITH_ACCEPTABLE_ALTERNATIVE",
+      "rationale": "Evidence: 'The query ... consistently returns 8-hour ambient sleep tracks ... on YouTube.' Two readings are both defensible from this text: (1) 'search_trend' — the observation is fundamentally about what a repeated query surfaces (a search behaviour pattern), which is the interpretation the pipeline's own historical fixture response also reached; (2) 'content_format' — the observation could instead be read as being about the popular content itself (8-hour ambient tracks). Registered as an accepted set {search_trend, content_format} at labeling time, BEFORE any model was run, specifically to avoid retroactively excusing either model's answer post-hoc. A model answering either value is scored as correct for this field; any other value is scored as incorrect."
+    }
+  }
+}

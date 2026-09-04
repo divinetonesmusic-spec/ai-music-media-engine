@@ -1,0 +1,41 @@
+{
+  "signal": {
+    "signal_id": "sig_norm_llm_0003",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm_llm",
+    "source": "YouTube Data API — search.list",
+    "source_type": "youtube",
+    "observed_at": "2026-03-01",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "Brasil",
+    "language": "pt",
+    "platform": "youtube",
+    "signal_type": "content_format",
+    "evidence": "The query 'frequencia do sono' consistently returns 8-hour ambient sleep tracks with hundreds of thousands of views on YouTube.",
+    "raw_ref": "data/run_norm_llm/signals/raw/sig_norm_llm_0003.json",
+    "context": "YouTube Data API search.list, order=relevance, regionCode=BR.",
+    "confidence": "LOW",
+    "durability_hint": "STRUCTURAL",
+    "provenance": {
+      "source": "YouTube Data API — search.list",
+      "source_type": "youtube",
+      "observed_at": "2026-03-01",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "search.list?part=snippet&q=frequencia do sono",
+      "capture_method": "youtube_data_api",
+      "url": "https://www.youtube.com/watch?v=vid_norm_demo",
+      "source_version": "v3"
+    },
+    "url": "https://www.youtube.com/watch?v=vid_norm_demo"
+  },
+  "case_metadata": {
+    "case_id": "sig_norm_llm_0003",
+    "origin": "inherited_test_fixture",
+    "origin_note": "Copied verbatim from tests/fixtures/normalize/llm/ambiguous_signals.json (existing, versioned, real repository fixture). No evidence or field was invented for this benchmark.",
+    "source_type": "youtube",
+    "ambiguous_fields": ["signal_type"],
+    "field_count": 1,
+    "intended_difficulty": "hard / genuinely dual-defensible",
+    "difficulty_rationale": "signal_type is ambiguous here because the collector applied the YouTube TECHNICAL DEFAULT ('content_format') per _COLLECTOR_DEFAULT_SIGNAL_TYPE. The evidence text supports two reasonable readings: 'search_trend' (the query consistently surfaces certain results -> a search behaviour pattern) or 'content_format' (the underlying popular content is 8-hour ambient tracks -> a format). Registered as a dual-acceptable ground truth set, not a single forced answer (see ground_truth/sig_norm_llm_0003.json)."
+  }
+}

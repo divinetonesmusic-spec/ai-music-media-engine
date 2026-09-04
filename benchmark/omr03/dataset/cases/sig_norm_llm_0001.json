@@ -1,0 +1,38 @@
+{
+  "signal": {
+    "signal_id": "sig_norm_llm_0001",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm_llm",
+    "source": "Google — search interest",
+    "source_type": "web_search",
+    "observed_at": "2026-03-01",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "UNKNOWN",
+    "language": "es",
+    "platform": "web",
+    "signal_type": "search_trend",
+    "evidence": "Search interest for 'musica para dormir 528 hz' is rising among Spanish-speaking audiences in Latin America.",
+    "raw_ref": "data/run_norm_llm/signals/raw/sig_norm_llm_0001.json",
+    "context": "Google Trends, Spanish-language query, past 90 days.",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "provenance": {
+      "source": "Google — search interest",
+      "source_type": "web_search",
+      "observed_at": "2026-03-01",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "musica para dormir 528 hz tendencia",
+      "capture_method": "claude_web_search"
+    }
+  },
+  "case_metadata": {
+    "case_id": "sig_norm_llm_0001",
+    "origin": "inherited_test_fixture",
+    "origin_note": "Copied verbatim from tests/fixtures/normalize/llm/ambiguous_signals.json (existing, versioned, real repository fixture). No evidence or field was invented for this benchmark.",
+    "source_type": "web_search",
+    "ambiguous_fields": ["market"],
+    "field_count": 1,
+    "intended_difficulty": "easy",
+    "difficulty_rationale": "Evidence explicitly names 'Spanish-speaking audiences in Latin America', which maps directly and uniquely onto the V1 taxonomy's single matching category."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "signal": {
+    "signal_id": "sig_norm_llm_0002",
+    "schema_version": "1.0.0",
+    "run_id": "run_norm_llm",
+    "source": "TikTok Creative Center — Hashtags",
+    "source_type": "tiktok_creative_center",
+    "observed_at": "2026-08-24",
+    "collected_at": "2026-08-28T14:03:11Z",
+    "market": "UNKNOWN",
+    "language": "UNKNOWN",
+    "platform": "tiktok",
+    "signal_type": "hashtag",
+    "evidence": "The hashtag #sueñoreparador shows a rising 30-day view trend.",
+    "raw_ref": "data/run_norm_llm/signals/raw/sig_norm_llm_0002.json",
+    "context": "Hashtags panel, region filter set to Spanish-speaking, last 30 days.",
+    "confidence": "MEDIUM",
+    "durability_hint": "EMERGING",
+    "provenance": {
+      "source": "TikTok Creative Center — Hashtags",
+      "source_type": "tiktok_creative_center",
+      "observed_at": "2026-08-24",
+      "collected_at": "2026-08-28T14:03:11Z",
+      "query_or_reference": "Hashtags panel; region=Spanish-speaking; period=Last 30 days",
+      "capture_method": "analyst_capture"
+    }
+  },
+  "case_metadata": {
+    "case_id": "sig_norm_llm_0002",
+    "origin": "inherited_test_fixture",
+    "origin_note": "Copied verbatim from tests/fixtures/normalize/llm/ambiguous_signals.json (existing, versioned, real repository fixture). No evidence or field was invented for this benchmark. NOTE: both market and language are UNKNOWN on this signal, so ambiguous_fields() yields BOTH fields for this case, even though the recorded historical fixture response (tests/fixtures/normalize/llm_replay/llm/normalization/sig_norm_llm_0002.json) only resolved 'language' and left 'market' unaddressed — that fixture answer is therefore a partial resolution, not proof that 'market' is unresolvable.",
+    "source_type": "tiktok_creative_center",
+    "ambiguous_fields": ["market", "language"],
+    "field_count": 2,
+    "intended_difficulty": "mixed (language: easy: market: medium)",
+    "difficulty_rationale": "language: the hashtag text itself ('sueño reparador' = restorative sleep, Spanish orthography with ñ) is a direct textual fact. market: not stated in 'evidence', but the collector's 'context' field states the capture used a 'region filter set to Spanish-speaking' — inferable from context, one step removed from the evidence text itself."
+  }
+}
