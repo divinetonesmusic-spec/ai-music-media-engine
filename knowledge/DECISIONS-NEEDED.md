@@ -86,6 +86,7 @@ Os IDs mantêm rastreabilidade com a revisão crítica do `CLAUDE.md`.
 | D-CS-10 | Ponderação de value engine no estágio 3 | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura + Proprietário |
 | D-CS-11 | Tratamento de schema_version | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura |
 | D-CS-12 | Reconciliação de nomes do pipeline (C8) | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura |
+| OMR-01 | External LLM Gateway — isolated adapter | GATEWAY EXTERNO (OMR) | DECIDED (2026-09-04) — adapter isolado implementado; integração com o pipeline NÃO aprovada | Proprietário + Arquitetura |
 
 ---
 
@@ -1746,6 +1747,100 @@ uma decisão DECIDED (C1–C10 / I1–I12) divergirem, a decisão prevalece.
   Usar os nomes canônicos do C8 (`Cluster Strategy`, estágio 3). As divergências de nome do
   Business DNA V1 ficam anotadas, sem edição de documento — mesmo tratamento dado ao C8 (ver
   P10).
+
+---
+
+# 5. GATEWAY EXTERNO DE LLM (OMR)
+
+A decisão **OMR-01** trata da criação de um adaptador externo e opcional de LLM (gateway
+OpenAI-compatible via OmniRoute), sem substituir o Claude/Anthropic como stack padrão
+(I10) e sem alterar nenhum estágio do pipeline canônico (C8). **Aprovada em 2026-09-04
+somente para o adapter isolado** (ver Resultado abaixo) — a integração desse adapter com
+qualquer estágio do pipeline continua exigindo uma decisão própria, ainda não tomada. O
+comportamento "Claude only" (I10, CLAUDE.md §12) permanece integralmente em vigor.
+
+## OMR-01 — External LLM Gateway — isolated adapter
+
+- **Problema:** o OmniRoute (`http://localhost:20128/v1`, gateway local OpenAI-compatible)
+  foi validado isoladamente, fora do projeto: o caminho OmniRoute → Groq →
+  `groq/openai/gpt-oss-120b` respondeu HTTP 200 com resultado válido; OmniRoute → Cerebras
+  alcançou o provider e recebeu HTTP 402 (billing); OmniRoute → Gemini alcançou o provider,
+  mas os testes encontraram indisponibilidade de modelo, sobrecarga e timeout local do
+  OmniRoute. Esses testes foram pontuais, isolados, e não alteraram nenhum arquivo do
+  projeto. Isso levanta a questão de se o projeto deveria ter, no futuro, uma via opcional
+  para chamar modelos externos através do OmniRoute, sem comprometer o stack atual.
+- **Por que isso importa:** o stack técnico (I10) e o comportamento "Claude only" descrito no
+  CLAUDE.md §12 são decisão de arquitetura vigente; introduzir qualquer capacidade de chamar
+  outro provider — mesmo isolada e opcional — é uma mudança de arquitetura e precisa de
+  registro explícito (Regra de Engenharia #7/#8), não de um efeito colateral de uma tarefa de
+  teste ou de implementação silenciosa.
+- **Decisão necessária:** autorizar (ou não) a criação futura de um adapter externo e
+  opcional em `src/external_llm_gateway/`, usando o contrato já existente
+  `market_intelligence.llm_stage.StageClient`, sem substituir o Claude e sem alterar o
+  comportamento padrão "Claude only".
+- **Opções possíveis:**
+  - (a) autorizar a criação futura do adapter isolado, com o escopo, os não-objetivos e os
+    princípios descritos abaixo — mas sem implementá-lo nesta decisão;
+  - (b) não autorizar; manter o stack "Claude only" sem exceção alguma;
+  - (c) adiar a decisão (DEFERRED) até haver um caso de uso concreto que precise de um
+    provider externo.
+- **Recomendação:** (a), com o escopo restrito a seguir. A criação do código em si permanece
+  uma etapa separada e futura, condicionada a esta decisão estar `DECIDED` antes de qualquer
+  arquivo ser criado.
+
+  **Escopo proposto do OMR-01** (menor conjunto de arquivos, todos novos — nenhum arquivo
+  existente seria modificado):
+  - `src/external_llm_gateway/__init__.py`
+  - `src/external_llm_gateway/config.py`
+  - `src/external_llm_gateway/omniroute_client.py`
+  - `tests/test_external_llm_gateway_omniroute_client.py`
+  - `docs/EXTERNAL-LLM-GATEWAY.md`
+
+  **Não-objetivos:**
+  - não substituir Anthropic/Claude;
+  - não alterar o Claude Code;
+  - não alterar a configuração da conta Claude Pro;
+  - não alterar `RunConfig.model`;
+  - não alterar `ReplayConfig`;
+  - não ligar nenhum stage ao OmniRoute por padrão;
+  - não alterar Market Intelligence;
+  - não alterar Cluster Strategy;
+  - não alterar Musical DNA;
+  - não alterar Value Engine;
+  - não adicionar fallback automático;
+  - não introduzir roteamento de modelos em produção;
+  - não adicionar dependências sem decisão explícita.
+
+  **Princípios:**
+  - Claude continua sendo o caminho padrão;
+  - OmniRoute é somente uma capacidade externa opcional;
+  - o adapter deve ser desacoplado dos stages;
+  - qualquer ligação futura de um stage ao adapter exige uma nova decisão explícita;
+  - testes de CI devem ser determinísticos e não depender de OmniRoute ou rede real;
+  - credenciais nunca devem ser gravadas no repositório;
+  - erros externos devem permanecer distinguíveis de estados de negócio (spec §14).
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  Aprovada **somente** a opção (a) restrita ao adapter isolado, exatamente no escopo
+  proposto — nenhuma integração do OmniRoute com o pipeline canônico foi aprovada.
+
+  Implementados em 2026-09-04, exatamente os 5 arquivos do escopo: `src/external_llm_gateway/__init__.py`,
+  `src/external_llm_gateway/config.py`, `src/external_llm_gateway/omniroute_client.py`,
+  `tests/test_external_llm_gateway_omniroute_client.py` e `docs/EXTERNAL-LLM-GATEWAY.md`.
+  `OmniRouteStageClient` implementa `market_intelligence.llm_stage.StageClient`; a
+  dependência corre em um único sentido (`external_llm_gateway → market_intelligence.llm_stage`).
+  Nenhum stage, `select_*_client()`, arquivo do pipeline canônico, `src/cluster_strategy/`,
+  Musical DNA (`business-dna.md` §9), value-engine weighting ou `CLAUDE.md` foi alterado.
+
+  650 testes verdes (629 pré-existentes + 21 novos, transporte HTTP mockado, sem rede real
+  e sem depender do OmniRoute estar rodando), `ruff check src tests` limpo.
+
+  Ligar este adapter a qualquer estágio do pipeline continua exigindo uma nova decisão
+  explícita, registrada neste arquivo, antes de qualquer código de integração ser escrito.
 
 ---
 
