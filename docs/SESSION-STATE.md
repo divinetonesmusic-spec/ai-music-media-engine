@@ -49,13 +49,28 @@ validation clean, 617 tests + ruff green (details in **Cluster Strategy (stage 3
 **Last Completed Step** below). Stage 3 is now **frozen / closed**. **Canonical stages
 4–13 remain DEFERRED (P4).**
 
-**Current work: the quality phase (started 2026-09-03)** — Rating Anchors (implemented,
-MI-only, committed `53de7f0`), **Musical DNA V1 OWNER-APPROVED 2026-09-03**, §9 transferred
-into `knowledge/business-dna/business-dna.md` (commit `2b8df10`), and the downstream MI
-wiring (items 3 / 4 / 6 of `docs/MUSICAL-DNA-V1-FINAL.md`) **done 2026-09-03 (uncommitted)** —
-`music_fit` is now judged against the §9 house sound with uncapped confidence, the
-`NEEDS_INPUT` path kept as a fallback. Value-engine weighting (deferred). See the **Quality
-phase** section below. Stage 4's §9 gate is now met; it begins when the owner chooses.
+**Quality phase (started 2026-09-03) — CLOSED.** Rating Anchors (implemented, MI-only,
+committed `53de7f0`), **Musical DNA V1 OWNER-APPROVED 2026-09-03**, §9 transferred into
+`knowledge/business-dna/business-dna.md` (commit `2b8df10`), and the downstream MI wiring
+(items 3 / 4 / 6 of `docs/MUSICAL-DNA-V1-FINAL.md`) **done and COMMITTED (`4949f65`,
+2026-09-04)** — `music_fit` is now judged against the §9 house sound with uncapped
+confidence, the `NEEDS_INPUT` path kept as a fallback. Value-engine weighting stays
+deferred. See the **Quality phase** section below.
+
+**Parallel track (2026-09-04) — External LLM Gateway (OMR-01/02/03) — complete for now,
+non-blocking.** An isolated `src/external_llm_gateway/` adapter was decided, implemented
+and validated live end-to-end against OmniRoute → Groq → `openai/gpt-oss-120b` (OMR-01); a
+routing policy keeps Claude the only default path, no stage connected (OMR-02); a
+Normalization benchmark's acceptance criteria were pre-registered (OMR-03 Threshold Policy
+V1, `ca95573`) and run live twice — both runs are **D, INCONCLUSIVE** (dataset far below
+the proposed minimum; ground truth is AI self-review, not independent human review; Claude
+produced zero comparative data both times — the Anthropic account's credit balance is
+still exhausted, re-confirmed 2026-09-04). See `knowledge/DECISIONS-NEEDED.md` § 5 and
+`benchmark/omr03/REPORT.md`. Nothing here touches the canonical pipeline.
+
+**Next real milestone: Stage 4 (Page Blueprint) — its only technical gate (§9) is now
+met, but the owner has not yet made the stage-opening decision** that Stage 3 needed
+(`D-CS-1`) before any building could start. See **Next Action** item 5 below.
 
 `python -m market_intelligence run <config>` executes
 `preflight → Signal Collection → Signal Normalization → Analysis/Framing → Asset Matching
@@ -813,22 +828,53 @@ Canonical stages 4–13 remain DEFERRED (P4) — do not build them.**
 1. **Rating Anchors — DONE (2026-09-03), committed `53de7f0` (not pushed).**
    `docs/TECHNICAL-SPEC-V1.md` Appendix B + a condensed block in `evaluation._prompt` +
    `docs/MUSICAL-DNA-INPUT.md` + this file + a `config/ranking.yaml` comment. The
-   confirmatory live MI run is **blocked by an Anthropic credit-balance error** (Evaluation
-   returned HTTP 400 for all 12 opps; the technical-failure mechanism handled it correctly,
-   `knowledge/` untouched). Re-run once credits are topped up: check `overall_confidence`
-   spreads beyond the 24/26-LOW baseline and `relevant_ratio` holds ≥ 0.70.
+   confirmatory live MI run is **still blocked by the Anthropic account's credit balance**
+   — re-confirmed independently on 2026-09-04 via the OMR-03 benchmark harness (2 live
+   attempts, both providers called, Claude rejected all calls with the identical "credit
+   balance is too low" error both times; see `benchmark/omr03/REPORT.md`). Re-run once
+   credits are topped up: check `overall_confidence` spreads beyond the 24/26-LOW baseline
+   and `relevant_ratio` holds ≥ 0.70. **Resolving Anthropic billing is an owner action —
+   no session should attempt to work around it.**
 2. **Musical DNA — OWNER-APPROVED 2026-09-03; §9 transferred (`2b8df10`); MI wiring DONE
-   (uncommitted).** Items 3 / 4 / 6 of `docs/MUSICAL-DNA-V1-FINAL.md` are done:
-   `_prompt(musical_dna_needs_input)` conditional; `_rating_anchors()` +
-   `_MUSIC_FIT_ANCHOR_DEFINED` judge the §9 house sound (confidence uncapped);
-   `reporting._collect_needs_input()` collects all `blocked_by`; spec Appendix B.6 +
-   §8.1 / §15 / B.1 / test-spec line updated. 629 tests green, ruff clean. **Item 5
-   (`_market_language_fit` / D-CS-9) still deferred** — its classification backlog is
-   still `NEEDS_INPUT`. Next: owner reviews + commits the wiring; the confirmatory live
-   MI run (blocked by Anthropic credits) then also exercises the new `music_fit` anchor.
+   and COMMITTED (`4949f65`, 2026-09-04, not pushed).** Items 3 / 4 / 6 of
+   `docs/MUSICAL-DNA-V1-FINAL.md` are done: `_prompt(musical_dna_needs_input)`
+   conditional; `_rating_anchors()` + `_MUSIC_FIT_ANCHOR_DEFINED` judge the §9 house sound
+   (confidence uncapped); `reporting._collect_needs_input()` collects all `blocked_by`;
+   spec Appendix B.6 + §8.1 / §15 / B.1 / test-spec line updated. 650 tests green, ruff
+   clean. **Item 5 (`_market_language_fit` / D-CS-9) stays deferred** — its classification
+   backlog is still `NEEDS_INPUT`; D-CS-9 already sanctions revisiting it, but the
+   judgement call (recorded in `docs/MUSICAL-DNA-V1-FINAL.md`) is that the cap legitimately
+   stays until that backlog is filled — no code change is pending here. The confirmatory
+   live MI run (item 1) would also exercise the new `music_fit` anchor once unblocked.
 3. **Value-engine weighting — deferred.** Do not implement. Revisit per the criteria in
    `config/ranking.yaml` and spec §23.
-4. **Stage 4 (Page Blueprint)** — its §9 gate is now met; begins when the owner chooses.
+4. **External LLM Gateway (OMR-01/OMR-02/OMR-03) — a parallel, non-blocking track,
+   COMPLETE for now.** Decided/implemented/documented in
+   `knowledge/DECISIONS-NEEDED.md` § 5 (commits `60c78f0`, `31fb408`, `ca95573`,
+   `3114e17`, `6f9f1eb`, `a7ba147`, `f3aa4cb`, `2fbf55e`, none pushed): an isolated
+   `src/external_llm_gateway/` adapter (`OmniRouteStageClient`) implementing the
+   existing `StageClient` contract, validated live end-to-end against OmniRoute → Groq →
+   `openai/gpt-oss-120b` (HTTP 200, valid `dict`). A routing policy (OMR-02, BALANCEADA)
+   keeps Claude as the only default path for every pipeline stage — no stage imports this
+   package, `select_stage_client()`/the Normalization selector/`RunConfig`/`ReplayConfig`
+   are unmodified. The Normalization Benchmark (OMR-03) that would decide whether Groq is
+   good enough to even be a *candidate* for a future integration is **D — INCONCLUSIVE**
+   after 2 live runs: the dataset (4 cases) is far below the proposed minimum, ground
+   truth is single-reviewer AI self-review (not independent human review), and Claude
+   produced zero comparative data both times (item 1's billing block). See
+   `benchmark/omr03/REPORT.md`. **No further OMR-03 work is planned until (a) Anthropic
+   billing is resolved by the owner and (b) a larger, independently-reviewed dataset
+   exists — both are owner-scale efforts, not a next coding step.**
+5. **Stage 4 (Page Blueprint) — technical gate met, opening decision NOT yet made.**
+   Its only technical precondition (Musical DNA §9) is satisfied. But P4 explicitly keeps
+   canonical stages 4–13 `DEFERRED` and states "a new session must not build them" — the
+   same barrier Stage 3 had until the owner explicitly opened it via **D-CS-1**
+   (2026-09-01). **No equivalent opening decision for Stage 4 exists yet.** Per Engineering
+   Rule #7/#8, building Stage 4 (or drafting its architecture) without that decision would
+   be building ahead of a validated, owner-authorized scope. **This is the next item on
+   the canonical pipeline's critical path (C8) — it needs the owner to explicitly open
+   Stage 4 (a "D-PB-1"-style decision, mirroring D-CS-1) before any code or detailed design
+   work begins.**
 
 The optional live Cluster Strategy run was **done** (2026-09-03) — `MAP_TO_EXISTING →
 limpeza-energetica`, lifecycle `EXPLORE` preserved, `write_registry_link: false` so
@@ -871,7 +917,7 @@ Surfaced by the spec-consistency + code reviews; each is a documented gap, not a
   stricter (own pages only). Safe; competitive context lives in the `competitive_position`
   dimension instead.
 - **Digest `NEEDS_INPUT encountered` missed prose `blocked_by`** (found in the 2026-09-03
-  audit) — **FIXED 2026-09-03 (uncommitted).** `reporting._collect_needs_input` used to
+  audit) — **FIXED and COMMITTED (`4949f65`, 2026-09-04).** `reporting._collect_needs_input` used to
   aggregate a dimension's `blocked_by` only when the string literally contained
   `NEEDS_INPUT` / `UNKNOWN`; the model writes blocks as prose ("business musical DNA /
   catalog detail"), so all 3 C10 digests read "None recorded this run" despite `music_fit`
@@ -1036,7 +1082,9 @@ Explicitly deferred — a new session must **not** implement these prematurely:
   owner opened stage 3 via **D-CS-1** and decided **D-CS-1 … D-CS-12**, all recorded in
   `knowledge/DECISIONS-NEEDED.md` §4 ("# 4. ESTÁGIO 3 — CLUSTER STRATEGY") with the P4
   entry updated. **Stages 4–13 stay DEFERRED under P4 — a new session must not build
-  them.**
+  them.** Stage 4 (Page Blueprint)'s only *technical* precondition (Musical DNA §9) is
+  now satisfied (2026-09-04), but **no equivalent opening decision to D-CS-1 exists for
+  Stage 4** — a new session must not start building or designing it without one.
 - **P5** — multi-agent orchestration.
 - **P6** — formal new-cluster governance (V1 only proposes a cluster as a hypothesis).
 - **P7** — cross-run dashboards / trend-tracking UI.
