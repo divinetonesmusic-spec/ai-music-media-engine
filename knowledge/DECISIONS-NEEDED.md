@@ -88,6 +88,7 @@ Os IDs mantêm rastreabilidade com a revisão crítica do `CLAUDE.md`.
 | D-CS-12 | Reconciliação de nomes do pipeline (C8) | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura |
 | OMR-01 | External LLM Gateway — isolated adapter | GATEWAY EXTERNO (OMR) | DECIDED (2026-09-04) — adapter isolado implementado; integração com o pipeline NÃO aprovada | Proprietário + Arquitetura |
 | OMR-02 | External Model Use Cases & Routing Policy | GATEWAY EXTERNO (OMR) | DECIDED (2026-09-04) — política de routing aprovada; nenhuma integração de stage aprovada | Proprietário + Arquitetura |
+| OMR-03 | Normalization Benchmark — Threshold Policy V1 | GATEWAY EXTERNO (OMR) | DECIDED (2026-09-04) — critérios de aprovação pré-registrados; benchmark/dataset/integração NÃO aprovados | Proprietário + Arquitetura |
 
 ---
 
@@ -1959,6 +1960,126 @@ comportamento "Claude only" (I10, CLAUDE.md §12) permanece integralmente em vig
   `src/cluster_strategy/`, Musical DNA ou value-engine weighting foi alterado por esta
   decisão. O próximo milestone é **OMR-03 — Normalization Benchmark Harness**, ainda não
   implementado.
+
+---
+
+## OMR-03 — Normalization Benchmark: Threshold Policy V1
+
+- **Problema:** a especificação conceitual do OMR-03 (critérios de aceitação do
+  Normalization Benchmark) definiu QUE tipo de critérios seriam necessários, mas deixou
+  os valores numéricos como proposta técnica em aberto — deliberadamente, para evitar
+  escolher limiares depois de ver resultados. Sem travar esses valores antes de qualquer
+  execução, um benchmark futuro correria o risco de ter seus critérios ajustados depois
+  do resultado, o que anularia o propósito de um pré-registro.
+- **Por que isso importa:** OMR-02 já exige que qualquer uso de modelo externo em
+  produção passe por "benchmark formal" e "critérios de qualidade previamente definidos"
+  (OMR-02, condições para uso em produção) — sem uma política de limiares travada, essa
+  condição não é verificável.
+- **Decisão necessária:** fixar a política V1 de limiares de aprovação do Normalization
+  Benchmark — hard gates, accuracy mínima por campo, tratamento de degradação/melhoria,
+  indetermináveis, divergência, custo, latência e contagem absoluta de erros — como
+  pré-registro, antes de qualquer dataset, harness ou chamada real.
+- **Opções possíveis:**
+  - (a) política **BALANCEADA** — hard gates inegociáveis + limiares por campo
+    moderados + estrutura de 2 fases para custo (qualidade antes de custo);
+  - (b) política **CONSERVADORA** — limiares muito altos, risco de nunca aprovar nenhum
+    candidato;
+  - (c) política **ECONÔMICA** — limiares mais baixos, maior peso de custo, maior risco
+    de corrupção semântica silenciosa em volume alto.
+- **Recomendação:** (a) — adotada integralmente como segue.
+
+  **1. Política geral:** **BALANCEADA**.
+
+  **2. Hard gates** (obrigatórios, zero-tolerance):
+  - zero violação de fronteira de campo/contrato;
+  - zero invenção de fatos/evidências na `rationale`;
+  - nenhuma falha sistemática por classe reconhecível;
+  - taxa de erro técnico não pode ser materialmente pior que a do Claude no mesmo
+    dataset — **"materialmente pior" permanece sem definição operacional nesta etapa**;
+    nenhum número foi inventado.
+
+  **3. Accuracy mínima por campo** (sem média única):
+  - `language` ≥ 97%
+  - `market` ≥ 95%
+  - `signal_type` ≥ 90%
+  - `durability_hint` ≥ 80%, **somente** sobre os casos em que ground truth seja
+    estabelecível; a taxa de **abstenção apropriada** é medida separadamente; casos
+    genuinamente indetermináveis não entram no denominador de nenhum campo.
+
+  **4. Accuracy conjunta:** medida e reportada, **não** usada como gate independente de
+  aprovação — serve para detectar possíveis falhas correlacionadas entre campos.
+
+  **5. Degradação vs. melhoria:** assimetria de risco mantida — `market`/`language` =
+  severidade alta; `signal_type` = média; `durability_hint` = baixa. Uma degradação de
+  alta severidade **não pode ser simplesmente anulada** por uma quantidade equivalente
+  de melhorias. **Nenhum multiplicador numérico de compensação foi definido nesta
+  etapa** — será definido, se necessário, só durante a formalização operacional do
+  benchmark.
+
+  **6. Indetermináveis:** definidos **antes** de qualquer execução dos modelos;
+  excluídos do denominador de toda métrica de accuracy; reportados separadamente;
+  **nunca** reclassificados depois de observar respostas dos modelos; concordância
+  Claude/Groq num caso indeterminável **não** conta como acerto para nenhum dos dois.
+
+  **7. Divergência:** **nenhum percentual fixo** estabelecido como gate nesta versão.
+  Usada para investigação dirigida quando: concentrada num campo específico;
+  concentrada numa única direção; desproporcional nos casos já classificados como
+  fáceis.
+
+  **8. Custo:** estrutura em duas fases —
+  - **Fase 1:** qualidade/hard gates primeiro (pass/fail);
+  - **Fase 2:** só entre candidatos já aprovados, custo pode ser usado como critério de
+    otimização/desempate.
+  Custo **nunca** pode compensar reprovação em qualidade.
+
+  **9. Latência:** medida e reportada, **não** usada como gate de aprovação nesta fase.
+
+  **10. Contagem absoluta de erros:** os percentuais mínimos (item 3) são o critério
+  principal, mas a interpretação final também deve considerar o **número absoluto** de
+  erros permitidos — calculado **somente depois** que o dataset final estiver fechado.
+  **Nenhum número de exemplos ou erro absoluto foi inventado nesta etapa.**
+
+  **11. Pré-registro:** esta decisão **é** o pré-registro dos critérios de aprovação do
+  Normalization Benchmark. Qualquer alteração posterior deve ser uma **nova decisão
+  explícita**, identificada como alteração pós-registro — nunca silenciosa.
+
+  **12. Escopo — o que esta decisão NÃO aprova:**
+  - integração de Groq em produção;
+  - substituição de Claude;
+  - fallback automático;
+  - A/B em produção;
+  - alteração do pipeline de Normalization;
+  - o benchmark em si (execução);
+  - a construção do dataset;
+  - qualquer chamada paga aos modelos.
+
+  Esta decisão aprova **somente** os critérios que serão usados, no futuro, para avaliar
+  o candidato externo no OMR-03 — nada além disso.
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  Aprovada a opção (a) — política **BALANCEADA** — integralmente, exatamente no
+  conteúdo descrito em Recomendação, como **pré-registro V1** dos critérios de
+  aprovação do Normalization Benchmark (OMR-03).
+
+  Nenhum benchmark, dataset, harness ou chamada real a Claude/OmniRoute/Groq foi
+  executado ou criado por esta decisão. Nenhum código de produção, `RunConfig`,
+  `ReplayConfig`, `normalize/llm.py`, `StageClient`, o adapter OmniRoute
+  (`external_llm_gateway`), Cluster Strategy, Musical DNA ou value-engine weighting foi
+  alterado. OMR-01 e OMR-02 permanecem intocados.
+
+  Três parâmetros foram deixados explicitamente sem valor numérico, por decisão
+  deliberada, e ficam registrados como pendências da formalização operacional do
+  benchmark (não desta decisão): (i) o que conta como "materialmente pior" na taxa de
+  erro técnico (item 2); (ii) o multiplicador de compensação melhoria×degradação (item
+  5); (iii) o número absoluto de erros tolerável (item 10) — calculável apenas depois
+  que o dataset final estiver fechado.
+
+  A construção do dataset e do harness isolado do Normalization Benchmark permanecem
+  **não aprovados** — dependem de decisões próprias e futuras.
 
 ---
 
