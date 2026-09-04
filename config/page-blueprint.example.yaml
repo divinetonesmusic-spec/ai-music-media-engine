@@ -1,0 +1,34 @@
+# page-blueprint.example.yaml — Page Blueprint V1 run config (contract §8).
+#
+# Canonical pipeline stage 4 (C8). Consumes ONE Cluster-Strategy-recommended
+# sidecar (`recommendation.target_next_stage == PAGE_BLUEPRINT`) and produces
+# ONE Page Blueprint under `reports/page-blueprint/`. Autonomy Level 1 — the
+# stage recommends; the owner decides.
+#
+# Run it:
+#   ./.venv/bin/python -m page_blueprint \
+#       reports/cluster-strategy/<opportunity_id>.json \
+#       --config config/page-blueprint.example.yaml
+
+run_id: "pb_run_2026-09-04_01"        # this Page Blueprint run's id (auto-filled if omitted)
+run_date: "2026-09-04"                 # defaults to today
+model: "claude-sonnet-5"
+prompt_version: "pb-v1"
+schema_version: "1.0.0"
+
+reports_subdir: "reports/page-blueprint"
+
+# Knowledge-file locations (same tree as Market Intelligence / Cluster Strategy).
+# Defaults match the repo layout; override only if your checkout differs.
+paths:
+  knowledge_dir: "knowledge"
+  inventories_dir: "knowledge/inventories"
+  guardrails_path: "knowledge/rules/guardrails.yaml"
+  reports_dir: "reports"
+  data_dir: "data"
+
+# Offline / deterministic testing (spec §22). For a normal live run, leave this off.
+replay:
+  enabled: false
+  fixture_path: null
+  llm: null                           # "recorded" | "live"
