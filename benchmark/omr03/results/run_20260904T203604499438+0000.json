@@ -1,0 +1,173 @@
+{
+  "generated_at": "2026-09-04T20:36:04.499438+00:00",
+  "claude_model": "claude-sonnet-5",
+  "groq_model": "groq/openai/gpt-oss-120b",
+  "omniroute_base_url": "http://localhost:20128/v1",
+  "results": [
+    {
+      "case_id": "sig_norm_llm_0001",
+      "ambiguous_fields": [
+        "market"
+      ],
+      "claude": {
+        "provider": "claude",
+        "model": "claude-sonnet-5",
+        "case_id": "sig_norm_llm_0001",
+        "latency_s": 0.7942035829182714,
+        "timestamp": "2026-09-04T20:35:58.777964+00:00",
+        "suggestions": null,
+        "rationale": null,
+        "confidence": null,
+        "technical_error": "normalization API call failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cej3J9uJPBC3w6ME6JzCP'}",
+        "rejected_reason": null,
+        "raw_response_safe": null
+      },
+      "groq": {
+        "provider": "groq",
+        "model": "groq/openai/gpt-oss-120b",
+        "case_id": "sig_norm_llm_0001",
+        "latency_s": 1.2479440830647945,
+        "timestamp": "2026-09-04T20:35:59.572512+00:00",
+        "suggestions": null,
+        "rationale": null,
+        "confidence": null,
+        "technical_error": null,
+        "rejected_reason": "signal_id mismatch: 'sig_norm_lll_0001' != 'sig_norm_llm_0001'",
+        "raw_response_safe": {
+          "signal_id": "sig_norm_lll_0001",
+          "suggestions": {
+            "market": "Mercados hispanohablantes"
+          },
+          "rationale": "The evidence explicitly states the interest is among Spanish‑speaking audiences in Latin America, which corresponds to the Mercados hispanohablantes market.",
+          "confidence": "HIGH"
+        }
+      }
+    },
+    {
+      "case_id": "sig_norm_llm_0002",
+      "ambiguous_fields": [
+        "market",
+        "language"
+      ],
+      "claude": {
+        "provider": "claude",
+        "model": "claude-sonnet-5",
+        "case_id": "sig_norm_llm_0002",
+        "latency_s": 0.3057410840410739,
+        "timestamp": "2026-09-04T20:36:00.821026+00:00",
+        "suggestions": null,
+        "rationale": null,
+        "confidence": null,
+        "technical_error": "normalization API call failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cej3JGoHYpvuqQTVNxEnn'}",
+        "rejected_reason": null,
+        "raw_response_safe": null
+      },
+      "groq": {
+        "provider": "groq",
+        "model": "groq/openai/gpt-oss-120b",
+        "case_id": "sig_norm_llm_0002",
+        "latency_s": 0.9047246249392629,
+        "timestamp": "2026-09-04T20:36:01.127086+00:00",
+        "suggestions": {
+          "market": "Mercados hispanohablantes",
+          "language": "es"
+        },
+        "rationale": "The region filter is set to Spanish‑speaking, indicating a Hispanic market and Spanish language context.",
+        "confidence": "HIGH",
+        "technical_error": null,
+        "rejected_reason": null,
+        "raw_response_safe": {
+          "signal_id": "sig_norm_llm_0002",
+          "suggestions": {
+            "market": "Mercados hispanohablantes",
+            "language": "es"
+          },
+          "rationale": "The region filter is set to Spanish‑speaking, indicating a Hispanic market and Spanish language context.",
+          "confidence": "HIGH"
+        }
+      }
+    },
+    {
+      "case_id": "sig_norm_llm_0003",
+      "ambiguous_fields": [
+        "signal_type"
+      ],
+      "claude": {
+        "provider": "claude",
+        "model": "claude-sonnet-5",
+        "case_id": "sig_norm_llm_0003",
+        "latency_s": 0.2977796250488609,
+        "timestamp": "2026-09-04T20:36:02.032408+00:00",
+        "suggestions": null,
+        "rationale": null,
+        "confidence": null,
+        "technical_error": "normalization API call failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cej3JMzKtHY5hHQsxoVou'}",
+        "rejected_reason": null,
+        "raw_response_safe": null
+      },
+      "groq": {
+        "provider": "groq",
+        "model": "groq/openai/gpt-oss-120b",
+        "case_id": "sig_norm_llm_0003",
+        "latency_s": 0.8131593749858439,
+        "timestamp": "2026-09-04T20:36:02.330262+00:00",
+        "suggestions": {
+          "signal_type": "content_format"
+        },
+        "rationale": "The query returns ambient sleep‑track videos, indicating the signal pertains to a specific content format.",
+        "confidence": "HIGH",
+        "technical_error": null,
+        "rejected_reason": null,
+        "raw_response_safe": {
+          "signal_id": "sig_norm_llm_0003",
+          "suggestions": {
+            "signal_type": "content_format"
+          },
+          "rationale": "The query returns ambient sleep‑track videos, indicating the signal pertains to a specific content format.",
+          "confidence": "HIGH"
+        }
+      }
+    },
+    {
+      "case_id": "sig_norm_llm_0004",
+      "ambiguous_fields": [
+        "durability_hint"
+      ],
+      "claude": {
+        "provider": "claude",
+        "model": "claude-sonnet-5",
+        "case_id": "sig_norm_llm_0004",
+        "latency_s": 0.41684633400291204,
+        "timestamp": "2026-09-04T20:36:03.144215+00:00",
+        "suggestions": null,
+        "rationale": null,
+        "confidence": null,
+        "technical_error": "normalization API call failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cej3JSkZuwa2Vt8K9d6XA'}",
+        "rejected_reason": null,
+        "raw_response_safe": null
+      },
+      "groq": {
+        "provider": "groq",
+        "model": "groq/openai/gpt-oss-120b",
+        "case_id": "sig_norm_llm_0004",
+        "latency_s": 0.9379002500791103,
+        "timestamp": "2026-09-04T20:36:03.561454+00:00",
+        "suggestions": {
+          "durability_hint": "EMERGING"
+        },
+        "rationale": "Four consecutive weeks of listener growth indicates a developing trend rather than a fleeting spike or long‑term constant, so it is best classified as emerging.",
+        "confidence": "MEDIUM",
+        "technical_error": null,
+        "rejected_reason": null,
+        "raw_response_safe": {
+          "signal_id": "sig_norm_llm_0004",
+          "suggestions": {
+            "durability_hint": "EMERGING"
+          },
+          "rationale": "Four consecutive weeks of listener growth indicates a developing trend rather than a fleeting spike or long‑term constant, so it is best classified as emerging.",
+          "confidence": "MEDIUM"
+        }
+      }
+    }
+  ]
+}

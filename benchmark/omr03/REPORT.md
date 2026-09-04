@@ -1,9 +1,18 @@
 # OMR-03 — Normalization Benchmark Report
 
-> **Conclusion: D — INCONCLUSIVE (dataset/ground truth insufficient, AND the
-> Claude baseline was unreachable in this execution).** See §21/§22.
-> Governing decision: `knowledge/DECISIONS-NEEDED.md` OMR-03 (commit `ca95573`,
-> Threshold Policy V1, BALANCEADA). This report does not alter that policy.
+> **Conclusion: D — INCONCLUSIVE, confirmed across two runs.** See §21/§22 and
+> the **Run 2** section at the end of this document. Governing decision:
+> `knowledge/DECISIONS-NEEDED.md` OMR-03 (commit `ca95573`, Threshold Policy
+> V1, BALANCEADA). This report does not alter that policy.
+>
+> **Run log:**
+> - **Run 1** (`run_20260904T202402658296+0000`, §1–§23 below) — Claude
+>   blocked by an Anthropic account billing error on all 4 calls.
+> - **Run 2** (`run_20260904T203604499438+0000`, see the dedicated section at
+>   the end) — re-run requested after the user reported the billing issue
+>   resolved. **The exact same billing error recurred on all 4 Claude calls.**
+>   No Claude-vs-Groq comparison exists yet. Run 1's sections below are
+>   preserved unmodified as the historical record of that run.
 
 Legend used throughout: **FACT** (directly observed, reproducible from the
 artifacts in this directory) · **OBSERVATION** (a pattern noticed in the FACTs)
@@ -361,3 +370,59 @@ data that does exist).
   ANTHROPIC_API_KEY -s ai-music-media-engine -w)" .venv/bin/python
   benchmark/omr03/harness.py`, then `omniroute stop`. No production file is
   touched by any of this.
+
+---
+
+## Run 2 — re-run after reported billing resolution
+
+**Requested reason:** the user reported the Anthropic billing block from Run 1
+resolved and asked for an exact re-run — same dataset, same ground truth, same
+harness, same thresholds (none modified; verified by diff against the commits
+that introduced each, before this run: `3114e17` for dataset/ground truth,
+`6f9f1eb` for harness/metrics, `ca95573` for the threshold policy — all three
+diffs empty).
+
+**FACT — the billing block is still present.** All 4 Claude calls failed with
+the identical error as Run 1: `"Your credit balance is too low to access the
+Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."`
+— 4 distinct `request_id`s (`req_011Cej3J9uJP...`, `req_011Cej3JGoHY...`,
+`req_011Cej3JMzKt...`, `req_011Cej3JSkZu...`), confirming 4 independent real
+API round-trips, not a cached/local failure. **This contradicts the premise
+that billing had been resolved** — it had not, at the time of this execution.
+Per the task's own instruction ("Se a API Anthropic ainda retornar billing
+error, pare e reporte o erro exato. Não faça retries inúteis"), no retry was
+attempted and no Claude-vs-Groq comparison was produced.
+
+**Run identifier:** `run_20260904T203604499438+0000` — a **new** file, Run 1's
+results file was not overwritten or modified.
+
+**Groq (standalone vs. ground truth, this run):**
+
+| Field | n evaluable | correct | accuracy |
+|---|---|---|---|
+| market | 1 | 1 | 100% |
+| language | 1 | 1 | 100% |
+| signal_type | 1 | 1 | 100% |
+| durability_hint | 0 (indeterminate) | — | N/A (forced a guess, `EMERGING`, again — 0% abstention-appropriateness, same as Run 1) |
+
+**OBSERVATION — cross-run non-determinism in Groq's `signal_id` echo.** Run 1
+had a `signal_id` typo rejection (`sig_norm_lll_0002` for case `...0002`); Run
+2 had a *different* case rejected the same way (`sig_norm_lll_0001` for case
+`...0001`) — case `...0002` succeeded this time instead. This is the same
+failure *mode* recurring on a *different, effectively random* case each run,
+not a fixed bug tied to one case. **INFERENCE:** at n=1 per case, Groq's
+success/failure on any single case is not a stable measurement — this is
+exactly the kind of run-to-run noise the prior sizing analysis warned a
+4-case dataset cannot average out.
+
+**Conclusion: unchanged — D, INCONCLUSIVE.** Now confirmed across two
+independent live attempts: the dataset/ground-truth insufficiency (§20) and
+the total absence of Claude comparative data both still hold. Thresholds
+(§7, `ca95573`) were not evaluated against a comparison because none exists.
+
+**RECOMMENDATION.** Do not attempt a third live run against this same 4-case
+dataset — it will not produce a paired comparison while the Anthropic account
+remains blocked, and repeating identical calls burns real (if small) Groq
+cost for no new information. Confirm the Anthropic account's billing state
+directly (e.g. the Anthropic Console billing page) before requesting another
+run of this harness.
