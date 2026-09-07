@@ -7,7 +7,10 @@ from tests.conftest import PROJECT_ROOT
 from page_blueprint import cli
 from page_blueprint.config import PageBlueprintConfigError, load_config
 
-_SIDECAR = str(PROJECT_ROOT / "reports" / "cluster-strategy" / "opp_2026-08-31_1bca4af972.json")
+_SIDECAR = str(
+    PROJECT_ROOT / "tests" / "fixtures" / "page_blueprint" / "input"
+    / "opp_2026-08-31_1bca4af972.json"
+)
 _NOT_RECOMMENDED = str(
     PROJECT_ROOT / "reports" / "run_2026-08-31_01" / "opp_2026-08-31_1bca4af972.json"
 )  # an Opportunity Report, not a ClusterStrategy sidecar -> input gate rejects it

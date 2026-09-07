@@ -16,7 +16,7 @@ from tests.conftest import PROJECT_ROOT
 from page_blueprint.input_loader import PageBlueprintInputError, load_input
 
 _OID = "opp_2026-08-31_1bca4af972"
-_SIDECAR = PROJECT_ROOT / "reports" / "cluster-strategy" / f"{_OID}.json"
+_SIDECAR = PROJECT_ROOT / "tests" / "fixtures" / "page_blueprint" / "input" / f"{_OID}.json"
 
 
 def test_loads_a_real_page_blueprint_recommended_cluster_strategy():

@@ -1,0 +1,251 @@
+{
+  "cluster_strategy_id": "cs_opp_2026-08-31_1bca4af972",
+  "schema_version": "1.0.0",
+  "opportunity": {
+    "opportunity_id": "opp_2026-08-31_1bca4af972",
+    "opportunity_run_id": "run_2026-08-31_01",
+    "opportunity_report_ref": "reports/run_2026-08-31_01/opp_2026-08-31_1bca4af972.json",
+    "schema_version": "1.0.0",
+    "title": "Energetic cleansing music for new-home rituals (ES market)",
+    "need": "Música para limpiar energéticamente una casa nueva o espacio",
+    "audience_description": "Hispanohablantes que se mudan a una casa nueva y buscan rituales de limpieza energética",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "platform": "tiktok",
+    "consumption_context": "Durante o después de mudarse a un nuevo hogar, como parte de un ritual de limpieza",
+    "durability": "EMERGING",
+    "urgency": "MEDIUM",
+    "overall_confidence": "LOW",
+    "status": "EXPLORE",
+    "target_state": "TEST",
+    "potential_cluster_value": "limpeza-energetica",
+    "potential_cluster_canonical": true,
+    "potential_cluster_basis": "existing"
+  },
+  "owner_authorization": {
+    "review_md_ref": "reports/run_2026-08-31_01/review.md",
+    "advanced_opportunity_id": "opp_2026-08-31_1bca4af972",
+    "reviewer": "Nicolas",
+    "review_date": "2026-08-31"
+  },
+  "cluster_decision": {
+    "decision": "MAP_TO_EXISTING",
+    "justification": "The taxonomy's conceptual boundary for Limpeza Energética is 'foco em limpar / proteger', which matches the stated need and consumption context (post-move home ritual) precisely; it is not activation (Frequência Divina/Glândula Pineal) nor recovery/wellbeing (Cura/Bem-estar). Evidence item sig_run_2026-08-31_01_0016 (Spotify album 'Música para Limpiar la Energía Negativa y Espacios') confirms this exact framing is already commercially recognized under this cluster.",
+    "framing_hypothesis_comparison": "Confirmed the pre-normalised hypothesis. The opportunity's need ('limpiar energéticamente una casa nueva') maps directly onto the 'Limpeza Energética' definition ('limpeza / purificação energética de pessoas, ambientes e do lar, proteção espiritual e remoção de energias densas') and its explicitly listed 'proteção do lar' sub-angle — no override warranted.",
+    "cluster_id": "limpeza-energetica",
+    "cluster_name": "Limpeza Energética",
+    "subcluster_or_angle": "Proteção do lar / ritual de mudança para casa nova",
+    "is_new_subcluster": false
+  },
+  "evaluation": {
+    "dimensions": {
+      "cluster_fit": {
+        "rating": "HIGH",
+        "confidence": "MEDIUM",
+        "justification": "The need statement and consumption context map directly onto the canonical definition and listed 'proteção do lar' sub-angle of Limpeza Energética; corroborated by evidence sig_run_2026-08-31_01_0016 showing commercial catalogue precedent for this exact framing."
+      },
+      "differentiation_within_cluster": {
+        "rating": "MEDIUM",
+        "confidence": "LOW",
+        "justification": "The general 'energetic cleansing' theme is already competitively occupied (evidence sig_run_2026-08-31_01_0015, sig_run_2026-08-31_01_0016), but the specific 'new home / moving-in ritual' occasion is a narrower, less-saturated angle within the cluster; no direct evidence quantifies competitor coverage of this specific occasion.",
+        "blocked_by": [
+          "audience_attributes is null — cannot assess audience-level differentiation"
+        ]
+      },
+      "asset_readiness": {
+        "rating": "LOW",
+        "confidence": "MEDIUM",
+        "justification": "Asset fit shows 0 matching pages and an explicit 'new_asset_recommendation: page' with unmatched_reason confirming no existing page serves this cluster/occasion on ES TikTok, despite strong playlist (5) and artist (21) matches.",
+        "blocked_by": [
+          "best_page is UNKNOWN — no page asset exists to launch against"
+        ]
+      },
+      "strategic_coherence": {
+        "rating": "MEDIUM",
+        "confidence": "MEDIUM",
+        "justification": "Extends an already-canonical, catalog-supported cluster (5 playlists, 21 artists matched) into a plausible new occasion-based angle, consistent with business DNA's cluster-as-editorial-context principle, but overall opportunity confidence is LOW and durability is EMERGING, tempering strategic conviction."
+      }
+    },
+    "overall_confidence": "LOW",
+    "red_flags": [
+      {
+        "description": "Framing this content as 'energetic cleansing' that removes 'negative energy' risks implying a therapeutic/healing effect rather than subjective ritual experience; must be reframed as intention/ritual (G02) and flagged for validation (G09), not presented as fact (G03).",
+        "severity": "MEDIUM",
+        "kind": "compliance"
+      },
+      {
+        "description": "audience_attributes is null, limiting ability to assess differentiation and targeting precision for this occasion-based angle.",
+        "severity": "LOW",
+        "kind": "evidence_gap"
+      },
+      {
+        "description": "No existing page asset matches this cluster/occasion on ES TikTok; a new page would need to be created downstream.",
+        "severity": "MEDIUM",
+        "kind": "asset_gap"
+      },
+      {
+        "description": "[carried from the Opportunity Report] Framing this content as 'energetic cleansing' that removes 'negative energy' risks implying a therapeutic or healing effect rather than a subjective ritual/wellness experience (G03). Any such claims must be reframed as intention/ritual/subjective experience (permitted under G02) and flagged for validation (G09) rather than presented as fact.",
+        "severity": "MEDIUM",
+        "kind": "compliance"
+      }
+    ],
+    "open_questions": [
+      "Should the 'new home / moving-in' occasion be tracked as a formal named sub-angle under Limpeza Energética for future classification consistency?",
+      "What audience attributes (age, gender skew, TikTok behavior) can Market Intelligence supply to sharpen differentiation within the broader cleansing theme?",
+      "Should compliance review pre-approve specific ritual language (e.g., 'limpiar la energía negativa') before any page/content copy is drafted, given the MEDIUM compliance flag?",
+      "Given EMERGING durability and LOW overall confidence, does the owner want additional validation signals before committing to a dedicated page asset?"
+    ]
+  },
+  "recommendation": {
+    "target_next_stage": "PAGE_BLUEPRINT",
+    "recommended_next_step": "Proceed to Page Blueprint using the existing best_playlist and best_artist matches to design a new ES-language TikTok page for the 'new home cleansing ritual' angle within Limpeza Energética, while explicitly carrying forward the compliance requirement to frame all copy as ritual/intention rather than efficacy claims.",
+    "opportunity_lifecycle_state": "EXPLORE",
+    "justification": "Cluster fit is HIGH and catalog assets (playlists, artists) already support the cluster, but no page exists (asset_readiness LOW) and evidence is thin (overall_confidence LOW); moving to Page Blueprint under owner review, with compliance guardrails carried forward, is the concrete next step while open questions are resolved in parallel.",
+    "execution_note": "V1 does not execute this action; it requires human approval."
+  },
+  "provenance": {
+    "run_id": "cs_run_2026-09-01_01",
+    "schema_version": "1.0.0",
+    "model": "claude-sonnet-5",
+    "prompt_version": "cs-v1",
+    "generated_at": "2026-09-03T12:39:37Z",
+    "replay": false,
+    "signal_ids": [
+      "sig_run_2026-08-31_01_0014",
+      "sig_run_2026-08-31_01_0015",
+      "sig_run_2026-08-31_01_0016"
+    ],
+    "sources": [
+      {
+        "source": "Limpieza Energética Casa Nueva | TikTok",
+        "source_type": "web_search",
+        "observed_at": "2026-05-11",
+        "collected_at": "2026-08-31T18:30:08Z",
+        "query_or_reference": "limpieza energética música tendencia TikTok",
+        "capture_method": "claude_web_search",
+        "url": "https://www.tiktok.com/discover/limpieza-energ%C3%A9tica-casa-nueva"
+      },
+      {
+        "source": "LIMPIEZA ENERGÉTICA • Música para PURIFICAR tu HOGAR y Eliminar Energías Negativas - YouTube",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-08-31T18:30:08Z",
+        "query_or_reference": "limpieza energética música tendencia TikTok",
+        "capture_method": "claude_web_search",
+        "url": "https://www.youtube.com/playlist?list=PLWY6--ME2e5T1hOxfn1Fh1lGj0ykmljqM"
+      },
+      {
+        "source": "Música para Limpiar la Energía Negativa y Espacios de ...",
+        "source_type": "web_search",
+        "observed_at": "UNKNOWN",
+        "collected_at": "2026-08-31T18:30:08Z",
+        "query_or_reference": "limpieza energética música tendencia TikTok",
+        "capture_method": "claude_web_search",
+        "url": "https://open.spotify.com/intl-es/album/4Q59WwWhGCNJX5CtUYlvcf"
+      }
+    ],
+    "knowledge_snapshot": {
+      "taxonomy_canonical_count": 11,
+      "guardrails_count": 10,
+      "inventory": {
+        "artists": 37,
+        "playlists": 8,
+        "pages": 49,
+        "catalog": 133
+      },
+      "opportunity_report_replay": false
+    }
+  },
+  "strategic_definition": {
+    "central_concept": "Music intended to accompany a ritual of energetically 'cleansing' a new home or living space, framed as a subjective/intentional practice tied to the moving-in occasion.",
+    "audience_description": "Spanish-speaking TikTok users, likely women, who have recently moved or are moving into a new home and seek ritual practices (smudging, cleansing, blessing) to mark the space as safe/renewed; audience_attributes are not yet documented and should be validated.",
+    "intent": "To provide a musical companion for a home-cleansing ritual performed during or shortly after moving, supporting the listener's sense of renewal and intention-setting in the new space.",
+    "emotional_state": "A felt sense of renewal, safety, and a 'fresh start' in the new home — calm, protected, and intentional rather than anxious about the unknown space.",
+    "consumption_context": "Durante o después de mudarse a un nuevo hogar, como parte de un ritual de limpieza",
+    "editorial_promise": "Music framed as a ritual companion for setting intention and creating a calming atmosphere while cleansing a new home — presented as subjective experience and ritual practice, not as a guaranteed energetic or therapeutic effect.",
+    "positioning_statement": "For Spanish-speaking new homeowners on TikTok, this is the soundtrack for the moving-in cleansing ritual — an intentional, atmospheric companion, not a medical or energetic guarantee.",
+    "market": "Mercados hispanohablantes",
+    "language": "es",
+    "localization_notes": "Content must be authored in Latin American/Iberian Spanish idiom around 'mudanza' and 'casa nueva' rituals (sahumar, limpiar la casa, bendecir el hogar); avoid literal translation from English wellness phrasing.",
+    "durability_read": "EMERGING per the opportunity report — competitor evidence (YouTube playlist, Spotify album) shows the broader cleansing theme is established, but the specific 'new home / moving' occasion angle is less validated and should be treated as an emerging sub-occasion within an established cluster.",
+    "strategic_coherence_note": "Fits cleanly within the already-canonical Limpeza Energética cluster and leverages existing catalog affinity (21 candidate artists, 5 matching playlists), but lacks a dedicated page asset, so this is an extension of an established cluster into a new occasion-based angle rather than a novel thematic bet."
+  },
+  "asset_strategy": {
+    "playlist_strategy": {
+      "primary_playlist_id": "pl_4oV5F1W2E6azZePnmqBanN",
+      "playlist_fit_basis": "OBSERVED",
+      "reuse_rationale": "Reuse the existing playlist pl_4oV5F1W2E6azZePnmqBanN (I5 default — asset reuse).",
+      "secondary_playlist_ids": []
+    },
+    "page_strategy": {
+      "primary_page_id": "UNKNOWN",
+      "page_fit_basis": "UNKNOWN",
+      "note": "A new page is recommended (I5 conditions met upstream). Its name, bio, visual identity, tone of voice and cadence are Page Blueprint's (stage 4); Cluster Strategy only records that a new page is warranted and which playlist/artist should anchor it.",
+      "new_page_recommendation": {
+        "asset_type": "page",
+        "rationale": "A dedicated ES-language landing/content page for new-home energetic cleansing rituals could capture TikTok traffic and cross-promote the matched playlist and artist, filling a gap not covered by existing pages.",
+        "i5_conditions_met": {
+          "no_adequate_fit": true,
+          "relevant_potential": true,
+          "differentiation_potential": true,
+          "sufficient_window": true
+        }
+      }
+    },
+    "artist_strategy": {
+      "best_artist_id": "art_7bnKOg3GDWAbLFtNhyn8Gw",
+      "anchor_hero_artist_ids": [
+        "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "art_0po1ZsFAwFIgNJDrksslV5",
+        "art_1rGWl45kQm6h9PQEOOWGfZ"
+      ],
+      "catalog_affinity_artist_ids": [
+        "art_1ZtIHebQHlyC9S7ipjyVGj"
+      ],
+      "candidate_artist_ids": [
+        "art_1ZtIHebQHlyC9S7ipjyVGj",
+        "art_7bnKOg3GDWAbLFtNhyn8Gw",
+        "art_0po1ZsFAwFIgNJDrksslV5",
+        "art_1rGWl45kQm6h9PQEOOWGfZ",
+        "art_23C4aGKQlxYACGS9daOxJL",
+        "art_49fktK7xQ9xlGYA8hOShx3",
+        "art_4UPN4d9ec5WKqAMsXkQ8nV",
+        "art_5NJXbvpRnlTAqZ5neNTWGT",
+        "art_5SQX7a6G5C9Dz2SobHcdRI",
+        "art_5opHERa1SgwiRaozP8wqjj",
+        "art_1JEzsQ5PpE0mEzj1o3lvD1",
+        "art_4FS4kfkdU1O5eAqrr8yZAf",
+        "art_52SR4w9A8EKMeAE1R566AV",
+        "art_6RYDc9UaMo1ADFHVxCaPT7",
+        "art_7yodVHRyk6pHTTzpp8XNRH",
+        "art_6xdN570lrguPNEnPhANMmA",
+        "art_7uDfdvq7PZmSkTdXHoJMMa",
+        "art_3BRmD7iq3EFMKdhjU4UJx5",
+        "art_4hI4W1KwOS5x3OR0tE6gPJ",
+        "art_5bbVuL2WwR4t2394pvuPNE",
+        "art_5rW5NStZS26JvQ8Sa0csKX"
+      ],
+      "affinity_note": "Catalog affinity is context, not a placement restriction. Any artist may serve this cluster (spec §10.2a). Hero status is independent of catalog affinity — never conclude an artist 'does not fit' from an affinity mismatch."
+    },
+    "catalog_affinity_summary": "21 candidate artist(s) and 5 candidate playlist(s) relate to this cluster; release-level catalog matching is coarse in V1 (spec §10.3).",
+    "market_language_fit": {
+      "rating": "MEDIUM",
+      "confidence": "MEDIUM",
+      "justification": "some chosen assets match the opportunity's market/language, others do not. Confidence capped at MEDIUM while musical-DNA detail (business-dna §9) and the strategic-classification backlog are NEEDS_INPUT."
+    },
+    "asset_gaps": [
+      "No page asset exists matching the limpeza-energetica cluster for ES TikTok home-cleansing rituals.",
+      "No own page is classified for es/Mercados hispanohablantes in this cluster."
+    ]
+  },
+  "content_direction": {
+    "first_content_direction": "Open with short-form content that frames the music as an accompaniment to the 'first days in a new home' ritual — e.g., a calming track paired with a simple home-blessing/cleansing routine (opening windows, smudging, tidying) — presented as ritual and atmosphere, not as a claim of energetic removal or protection as fact.",
+    "music_relationship": "Instrumental/ambient tracks act as a backdrop that supports the ritual moment (unpacking, smudging, first night in the home) — the music's role is atmospheric and intention-setting, not the ritual's active ingredient or claimed cause of any effect.",
+    "editorial_angles": [
+      "El ritual de limpieza al mudarte a una casa nueva",
+      "Música para 'renovar' el hogar y empezar de nuevo",
+      "Sonidos para proteger y armonizar tu nuevo espacio (marco de intención, no promesa)"
+    ],
+    "content_boundary_note": "Content pillars, formats, hooks, structures, CTAs, cadence and visual language are defined by Content Strategy (stage 5) and Page Blueprint (stage 4). This section is a non-binding starting direction only (C7, I11)."
+  }
+}

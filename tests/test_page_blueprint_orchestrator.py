@@ -1,8 +1,9 @@
 """Page Blueprint V1 — recorded-replay end-to-end (contract §8, §12).
 
-Runs the whole stage offline (recorded LLM fixture, no network) on the real,
-live-produced ClusterStrategy sidecar for `opp_2026-08-31_1bca4af972`
-(MAP_TO_EXISTING -> limpeza-energetica, target_next_stage PAGE_BLUEPRINT) and
+Runs the whole stage offline (recorded LLM fixture, no network) on a real,
+live-produced ClusterStrategy sidecar for `opp_2026-08-31_1bca4af972`, frozen
+as a test input fixture (MAP_TO_EXISTING -> limpeza-energetica,
+target_next_stage PAGE_BLUEPRINT) and
 asserts the transform: page identity + visual identity grounded in §9.9, the
 asset link carried verbatim (no re-decision), confidence clamped to the
 Cluster Strategy's own LOW ceiling, no 0-100 score, all 7 sections rendered,
@@ -22,7 +23,7 @@ from page_blueprint.config import PageBlueprintConfig, PBReplayConfig
 from page_blueprint.orchestrator import PageBlueprintError, run_page_blueprint
 
 _OID = "opp_2026-08-31_1bca4af972"
-_SIDECAR = PROJECT_ROOT / "reports" / "cluster-strategy" / f"{_OID}.json"
+_SIDECAR = PROJECT_ROOT / "tests" / "fixtures" / "page_blueprint" / "input" / f"{_OID}.json"
 _FIXTURES = "tests/fixtures/page_blueprint"
 
 

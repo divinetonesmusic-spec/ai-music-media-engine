@@ -1,7 +1,7 @@
 ---
 title: Session State — AI Music Media Engine
 status: current
-updated: "2026-09-03"
+updated: "2026-09-07"
 owner: Nicolas Alves (divinetonesmusic@gmail.com)
 purpose: >
   Snapshot of the current project state so a new Claude Code session can resume
@@ -46,8 +46,8 @@ deleted locally and remotely. The stage was then **validated live against the re
 Anthropic API** (2026-09-03) — one call on Run 1's advanced opportunity returned
 `MAP_TO_EXISTING → limpeza-energetica`, lifecycle `EXPLORE` preserved, deterministic
 validation clean, 617 tests + ruff green (details in **Cluster Strategy (stage 3)** and
-**Last Completed Step** below). Stage 3 is now **frozen / closed**. **Canonical stages
-4–13 remain DEFERRED (P4).**
+**Last Completed Step** below). Stage 3 is now **frozen / closed**. **Stage 4 (Page
+Blueprint) is now OPEN and BUILT (see below); canonical stages 5–13 remain DEFERRED (P4).**
 
 **Quality phase (started 2026-09-03) — CLOSED.** Rating Anchors (implemented, MI-only,
 committed `53de7f0`), **Musical DNA V1 OWNER-APPROVED 2026-09-03**, §9 transferred into
@@ -68,9 +68,15 @@ produced zero comparative data both times — the Anthropic account's credit bal
 still exhausted, re-confirmed 2026-09-04). See `knowledge/DECISIONS-NEEDED.md` § 5 and
 `benchmark/omr03/REPORT.md`. Nothing here touches the canonical pipeline.
 
-**Next real milestone: Stage 4 (Page Blueprint) — its only technical gate (§9) is now
-met, but the owner has not yet made the stage-opening decision** that Stage 3 needed
-(`D-CS-1`) before any building could start. See **Next Action** item 5 below.
+**Canonical pipeline stage 4 — Page Blueprint — is OPEN and BUILT (2026-09-04 / 2026-09-07).**
+The owner explicitly opened stage 4 ("equivalente ao padrão D-CS-1"); **D-PB-1 … D-PB-12**
+are recorded in `knowledge/DECISIONS-NEEDED.md` §6 with P4 updated ("estágios 3–4 abertos;
+estágios 5–13 seguem DEFERRED"). The stage is implemented as a new sibling package
+`src/page_blueprint/` under contract `docs/PAGE-BLUEPRINT-V1.md`; 68 new tests (718 total,
+all green, ruff clean); no change to any stage-1–3 code file. See the
+**Page Blueprint (canonical stage 4)** section below. **Canonical stages 5–13 remain
+DEFERRED (P4).** The confirmatory live Market Intelligence run stays blocked by the
+Anthropic account credit balance (an owner action — see **Next Action**).
 
 `python -m market_intelligence run <config>` executes
 `preflight → Signal Collection → Signal Normalization → Analysis/Framing → Asset Matching
@@ -287,14 +293,106 @@ live runs.
 **Future cleanup (flagged, not done):** extract the modules both stages share into a
 `src/engine_core/` package.
 
+## Page Blueprint (canonical stage 4) — OPEN and BUILT (2026-09-04 / 2026-09-07)
+
+**Contract:** `docs/PAGE-BLUEPRINT-V1.md`. On 2026-09-04 the owner explicitly opened
+canonical pipeline stage 4 — and only stage 4 — ("Fica explicitamente autorizado o início
+do Stage 4 — Page Blueprint … equivalente ao padrão D-CS-1"). **D-PB-1 … D-PB-12** are
+recorded authoritatively in `knowledge/DECISIONS-NEEDED.md` §6 ("# 6. ESTÁGIO 4 — PAGE
+BLUEPRINT"), with the P4 entry updated to *"estágios 3–4 abertos; estágios 5–13 seguem
+DEFERRED"*.
+
+**What it is.** A new **sibling package `src/page_blueprint/`** (imports, never modifies,
+`market_intelligence.{schema, knowledge_loader, llm_stage, guardrails, io_utils,
+orchestrator._musical_dna_needs_input}` and `cluster_strategy.schema.{enums, models}`). It
+converts **one Cluster-Strategy-recommended `ClusterStrategy` sidecar** into **one
+`PageBlueprint`** (Markdown + YAML front matter + JSON sidecar, `schema_version 1.0.0`) at
+`reports/page-blueprint/<opportunity_id>.*`. Autonomy **Level 1** — recommend only.
+
+**Input gate (D-PB-7, D-PB-11).** Runs only on a `ClusterStrategy` sidecar that is
+`schema_version 1.0.0`, carries a `MAP_TO_EXISTING` / `PROPOSE_NEW_CLUSTER` decision with
+all three strategy sections present, **and** has `recommendation.target_next_stage ==
+PAGE_BLUEPRINT`. Any deviation is a hard `PageBlueprintError` — the owner re-runs.
+Owner-invoked, per-opportunity CLI (`python -m page_blueprint
+reports/cluster-strategy/<opportunity_id>.json`).
+
+**Boundary (D-PB-2, D-PB-3, D-PB-6 — the sharpest points).**
+- **Asset carried verbatim (D-PB-3).** The page/playlist/artist decision and any
+  new-page recommendation come straight from `ClusterStrategy.asset_strategy`
+  (`PageAssetLink` embeds the stage-3 `PageStrategy`). Claude sees the asset as
+  *reference-only context*, never a choice; Page Blueprint never re-judges whether a new
+  asset is warranted (I5).
+- **Musical DNA §9 scope (D-PB-4).** Visual identity + tone of voice ground **only** in the
+  house-sound principle + the per-cluster §9.9 sonic expression; `musical_dna_expression_used`
+  must cite the §9.9 phrase (validator-enforced, non-empty). Instrumentation / BPM /
+  frequency / sonority criteria are Audio Engine's (stage 8) — not read here. A
+  `NEEDS_INPUT` fallback path (confidence ≤ MEDIUM + `blocked_by`) is kept (D-PB-10),
+  inert in production since §9 is owner-approved.
+- **Content framing shallow (D-PB-6).** `content_pillars` = 3–5 **broad thematic** pillars
+  for this page only; `platforms`; a **qualitative** `posting_cadence`. No formats, hooks,
+  structures, CTA copy, linguistic/visual production rules, calendar — that is Content
+  Strategy (stage 5). `> 5` pillars → soft WARNING; `0` → hard error. Content-Strategy
+  field names are a scope-leakage regression guard (codec + validator).
+
+**Confidence (D-PB-5).** **One** qualitative `overall_confidence` (LOW/MEDIUM/HIGH), no
+per-dimension rubric — the stage synthesises from an already-evaluated strategy and
+re-rates nothing. Deterministically clamped to `min(model_confidence,
+ClusterStrategy.overall_confidence)` and capped at MEDIUM while §9 is `NEEDS_INPUT`. **No
+0–100 score anywhere** (reused C6 scanner). No persistent per-page `status`.
+
+**Compliance escalation (mirrors Cluster Strategy §9 / spec §14).** Full MI
+`ComplianceResult`: a HIGH compliance claim in **core** page content (identity /
+positioning / bio / visual identity / tone of voice) → forced
+`recommendation.target_next_stage = HOLD`, the identity text left intact (not a silent
+rewrite), the run still writes a report; a HIGH claim confined to `content_pillars` →
+those pillars replaced with a fixed "[removed — compliance]" note, the page design stands.
+Claims-not-topics calibration inherited from the tightened Evaluation prompt.
+
+**Knowledge writes: NONE (D-PB-9).** Unlike Cluster Strategy's opt-in
+`opportunity-registry.yaml` append (D-CS-7), Page Blueprint has **no** `knowledge/` write
+path at all. Reads `knowledge/`, writes only `reports/page-blueprint/`.
+
+**Modules:** `schema/{models,enums,validate}.py` · `input_loader.py` · `musical_dna.py`
+(deterministic §9 text access) · `blueprint.py` (the one Claude sub-step via `llm_stage`) ·
+`guardrails.py` · `llm.py` · `reporting.py` · `orchestrator.py` · `cli.py` · `config.py` ·
+`__init__`/`__main__`; `config/page-blueprint.example.yaml`.
+
+**Tests: 68 new** (`tests/test_page_blueprint_*.py`, 8 files) — input-loader gates
+(schema_version, wrong target_next_stage, DEFER/REJECT, missing section), validator rules
+(no score, scope-leak, confidence ceiling, §9 cap, tampered notes, empty
+`musical_dna_expression_used`, invented/reference asset, pillar count), the blueprint
+prompt + strict response parser, musical-DNA §9 extraction, guardrail scoping, CLI, and
+the orchestrator end-to-end via recorded replay on the real
+`opp_2026-08-31_1bca4af972` Cluster Strategy sidecar (`MAP_TO_EXISTING → limpeza-energetica`),
+plus the forced-HOLD and pillar-strip compliance branches. TDD throughout. Fixtures:
+`tests/fixtures/page_blueprint{,_reject,_strip}/llm/page_blueprint/…` + a frozen input
+fixture `tests/fixtures/page_blueprint/input/opp_2026-08-31_1bca4af972.json` (a byte copy
+of the live stage-3 sidecar — the stage-4 suite reads it, not the untracked
+`reports/cluster-strategy/` file, so the suite is hermetic).
+
+**Status: BUILT, COMMITTED LOCALLY, NOT PUSHED.** The package + tests were committed
+2026-09-04 as `d471823` (`wip(page-blueprint): implement + test Stage 4 module (decision +
+contract pending)`); the D-PB decisions, the `docs/PAGE-BLUEPRINT-V1.md` contract, this
+section, and the frozen input fixture are the follow-up docs/decision commit (2026-09-07).
+**718 pytest tests green, `ruff check src tests` clean.** No stage-1–3 code file,
+`CLAUDE.md`, `cluster-taxonomy.md`, `guardrails.yaml`, the inventories, or `business-dna/*`
+touched; no secret in any fixture. A live run needs `ANTHROPIC_API_KEY` (same Keychain
+convention as the pipeline). Not yet run live (the Anthropic account credit balance is
+still exhausted — an owner action).
+
+**Future cleanup (flagged, not done):** extract the modules stages 3 and 4 share into a
+`src/engine_core/` package.
+
 ## Quality phase (started 2026-09-03)
 
-Between Cluster Strategy V1 (stage 3, **frozen / closed**) and Stage 4 (**still deferred**),
-a quality phase addresses the three improvements identified in the 2026-09-03 analysis-only
-audit. Strategy: **Rating Anchors first, Musical DNA owner-authoring in parallel,
-value-engine weighting deferred.** Rating Anchors is committed (`53de7f0`); Musical DNA V1
-is **owner-approved 2026-09-03**, §9 transferred (`2b8df10`), and the downstream MI wiring
-(items 3 / 4 / 6 of `docs/MUSICAL-DNA-V1-FINAL.md`) is **done** (2026-09-03, uncommitted).
+Between Cluster Strategy V1 (stage 3, **frozen / closed**) and Stage 4, a quality phase
+addressed the three improvements identified in the 2026-09-03 analysis-only audit.
+Strategy: **Rating Anchors first, Musical DNA owner-authoring in parallel, value-engine
+weighting deferred.** Rating Anchors is committed (`53de7f0`); Musical DNA V1 is
+**owner-approved 2026-09-03**, §9 transferred (`2b8df10`), and the downstream MI wiring
+(items 3 / 4 / 6 of `docs/MUSICAL-DNA-V1-FINAL.md`) is **done and committed** (`4949f65`,
+2026-09-04). The phase is **CLOSED**; Musical DNA §9 being owner-approved was Stage 4's
+one technical gate.
 
 | Item | Status | Where |
 |---|---|---|
@@ -302,10 +400,10 @@ is **owner-approved 2026-09-03**, §9 transferred (`2b8df10`), and the downstrea
 | **Musical DNA** | **OWNER-APPROVED (2026-09-03) — §9 transferred + MI wiring done** | The owner reviewed Musical DNA V1 in full and explicitly approved it (record: `docs/MUSICAL-DNA-INPUT.md`; paste-ready §9: `docs/MUSICAL-DNA-V1-FINAL.md`). §9 transferred into `knowledge/business-dna/business-dna.md` by the owner via the `!` prefix (commit `2b8df10`); `_musical_dna_needs_input()` now returns `False` in production. **Downstream MI wiring (items 3 / 4 / 6 of `docs/MUSICAL-DNA-V1-FINAL.md`) — DONE 2026-09-03, uncommitted:** (3) `_prompt` takes `musical_dna_needs_input`, DNA-defined branch drops the stale `NEEDS_INPUT` line; (4) `_rating_anchors()` + `_MUSIC_FIT_ANCHOR_DEFINED` judge the §9 house sound (instrumentation / energy / texture / vocal rule / sonority rejects / cluster expression), confidence uncapped; `_MUSIC_FIT_ANCHOR_NEEDS_INPUT` kept as the fallback; spec Appendix B.6 rewritten + §8.1 dim table / §15 / B.1 / test-spec line updated; (6) `reporting._collect_needs_input()` now collects every non-empty `blocked_by` (prose or token). **Item 5 (`_market_language_fit` / D-CS-9) still deferred** — the classification backlog it also cites is still `NEEDS_INPUT`. `src/cluster_strategy/` untouched. 629 tests green, ruff clean. |
 | **Value-engine weighting** | **DEFERRED** | Unchanged. `config/ranking.yaml` still `value_engine_weighting: NEEDS_INPUT` (comment expanded to record the deferral). Revisit only when: anchored evaluation runs exist **and** a run shows the equal-weighted axis count mis-ranking on value-engine grounds; or P1 performance data exists. No such evidence in the 3 C10 runs (owner notes cite asset fit / evidence / differentiation / compliance, never value-engine mix). Recorded in `docs/TECHNICAL-SPEC-V1.md` §23. |
 
-**Stage 4 (Page Blueprint) remains deferred (P4).** Its only gate — the owner-approved
-Musical DNA V1 in `knowledge/business-dna/business-dna.md` §9 — is now **met** (`2b8df10`).
-Rating Anchors, the Musical DNA MI wiring, and value-engine weighting do **not** gate
-Stage 4; it can begin when the owner chooses.
+**Stage 4 (Page Blueprint) is now OPEN and BUILT** (owner opened it 2026-09-04; D-PB-1 …
+D-PB-12 recorded; package built + tested). Rating Anchors, the Musical DNA MI wiring, and
+value-engine weighting did **not** gate it. See the **Page Blueprint (canonical stage 4)**
+section below. Value-engine weighting stays deferred.
 
 ## Completed
 
@@ -386,10 +484,11 @@ Per `docs/TECHNICAL-SPEC-V1.md` (the authoritative implementation spec):
 
 - **Scope:** `docs/TECHNICAL-SPEC-V1.md` covers canonical pipeline stages 1–2 only —
   `Market Intelligence → Opportunity Analysis → Opportunity Report` — run as one functional
-  workflow. Canonical **stage 3 (Cluster Strategy)** is implemented and merged as a separate
-  sibling package `src/cluster_strategy/` under its own contract
-  `docs/CLUSTER-STRATEGY-V1.md` (see the **Cluster Strategy (canonical stage 3)** section).
-  **Stages 4–13 remain out of scope / DEFERRED (P4)** (C7, C8).
+  workflow. Canonical **stage 3 (Cluster Strategy)** is a separate sibling package
+  `src/cluster_strategy/` under `docs/CLUSTER-STRATEGY-V1.md`; canonical **stage 4 (Page
+  Blueprint)** is a further sibling package `src/page_blueprint/` under
+  `docs/PAGE-BLUEPRINT-V1.md` (see the **Page Blueprint (canonical stage 4)** section).
+  **Stages 5–13 remain out of scope / DEFERRED (P4)** (C7, C8).
 - **Shape:** a deterministic sequential orchestrator over a **modular pipeline of specialized
   components** (I8) — Knowledge Loader → 1 Signal Collection → 2 Signal Normalization →
   3 Analysis/Framing → 4 Asset Matching → 5 Evaluation → 6 Ranking/Prioritization →
@@ -501,7 +600,23 @@ Not yet inventoried: Instagram and Facebook pages (`UNKNOWN`). Historical perfor
 
 ## Last Completed Step
 
-**Cluster Strategy V1 live validation + doc hygiene (2026-09-03).** After the PR #1 merge
+**Page Blueprint (stage 4) — governance + contract close-out (2026-09-07).** The stage-4
+package was already built and committed locally (`d471823`, 2026-09-04) but not
+canonically "open". This step closed that gap: (1) **D-PB-1 … D-PB-12** registered in
+`knowledge/DECISIONS-NEEDED.md` §6 (new "# 6. ESTÁGIO 4 — PAGE BLUEPRINT" section, P4 entry
+updated) — via the anchored-Python-script-through-Bash technique against the
+`guard-knowledge.sh` hook, hook never disabled; (2) `docs/PAGE-BLUEPRINT-V1.md` written —
+the formal contract, mirroring `docs/CLUSTER-STRATEGY-V1.md`'s structure and the section
+numbers the `src/page_blueprint/` code cites; (3) the stage-4 test suite made hermetic —
+the real live Cluster Strategy sidecar frozen as
+`tests/fixtures/page_blueprint/input/opp_2026-08-31_1bca4af972.json` and the 4 test files
+that read it repointed there (it was previously reading the untracked
+`reports/cluster-strategy/` file); (4) this file updated. **718 pytest tests green, ruff
+clean.** No production code, `CLAUDE.md`, `business-dna/*`, `cluster-taxonomy.md`,
+`guardrails.yaml`, the inventories, or any stage-1–3 file changed. Committed locally; **not
+pushed**.
+
+**Prior step — Cluster Strategy V1 live validation + doc hygiene (2026-09-03).** After the PR #1 merge
 (below), the stage was run once against the real Anthropic API on Run 1's advanced
 opportunity `opp_2026-08-31_1bca4af972` — see **Cluster Strategy (stage 3) → Live
 validation** above for the full result. Headline: `MAP_TO_EXISTING → limpeza-energetica`,
@@ -750,39 +865,40 @@ migration.
 
 ## Last Commit
 
-```
-8b711bd  docs: refresh session state after cluster strategy merge   (origin/main)
-```
-
-Refreshed this file after the PR #1 merge; single-file commit, pushed to `origin/main`.
-The Cluster Strategy V1 build itself is the prior commit `3084f50`
-(`feat: implement Cluster Strategy (canonical pipeline stage 3)`) — **merged to `main` on
-2026-09-03** via PR #1 (rebase merge, fast-forward; same content committed 2026-09-01 on
-branch `feat/cluster-strategy-stage-3` as `8ac61b9`, re-hashed by the rebase). That merge
-commit staged: `src/cluster_strategy/` (whole package),
-`config/cluster-strategy.example.yaml`, `docs/CLUSTER-STRATEGY-V1.md`,
-`tests/test_cluster_strategy_*.py` (11), `tests/fixtures/cluster_strategy*/` (6 dirs); and
-modified `knowledge/DECISIONS-NEEDED.md` (D-CS-1 … D-CS-12 in new §4; P4 entry —
-owner-authorised), `docs/TECHNICAL-SPEC-V1.md` (§17 one sentence), `docs/SESSION-STATE.md`.
-
-Recent history:
+**`main` is 14 commits ahead of `origin/main` (`8b711bd`) — nothing since the Cluster
+Strategy doc finalization has been pushed.** The owner pushes.
 
 ```
+d471823  wip(page-blueprint): implement + test Stage 4 module (decision + contract pending)
+64592cb  docs(session-state): reconcile with actual commit state; identify Stage 4 gap
+2fbf55e  docs(omr03): record Run 2 — Anthropic billing block still present
+f3aa4cb  test(omr03): add harness/metrics tests and benchmark README
+a7ba147  docs(omr03): add benchmark run results and report
+6f9f1eb  feat(omr03): add isolated Normalization benchmark harness
+3114e17  feat(omr03): add Normalization benchmark dataset and ground truth
+ca95573  docs(decisions): register OMR-03 threshold policy
+31fb408  docs(decisions): record OMR-02 routing policy
+60c78f0  feat(external-llm-gateway): add isolated OmniRoute adapter
+4949f65  feat(market-intelligence): wire owner-approved Musical DNA V1
+2b8df10  docs(knowledge): transfer owner-approved Musical DNA V1 into business-dna §9
+1890c3e  docs: formalize owner-approved Musical DNA V1
+53de7f0  feat: add MI rating anchors and musical DNA input prep
+083c554  docs: finalize cluster strategy documentation
 8b711bd  docs: refresh session state after cluster strategy merge      (origin/main)
-3084f50  feat: implement Cluster Strategy (canonical pipeline stage 3)
-39fe464  chore: validate V1 through C10 gate
-ac117d6  chore: record C10 validation Run 1 (run_2026-08-31_01)
-1c6a0ca  feat: carry evaluation red flags into the excluded/parked artifacts
-6f9060e  feat: harden V1 for live end-to-end and add the C10 gate checker
-5d9781f  fix: harden evaluation failures and structured output schema
-f1e0100  test: preserve live framing replay fixture
-f57d4c7  fix: harden framing and preserve live run replay fixture
-9b06f77  fix: run Web Search structuring at effort=low
 ```
 
-**Uncommitted (this doc-hygiene change, 2026-09-03):** `docs/CLUSTER-STRATEGY-V1.md` (§12
-worked example: `opportunity_lifecycle_state` `TEST` → `EXPLORE`) and `docs/SESSION-STATE.md`
-(this refresh). Nothing else tracked is modified.
+The three groups in those 14 commits: the **quality phase** (`53de7f0` … `4949f65` —
+Rating Anchors + Musical DNA V1 transfer + MI wiring), the **External LLM Gateway**
+parallel track (`60c78f0` … `2fbf55e` — OMR-01/02/03, non-blocking, no pipeline stage
+touched), and **Stage 4 Page Blueprint** (`d471823` package + tests; plus the follow-up
+docs/decision commit this session makes — `docs/PAGE-BLUEPRINT-V1.md`,
+`knowledge/DECISIONS-NEEDED.md` §6 D-PB-1…12, this file, the frozen input fixture).
+
+**Uncommitted (this close-out change, 2026-09-07):** `docs/PAGE-BLUEPRINT-V1.md` (new),
+`knowledge/DECISIONS-NEEDED.md` (D-PB-1 … D-PB-12 in new §6; P4 entry — owner-authorised),
+`docs/SESSION-STATE.md` (this refresh), `tests/fixtures/page_blueprint/input/opp_2026-08-31_1bca4af972.json`
+(new — frozen stage-3 sidecar), and 4 `tests/test_page_blueprint_*.py` files repointed to
+it. Nothing else tracked is modified.
 
 **Untracked — the four intentionally-excluded owner files, none ever to be committed:**
 
@@ -796,34 +912,64 @@ worked example: `opportunity_lifecycle_state` `TEST` → `EXPLORE`) and `docs/SE
 
 **Untracked — live validation output:** `reports/cluster-strategy/opp_2026-08-31_1bca4af972.{md,json}`
 from the 2026-09-03 live run. Left uncommitted (a validation run on the example config,
-not a committed stage-3 deliverable).
+not a committed stage-3 deliverable). The stage-4 test suite does **not** read these — it
+reads a byte copy frozen at `tests/fixtures/page_blueprint/input/` (committed).
 
 **`CLAUDE.md`, `knowledge/business-dna/*`, `knowledge/clusters/cluster-taxonomy.md`,
-`knowledge/rules/guardrails.yaml`, the inventories, and all stage-1–2 and
-`src/cluster_strategy/` code are untouched.**
+`knowledge/rules/guardrails.yaml`, the inventories, and all stage-1–3 code
+(`src/market_intelligence/`, `src/cluster_strategy/`, `src/external_llm_gateway/`) are
+untouched by the Stage 4 work.**
 
 ## Current Repository State
 
 - **Branch:** `main`
 - **Remote:** `origin` → `https://github.com/divinetonesmusic-spec/ai-music-media-engine.git` (PRIVATE)
-- **Relation to `origin/main`:** local `HEAD` = `origin/main` = **`8b711bd`**. Two tracked
-  doc files are modified locally and **not yet committed** (the doc-hygiene change above).
+- **Relation to `origin/main`:** `origin/main` = **`8b711bd`**; local `HEAD` is **14 commits
+  ahead** (quality phase + External LLM Gateway + Stage 4 `d471823`), plus the Stage 4
+  close-out commit this session adds (15 ahead after it). **Nothing pushed since `8b711bd`
+  — the owner pushes.**
 - **PR #1** (`feat: Cluster Strategy — canonical pipeline stage 3`): **MERGED** (2026-09-03).
-  The `feat/cluster-strategy-stage-3` branch was deleted locally and remotely.
-- **Working tree:** `docs/CLUSTER-STRATEGY-V1.md` + `docs/SESSION-STATE.md` modified
-  (uncommitted); the four intentionally-untracked owner files; the untracked
-  `reports/cluster-strategy/` live output. `.venv/`, `/data/` and Python artifacts are
-  git-ignored; tests write only under pytest `tmp_path`; no test touches the network.
+  The `feat/cluster-strategy-stage-3` branch was deleted locally and remotely. No PR open
+  for the 14–15 unpushed commits.
+- **Working tree (this close-out):** `docs/PAGE-BLUEPRINT-V1.md` (new),
+  `knowledge/DECISIONS-NEEDED.md` (§6 + P4), `docs/SESSION-STATE.md` (this refresh),
+  `tests/fixtures/page_blueprint/input/opp_2026-08-31_1bca4af972.json` (new), 4
+  `tests/test_page_blueprint_*.py` repointed. Plus the four intentionally-untracked owner
+  files and the untracked `reports/cluster-strategy/` live output. `.venv/`, `/data/` and
+  Python artifacts are git-ignored; tests write only under pytest `tmp_path`; no test
+  touches the network.
 - **Local runtime:** Python 3.12.14 in `.venv/`; `pip install -e ".[dev]"` (PyYAML,
-  anthropic, pytest, ruff). **617 tests green**, `ruff check src tests` clean.
+  anthropic, httpx, pytest, ruff). **718 tests green**, `ruff check src tests` clean.
 
 ## Next Action
 
 **Stages 1–2 are done and C10-validated (`39fe464`, pushed). Stage 3 (Cluster Strategy) is
-COMPLETE, MERGED (`3084f50`, PR #1), live-validated (2026-09-03) and now frozen / closed.
-Canonical stages 4–13 remain DEFERRED (P4) — do not build them.**
+COMPLETE, MERGED (`3084f50`, PR #1), live-validated (2026-09-03), frozen / closed. Stage 4
+(Page Blueprint) is OPEN (D-PB-1 … D-PB-12) and BUILT (`src/page_blueprint/`, 68 tests,
+contract `docs/PAGE-BLUEPRINT-V1.md`), committed locally, NOT pushed. Canonical stages
+5–13 remain DEFERRED (P4) — do not build them.**
 
-**The quality phase is in progress (see the Quality phase section above).**
+**No coding milestone is currently unblocked and pending.** The open items are all owner
+actions:
+
+- **A. Push.** `main` is 14–15 commits ahead of `origin/main` (`8b711bd`): the quality
+  phase, the External LLM Gateway track, and Stage 4. None pushed. The owner decides
+  whether to push directly or via a PR.
+- **B. Anthropic billing.** The confirmatory live Market Intelligence run (quality-phase
+  item 1) and a first live Page Blueprint run both need the Anthropic account's credit
+  balance restored. Re-confirmed exhausted 2026-09-04. An owner action — no session works
+  around it.
+- **C. Stage 4 live validation.** Once (B) is resolved: run
+  `./.venv/bin/python -m page_blueprint reports/cluster-strategy/<opportunity_id>.json
+  --config config/page-blueprint.example.yaml --project-root .` with `ANTHROPIC_API_KEY`
+  in the environment (Keychain-sourced). Check the transform against the recorded-replay
+  fixture: page identity synthesised, visual identity cites a real §9.9 phrase, asset
+  carried verbatim, confidence clamped, no score, `knowledge/` untouched.
+- **D. Stage 5 (Content Strategy) stays DEFERRED under P4** — needs its own explicit
+  owner opening decision (a "D-CT-1", mirroring D-CS-1 / D-PB-1) before any code or
+  detailed design. Do not build or design it.
+
+Quality-phase / OMR history (all committed locally, not pushed):
 
 1. **Rating Anchors — DONE (2026-09-03), committed `53de7f0` (not pushed).**
    `docs/TECHNICAL-SPEC-V1.md` Appendix B + a condensed block in `evaluation._prompt` +
@@ -865,16 +1011,13 @@ Canonical stages 4–13 remain DEFERRED (P4) — do not build them.**
    `benchmark/omr03/REPORT.md`. **No further OMR-03 work is planned until (a) Anthropic
    billing is resolved by the owner and (b) a larger, independently-reviewed dataset
    exists — both are owner-scale efforts, not a next coding step.**
-5. **Stage 4 (Page Blueprint) — technical gate met, opening decision NOT yet made.**
-   Its only technical precondition (Musical DNA §9) is satisfied. But P4 explicitly keeps
-   canonical stages 4–13 `DEFERRED` and states "a new session must not build them" — the
-   same barrier Stage 3 had until the owner explicitly opened it via **D-CS-1**
-   (2026-09-01). **No equivalent opening decision for Stage 4 exists yet.** Per Engineering
-   Rule #7/#8, building Stage 4 (or drafting its architecture) without that decision would
-   be building ahead of a validated, owner-authorized scope. **This is the next item on
-   the canonical pipeline's critical path (C8) — it needs the owner to explicitly open
-   Stage 4 (a "D-PB-1"-style decision, mirroring D-CS-1) before any code or detailed design
-   work begins.**
+5. **Stage 4 (Page Blueprint) — OPENED and BUILT (2026-09-04 / 2026-09-07).** The owner
+   explicitly opened stage 4 ("equivalente ao padrão D-CS-1"); **D-PB-1 … D-PB-12** are
+   recorded in `knowledge/DECISIONS-NEEDED.md` §6, P4 updated. Package
+   `src/page_blueprint/` + 68 tests committed `d471823`; contract
+   `docs/PAGE-BLUEPRINT-V1.md`, the D-PB decisions, this file, and the frozen input
+   fixture are the follow-up close-out commit. **718 tests green, ruff clean.** See the
+   **Page Blueprint (canonical stage 4)** section above. Not yet run live (item B).
 
 The optional live Cluster Strategy run was **done** (2026-09-03) — `MAP_TO_EXISTING →
 limpeza-energetica`, lifecycle `EXPLORE` preserved, `write_registry_link: false` so
@@ -890,6 +1033,11 @@ in the environment (Keychain-sourced; `run-live.sh` itself is hardcoded to
 **How to run stage 3 (offline):** `./.venv/bin/python -m cluster_strategy
 reports/run_2026-08-31_01/opp_2026-08-31_1bca4af972.json --config
 <a config with replay.enabled: true> --project-root .`
+**How to run stage 4 (offline):** `./.venv/bin/python -m page_blueprint
+<a ClusterStrategy sidecar .json with recommendation.target_next_stage == PAGE_BLUEPRINT>
+--config <a page-blueprint config with replay.enabled: true> --project-root .` — the
+committed replay fixture set is `tests/fixtures/page_blueprint/` over the frozen input
+`tests/fixtures/page_blueprint/input/opp_2026-08-31_1bca4af972.json`.
 
 ## Open Issues
 
@@ -999,8 +1147,16 @@ recorded in `knowledge/DECISIONS-NEEDED.md` §4 with the P4 entry updated (this 
 edited that file under an explicit owner authorisation; the `guard-knowledge` hook was
 bypassed via a script for that one edit only, not disabled). D1's substance is unchanged:
 no 0–100 score (C6); no LAUNCH/SCALE/KILL operationally (I2); the Opportunity Report
-contract (I4) untouched; and stages 4–13 stay DEFERRED. Cluster Strategy V1 keeps the
-established V1 boundary (D-CS-8) — it does not build page design or a content system.
+contract (I4) untouched.
+
+**Update (2026-09-04 / 2026-09-07).** The owner then opened **canonical stage 4 (Page
+Blueprint) only** and decided D-PB-1 … D-PB-12, recorded in
+`knowledge/DECISIONS-NEEDED.md` §6 with the P4 entry updated (again via the
+anchored-script-through-Bash technique against `guard-knowledge.sh`, hook never disabled,
+under explicit owner authorisation). D1's substance is still unchanged: Page Blueprint
+keeps the established V1 boundary (D-PB-2/D-PB-6) — page identity + visual identity + a
+shallow page-level content framing, **no content system**; no 0–100 score (D-PB-5); the
+asset carried verbatim from Cluster Strategy (D-PB-3). **Stages 5–13 stay DEFERRED.**
 
 **Verified 2026-08-31 that the current code still obeys the contract** (see
 `pytest -q` / `ruff` / `preflight`, all green; and the checks in **Last Completed Step**):
@@ -1077,14 +1233,15 @@ Explicitly deferred — a new session must **not** implement these prematurely:
 - **P3** — real-time data integrations / paid APIs beyond the four V1 sources.
 - **P4** — pipeline stages 3–13 (Cluster Strategy → Learning). **Stage 3 (Cluster Strategy)
   is DONE, MERGED and LIVE-VALIDATED** (merged 2026-09-03, PR #1, `3084f50`; one real
-  Anthropic run 2026-09-03 → `MAP_TO_EXISTING → limpeza-energetica`, lifecycle `EXPLORE`
-  preserved, deterministic validation clean): C10 passed and is recorded (`39fe464`); the
-  owner opened stage 3 via **D-CS-1** and decided **D-CS-1 … D-CS-12**, all recorded in
-  `knowledge/DECISIONS-NEEDED.md` §4 ("# 4. ESTÁGIO 3 — CLUSTER STRATEGY") with the P4
-  entry updated. **Stages 4–13 stay DEFERRED under P4 — a new session must not build
-  them.** Stage 4 (Page Blueprint)'s only *technical* precondition (Musical DNA §9) is
-  now satisfied (2026-09-04), but **no equivalent opening decision to D-CS-1 exists for
-  Stage 4** — a new session must not start building or designing it without one.
+  Anthropic run 2026-09-03 → `MAP_TO_EXISTING → limpeza-energetica`): C10 passed and is
+  recorded (`39fe464`); the owner opened stage 3 via **D-CS-1** and decided **D-CS-1 …
+  D-CS-12** (`DECISIONS-NEEDED.md` §4). **Stage 4 (Page Blueprint) is DONE and OPEN** —
+  the owner opened it 2026-09-04, **D-PB-1 … D-PB-12** are recorded in
+  `knowledge/DECISIONS-NEEDED.md` §6 with the P4 entry updated ("estágios 3–4 abertos;
+  estágios 5–13 seguem DEFERRED"), and `src/page_blueprint/` + `docs/PAGE-BLUEPRINT-V1.md`
+  are built + committed locally (not run live yet — Anthropic billing). **Stages 5–13 stay
+  DEFERRED under P4 — a new session must not build or design them without an explicit
+  owner opening decision (a "D-CT-1" for Stage 5, mirroring D-CS-1 / D-PB-1).**
 - **P5** — multi-agent orchestration.
 - **P6** — formal new-cluster governance (V1 only proposes a cluster as a hypothesis).
 - **P7** — cross-run dashboards / trend-tracking UI.
@@ -1118,14 +1275,18 @@ Explicitly deferred — a new session must **not** implement these prematurely:
    directory). This does **not** apply to the pipeline package itself (`src/market_intelligence/`),
    which is the V1 deliverable and is tracked.
 7. **V1 stages 1–2 are complete, C10-validated, committed and pushed (`39fe464`). Stage 3
-   (Cluster Strategy) is complete, merged (`3084f50`, PR #1), live-validated (2026-09-03)
-   and frozen / closed.** Stages 4–13 stay deferred (P4). The current work is the **quality
-   phase** (see the **Quality phase** section and **Next Action**): Rating Anchors
-   (implemented, MI-only, committed `53de7f0`), Musical DNA V1 (owner-approved 2026-09-03,
-   §9 transferred `2b8df10`, MI wiring items 3 / 4 / 6 done 2026-09-03 uncommitted),
-   value-engine weighting (deferred). Do **not** modify `src/cluster_strategy/`. Set up the
-   environment first: `python3.12 -m venv .venv && ./.venv/bin/python -m pip install -e
-   ".[dev]"`, then `./.venv/bin/python -m pytest` and `./.venv/bin/ruff check src tests`
-   should be green, and
+   (Cluster Strategy) is complete, merged (`3084f50`, PR #1), live-validated (2026-09-03),
+   frozen / closed. Stage 4 (Page Blueprint) is OPEN (D-PB-1 … D-PB-12,
+   `DECISIONS-NEEDED.md` §6) and BUILT (`src/page_blueprint/`, contract
+   `docs/PAGE-BLUEPRINT-V1.md`, 68 tests) — committed locally, NOT pushed, not yet run
+   live.** Stages 5–13 stay deferred (P4) — no new stage without an explicit owner opening
+   decision. The quality phase is CLOSED; the External LLM Gateway (OMR) track is a
+   parallel, non-blocking, complete-for-now effort (`DECISIONS-NEEDED.md` §5). Do **not**
+   modify `src/market_intelligence/`, `src/cluster_strategy/`, `src/external_llm_gateway/`,
+   or `src/page_blueprint/` without an explicit instruction. The main open items are owner
+   actions (**Next Action** A–D): push the 14–15 unpushed commits, restore Anthropic
+   billing, run Stage 4 live. Set up the environment first: `python3.12 -m venv .venv &&
+   ./.venv/bin/python -m pip install -e ".[dev]"`, then `./.venv/bin/python -m pytest`
+   (**718 green**) and `./.venv/bin/ruff check src tests` (clean), and
    `./.venv/bin/python -m market_intelligence run config/run.pipeline.replay.example.yaml`
    should print `RUN OK`.

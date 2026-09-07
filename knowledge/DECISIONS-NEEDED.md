@@ -67,7 +67,7 @@ Os IDs mantêm rastreabilidade com a revisão crítica do `CLAUDE.md`.
 | P1 | Loop de calibração do score com dados reais | POSTERGÁVEL | DEFERRED (2026-08-27) | Proprietário + Arquitetura |
 | P2 | Transições automáticas / autonomia L2–L3 | POSTERGÁVEL | DEFERRED (2026-08-27) | Proprietário |
 | P3 | Integrações de dados em tempo real / APIs pagas | POSTERGÁVEL | DEFERRED (2026-08-27) | Proprietário + Arquitetura |
-| P4 | Estágios seguintes do pipeline | POSTERGÁVEL | DEFERRED (2026-08-27) — estágio 3 (Cluster Strategy) aberto 2026-09-01 (ver D-CS-1); estágios 4–13 seguem DEFERRED | Proprietário |
+| P4 | Estágios seguintes do pipeline | POSTERGÁVEL | DEFERRED (2026-08-27) — estágios 3 (Cluster Strategy) e 4 (Page Blueprint) abertos 2026-09-01 / 2026-09-04 (ver D-CS-1, D-PB-1); estágios 5–13 seguem DEFERRED | Proprietário |
 | P5 | Orquestração multi-agente | POSTERGÁVEL | DEFERRED (2026-08-27) | Arquitetura |
 | P6 | Governança de criação de cluster novo | POSTERGÁVEL | DEFERRED (2026-08-27) | Proprietário + Arquitetura |
 | P7 | Dashboards / tracking entre runs | POSTERGÁVEL | DEFERRED (2026-08-27) | Arquitetura |
@@ -86,6 +86,18 @@ Os IDs mantêm rastreabilidade com a revisão crítica do `CLAUDE.md`.
 | D-CS-10 | Ponderação de value engine no estágio 3 | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura + Proprietário |
 | D-CS-11 | Tratamento de schema_version | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura |
 | D-CS-12 | Reconciliação de nomes do pipeline (C8) | ESTÁGIO 3 | DECIDED (2026-09-01) | Arquitetura |
+| D-PB-1 | Abertura do estágio 4 (Page Blueprint) | ESTÁGIO 4 | DECIDED (2026-09-04) | Proprietário |
+| D-PB-2 | Fronteira do estágio 4 × Business DNA V1 §11–§13 | ESTÁGIO 4 | DECIDED (2026-09-04) | Proprietário + Arquitetura |
+| D-PB-3 | Herança verbatim do ativo do Cluster Strategy | ESTÁGIO 4 | DECIDED (2026-09-04) | Proprietário + Arquitetura |
+| D-PB-4 | Escopo de consumo do DNA musical §9 (identidade visual / tom de voz) | ESTÁGIO 4 | DECIDED (2026-09-04) | Proprietário + Arquitetura |
+| D-PB-5 | Modelo de avaliação/confiança do estágio 4; sem dimensões; sem status persistente | ESTÁGIO 4 | DECIDED (2026-09-04) | Arquitetura + Proprietário |
+| D-PB-6 | Profundidade do content framing (pilares de página apenas) | ESTÁGIO 4 | DECIDED (2026-09-04) | Proprietário + Arquitetura |
+| D-PB-7 | Gatilho de entrada no Page Blueprint | ESTÁGIO 4 | DECIDED (2026-09-04) | Proprietário + Arquitetura |
+| D-PB-8 | Local de saída / digest do estágio 4 | ESTÁGIO 4 | DECIDED (2026-09-04) | Arquitetura |
+| D-PB-9 | Ausência de escrita em `knowledge/` (contraste com D-CS-7) | ESTÁGIO 4 | DECIDED (2026-09-04) | Proprietário + Arquitetura |
+| D-PB-10 | Rodar com DNA musical NEEDS_INPUT (caminho de fallback) | ESTÁGIO 4 | DECIDED (2026-09-04) | Proprietário + Arquitetura |
+| D-PB-11 | Tratamento de schema_version | ESTÁGIO 4 | DECIDED (2026-09-04) | Arquitetura |
+| D-PB-12 | Reconciliação de nomes do pipeline (C8) | ESTÁGIO 4 | DECIDED (2026-09-04) | Arquitetura |
 | OMR-01 | External LLM Gateway — isolated adapter | GATEWAY EXTERNO (OMR) | DECIDED (2026-09-04) — adapter isolado implementado; integração com o pipeline NÃO aprovada | Proprietário + Arquitetura |
 | OMR-02 | External Model Use Cases & Routing Policy | GATEWAY EXTERNO (OMR) | DECIDED (2026-09-04) — política de routing aprovada; nenhuma integração de stage aprovada | Proprietário + Arquitetura |
 | OMR-03 | Normalization Benchmark — Threshold Policy V1 | GATEWAY EXTERNO (OMR) | DECIDED (2026-09-04) — critérios de aprovação pré-registrados; benchmark/dataset/integração NÃO aprovados | Proprietário + Arquitetura |
@@ -1313,7 +1325,7 @@ agora.
 - **Opções possíveis:** definir na revisão pós-V1.
 - **Recomendação:** não abrir antes de C10 ser atendido.
 - **Quem precisa decidir:** Proprietário.
-- **Status:** DEFERRED (2026-08-27) — estágio 3 (Cluster Strategy) aberto 2026-09-01 (ver D-CS-1); estágios 4–13 seguem DEFERRED
+- **Status:** DEFERRED (2026-08-27) — estágios 3 (Cluster Strategy) e 4 (Page Blueprint) abertos 2026-09-01 / 2026-09-04 (ver D-CS-1, D-PB-1); estágios 5–13 seguem DEFERRED
 - **Resultado:**
 
   Formalizada como DEFERRED pelo proprietário do negócio (Nicolas Alves) em 2026-08-27, com
@@ -1329,6 +1341,14 @@ agora.
   Blueprint, Content Strategy, Content Production, Video Engine, Audio Engine, Quality
   Control, Publishing, Analytics, Optimization, Learning) permanecem DEFERRED sob esta P4 e
   serão revisitados na revisão pós-V1, quando aplicável.
+
+  **Atualização (2026-09-04):** o proprietário do negócio (Nicolas Alves) autorizou a
+  abertura do **estágio 4 — Page Blueprint** do pipeline canônico (C8), e somente dele
+  ("equivalente ao padrão D-CS-1"). Ver a seção "# 6. ESTÁGIO 4 — PAGE BLUEPRINT"
+  (D-PB-1 … D-PB-12) e o contrato `docs/PAGE-BLUEPRINT-V1.md`. Os estágios 5–13 (Content
+  Strategy, Content Production, Video Engine, Audio Engine, Quality Control, Publishing,
+  Analytics, Optimization, Learning) permanecem DEFERRED sob esta P4 e serão revisitados
+  na revisão pós-V1, quando aplicável.
 
 ---
 
@@ -2080,6 +2100,290 @@ comportamento "Claude only" (I10, CLAUDE.md §12) permanece integralmente em vig
 
   A construção do dataset e do harness isolado do Normalization Benchmark permanecem
   **não aprovados** — dependem de decisões próprias e futuras.
+
+# 6. ESTÁGIO 4 — PAGE BLUEPRINT
+
+As decisões **D-PB-1 a D-PB-12** foram tomadas pelo proprietário do negócio (Nicolas
+Alves) em **2026-09-04**, com autorização explícita para abrir o **estágio 4 do pipeline
+canônico (C8) — Page Blueprint** — e somente ele ("Fica explicitamente autorizado o início
+do Stage 4 — Page Blueprint … equivalente ao padrão D-CS-1"). O estágio 3 (Cluster
+Strategy) já está construído, mesclado e validado ao vivo (PR #1); sua saída — o sidecar
+`ClusterStrategy` — é o contrato de entrada deste estágio. Os estágios 5–13 permanecem
+DEFERRED sob a P4.
+
+A única precondição técnica do estágio 4 — um DNA musical §9 aprovado pelo proprietário em
+`knowledge/business-dna/business-dna.md` — está **atendida** (transferida pelo proprietário,
+commit `2b8df10`).
+
+O contrato completo do estágio está em `docs/PAGE-BLUEPRINT-V1.md`. Onde este arquivo e uma
+decisão DECIDED (C1–C10 / I1–I12 / D-CS-1–D-CS-12) divergirem, a decisão prevalece.
+
+## D-PB-1 — Abertura do estágio 4 (Page Blueprint)
+
+- **Problema:** a P4 mantém os estágios 4–13 como DEFERRED; o próprio registro da D-CS-1
+  nomeia "Page Blueprint" entre eles. Construir o estágio 4 depende de uma decisão explícita
+  do proprietário para abrir o estágio.
+- **Por que isso importa:** abrir um estágio postergável sem autorização registrada quebra a
+  ordem de autoridade (`DECISIONS-NEEDED.md` > spec > `CLAUDE.md`).
+- **Decisão necessária:** autorizar a abertura do estágio 4 — e somente dele.
+- **Opções possíveis:**
+  - (a) abrir apenas o estágio 4;
+  - (b) abrir os estágios 4–5 em conjunto;
+  - (c) manter DEFERRED até uma revisão pós-V1 mais ampla.
+- **Recomendação:** (a). Escopo restrito ao Page Blueprint; os estágios 5–13 seguem
+  DEFERRED sob a P4.
+- **Quem precisa decidir:** Proprietário.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  O **estágio 4 (Page Blueprint)** do pipeline canônico (C8) está aberto para implementação.
+  Somente o estágio 4 é aberto; os estágios 5–13 (Content Strategy, Content Production,
+  Video Engine, Audio Engine, Quality Control, Publishing, Analytics, Optimization,
+  Learning) permanecem DEFERRED sob a P4. A implementação segue o contrato
+  `docs/PAGE-BLUEPRINT-V1.md` e as decisões D-PB-2 … D-PB-12 abaixo. A autonomia permanece
+  no Nível 1 (o sistema recomenda; o humano aprova e executa).
+
+## D-PB-2 — Fronteira do estágio 4 vs Business DNA V1 §11–§13
+
+- **Problema:** o Business DNA V1 §11 coloca *linguagem, estética, conteúdo e CTA* em
+  "Cluster Strategy"; o §12 dá ao Page Blueprint "pilares de conteúdo dessa página"; o C8 e
+  a D-CS-8 separam identidade visual (estágio 4) do sistema de conteúdo (estágio 5).
+  Divergência direta de documento.
+- **Por que isso importa:** determina o que o estágio 4 entrega e o que ele deixa para o
+  estágio 5.
+- **Decisão necessária:** confirmar a fronteira do estágio 4.
+- **Opções possíveis:** seguir o Business DNA V1 §11–§13 literal; confirmar a fronteira V1
+  estabelecida.
+- **Recomendação:** confirmar a fronteira V1 estabelecida.
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  Page Blueprint = identidade da página + identidade visual + tom de voz + um enquadramento
+  de conteúdo raso, em nível de página. O sistema de conteúdo (formatos, hooks, estruturas,
+  copy de CTA, regras linguísticas/visuais de produção, calendário) é o estágio 5 (Content
+  Strategy). O `AI Music Media Engine — Business DNA V1.md` é documento de visão estratégica
+  e não supersede as decisões DECIDED (C6, I2, C7–C8, I4, D-CS-8).
+
+## D-PB-3 — Herança verbatim do ativo do Cluster Strategy
+
+- **Problema:** o Business DNA V1 §12 diz que o Page Blueprint "escolhe playlist e artista
+  associados"; a I5 e a D-CS-8 já fazem o Cluster Strategy carregar a decisão de ativo do
+  `AssetMatch` (reúso de playlist / recomendação de página) adiante.
+- **Por que isso importa:** re-decidir o ativo no estágio 4 duplica o julgamento (I5) e abre
+  espaço para o estágio 4 contradizer o estágio 3.
+- **Decisão necessária:** o Page Blueprint re-decide o ativo (página/playlist/artista) ou o
+  carrega?
+- **Opções possíveis:** re-decidir; carregar verbatim.
+- **Recomendação:** carregar verbatim.
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  O `PageAssetLink` embute o objeto `PageStrategy` do estágio 3 por construção; os ids vêm
+  diretamente de `ClusterStrategy.asset_strategy`. O Claude recebe o ativo como contexto
+  ("reference only, never re-decide"), nunca como escolha. O Page Blueprint nunca re-julga
+  se uma página nova se justifica (I5) nem qual ativo ancora a página. Uma nota fixa
+  (`asset_inheritance_note`) viaja em todo `PageAssetLink`, verificada byte-a-byte.
+
+## D-PB-4 — Escopo de consumo do DNA musical §9
+
+- **Problema:** o §9 (agora aprovado pelo proprietário) tem tanto um princípio de "house
+  sound" / expressão sônica por cluster (§9.9) quanto detalhe de instrumentação, BPM, uso de
+  frequências e critérios de rejeição de sonoridade. O Page Blueprint precisa do primeiro; o
+  segundo é do Audio Engine (estágio 8).
+- **Por que isso importa:** sem um limite, o estágio 4 invade o estágio 8 e a identidade
+  visual passa a depender de detalhe que não é seu.
+- **Decisão necessária:** quanto do §9 o Page Blueprint consome.
+- **Opções possíveis:** consumir o §9 inteiro; consumir apenas o princípio de house sound +
+  a expressão §9.9 do cluster.
+- **Recomendação:** apenas o princípio de house sound + a expressão §9.9 do cluster.
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  A identidade visual e o tom de voz se ancoram **apenas** no princípio de house sound e na
+  expressão §9.9 do cluster; `musical_dna_expression_used` deve citar a frase §9.9 usada
+  (campo obrigatório, não vazio — validado). Instrumentação, BPM, frequências e critérios de
+  sonoridade não são lidos. O caminho de fallback para §9 `NEEDS_INPUT` (confiança ≤ MEDIUM
+  + nota `blocked_by`) é mantido no código (ver D-PB-10).
+
+## D-PB-5 — Modelo de avaliação/confiança do estágio 4
+
+- **Problema:** o C9 fixa as 10 dimensões *da oportunidade*; a D-CS-4 fixa 4 dimensões *da
+  estratégia de cluster*. Não há modelo decidido para um page blueprint.
+- **Por que isso importa:** sem um modelo fixo, cada run pode inventar dimensões e o estágio
+  pode se apresentar como uma reavaliação que ele não é.
+- **Decisão necessária:** o conjunto de dimensões/confiança do Page Blueprint e se há
+  `status` persistente por página.
+- **Opções possíveis:** reaproveitar as 4 dimensões do estágio 3; um conjunto próprio; uma
+  única confiança sem rubrica.
+- **Recomendação:** uma única confiança qualitativa, sem rubrica multidimensional.
+- **Quem precisa decidir:** Arquitetura + Proprietário.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  O Page Blueprint tem **uma** `overall_confidence` qualitativa (`LOW`/`MEDIUM`/`HIGH`), sem
+  rubrica por dimensão — ele sintetiza a partir de uma estratégia já avaliada e não reavalia
+  nada. A confiança é fixada deterministicamente em `min(confiança_do_modelo,
+  ClusterStrategy.overall_confidence)` e limitada a MEDIUM enquanto o §9 estiver
+  `NEEDS_INPUT`; a síntese nunca aumenta a confiança. Sem score 0–100 (C6). Sem campo
+  `status` persistente: uma reexecução sobrescreve `reports/page-blueprint/<opportunity_id>.*`
+  (idempotente).
+
+## D-PB-6 — Profundidade do content framing no estágio 4
+
+- **Problema:** o Business DNA V1 §12 lista "pilares de conteúdo dessa página"; o sistema de
+  conteúdo é o §13 / estágio 5. Sem uma linha, o estágio 4 invade o estágio 5.
+- **Por que isso importa:** define quanto de conteúdo o estágio 4 produz.
+- **Decisão necessária:** o quanto de enquadramento de conteúdo o estágio 4 produz.
+- **Opções possíveis:** raso (pilares amplos + plataformas + cadência qualitativa); médio (+
+  formatos); profundo (sistema de conteúdo).
+- **Recomendação:** raso.
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  Raso. `content_pillars` = 3–5 pilares **temáticos amplos** para esta página apenas;
+  `platforms`; uma `posting_cadence` **qualitativa** (ex.: "3–4x por semana"). Nada de
+  formatos, hooks, estruturas, copy de CTA, regras linguísticas/visuais de produção,
+  calendário, tamanhos de lote ou templates. `> 5` pilares → WARNING suave; `0` → erro.
+
+## D-PB-7 — Gatilho de entrada no Page Blueprint
+
+- **Problema:** nem o spec nem o Business DNA V1 definem como uma estratégia de cluster é
+  encaminhada ao estágio 4.
+- **Por que isso importa:** a autonomia L1 e o controle de volume (I12) implicam seleção
+  humana; sem um gatilho explícito o estágio pode rodar em lote.
+- **Decisão necessária:** quais estratégias entram no Page Blueprint e como o estágio é
+  invocado.
+- **Opções possíveis:**
+  - (a) CLI explícita, por oportunidade, invocada pelo proprietário, com gate
+    `target_next_stage == PAGE_BLUEPRINT` no `ClusterStrategy` de entrada;
+  - (b) execução automática sobre todo `ClusterStrategy` produzido;
+  - (c) execução em lote sob regras.
+- **Recomendação:** (a).
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  Gatilho explícito, por oportunidade, invocado pelo proprietário via CLI
+  (`python -m page_blueprint reports/cluster-strategy/<opportunity_id>.json`). O estágio
+  recusa a execução a menos que `recommendation.target_next_stage == PAGE_BLUEPRINT` no
+  `ClusterStrategy` de entrada (além dos gates de `schema_version`, decisão de cluster e
+  presença das três seções de estratégia). Não há execução automática nem em lote (autonomia
+  L1; I12).
+
+## D-PB-8 — Local de saída e digest do estágio 4
+
+- **Problema:** a I7 (`reports/` = durável) se aplica; o caminho exato e se o estágio 4
+  emite um digest não estavam definidos.
+- **Por que isso importa:** consistência de saída entre estágios.
+- **Decisão necessária:** local de saída e existência de digest.
+- **Opções possíveis:** `reports/page-blueprint/<opportunity_id>.{md,json}` sem digest; com
+  digest por run.
+- **Recomendação:** `reports/page-blueprint/<opportunity_id>.{md,json}`, sem digest.
+- **Quem precisa decidir:** Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  `reports/page-blueprint/<opportunity_id>.md` + `.json`. **Sem digest** no V1 do estágio 4
+  (uma oportunidade por vez); o relatório é o entregável.
+
+## D-PB-9 — Ausência de escrita em `knowledge/` (contraste com D-CS-7)
+
+- **Problema:** o Cluster Strategy recebeu um append opt-in em `opportunity-registry.yaml`
+  (D-CS-7). A questão é se o estágio 4 precisa de equivalente.
+- **Por que isso importa:** cada caminho de escrita em `knowledge/` é uma exceção de
+  governança (spec §17) e precisa ser explícito.
+- **Decisão necessária:** o Page Blueprint escreve em `knowledge/`?
+- **Opções possíveis:** append opt-in análogo ao D-CS-7; nenhum caminho de escrita.
+- **Recomendação:** nenhum caminho de escrita.
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  O Page Blueprint **não tem** caminho de escrita em `knowledge/` — nem opt-in. Ele lê
+  `knowledge/` e escreve somente em `reports/page-blueprint/`. O vínculo com o registry
+  continua sendo assunto do estágio 3. Um run normal, offline ou ao vivo deixa `knowledge/`
+  intocado.
+
+## D-PB-10 — Rodar o estágio 4 com DNA musical `NEEDS_INPUT` (caminho de fallback)
+
+- **Problema:** o §9 agora está aprovado pelo proprietário, mas o caminho de código e a
+  possibilidade de uma janela futura de `NEEDS_INPUT` permanecem.
+- **Por que isso importa:** o estágio precisa degradar de forma previsível se o §9 voltar a
+  `NEEDS_INPUT`.
+- **Decisão necessária:** `NEEDS_INPUT` no DNA musical é estado aceitável para o Page
+  Blueprint rodar?
+- **Opções possíveis:** rodar com teto de confiança; bloquear até o §9 estar disponível.
+- **Recomendação:** rodar com teto de confiança.
+- **Quem precisa decidir:** Proprietário + Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  Aceitável. O estágio roda com `overall_confidence ≤ MEDIUM`, `musical_dna_expression_used`
+  definido como uma nota "§9 indisponível" e uma entrada `blocked_by`; o mesmo teto que o
+  pipeline aplica a `music_fit`. O Page Blueprint nomeia *o que* precisaria de detalhe de §9,
+  sem inventá-lo (G10; spec §15). Em produção esse caminho está inerte.
+
+## D-PB-11 — Tratamento de `schema_version` do contrato
+
+- **Problema:** o `schema_version` do `ClusterStrategy` é `1.0.0`; o comportamento diante de
+  um valor futuro diferente não estava definido.
+- **Por que isso importa:** adivinhar um schema desconhecido corrompe a entrada
+  silenciosamente.
+- **Decisão necessária:** o que o estágio 4 faz diante de um `schema_version` diferente de
+  `1.0.0`.
+- **Opções possíveis:** tentar decodificar mesmo assim; falhar imediatamente.
+- **Recomendação:** falhar imediatamente (hard-fail).
+- **Quem precisa decidir:** Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  O Page Blueprint fixa `schema_version == 1.0.0` e faz **hard-fail** diante de qualquer
+  outro valor — no sidecar `ClusterStrategy` de entrada e no `PageBlueprint` montado —
+  surfando a divergência (Regra de Engenharia 9) em vez de adivinhar.
+
+## D-PB-12 — Reconciliação de nomes do pipeline
+
+- **Problema:** o Business DNA V1 (§5) usa nomes de estágio diferentes; o C8 é canônico.
+  Divergência menor, não bloqueante.
+- **Por que isso importa:** afeta a nomeação de componentes e a comunicação.
+- **Decisão necessária:** qual conjunto de nomes usar no estágio 4.
+- **Opções possíveis:** nomes do Business DNA V1; nomes canônicos do C8.
+- **Recomendação:** nomes canônicos do C8.
+- **Quem precisa decidir:** Arquitetura.
+- **Status:** DECIDED (2026-09-04)
+- **Resultado:**
+
+  Decisão tomada pelo proprietário do negócio (Nicolas Alves) em 2026-09-04.
+
+  Usar os nomes canônicos do C8 (`Page Blueprint`, estágio 4). As divergências de nome do
+  Business DNA V1 ficam anotadas, sem edição de documento — mesmo tratamento dado ao C8 (ver
+  P10, D-CS-12).
 
 ---
 

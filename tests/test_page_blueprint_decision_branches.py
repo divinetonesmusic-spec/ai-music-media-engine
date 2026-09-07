@@ -12,7 +12,7 @@ from page_blueprint.config import PageBlueprintConfig, PBReplayConfig
 from page_blueprint.orchestrator import run_page_blueprint
 
 _OID = "opp_2026-08-31_1bca4af972"
-_SIDECAR = PROJECT_ROOT / "reports" / "cluster-strategy" / f"{_OID}.json"
+_SIDECAR = PROJECT_ROOT / "tests" / "fixtures" / "page_blueprint" / "input" / f"{_OID}.json"
 
 
 def _run(tmp_path, fixtures: str):
